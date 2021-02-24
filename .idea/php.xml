@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/curl/curl" />
+      <path value="$PROJECT_DIR$/vendor/baibaratsky/php-webmoney" />
+      <path value="$PROJECT_DIR$/vendor/qiwi/bill-payments-php-sdk" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/baibaratsky/php-wmsigner" />
+    </include_path>
+  </component>
+</project>

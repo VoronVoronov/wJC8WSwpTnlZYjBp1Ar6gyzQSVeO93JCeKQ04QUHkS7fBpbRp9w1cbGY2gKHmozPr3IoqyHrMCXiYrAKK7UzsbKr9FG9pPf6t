@@ -1,0 +1,5 @@
+<?php
+$invoice_parameters = 'RUB|1.05|1-db7b62e78ac1963876fc6c3bf75219bf4c568ce7b3a65044b098d821df29eb1a-1|2304|PAID';
+$hash = hash_hmac('sha256', $invoice_parameters, 'eyJ2ZXJzaW9uIjoiUDJQIiwiZGF0YSI6eyJwYXlpbl9tZXJjaGFudF9zaXRlX3VpZCI6Im0xemlkci0wMCIsInVzZXJfaWQiOiI3OTY0MzY0MTEwMCIsInNlY3JldCI6IjNjNjk3YmE5NzAzYzNlOWQxYTczMDQyYjhiZjZjMmMxNTk1MDUxYTBmYWFlNzY4OGFlYTgyNDEzNjcwNWVjZTkifX0=');
+//var_dump(hash_hmac('sha256', $invoice_parameters, 'eyJ2ZXJzaW9uIjoiUDJQIiwiZGF0YSI6eyJwYXlpbl9tZXJjaGFudF9zaXRlX3VpZCI6Im0xemlkci0wMCIsInVzZXJfaWQiOiI3OTY0MzY0MTEwMCIsInNlY3JldCI6IjNjNjk3YmE5NzAzYzNlOWQxYTczMDQyYjhiZjZjMmMxNTk1MDUxYTBmYWFlNzY4OGFlYTgyNDEzNjcwNWVjZTkifX0=');
+echo $hash;

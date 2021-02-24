@@ -1,0 +1,14 @@
+
+Array
+(
+    [Accept-Encoding] => gzip,deflate
+    [User-Agent] => PayPal IPN ( https://www.paypal.com/ipn )
+    [Content-Type] => application/x-www-form-urlencoded
+    [Accept] => text/plain, application/json, application/*+json, */*
+    [Content-Length] => 906
+    [Connection] => close
+    [X-Forwarded-Port] => 443
+    [X-Forwarded-Proto] => https
+    [Host] => ipdonate.com
+)
+
