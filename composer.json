@@ -1,6 +1,7 @@
 {
     "require": {
         "qiwi/bill-payments-php-sdk": "^0.1.2",
-        "baibaratsky/php-webmoney": "0.18.*"
+        "baibaratsky/php-webmoney": "0.18.*",
+        "nicklaw5/twitch-api-php": "^4.0"
     }
 }
