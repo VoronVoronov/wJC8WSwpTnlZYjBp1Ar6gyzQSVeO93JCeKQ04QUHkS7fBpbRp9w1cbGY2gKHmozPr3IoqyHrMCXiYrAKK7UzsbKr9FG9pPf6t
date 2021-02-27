@@ -6,14 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'baibaratsky\\WebMoney\\' => array($vendorDir . '/baibaratsky/php-webmoney', $vendorDir . '/baibaratsky/php-wmsigner'),
-    'TwitchApi\\' => array($vendorDir . '/nicklaw5/twitch-api-php/src'),
+    'baibaratsky\\WebMoney\\' => array($vendorDir . '/baibaratsky/php-wmsigner', $vendorDir . '/baibaratsky/php-webmoney'),
     'Qiwi\\Api\\' => array($vendorDir . '/qiwi/bill-payments-php-sdk/src'),
-    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
-    'Psr\\Http\\Client\\' => array($vendorDir . '/psr/http-client/src'),
-    'NewTwitchApi\\Tests\\' => array($vendorDir . '/nicklaw5/twitch-api-php/test/NewTwitchApi'),
-    'NewTwitchApi\\' => array($vendorDir . '/nicklaw5/twitch-api-php/src/NewTwitchApi'),
-    'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
-    'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
-    'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
 );

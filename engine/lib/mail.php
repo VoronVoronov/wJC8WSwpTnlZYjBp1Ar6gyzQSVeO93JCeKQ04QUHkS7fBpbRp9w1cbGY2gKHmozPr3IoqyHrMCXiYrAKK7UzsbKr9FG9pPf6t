@@ -68,7 +68,7 @@ class mailLibrary {
 		$header .= "Return-Path: " . $this->sender . "\n";
 		$header .= "Content-Type: text/plain; charset=\"utf-8\"\n";
 		/*
-			пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			Для тестирования без сервероной части закомментировать
 		*/
 		return mail($this->to, $this->subject, $this->text, $header);
 	}
