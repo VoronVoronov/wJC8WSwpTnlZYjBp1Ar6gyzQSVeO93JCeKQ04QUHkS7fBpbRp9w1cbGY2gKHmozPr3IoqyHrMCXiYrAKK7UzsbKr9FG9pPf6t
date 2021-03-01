@@ -124,14 +124,21 @@ return [
 	
 	],	
 	
-	// Настройки webmoney
-	'webmoney' 		=> 		[
+	// Настройки webmoneyP
+	'webmoneyP' 		=> 		[
 		'wallet'			=>		'P050915098697',
 		'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
 	
-	],	
-	
-	//Список пользовательских файлов для загрузки
+	],
+
+    // Настройки webmoneyR
+    'webmoneyR' 		=> 		[
+        'wallet'			=>		'R267788654712',
+        'secret_key'		=>		'30F35089-3BFB-4915-898A-6A47FFB9C38C',
+
+    ],
+
+    //Список пользовательских файлов для загрузки
     'load_files'          =>      [
         "app/helpers/SomeFunctions.php",
         "app/helpers/emoji.php",

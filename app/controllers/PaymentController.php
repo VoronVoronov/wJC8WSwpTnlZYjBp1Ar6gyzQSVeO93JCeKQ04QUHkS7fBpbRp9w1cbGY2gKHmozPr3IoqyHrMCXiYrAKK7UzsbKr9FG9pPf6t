@@ -6,7 +6,8 @@ class PaymentController extends Controller{
 
         $data['payment'] = $this->DonationModel->getDonation($id);
         $payment = $this->DonationModel->getDonation($id);
-        $data['webmoney'] = $this->config->webmoney['wallet'];
+        $data['webmoneyp'] = $this->config->webmoneyP['wallet'];
+        $data['webmoneyr'] = $this->config->webmoneyR['wallet'];
         $paypal = $this->UserModel->getUser($payment['user_id'], 'user_id');
         $data['paypal'] = json_decode($paypal['user_paypal']);
 
