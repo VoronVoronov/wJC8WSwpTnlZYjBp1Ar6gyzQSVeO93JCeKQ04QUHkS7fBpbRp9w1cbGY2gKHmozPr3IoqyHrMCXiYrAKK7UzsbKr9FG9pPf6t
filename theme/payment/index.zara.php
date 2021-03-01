@@ -245,7 +245,7 @@
                             <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="{{ $payment['donation_ammount'] }}">
                             <input type="hidden" name="LMI_PAYMENT_DESC" value="Оплата счета №{{ $payment['donation_id'] }}">
                             <input type="hidden" name="LMI_PAYMENT_NO" value="{{ $payment['donation_id'] }}">
-                            <input type="hidden" name="LMI_PAYEE_PURSE" value="{{ $webmoney }}">
+                            <input type="hidden" name="LMI_PAYEE_PURSE" value="{{ $webmoneyp }}">
                             <input type="hidden" name="LMI_PAYMENTFORM_SIGN" value="{{ hash('sha256', $webmoney.';'.$payment['donation_ammount'].';'.$payment['donation_id'].';UoPyhd5I7XI2WSuvPIBkHVI1;') }}">
                             <p><input type="text" class="input-text" style="margin-right: 10px;" name="LMI_PAYMER_EMAIL" id="LMI_PAYMER_EMAIL" placeholder="Ваш e-mail адрес"></p><br>
                         	<p><input class="btn btn-default" type="submit"></p>
