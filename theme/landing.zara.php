@@ -77,7 +77,7 @@
         </div>
 
         <div class="content">
-            <div class="stats container">
+            <!--<div class="stats container">
                 <h5>Статистика</h5>
                 <div class="stats-content">
                     <div class="stats-block">
@@ -178,10 +178,10 @@
                         <a href="#"><i class="fa fa-vk"></i> VK Gaming</a>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
             <div class="pay-methods container">
-                <h5>Мы работаем с различными платёными системами</h5>
+                <h5>Мы работаем с различными платёжными системами</h5>
                 <img src="/assets/images/pay-methods.png">
                 <h5>А так же уникальня возможность принимать скины</h5>
                 <img src="/assets/images/pay-methods-games.png">
