@@ -1,6 +1,5 @@
 <?php
 
-
 // Switch to control AntiDDoS state.
 $anti_ddos_protection_enable = true;
 // Activate debug statements.

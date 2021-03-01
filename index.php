@@ -1,10 +1,5 @@
 <?php
-/*
-* MyUCP
-* File Version 5.5
-* Date: 09.02.2017
-* Developed by Maksa988
-*/
+
 require "anti-ddos-lite.php";
 
 mb_internal_encoding("UTF-8");
