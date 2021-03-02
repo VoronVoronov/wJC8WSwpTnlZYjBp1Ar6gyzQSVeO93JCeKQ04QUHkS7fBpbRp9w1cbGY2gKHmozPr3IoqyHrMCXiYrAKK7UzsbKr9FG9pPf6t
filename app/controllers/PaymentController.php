@@ -55,7 +55,7 @@ class PaymentController extends Controller{
     	$donation = $this->DonationModel->getDonation($id);
     	$sum = $donation['donation_ammount']/100*4 + $donation['donation_ammount'];
     	$label = $id.'-'.hash('sha256', $id.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'];
-        $curl = curl_init()){
+        $curl = curl_init(){
             curl_setopt($curl, CURLOPT_URL, 'https://yoomoney.ru/quickpay/confirm.xml');
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_POST, true);
