@@ -41,7 +41,7 @@ class PaymentController extends Controller{
                 'comment'       => 'Оплата счета №'.$donation['donation_id'],
                 'customFields'  => $customFields
                 ];
-                $billId = $id.'-'.hash('sha256', $id.$currency.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'];
+                $billId = $id.'-'.hash('sha256', $id.'RUB'.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'];
             	$response = $billPayments->createBill($billId, $params);
                 //dd($response);
                 $encode = json_encode($response);
@@ -95,7 +95,7 @@ class PaymentController extends Controller{
                 'comment'       => 'Оплата счета №'.$donation['donation_id'],
                 'customFields'  => $customFields
                 ];
-                $billId = $id.'-'.hash('sha256', $id.$currency.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'];
+                $billId = $id.'-'.hash('sha256', $id.'RUB'.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'];
                 $response = $billPayments->createBill($billId, $params);
                 //dd($response);
                 $encode = json_encode($response);
