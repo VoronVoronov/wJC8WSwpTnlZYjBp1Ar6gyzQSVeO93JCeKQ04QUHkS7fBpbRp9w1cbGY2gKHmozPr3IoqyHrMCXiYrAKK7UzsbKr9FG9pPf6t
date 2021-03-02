@@ -202,10 +202,7 @@
 						<a href="https://passport.webmoney.ru/asp/certview.asp?wmid=413143268781" target="_blank"><img src="/assets/images/v_blue_on_white_ru.png" alt="Здесь находится аттестат нашего WM идентификатора 413143268781" border="0" /></a>
 					</div>
                     <div class="left-menu">
-                        <a href="https://webmoney.ru/" target="_blank"><img src="/assets/images/88x31_wm_white_blue.png"></a>
-                    </div>
-                    <div class="right-menu">
-                        <a href="https://unitpay.ru/" target="_blank"><img src="/assets/images/unitpay.png"></a>                        
+                        <a href="https://webmoney.ru/" target="_blank"><img src="/assets/images/webmoney_accept.png"></a>
                     </div>
                 </div>
 		
