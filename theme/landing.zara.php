@@ -257,24 +257,24 @@
             <div class="modal-body">
                 <div class="row row-sm-offset-3 socialButtons">
 					<center>
-						<div class="col-xs-2 col-sm-2">
+						<!--<div class="col-xs-2 col-sm-2">
 							<a href="/login/twitch" class="btn btn-lg btn-block lgn_btn-twitch" data-toggle="tooltip" data-placement="top" title="Twitch Login">
 								<i class="fa fa-twitch fa-2x"></i>
 								<span class="hidden-xs"></span>
 							</a>
-						</div>
+						</div>-->
 						<div class="col-xs-2 col-sm-2">
 							<a href="/login/vk" class="btn btn-lg btn-block lgn_btn-vk" data-toggle="tooltip" data-placement="top" title="VK Login">
                                 <i class="fa fa-vk fa-2x"></i>
                                 <span class="hidden-xs"></span>
 							</a>
 						</div>
-						<div class="col-xs-2 col-sm-2">
+						<!--<div class="col-xs-2 col-sm-2">
 							<a href="/login/youtube" class="btn btn-lg btn-block lgn_btn-google-plus" data-toggle="tooltip" data-placement="top" title="YouTube login">
 								<i class="fa fa-youtube fa-2x"></i>
 								<span class="hidden-xs"></span>
 							</a>
-						</div>
+						</div>-->
                         <br>
                     </center>
                 </div>
