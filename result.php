@@ -85,6 +85,102 @@
 	       	}
 		break;
 
+        case 'handlerWebmoneyZ':
+            function getIP() {
+                if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
+                return $_SERVER['REMOTE_ADDR'];
+            }
+            if (!in_array(getIP(), array('91.232.115.49'))) {
+                //die("hacking attempt!");
+                header('Location: https://ipdonate.com/');
+            }
+            $key = hash('sha256', 'Z192655714015'.$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].'UoPyhd5I7XI2WSuvPIBkHVI0'.$_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']);
+            $log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/webmoneyz.txt', 'a+');
+            fwrite($log_file, print_r(json_decode(file_get_contents('php://input')), true).PHP_EOL);
+            fwrite($log_file, print_r(getallheaders(), true).PHP_EOL);
+            fclose($log_file);
+            if(strtoupper($key) != $_POST['LMI_HASH'])
+                exit;
+            $donation_sql = $db->query('SELECT * FROM `donations` WHERE `donation_id` = '.$_POST['LMI_PAYMENT_NO']);
+            while ($donation = mysqli_fetch_assoc($donation_sql)) {
+                if ($donation['donation_id'] == $_POST['LMI_PAYMENT_NO']  && $donation['donation_status'] == 0) {
+                    file_get_contents('https://ipdonate.com/webmoney/handler?params[donation_id]='.$donation['donation_id']);
+                }
+            }
+            break;
+
+        case 'handlerWebmoneyK':
+            function getIP() {
+                if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
+                return $_SERVER['REMOTE_ADDR'];
+            }
+            if (!in_array(getIP(), array('91.232.115.49'))) {
+                //die("hacking attempt!");
+                header('Location: https://ipdonate.com/');
+            }
+            $key = hash('sha256', 'K815212637450'.$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].'UoPyhd5I7XI2WSuvPIBkHVI0'.$_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']);
+            $log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/webmoneyk.txt', 'a+');
+            fwrite($log_file, print_r(json_decode(file_get_contents('php://input')), true).PHP_EOL);
+            fwrite($log_file, print_r(getallheaders(), true).PHP_EOL);
+            fclose($log_file);
+            if(strtoupper($key) != $_POST['LMI_HASH'])
+                exit;
+            $donation_sql = $db->query('SELECT * FROM `donations` WHERE `donation_id` = '.$_POST['LMI_PAYMENT_NO']);
+            while ($donation = mysqli_fetch_assoc($donation_sql)) {
+                if ($donation['donation_id'] == $_POST['LMI_PAYMENT_NO']  && $donation['donation_status'] == 0) {
+                    file_get_contents('https://ipdonate.com/webmoney/handler?params[donation_id]='.$donation['donation_id']);
+                }
+            }
+            break;
+
+        case 'handlerWebmoneyE':
+            function getIP() {
+                if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
+                return $_SERVER['REMOTE_ADDR'];
+            }
+            if (!in_array(getIP(), array('91.232.115.49'))) {
+                //die("hacking attempt!");
+                header('Location: https://ipdonate.com/');
+            }
+            $key = hash('sha256', 'E195816087710'.$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].'UoPyhd5I7XI2WSuvPIBkHVI0'.$_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']);
+            $log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/webmoneye.txt', 'a+');
+            fwrite($log_file, print_r(json_decode(file_get_contents('php://input')), true).PHP_EOL);
+            fwrite($log_file, print_r(getallheaders(), true).PHP_EOL);
+            fclose($log_file);
+            if(strtoupper($key) != $_POST['LMI_HASH'])
+                exit;
+            $donation_sql = $db->query('SELECT * FROM `donations` WHERE `donation_id` = '.$_POST['LMI_PAYMENT_NO']);
+            while ($donation = mysqli_fetch_assoc($donation_sql)) {
+                if ($donation['donation_id'] == $_POST['LMI_PAYMENT_NO']  && $donation['donation_status'] == 0) {
+                    file_get_contents('https://ipdonate.com/webmoney/handler?params[donation_id]='.$donation['donation_id']);
+                }
+            }
+            break;
+
+        case 'handlerWebmoneyB':
+            function getIP() {
+                if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
+                return $_SERVER['REMOTE_ADDR'];
+            }
+            if (!in_array(getIP(), array('91.232.115.49'))) {
+                //die("hacking attempt!");
+                header('Location: https://ipdonate.com/');
+            }
+            $key = hash('sha256', 'B154312284964'.$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].'UoPyhd5I7XI2WSuvPIBkHVI0'.$_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']);
+            $log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/webmoneyb.txt', 'a+');
+            fwrite($log_file, print_r(json_decode(file_get_contents('php://input')), true).PHP_EOL);
+            fwrite($log_file, print_r(getallheaders(), true).PHP_EOL);
+            fclose($log_file);
+            if(strtoupper($key) != $_POST['LMI_HASH'])
+                exit;
+            $donation_sql = $db->query('SELECT * FROM `donations` WHERE `donation_id` = '.$_POST['LMI_PAYMENT_NO']);
+            while ($donation = mysqli_fetch_assoc($donation_sql)) {
+                if ($donation['donation_id'] == $_POST['LMI_PAYMENT_NO']  && $donation['donation_status'] == 0) {
+                    file_get_contents('https://ipdonate.com/webmoney/handler?params[donation_id]='.$donation['donation_id']);
+                }
+            }
+            break;
+
 		case 'handlerWebmoneyP':
             function getIP() {
                 if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
@@ -95,7 +191,7 @@
                 header('Location: https://ipdonate.com/');
             }
 	        $key = hash('sha256', 'P050915098697'.$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].'UoPyhd5I7XI2WSuvPIBkHVI0'.$_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']);
-			$log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/webmoney.txt', 'a+');
+			$log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/webmoneyp.txt', 'a+');
 			fwrite($log_file, print_r(json_decode(file_get_contents('php://input')), true).PHP_EOL);
 			fwrite($log_file, print_r(getallheaders(), true).PHP_EOL);
 			fclose($log_file);	
@@ -119,7 +215,7 @@
                 header('Location: https://ipdonate.com/');
             }
             $key = hash('sha256', 'P050915098697'.$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].'30F35089-3BFB-4915-898A-6A47FFB9C38C'.$_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']);
-            $log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/webmoney.txt', 'a+');
+            $log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/webmoneyr.txt', 'a+');
             fwrite($log_file, print_r(json_decode(file_get_contents('php://input')), true).PHP_EOL);
             fwrite($log_file, print_r(getallheaders(), true).PHP_EOL);
             fclose($log_file);
