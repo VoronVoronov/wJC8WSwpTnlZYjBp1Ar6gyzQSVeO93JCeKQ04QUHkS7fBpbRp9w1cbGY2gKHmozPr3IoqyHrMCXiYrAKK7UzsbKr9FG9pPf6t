@@ -62,7 +62,7 @@ class PaymentController extends Controller{
             curl_setopt($curl, CURLOPT_POSTFIELDS, 'receiver=' . $this->config->yoomoney["wallet"] . '&currency=643&targets=IPDonate&sum=' . $sum . '&label=' . $label . '&formcomment=IPDonate&comment=Оплата счета №' . $id . '&quickpay-form=donate&paymentType=PC');
             $out = curl_exec($curl);
             curl_close($curl);
-            dd($out);
+            $link = explode('to ', $out);
                 /*$params = array(
                 'receiver' => $this->config->yoomoney["wallet"],
                 'currency' => '643',
@@ -76,7 +76,7 @@ class PaymentController extends Controller{
                 'paymentType' => 'PC',
                 );
                 $url = 'https://yoomoney.ru/quickpay/confirm.xml?' . http_build_query($params);*/
-                //return header('Location: ' . $out);
+                return header('Location: ' . $link[1]);
                 exit;
     }    
 
