@@ -167,6 +167,13 @@ return [
 
     ],
 
+    // Настройки Payeer
+    'Payeer' 		=> 		[
+        'wallet'			=>		'P1045368773',
+        'secret_key'		=>		'DSfC5a2o7hhkBSkp',
+
+    ],
+
     //Список пользовательских файлов для загрузки
     'load_files'          =>      [
         "app/helpers/SomeFunctions.php",
