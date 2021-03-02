@@ -56,9 +56,12 @@ class PaymentController extends Controller{
                 $params = array(
                 'receiver' => $this->config->yoomoney["wallet"],
                 'currency' => '643',
+                'short-dest' => 'IPDonate',
                 'sum' => $donation['donation_ammount']/100*4 + $donation['donation_ammount'],
                 'label' => $id.'-'.hash('sha256', $id.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'],
-                'targets' => 'Оплата счета №'.$id,
+                'formcomment' => 'IPDonate',
+                'comment' => 'Оплата счета №'.$id,
+                'targets' => $id,
                 'quickpay-form' => 'donate',
                 'paymentType' => 'PC',
                 );
