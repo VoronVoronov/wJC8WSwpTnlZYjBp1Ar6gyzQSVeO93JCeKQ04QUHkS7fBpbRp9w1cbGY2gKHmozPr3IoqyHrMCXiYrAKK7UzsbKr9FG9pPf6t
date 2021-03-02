@@ -190,7 +190,11 @@
 						<div class="checkout-billing">
 							<div class="checkout-billing-header">
 								<a href="#webmoneyPModal" class="item-paysystem"><img src="/assets/images/webmoneyp.png"></a>
-                                <a href="#webmoneyRModal" class="item-paysystem"><img src="/assets/images/webmoneyp.png"></a>
+                                <a href="#webmoneyRModal" class="item-paysystem"><img src="/assets/images/webmoneyr.png"></a>
+                                <a href="#webmoneyEModal" class="item-paysystem"><img src="/assets/images/webmoneye.png"></a>
+                                <a href="#webmoneyZModal" class="item-paysystem"><img src="/assets/images/webmoneyz.png"></a>
+                                <a href="#webmoneyKModal" class="item-paysystem"><img src="/assets/images/webmoneyk.png"></a>
+                                <a href="#webmoneyBModal" class="item-paysystem"><img src="/assets/images/webmoneyb.png"></a>
 								<a href="#yandexModal" class="item-paysystem"><img src="/assets/images/yandex.png"></a>
 								<a href="#qiwiModal" class="item-paysystem"><img src="/assets/images/qiwi.png"></a>
 								<a href="#cardModal" class="item-paysystem"><img src="/assets/images/visa.jpg"></a>
@@ -255,29 +259,121 @@
             </div>
         </div>
         </div>
-    <div id="webmoneyRModal" class="modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">E-mail адрес</h3>
-                    <a href="#close" title="Close" class="close">×</a>
-                </div>
-                <div class="modal-body">
-                    <form action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" method="post">
-                        <center>
-                            <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="{{ $payment['donation_ammount'] }}">
-                            <input type="hidden" name="LMI_PAYMENT_DESC" value="Оплата счета №{{ $payment['donation_id'] }}">
-                            <input type="hidden" name="LMI_PAYMENT_NO" value="{{ $payment['donation_id'] }}">
-                            <input type="hidden" name="LMI_PAYEE_PURSE" value="{{ $webmoneyr }}">
-                            <input type="hidden" name="LMI_PAYMENTFORM_SIGN" value="{{ hash('sha256', $webmoneyr.';'.$payment['donation_ammount'].';'.$payment['donation_id'].';30F35089-3BFB-4915-898A;') }}">
-                            <p><input type="text" class="input-text" style="margin-right: 10px;" name="LMI_PAYMER_EMAIL" id="LMI_PAYMER_EMAIL" placeholder="Ваш e-mail адрес"></p><br>
-                            <p><input class="btn btn-default" type="submit"></p>
-                        </center>
-                    </form>
+        <div id="webmoneyRModal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">E-mail адрес</h3>
+                        <a href="#close" title="Close" class="close">×</a>
+                    </div>
+                    <div class="modal-body">
+                        <form action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" method="post">
+                            <center>
+                                <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="{{ $payment['donation_ammount'] }}">
+                                <input type="hidden" name="LMI_PAYMENT_DESC" value="Оплата счета №{{ $payment['donation_id'] }}">
+                                <input type="hidden" name="LMI_PAYMENT_NO" value="{{ $payment['donation_id'] }}">
+                                <input type="hidden" name="LMI_PAYEE_PURSE" value="{{ $webmoneyr }}">
+                                <input type="hidden" name="LMI_PAYMENTFORM_SIGN" value="{{ hash('sha256', $webmoneyr.';'.$payment['donation_ammount'].';'.$payment['donation_id'].';30F35089-3BFB-4915-898A;') }}">
+                                <p><input type="text" class="input-text" style="margin-right: 10px;" name="LMI_PAYMER_EMAIL" id="LMI_PAYMER_EMAIL" placeholder="Ваш e-mail адрес"></p><br>
+                                <p><input class="btn btn-default" type="submit"></p>
+                            </center>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div id="webmoneyBModal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">E-mail адрес</h3>
+                        <a href="#close" title="Close" class="close">×</a>
+                    </div>
+                    <div class="modal-body">
+                        <form action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" method="post">
+                            <center>
+                                <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="{{ $payment['donation_ammount'] }}">
+                                <input type="hidden" name="LMI_PAYMENT_DESC" value="Оплата счета №{{ $payment['donation_id'] }}">
+                                <input type="hidden" name="LMI_PAYMENT_NO" value="{{ $payment['donation_id'] }}">
+                                <input type="hidden" name="LMI_PAYEE_PURSE" value="{{ $webmoneyb }}">
+                                <input type="hidden" name="LMI_PAYMENTFORM_SIGN" value="{{ hash('sha256', $webmoneyb.';'.$payment['donation_ammount'].';'.$payment['donation_id'].';UoPyhd5I7XI2WSuvPIBkHVI1;') }}">
+                                <p><input type="text" class="input-text" style="margin-right: 10px;" name="LMI_PAYMER_EMAIL" id="LMI_PAYMER_EMAIL" placeholder="Ваш e-mail адрес"></p><br>
+                                <p><input class="btn btn-default" type="submit"></p>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="webmoneyEModal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">E-mail адрес</h3>
+                        <a href="#close" title="Close" class="close">×</a>
+                    </div>
+                    <div class="modal-body">
+                        <form action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" method="post">
+                            <center>
+                                <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="{{ $payment['donation_ammount'] }}">
+                                <input type="hidden" name="LMI_PAYMENT_DESC" value="Оплата счета №{{ $payment['donation_id'] }}">
+                                <input type="hidden" name="LMI_PAYMENT_NO" value="{{ $payment['donation_id'] }}">
+                                <input type="hidden" name="LMI_PAYEE_PURSE" value="{{ $webmoneye }}">
+                                <input type="hidden" name="LMI_PAYMENTFORM_SIGN" value="{{ hash('sha256', $webmoneye.';'.$payment['donation_ammount'].';'.$payment['donation_id'].';UoPyhd5I7XI2WSuvPIBkHVI1;') }}">
+                                <p><input type="text" class="input-text" style="margin-right: 10px;" name="LMI_PAYMER_EMAIL" id="LMI_PAYMER_EMAIL" placeholder="Ваш e-mail адрес"></p><br>
+                                <p><input class="btn btn-default" type="submit"></p>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="webmoneyKModal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">E-mail адрес</h3>
+                        <a href="#close" title="Close" class="close">×</a>
+                    </div>
+                    <div class="modal-body">
+                        <form action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" method="post">
+                            <center>
+                                <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="{{ $payment['donation_ammount'] }}">
+                                <input type="hidden" name="LMI_PAYMENT_DESC" value="Оплата счета №{{ $payment['donation_id'] }}">
+                                <input type="hidden" name="LMI_PAYMENT_NO" value="{{ $payment['donation_id'] }}">
+                                <input type="hidden" name="LMI_PAYEE_PURSE" value="{{ $webmoneyk }}">
+                                <input type="hidden" name="LMI_PAYMENTFORM_SIGN" value="{{ hash('sha256', $webmoneyk.';'.$payment['donation_ammount'].';'.$payment['donation_id'].';UoPyhd5I7XI2WSuvPIBkHVI1;') }}">
+                                <p><input type="text" class="input-text" style="margin-right: 10px;" name="LMI_PAYMER_EMAIL" id="LMI_PAYMER_EMAIL" placeholder="Ваш e-mail адрес"></p><br>
+                                <p><input class="btn btn-default" type="submit"></p>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="webmoneyZModal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">E-mail адрес</h3>
+                        <a href="#close" title="Close" class="close">×</a>
+                    </div>
+                    <div class="modal-body">
+                        <form action="https://merchant.webmoney.ru/lmi/payment_utf.asp" accept-charset="utf-8" method="post">
+                            <center>
+                                <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="{{ $payment['donation_ammount'] }}">
+                                <input type="hidden" name="LMI_PAYMENT_DESC" value="Оплата счета №{{ $payment['donation_id'] }}">
+                                <input type="hidden" name="LMI_PAYMENT_NO" value="{{ $payment['donation_id'] }}">
+                                <input type="hidden" name="LMI_PAYEE_PURSE" value="{{ $webmoneyz }}">
+                                <input type="hidden" name="LMI_PAYMENTFORM_SIGN" value="{{ hash('sha256', $webmoneyz.';'.$payment['donation_ammount'].';'.$payment['donation_id'].';UoPyhd5I7XI2WSuvPIBkHVI1;') }}">
+                                <p><input type="text" class="input-text" style="margin-right: 10px;" name="LMI_PAYMER_EMAIL" id="LMI_PAYMER_EMAIL" placeholder="Ваш e-mail адрес"></p><br>
+                                <p><input class="btn btn-default" type="submit"></p>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 	    <div id="yandexModal" class="modal">
         <div class="modal-dialog">
             <div class="modal-content">
