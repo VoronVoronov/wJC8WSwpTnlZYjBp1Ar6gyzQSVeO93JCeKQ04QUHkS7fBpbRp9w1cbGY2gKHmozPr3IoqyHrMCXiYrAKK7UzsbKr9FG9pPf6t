@@ -52,8 +52,18 @@ class PaymentController extends Controller{
 
     public function yoomoney($id){
     	model("Donation");
-    	$donation = $this->DonationModel->getDonation($id);              
-                $params = array(
+    	$donation = $this->DonationModel->getDonation($id);
+    	$sum = $donation['donation_ammount']/100*4 + $donation['donation_ammount'];
+    	$label = $id.'-'.hash('sha256', $id.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'];
+        $curl = curl_init()){
+            curl_setopt($curl, CURLOPT_URL, 'https://yoomoney.ru/quickpay/confirm.xml');
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, 'receiver=' . $this->config->yoomoney["wallet"] . '&currency=643&targets=IPDonate&sum=' . $sum . '&label=' . $label . '&formcomment=IPDonate&comment=Оплата счета №' . $id . '&quickpay-form=donate&paymentType=PC');
+            $out = curl_exec($curl);
+            curl_close($curl);
+        }
+                /*$params = array(
                 'receiver' => $this->config->yoomoney["wallet"],
                 'currency' => '643',
                 'short-dest' => 'IPDonate',
@@ -65,8 +75,8 @@ class PaymentController extends Controller{
                 'quickpay-form' => 'donate',
                 'paymentType' => 'PC',
                 );
-                $url = 'https://yoomoney.ru/quickpay/confirm.xml?' . http_build_query($params);
-                return header('Location: ' . $url);
+                $url = 'https://yoomoney.ru/quickpay/confirm.xml?' . http_build_query($params);*/
+                return header('Location: ' . $out);
                 exit;
     }    
 
