@@ -195,7 +195,7 @@
                                 <a href="#webmoneyZModal" class="item-paysystem"><img src="/assets/images/webmoneyz.png"></a>
                                 <a href="#webmoneyKModal" class="item-paysystem"><img src="/assets/images/webmoneyk.png"></a>
                                 <a href="#webmoneyBModal" class="item-paysystem"><img src="/assets/images/webmoneyb.png"></a>
-								<a href="#yandexModal" class="item-paysystem"><img src="/assets/images/yandex.png"></a>
+								<a href="#yandexModal" class="item-paysystem"><img src="/assets/images/yoomoney.png"></a>
 								<a href="#qiwiModal" class="item-paysystem"><img src="/assets/images/qiwi.png"></a>
 								<a href="#cardModal" class="item-paysystem"><img src="/assets/images/visa.jpg"></a>
 								<a href="#mtsModal" class="item-paysystem"><img src="/assets/images/mts.png"></a>
