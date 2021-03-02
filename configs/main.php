@@ -138,6 +138,35 @@ return [
 
     ],
 
+    // Настройки webmoneyZ
+    'webmoneyZ' 		=> 		[
+        'wallet'			=>		'Z192655714015',
+        'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
+
+    ],
+
+    // Настройки webmoneyK
+    'webmoneyK' 		=> 		[
+        'wallet'			=>		'K815212637450',
+        'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
+
+    ],
+
+
+    // Настройки webmoneyB
+    'webmoneyB' 		=> 		[
+        'wallet'			=>		'B154312284964',
+        'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
+
+    ],
+
+    // Настройки webmoneyE
+    'webmoneyE' 		=> 		[
+        'wallet'			=>		'E195816087710',
+        'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
+
+    ],
+
     //Список пользовательских файлов для загрузки
     'load_files'          =>      [
         "app/helpers/SomeFunctions.php",
