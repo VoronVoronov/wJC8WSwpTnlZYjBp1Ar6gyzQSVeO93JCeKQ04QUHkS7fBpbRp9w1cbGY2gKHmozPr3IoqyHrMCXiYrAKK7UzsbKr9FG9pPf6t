@@ -61,7 +61,7 @@ class PaymentController extends Controller{
                 'label' => $id.'-'.hash('sha256', $id.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'],
                 'formcomment' => 'IPDonate',
                 'comment' => 'Оплата счета №'.$id,
-                'targets' => $id,
+                'targets' => 'IPDonate',
                 'quickpay-form' => 'donate',
                 'paymentType' => 'PC',
                 );
