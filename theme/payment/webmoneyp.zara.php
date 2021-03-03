@@ -2,7 +2,6 @@
 <html>
 <head>
     <title></title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta charset="UTF-8" name="robots" content="none">
 </head>
 <body>
