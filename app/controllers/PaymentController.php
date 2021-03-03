@@ -75,7 +75,7 @@ class PaymentController extends Controller{
         curl_setopt($curl, CURLOPT_URL, 'https://merchant.webmoney.ru/lmi/payment_utf.asp');
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, 'LMI_PAYMENT_AMOUNT=' . $sum . '&LMI_PAYMENT_DESC=Оплата счета №'.$id.'&LMI_PAYMENT_NO='.$id.'&LMI_PAYEE_PURSE=' . $this->config->webmoneyP['wallet'] . '&LMI_PAYMENTFORM_SIGN=' . hash('sha256', $this->config->webmoneyP['wallet'].';'.$sum.';'.$id.';UoPyhd5I7XI2WSuvPIBkHVI1;') . '');
+        curl_setopt($curl, CURLOPT_POSTFIELDS, 'LMI_PAYMENT_AMOUNT=' . $sum . '&LMI_PAYMENT_DESC=Оплата счета №'.$id.'&LMI_PAYMENT_NO='.$id.'&LMI_PAYEE_PURSE=' . $this->config->webmoneyP['wallet'] . '&LMI_PAYMENTFORM_SIGN=' . hash('sha256', $this->config->webmoneyP['wallet'].';'.$sum.';'.$id.';UoPyhd5I7XI2WSuvPIBkHVI1;'));
         $out = curl_exec($curl);
         dd($out);
         curl_close($curl);
