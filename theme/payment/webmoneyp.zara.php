@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form id=pay name=pay method="POST" action="https://merchant.webmoney.ru/lmi/payment.asp">
+<form id=pay name=pay method="POST" action="https://merchant.webmoney.ru/lmi/payment.asp" accept-charset="utf-8">
     <p>Redirect to webmoney</p>
     <p>
         <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="{{ $sum }}">
