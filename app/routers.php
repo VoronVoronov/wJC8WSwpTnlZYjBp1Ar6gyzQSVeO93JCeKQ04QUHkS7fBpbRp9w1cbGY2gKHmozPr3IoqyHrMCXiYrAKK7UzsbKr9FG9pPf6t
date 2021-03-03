@@ -70,6 +70,8 @@ Router::get("pay/yoomoney/{id:[0-9]+}", "PaymentController@yoomoney");
 Router::post("pay/yoomoney/{id:[0-9]+}", "PaymentController@yoomoney");
 Router::get("pay/card/{id:[0-9]+}", "PaymentController@card");
 Router::post("pay/card/{id:[0-9]+}", "PaymentController@card");
+Router::get("pay/webmoneyp/{id:[0-9]+}", "PaymentController@webmoneyp");
+Router::post("pay/webmoneyp/{id:[0-9]+}", "PaymentController@webmoneyp");
 
 Router::get("widget/{token:[a-zA-Z0-9]+}", "WidgetController@widget");
 Router::any("alert/{token:[a-zA-Z0-9]+}", "WidgetController@widgetDemo");
@@ -97,6 +99,7 @@ Router::group(['param' => ['get', '==', ["token" => config()->token]]], function
     Router::get("api/v1/{action:[a-z]+}", "ApiController@tokenActions");
 });
 //Router::get("api/v1/{action:[a-z]+}", "ApiController@tokenActions");
+
 
 //Callback уведомления
 Router::get("unitpay/handler", "UnitPayController@handler");
