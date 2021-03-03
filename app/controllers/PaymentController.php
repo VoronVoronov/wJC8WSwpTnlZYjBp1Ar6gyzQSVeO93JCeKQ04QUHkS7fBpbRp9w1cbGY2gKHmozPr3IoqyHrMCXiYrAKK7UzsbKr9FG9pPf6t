@@ -28,8 +28,8 @@ class PaymentController extends Controller{
         $donation = $this->DonationModel->getDonation($id);
         $data['payment'] = $this->DonationModel->getDonation($id);
         $data['desc'] = base64_encode('Оплата счета №'.$id);
-        $data['webmoney'] = $this->config->webmoneyP['wallet'];
-        $data['secret'] = $this->config->webmoneyP['secret_key_x20'];
+        $data['webmoney'] = $this->config->webmoneyR['wallet'];
+        $data['secret'] = $this->config->webmoneyR['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
 
         return view("payment/webmoney", $data);
