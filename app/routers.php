@@ -72,6 +72,16 @@ Router::get("pay/card/{id:[0-9]+}", "PaymentController@card");
 Router::post("pay/card/{id:[0-9]+}", "PaymentController@card");
 Router::get("pay/webmoneyp/{id:[0-9]+}", "PaymentController@webmoneyp");
 Router::post("pay/webmoneyp/{id:[0-9]+}", "PaymentController@webmoneyp");
+Router::get("pay/webmoneyr/{id:[0-9]+}", "PaymentController@webmoneyr");
+Router::post("pay/webmoneyr/{id:[0-9]+}", "PaymentController@webmoneyr");
+Router::get("pay/webmoneyb/{id:[0-9]+}", "PaymentController@webmoneyb");
+Router::post("pay/webmoneyb/{id:[0-9]+}", "PaymentController@webmoneyb");
+Router::get("pay/webmoneye/{id:[0-9]+}", "PaymentController@webmoneye");
+Router::post("pay/webmoneye/{id:[0-9]+}", "PaymentController@webmoneye");
+Router::get("pay/webmoneyz/{id:[0-9]+}", "PaymentController@webmoneyz");
+Router::post("pay/webmoneyz/{id:[0-9]+}", "PaymentController@webmoneyz");
+Router::get("pay/webmoneyk/{id:[0-9]+}", "PaymentController@webmoneyk");
+Router::post("pay/webmoneyk/{id:[0-9]+}", "PaymentController@webmoneyk");
 
 Router::get("widget/{token:[a-zA-Z0-9]+}", "WidgetController@widget");
 Router::any("alert/{token:[a-zA-Z0-9]+}", "WidgetController@widgetDemo");

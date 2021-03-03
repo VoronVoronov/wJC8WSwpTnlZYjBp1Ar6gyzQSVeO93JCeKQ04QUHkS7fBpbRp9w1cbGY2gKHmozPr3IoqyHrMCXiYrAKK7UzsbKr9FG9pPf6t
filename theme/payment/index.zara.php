@@ -236,7 +236,7 @@
 			</div>
 		</div>
 	</div> 
-	    <div id="webmoneyPModal" class="modal">
+	    <!--<div id="webmoneyPModal" class="modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -258,7 +258,7 @@
                 </div>
             </div>
         </div>
-        </div>
+        </div>-->
         <div id="webmoneyRModal" class="modal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -392,7 +392,7 @@
             </div>
         </div>
         </div>
-        <div id="qiwiModal" class="modal">
+        <div id="webmoneyPModal" class="modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -400,7 +400,7 @@
                     <a href="#close" title="Close" class="close">×</a>
                 </div>
                 <div class="modal-body">
-                    <form action="/pay/qiwi/{{ $payment['donation_id'] }}" method="post">
+                    <form action="/pay/webmoneyp/{{ $payment['donation_id'] }}" method="post">
                         <center>
                             <p><input type="text" class="input-text" style="margin-right: 10px;" name="email" id="email" placeholder="Ваш e-mail адрес"></p><br>
                             <p><input type="text" class="input-text" style="margin-right: 10px;" name="to" id="to" placeholder="Ваш QIWI кошелек" value="+"></p><br>

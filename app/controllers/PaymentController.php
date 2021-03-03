@@ -19,10 +19,13 @@ class PaymentController extends Controller{
 
     }
 
-    public function pay($id){
-    	model("Donation");
+    public function webmoneyp($id){
+    	model("Donation", "User");
 
+        $data['webmoneyp'] = $this->config->webmoneyP['wallet'];
+        $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
 
+        return view("payment/webmoneyp", $data);
 
     }
 
@@ -64,23 +67,6 @@ class PaymentController extends Controller{
             curl_close($curl);
             $link = explode('to ', $out);
         return header('Location: ' . $link[1]);
-        exit;
-    }
-
-    public function webmoneyp($id){
-        model("Donation");
-        $donation = $this->DonationModel->getDonation($id);
-        $sum = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'https://merchant.webmoney.ru/lmi/payment_utf.asp');
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, 'LMI_PAYMENT_AMOUNT=' . $sum . '&LMI_PAYMENT_DESC=Оплата счета №'.$id.'&LMI_PAYMENT_NO='.$id.'&LMI_PAYEE_PURSE=' . $this->config->webmoneyP['wallet'] . '&LMI_PAYMENTFORM_SIGN=' . hash('sha256', $this->config->webmoneyP['wallet'].';'.$sum.';'.$id.';UoPyhd5I7XI2WSuvPIBkHVI1;'));
-        $out = curl_exec($curl);
-        dd($out);
-        curl_close($curl);
-        $link = explode('to ', $out);
-        //return header('Location: ' . $link[1]);
         exit;
     }
 
