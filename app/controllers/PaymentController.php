@@ -20,7 +20,7 @@ class PaymentController extends Controller{
     }
 
     public function webmoneyp($id){
-    	model("Donation", "User");
+        model("Donation", "User");
         $donation = $this->DonationModel->getDonation($id);
         $data['payment'] = $this->DonationModel->getDonation($id);
         $data['webmoneyp'] = $this->config->webmoneyP['wallet'];
