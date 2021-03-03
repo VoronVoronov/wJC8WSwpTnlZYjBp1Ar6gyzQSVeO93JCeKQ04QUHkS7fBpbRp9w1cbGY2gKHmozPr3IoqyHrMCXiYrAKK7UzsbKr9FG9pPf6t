@@ -20,7 +20,6 @@ class PaymentController extends Controller{
         $data['webmoney'] = $this->config->webmoneyP['wallet'];
         $data['secret'] = $this->config->webmoneyP['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
-        dd($data);
         return view("payment/webmoney", $data);
     }
 
