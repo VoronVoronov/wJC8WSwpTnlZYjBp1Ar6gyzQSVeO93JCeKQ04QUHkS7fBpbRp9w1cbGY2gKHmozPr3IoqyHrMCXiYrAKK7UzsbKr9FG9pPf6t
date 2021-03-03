@@ -21,7 +21,8 @@ class PaymentController extends Controller{
 
     public function webmoneyp($id){
     	model("Donation", "User");
-
+        $data['payment'] = $this->DonationModel->getDonation($id);
+        $donation = $this->DonationModel->getDonation($id);
         $data['webmoneyp'] = $this->config->webmoneyP['wallet'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
 
