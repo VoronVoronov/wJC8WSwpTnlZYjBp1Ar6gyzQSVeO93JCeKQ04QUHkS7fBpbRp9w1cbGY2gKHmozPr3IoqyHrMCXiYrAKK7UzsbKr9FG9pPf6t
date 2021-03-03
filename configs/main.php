@@ -128,13 +128,14 @@ return [
 	'webmoneyP' 		=> 		[
 		'wallet'			=>		'P050915098697',
 		'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
-	
+	    'secret_key_x20'    =>		'UoPyhd5I7XI2WSuvPIBkHVI1',
 	],
 
     // Настройки webmoneyR
     'webmoneyR' 		=> 		[
         'wallet'			=>		'R267788654712',
         'secret_key'		=>		'30F35089-3BFB-4915-898A-6A47FFB9C38C',
+        'secret_key_x20'    =>		'30F35089-3BFB-4915-898A',
 
     ],
 
@@ -142,6 +143,7 @@ return [
     'webmoneyZ' 		=> 		[
         'wallet'			=>		'Z192655714015',
         'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
+        'secret_key_x20'    =>		'UoPyhd5I7XI2WSuvPIBkHVI1',
 
     ],
 
@@ -149,6 +151,7 @@ return [
     'webmoneyK' 		=> 		[
         'wallet'			=>		'K815212637450',
         'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
+        'secret_key_x20'    =>		'UoPyhd5I7XI2WSuvPIBkHVI1',
 
     ],
 
@@ -157,6 +160,7 @@ return [
     'webmoneyB' 		=> 		[
         'wallet'			=>		'B154312284964',
         'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
+        'secret_key_x20'    =>		'UoPyhd5I7XI2WSuvPIBkHVI1',
 
     ],
 
@@ -164,6 +168,7 @@ return [
     'webmoneyE' 		=> 		[
         'wallet'			=>		'E195816087710',
         'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
+        'secret_key_x20'    =>		'UoPyhd5I7XI2WSuvPIBkHVI1',
 
     ],
 

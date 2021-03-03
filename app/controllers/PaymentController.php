@@ -6,12 +6,6 @@ class PaymentController extends Controller{
 
         $data['payment'] = $this->DonationModel->getDonation($id);
         $payment = $this->DonationModel->getDonation($id);
-        $data['webmoneyp'] = $this->config->webmoneyP['wallet'];
-        $data['webmoneyr'] = $this->config->webmoneyR['wallet'];
-        $data['webmoneyb'] = $this->config->webmoneyB['wallet'];
-        $data['webmoneye'] = $this->config->webmoneyE['wallet'];
-        $data['webmoneyk'] = $this->config->webmoneyK['wallet'];
-        $data['webmoneyz'] = $this->config->webmoneyZ['wallet'];
         $paypal = $this->UserModel->getUser($payment['user_id'], 'user_id');
         $data['paypal'] = json_decode($paypal['user_paypal']);
 
@@ -24,7 +18,7 @@ class PaymentController extends Controller{
         $data['payment'] = $this->DonationModel->getDonation($id);
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyP['wallet'];
-        $data['secret'] = $this->config->webmoneyP['secret_key'];
+        $data['secret'] = $this->config->webmoneyP['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
 
         return view("payment/webmoney", $data);
@@ -36,7 +30,7 @@ class PaymentController extends Controller{
         $data['payment'] = $this->DonationModel->getDonation($id);
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyP['wallet'];
-        $data['secret'] = $this->config->webmoneyP['secret_key'];
+        $data['secret'] = $this->config->webmoneyP['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
 
         return view("payment/webmoney", $data);
@@ -48,7 +42,7 @@ class PaymentController extends Controller{
         $data['payment'] = $this->DonationModel->getDonation($id);
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyB['wallet'];
-        $data['secret'] = $this->config->webmoneyB['secret_key'];
+        $data['secret'] = $this->config->webmoneyB['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
 
         return view("payment/webmoney", $data);
@@ -60,7 +54,7 @@ class PaymentController extends Controller{
         $data['payment'] = $this->DonationModel->getDonation($id);
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyE['wallet'];
-        $data['secret'] = $this->config->webmoneyE['secret_key'];
+        $data['secret'] = $this->config->webmoneyE['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
 
         return view("payment/webmoney", $data);
@@ -72,7 +66,7 @@ class PaymentController extends Controller{
         $data['payment'] = $this->DonationModel->getDonation($id);
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyK['wallet'];
-        $data['secret'] = $this->config->webmoneyK['secret_key'];
+        $data['secret'] = $this->config->webmoneyK['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
 
         return view("payment/webmoney", $data);
@@ -85,7 +79,7 @@ class PaymentController extends Controller{
         $data['payment'] = $this->DonationModel->getDonation($id);
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyZ['wallet'];
-        $data['secret'] = $this->config->webmoneyZ['secret_key'];
+        $data['secret'] = $this->config->webmoneyZ['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
 
         return view("payment/webmoney", $data);
