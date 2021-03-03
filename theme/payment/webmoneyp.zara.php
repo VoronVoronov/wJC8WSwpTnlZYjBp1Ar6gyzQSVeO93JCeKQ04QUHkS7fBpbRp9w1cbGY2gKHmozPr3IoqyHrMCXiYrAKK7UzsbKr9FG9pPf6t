@@ -20,7 +20,7 @@
 </form>
 
 <script language="JavaScript">
-    document.pay.submit();
+    //document.pay.submit();
 </script>
 
 </body>
