@@ -4,7 +4,7 @@
     <title></title>
     <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta content="text/html; charset=windows-1251" http-equiv="Content-Type">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 </form>
 
 <script language="JavaScript">
-    //document.pay.submit();
+    document.pay.submit();
 </script>
 
 </body>
