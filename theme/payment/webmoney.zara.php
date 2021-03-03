@@ -14,7 +14,7 @@
         <input type="hidden" name="LMI_PAYMENT_DESC_BASE64" value="{{ $desc }}">
         <input type="hidden" name="LMI_PAYMENT_NO" value="{{ $payment['donation_id'] }}">
         <input type="hidden" name="LMI_PAYEE_PURSE" value="{{ $webmoney }}">
-        <input type="hidden" name="LMI_PAYMENTFORM_SIGN" value="{{ hash('sha256', $webmoney.';'.$sum.';'.$payment['donation_id'].';$secret;') }}">
+        <input type="hidden" name="LMI_PAYMENTFORM_SIGN" value="{{ hash('sha256', $webmoney.';'.$sum.';'.$payment['donation_id'].';'.$secret.';') }}">
     <p>
 </form>
 
