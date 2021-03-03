@@ -156,8 +156,8 @@
 	<body>
 	<div id="dev-app">
 		<div class="checkout">
-
       <header class="checkout-header">
+          <img src="/assets/images/logo.png">
         <div class="checkout-guarantee">
           <div class="icon icon-security">
           <a href="https://www.sslshopper.com/ssl-checker.html#hostname=ipdonate.com" target="_blank"><i class="fa fa-lock fa-3x"></i></a>
