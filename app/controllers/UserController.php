@@ -537,42 +537,45 @@ class UserController extends Controller {
 
 	private function LoginWithTwitch() 
 	{
-		library("TwitchSDK");
 		model("User");
+        if(empty(Request::get("code"))) {
 
-		$twitch = new TwitchSDK(config()->twitch);
+            $url = 'https://id.twitch.tv/oauth2/authorize';
 
-		if(empty(Request::get('code')))
-			return redirect($twitch->authLoginURL('channel_read+channel_feed_read+user_read+user_subscriptions'));
+            $params = array(
+                'client_id'     => $this->config->twitch['client_id'],
+                'redirect_uri'  => $this->config->twitch['redirect_uri'],
+                'response_type' => 'code',
+                'force_verify'  => 'true',
+                'scope'         => 'user:read:email&user:read:broadcast&channel:read:subscriptions'
+            );
 
-		$tokens = $twitch->authAccessTokenGet(Request::get('code'));
-		$token = $tokens->access_token;
+            redirect($url . '?' . urldecode(http_build_query($params)));
+        } else {
+            $result = false;
 
-		$user = $twitch->authUserGet($token);
-		$userInfo = $twitch->channelGet($user->display_name);
-        dd($tokens);
-        dd($userInfo);
-		if(!($user = $this->UserModel->getUser($userInfo->display_name, "user_twitch"))) {
-			$data = [
-        		"user_login" 	=>		"twitch_" . $userInfo->display_name,
-                "user_login_show" =>	$userInfo->display_name,
-                "user_domain"   =>      "twitch_" . $userInfo->display_name,
-        		"user_avatar"	=>		(!empty($userInfo->logo)) ? $userInfo->logo : "/assets/images/no_avatar.png",
-        		"user_twitch"	=>		$userInfo->display_name,
-        		"user_reg_ip"	=>		$_SERVER["REMOTE_ADDR"],
-                "user_twitch_token"=>   $token,
-                "user_donate_page"          =>  "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
-                "user_reg_time" => "NOW()",
-        	];
-        	$id = $this->UserModel->addUser($data);
-            //$this->getUserSmiles("twitch", $id, "twitch_" . $userInfo->name);
-        	$this->UserModel->trackIP($id, 1);
-            $this->createDefaultWidgets($id);
-			$this->ToOnline($id);
-		}
+            if (!($user = $this->UserModel->getUser($userInfo->display_name, "user_twitch"))) {
+                $data = [
+                    "user_login" => "twitch_" . $userInfo->display_name,
+                    "user_login_show" => $userInfo->display_name,
+                    "user_domain" => "twitch_" . $userInfo->display_name,
+                    "user_avatar" => (!empty($userInfo->logo)) ? $userInfo->logo : "/assets/images/no_avatar.png",
+                    "user_twitch" => $userInfo->display_name,
+                    "user_reg_ip" => $_SERVER["REMOTE_ADDR"],
+                    "user_twitch_token" => $token,
+                    "user_donate_page" => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
+                    "user_reg_time" => "NOW()",
+                ];
+                $id = $this->UserModel->addUser($data);
+                //$this->getUserSmiles("twitch", $id, "twitch_" . $userInfo->name);
+                $this->UserModel->trackIP($id, 1);
+                $this->createDefaultWidgets($id);
+                $this->ToOnline($id);
+            }
 
-		$this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token]);
-        return $this->ToOnline($user['user_id']);
+            $this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token]);
+            return $this->ToOnline($user['user_id']);
+        }
 	}
 
 	private function LoginWithHitbox()
