@@ -844,6 +844,7 @@ class UserController extends Controller {
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $this->UserModel->editUser(session("user_id"), ["user_twitch_id" => $userInfo->data[0]->id, 'user_twitch_token' => $token->access_token, 'user_twitch' => $userInfo->data[0]->display_name,
                     'user_twitch_follows' => $userInfoFollows->total]);
+                header('Location: '.config()->url.'/profile/');
             }else {
                 header('Location: '.config()->url.'/profile/');
             }
