@@ -577,7 +577,7 @@ class UserController extends Controller {
             $ch1 = curl_init('https://id.twitch.tv/oauth2/validate');
             curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
-                'Authorization: OAuth ' . $token->data[0]->access_token
+                'Authorization: OAuth ' . $token->access_token
             ));
 
             $r1 = curl_exec($ch1);
@@ -589,7 +589,7 @@ class UserController extends Controller {
             curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
                 'Client-ID: ' . config()->twitch['client_id'],
-                'Authorization: Bearer ' . $token->data[0]->access_token
+                'Authorization: Bearer ' . $token->access_token
             ));
 
             $r2 = curl_exec($ch2);
@@ -598,17 +598,18 @@ class UserController extends Controller {
             curl_close($ch2);
             $userInfo = json_decode($r2);
 
-            if (!($user = $this->UserModel->getUser($userInfo->data[0]->display_name, "user_twitch"))) {
+            if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
-                    "user_login" => "twitch_" . $userInfo->data[0]->display_name,
-                    "user_login_show" => $userInfo->data[0]->display_name,
-                    "user_domain" => "twitch_" . $userInfo->data[0]->display_name,
-                    "user_avatar" => (!empty($userInfo->data[0]->profile_image_url)) ? $userInfo->data[0]->profile_image_url : "/assets/images/no_avatar.png",
-                    "user_twitch" => $userInfo->data[0]->display_name,
-                    "user_reg_ip" => $_SERVER["REMOTE_ADDR"],
-                    "user_twitch_token" => $token->data[0]->access_token,
-                    "user_donate_page" => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
-                    "user_reg_time" => "NOW()",
+                    "user_login"        => "twitch_" . $userInfo->data[0]->display_name,
+                    "user_login_show"   => $userInfo->data[0]->display_name,
+                    "user_domain"       => "twitch_" . $userInfo->data[0]->display_name,
+                    "user_avatar"       => (!empty($userInfo->data[0]->profile_image_url)) ? $userInfo->data[0]->profile_image_url : "/assets/images/no_avatar.png",
+                    "user_twitch"       => $userInfo->data[0]->display_name,
+                    "user_reg_ip"       => $_SERVER["REMOTE_ADDR"],
+                    "user_twitch_token" => $token->access_token,
+                    "user_twitch_id"    => $userInfo->data[0]->id,
+                    "user_donate_page"  => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
+                    "user_reg_time"     => "NOW()",
                 ];
                 $id = $this->UserModel->addUser($data);
                 //$this->getUserSmiles("twitch", $id, "twitch_" . $userInfo->name);
@@ -617,7 +618,7 @@ class UserController extends Controller {
                 $this->ToOnline($id);
             }
 
-            $this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token->data[0]->access_token]);
+            $this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token->access_token]);
             return $this->ToOnline($user['user_id']);
         }
 	}
