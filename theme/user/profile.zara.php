@@ -52,7 +52,7 @@
                 <tr>
                     @if(empty($user->user_vk))
                     <td><i class="fa fa-vk"></i> Не подключено</td>
-                    <td><a href="#" class="btn btn-default btn-xs">Подключить</a></td>
+                    <td><a href="/connect/vk" class="btn btn-default btn-xs">Подключить</a></td>
                     @else
                     <td class="active"><i class="fa fa-vk"></i> Подключено</td>
                     <td><a href="#" class="btn btn-danger btn-xs">Отключить</a></td>
