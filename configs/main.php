@@ -67,6 +67,7 @@ return [
 		'client_id'		=>		'7239263',
 		'client_secret'		=>		'tc2ESM9UWhEfziDQ6qCM',
 		'redirect_uri'		=>		'https://ipdonate.com/login/vk',
+        'connect_uri'		=>		'https://ipdonate.com/connect/vk',
 	],
 
 	'hitbox'	=>		[

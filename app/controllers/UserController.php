@@ -744,15 +744,15 @@ class UserController extends Controller {
     {
         model("User");
         if (isset($this->request->get["code"])) {
-            $token = $this->VKGetAuthToken($this->request->get["code"]);
+            $token = $this->VKGetConnectToken($this->request->get["code"]);
             if (isset($token['access_token'])) {
                 $userInfo = $this->VKGetUserInfo($token);
                 //dd($userInfo);
                 if (isset($userInfo['response'][0]['id'])) {
                     $userInfo = $userInfo['response'][0];
-                    if(!($user = $this->UserModel->getUser($userInfo['id'], "user_vk")))
-                    {
+                    if(!($user = $this->UserModel->getUser($userInfo['id'], "user_vk"))) {
                         $this->UserModel->editUser(session("user_id"), ['user_vk' => $userInfo['id']]);
+
                     }else {
                         redirect(route("user.profile"));
                     }
@@ -760,7 +760,7 @@ class UserController extends Controller {
                 }
             }
         }else{
-            $this->VKRedirectToLogin();
+            $this->VKRedirectToConnect();
         }
 
     }
@@ -833,6 +833,28 @@ class UserController extends Controller {
 	/*EndHitBoxAuth*/
 
 	/*VKAuth*/
+    private function VKRedirectToConnect()
+    {
+        $url = 'http://oauth.vk.com/authorize';
+        $params = array(
+            'client_id'     => config()->vk["client_id"],
+            'redirect_uri'  => config()->vk["connect_uri"],
+            'response_type' => 'code'
+        );
+        redirect($url.'?'.urldecode(http_build_query($params)));
+    }
+
+    private function VKGetConnectToken($code)
+    {
+        $params = [
+            'client_id'     => config()->vk["client_id"],
+            'client_secret' => config()->vk["client_secret"],
+            'code' => $code,
+            'redirect_uri'  => config()->vk["connect_uri"],
+        ];
+        return json_decode($this->get_curl('https://oauth.vk.com/access_token' . '?' . urldecode(http_build_query($params))), true);
+    }
+
 	private function VKRedirectToLogin()
 	{
 		$url = 'http://oauth.vk.com/authorize';
