@@ -1,5 +1,6 @@
 <?php
 
+
 // Switch to control AntiDDoS state.
 $anti_ddos_protection_enable = true;
 // Activate debug statements.
@@ -26,7 +27,6 @@ if ($anti_ddos_protection_enable && isset($_SERVER['REMOTE_ADDR'])) {
             }
         }
     }
-
     // List of trusted Autonomous systems.
     $not_rated_as = '13238,15169,8075,10310,36647,13335,2635,32934,38365,55967,16509,2559,19500,47764,17012,1449,43247,32734,15768,33512,18730,30148';
 
@@ -36,7 +36,7 @@ if ($anti_ddos_protection_enable && isset($_SERVER['REMOTE_ADDR'])) {
     // Secret key salt to avoid copy/past of the Cookie between visitors.
     // ATTENTION!!!
     // YOU MUST GENERATE NEW $security_cookie_salt BEFORE USE IT ON YOUR OWN SITE.
-    // ATTENTION!!! 
+    // ATTENTION!!!
     $secure_cookie_salt = 'trG0FTPzXBVwVuartupq';
 
     $secure_cookie_key = md5($remote_ip . ':' . $secure_cookie_salt);
@@ -44,8 +44,8 @@ if ($anti_ddos_protection_enable && isset($_SERVER['REMOTE_ADDR'])) {
     // Days to use secure cookie.
     $secure_cookie_days = 180;
     // Delay in seconds before redirection to original URL.
-    $redirect_delay = 10;
-    
+    $redirect_delay = 5;
+
     $test_ip = true;
     $set_secure_cookie = true;
     if (isset($_COOKIE[$secure_cookie_label]) && $_COOKIE[$secure_cookie_label] == $secure_cookie_key) {
@@ -77,13 +77,13 @@ if ($anti_ddos_protection_enable && isset($_SERVER['REMOTE_ADDR'])) {
             }
         }
     }
-		
+
     //
     // Skip trusted User-Agents. Regular expressions are allowed.
     // Example: CleanTalk Uptime bot.+ 
     //
     if ($test_ip === true && $test_not_rated_ua === true) {
-        require "not_rated_ua.php"; 
+        require "not_rated_ua.php";
         if (isset($_SERVER['HTTP_USER_AGENT']) && count($not_rated_ua) > 0) {
             foreach ($not_rated_ua as $ua) {
                 if (preg_match("/^$ua$/", $_SERVER['HTTP_USER_AGENT'])) {
@@ -99,7 +99,7 @@ if ($anti_ddos_protection_enable && isset($_SERVER['REMOTE_ADDR'])) {
     $run_stop_action = $test_ip;
     if ($run_stop_action) {
         $html_file = file_get_contents(dirname(__FILE__) . '/anti-ddos.html');
-        echo sprintf($html_file, 
+        echo sprintf($html_file,
             $remote_ip,
             $remote_ip,
             $redirect_delay,
@@ -109,14 +109,14 @@ if ($anti_ddos_protection_enable && isset($_SERVER['REMOTE_ADDR'])) {
             $redirect_delay * 1000
         );
         if ($anti_ddos_debug) {
-            error_log(sprintf('Blacklisted IP, drop connection %s to %s.', 
+            error_log(sprintf('Blacklisted IP, drop connection %s to %s.',
                 $remote_ip,
                 $_SERVER['REQUEST_URI']
             ));
         }
 
-        exit; 
-    } 
+        exit;
+    }
     if ($set_secure_cookie && !$run_stop_action) {
         setcookie($secure_cookie_label, $secure_cookie_key, null, '/');
     }
