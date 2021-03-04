@@ -752,11 +752,11 @@ class UserController extends Controller {
                     $userInfo = $userInfo['response'][0];
                     if(!($user = $this->UserModel->getUser($userInfo['id'], "user_vk"))) {
                         $this->UserModel->editUser(session("user_id"), ['user_vk' => $userInfo['id']]);
-                        //header('Location: '.config()->url.'profile');
-                        return json_encode(['status' => "success"]);
+                        return view("user/profile");
+                        //return json_encode(['status' => "success"]);
                     }else {
-                        //redirect(route("user.profile"));
-                        return json_encode(["status" => "error", "error" => "Данная страница VK уже привязана."]);
+                        return view("user/profile");
+                        //return json_encode(["status" => "error", "error" => "Данная страница VK уже привязана."]);
                     }
 
                 }
