@@ -53,7 +53,7 @@ if ($anti_ddos_protection_enable && isset($_SERVER['REMOTE_ADDR'])) {
         $set_secure_cookie = false;
     }
     //
-    // Skiping visitors from trusted AS 
+    // Skiping visitors from trusted AS
     // Example: Google, Microsoft and etc.
     //
     $skip_trusted = false;
@@ -80,7 +80,7 @@ if ($anti_ddos_protection_enable && isset($_SERVER['REMOTE_ADDR'])) {
 
     //
     // Skip trusted User-Agents. Regular expressions are allowed.
-    // Example: CleanTalk Uptime bot.+ 
+    // Example: CleanTalk Uptime bot.+
     //
     if ($test_ip === true && $test_not_rated_ua === true) {
         require "not_rated_ua.php";
