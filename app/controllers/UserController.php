@@ -565,35 +565,38 @@ class UserController extends Controller {
                 'redirect_uri' => config()->twitch['redirect_uri']
             ));
 
-            $a = curl_exec($ch);
-            $b = curl_getinfo($ch);
+            // fetch the data
+            $r = curl_exec($ch);
+            // get the information about the result
+            $i = curl_getinfo($ch);
+            // close the request
             curl_close($ch);
 
-            $token = json_decode($a);
+            $token = json_decode($r);
 
-            $ch = curl_init('https://id.twitch.tv/oauth2/validate');
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            $ch1 = curl_init('https://id.twitch.tv/oauth2/validate');
+            curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
                 'Authorization: OAuth ' . $token->access_token
             ));
 
-            $a = curl_exec($ch);
-            $b = curl_getinfo($ch);
+            $r1 = curl_exec($ch1);
+            $i1 = curl_getinfo($ch1);
 
-            curl_close($ch);
-
-            $ch = curl_init('https://api.twitch.tv/helix/users');
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            curl_close($ch1);
+            $validation = json_decode($r1);
+            $ch2 = curl_init('https://api.twitch.tv/helix/users');
+            curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
                 'Client-ID: ' . CLIENT_ID,
                 'Authorization: Bearer ' . $token->access_token
             ));
 
-            $a = curl_exec($ch);
-            $b = curl_getinfo($ch);
+            $r2 = curl_exec($ch2);
+            $i2 = curl_getinfo($ch2);
 
-            curl_close($ch);
-            $userInfo = json_decode($r);
+            curl_close($ch2);
+            $userInfo = json_decode($r2);
 
             if (!($user = $this->UserModel->getUser($userInfo->display_name, "user_twitch"))) {
                 $data = [
