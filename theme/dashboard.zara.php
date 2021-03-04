@@ -14,17 +14,17 @@
 
     <div class="stats-block">
         <h3>{{ isOnline()->user_youtube_subs }}</h3>
-        <p>Подписчиков(YouTube)</p>
-    </div>
-
-    <div class="stats-block">
-        <h3>{{ isOnline()->user_twitch_subs }}</h3>
-        <p>Платные подписчики(Twitch)</p>
+        <p>Подписчики</p>
     </div>
 
     <div class="stats-block">
         <h3>{{ isOnline()->user_twitch_follows }}</h3>
         <p>Подписчики(Twitch)</p>
+    </div>
+
+    <div class="stats-block">
+        <h3>{{ isOnline()->user_twitch_subs }}</h3>
+        <p>Платные подписчики</p>
     </div>
 
     <div class="stats-block">
