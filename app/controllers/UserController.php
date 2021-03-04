@@ -543,8 +543,8 @@ class UserController extends Controller {
             $url = 'https://id.twitch.tv/oauth2/authorize';
 
             $params = array(
-                'client_id'     => $this->config->twitch['client_id'],
-                'redirect_uri'  => $this->config->twitch['redirect_uri'],
+                'client_id'     => config()->twitch['client_id'],
+                'redirect_uri'  => config()->twitch['redirect_uri'],
                 'response_type' => 'code',
                 'force_verify'  => 'true',
                 'scope'         => 'user:read:email%20user:read:broadcast%20channel:read:subscriptions'
@@ -554,12 +554,53 @@ class UserController extends Controller {
         } else {
             $result = false;
 
+            $ch = curl_init('https://id.twitch.tv/oauth2/token');
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+                'client_id' => config()->twitch['client_id'],
+                'client_secret' => config()->twitch['client_secret'],
+                'code' => Request::get('code'),
+                'grant_type' => 'authorization_code',
+                'redirect_uri' => config()->twitch['redirect_uri']
+            ));
+
+            $a = curl_exec($ch);
+            $b = curl_getinfo($ch);
+            curl_close($ch);
+
+            $token = json_decode($a);
+
+            $ch = curl_init('https://id.twitch.tv/oauth2/validate');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Authorization: OAuth ' . $token->access_token
+            ));
+
+            $a = curl_exec($ch);
+            $b = curl_getinfo($ch);
+
+            curl_close($ch);
+
+            $ch = curl_init('https://api.twitch.tv/helix/users');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Client-ID: ' . CLIENT_ID,
+                'Authorization: Bearer ' . $token->access_token
+            ));
+
+            $a = curl_exec($ch);
+            $b = curl_getinfo($ch);
+
+            curl_close($ch);
+            $userInfo = json_decode($r);
+
             if (!($user = $this->UserModel->getUser($userInfo->display_name, "user_twitch"))) {
                 $data = [
                     "user_login" => "twitch_" . $userInfo->display_name,
                     "user_login_show" => $userInfo->display_name,
                     "user_domain" => "twitch_" . $userInfo->display_name,
-                    "user_avatar" => (!empty($userInfo->logo)) ? $userInfo->logo : "/assets/images/no_avatar.png",
+                    "user_avatar" => (!empty($userInfo->profile_image_url)) ? $userInfo->profile_image_url : "/assets/images/no_avatar.png",
                     "user_twitch" => $userInfo->display_name,
                     "user_reg_ip" => $_SERVER["REMOTE_ADDR"],
                     "user_twitch_token" => $token,
