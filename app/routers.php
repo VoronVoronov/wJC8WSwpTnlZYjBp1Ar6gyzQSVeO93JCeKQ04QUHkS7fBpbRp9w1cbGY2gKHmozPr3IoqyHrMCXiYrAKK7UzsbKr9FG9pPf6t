@@ -20,6 +20,8 @@ Router::any("/", ["as" => "home", "uses" => "HomeController@index"])->alias("pan
 Router::group(['param' => ['session', '!empty', 'user_id']], function(){
     Router::post("check_url/{url:[a-z0-9A-Z_.]+}", "UserController@check_url");
 
+    Router::get("connect/{type:[a-z]+}","UserController@connect");
+
     Router::post("user", ["as" => "user.post", "uses" => "UserController@post_user"]);
     Router::get("user", ["as" => "user.profile", "uses" => "UserController@profile"]);
     Router::get("profile", ["as" => "user.profile.two", "uses" => "UserController@profile"]);

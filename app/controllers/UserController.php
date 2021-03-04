@@ -723,6 +723,48 @@ class UserController extends Controller {
 
 	}
 
+    public function connect($type) {
+
+        switch($type)
+        {
+            case "twitch":
+                $this->ConnectTwitch();
+                break;
+            case "vk":
+                $this->ConnectVk();
+                break;
+
+            default:
+                abort(404);
+                break;
+        }
+    }
+
+    private function ConnectVk()
+    {
+        model("User");
+        if (isset($this->request->get["code"])) {
+            $token = $this->VKGetAuthToken($this->request->get["code"]);
+            if (isset($token['access_token'])) {
+                $userInfo = $this->VKGetUserInfo($token);
+                //dd($userInfo);
+                if (isset($userInfo['response'][0]['id'])) {
+                    $userInfo = $userInfo['response'][0];
+                    if(!($user = $this->UserModel->getUser($userInfo['id'], "user_vk")))
+                    {
+                        $this->UserModel->editUser(session("user_id"), ['user_vk' => $userInfo['id']]);
+                    }else {
+                        redirect(route("user.profile"));
+                    }
+
+                }
+            }
+        }else{
+            $this->VKRedirectToLogin();
+        }
+
+    }
+
 	function get_curl($url) {
 		if(function_exists('curl_init')) {
 			$ch = curl_init();
