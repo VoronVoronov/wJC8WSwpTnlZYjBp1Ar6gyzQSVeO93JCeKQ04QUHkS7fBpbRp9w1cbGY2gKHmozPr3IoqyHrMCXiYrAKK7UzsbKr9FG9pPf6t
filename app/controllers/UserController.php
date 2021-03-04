@@ -618,7 +618,8 @@ class UserController extends Controller {
                 $this->ToOnline($id);
             }
 
-            $this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token->access_token]);
+            $this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token->access_token, 'user_login' => 'twitch_' . $userInfo->data[0]->login,
+                'user_login_show' => $userInfo->data[0]->display_name, 'user_twitch' => $userInfo->data[0]->display_name]);
             return $this->ToOnline($user['user_id']);
         }
 	}
