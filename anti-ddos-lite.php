@@ -101,8 +101,8 @@ if ($anti_ddos_protection_enable && isset($_SERVER['REMOTE_ADDR'])) {
         $html_file = file_get_contents(dirname(__FILE__) . '/anti-ddos.php');
         echo sprintf($html_file,
             $remote_ip,
-            $remote_ip,
             $redirect_delay,
+            $remote_ip,
             $secure_cookie_days,
             $secure_cookie_label,
             $secure_cookie_key,
