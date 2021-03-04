@@ -588,7 +588,7 @@ class UserController extends Controller {
             $ch2 = curl_init('https://api.twitch.tv/helix/users');
             curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
-                'Client-ID: ' . CLIENT_ID,
+                'Client-ID: ' . config()->twitch['client_id'],
                 'Authorization: Bearer ' . $token->access_token
             ));
 
