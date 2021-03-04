@@ -765,6 +765,91 @@ class UserController extends Controller {
 
     }
 
+    private function ConnectTwitch()
+    {
+        model("User");
+        if(empty(Request::get("code"))) {
+
+            $url = 'https://id.twitch.tv/oauth2/authorize';
+
+            $params = array(
+                'client_id'     => config()->twitch['client_id'],
+                'redirect_uri'  => config()->twitch['redirect_uri'],
+                'response_type' => 'code',
+                'force_verify'  => 'true',
+                'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
+            );
+
+            redirect($url . '?' . urldecode(http_build_query($params)));
+        } else {
+            $result = false;
+
+            $ch = curl_init('https://id.twitch.tv/oauth2/token');
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+                'client_id' => config()->twitch['client_id'],
+                'client_secret' => config()->twitch['client_secret'],
+                'code' => Request::get('code'),
+                'grant_type' => 'authorization_code',
+                'redirect_uri' => config()->twitch['redirect_uri']
+            ));
+
+            // fetch the data
+            $r = curl_exec($ch);
+            // get the information about the result
+            $i = curl_getinfo($ch);
+            // close the request
+            curl_close($ch);
+
+            $token = json_decode($r);
+
+            $ch1 = curl_init('https://id.twitch.tv/oauth2/validate');
+            curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
+                'Authorization: OAuth ' . $token->access_token
+            ));
+
+            $r1 = curl_exec($ch1);
+            $i1 = curl_getinfo($ch1);
+
+            curl_close($ch1);
+            $validation = json_decode($r1);
+            $ch2 = curl_init('https://api.twitch.tv/helix/users');
+            curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
+                'Client-ID: ' . config()->twitch['client_id'],
+                'Authorization: Bearer ' . $token->access_token
+            ));
+
+            $r2 = curl_exec($ch2);
+            $i2 = curl_getinfo($ch2);
+
+            curl_close($ch2);
+            $userInfo = json_decode($r2);
+
+            $ch3 = curl_init('https://api.twitch.tv/helix/users/follows?to_id=' . $userInfo->data[0]->id);
+            curl_setopt($ch3, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch3, CURLOPT_HTTPHEADER, array(
+                'Client-ID: ' . config()->twitch['client_id'],
+                'Authorization: Bearer ' . $token->access_token
+            ));
+
+            $r3 = curl_exec($ch3);
+            $i3 = curl_getinfo($ch3);
+
+            curl_close($ch3);
+            $userInfoFollows = json_decode($r3);
+
+            if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
+                $this->UserModel->editUser(session("user_id"), ["user_twitch_id" => $userInfo->data[0]->id, 'user_twitch_token' => $token->access_token, 'user_twitch' => $userInfo->data[0]->display_name,
+                    'user_twitch_follows' => $userInfoFollows->total]);
+            }else {
+                header('Location: '.config()->url.'/profile/');
+            }
+        }
+    }
+
 	function get_curl($url) {
 		if(function_exists('curl_init')) {
 			$ch = curl_init();
