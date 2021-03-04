@@ -546,8 +546,8 @@ class UserController extends Controller {
                 'client_id'     => config()->twitch['client_id'],
                 'redirect_uri'  => config()->twitch['redirect_uri'],
                 'response_type' => 'code',
-                'force_verify'  => 'false',
-                'scope'         => 'user:read:email%20user:read:broadcast%20channel:read:subscriptions'
+                'force_verify'  => 'true',
+                'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
             );
 
             redirect($url . '?' . urldecode(http_build_query($params)));
