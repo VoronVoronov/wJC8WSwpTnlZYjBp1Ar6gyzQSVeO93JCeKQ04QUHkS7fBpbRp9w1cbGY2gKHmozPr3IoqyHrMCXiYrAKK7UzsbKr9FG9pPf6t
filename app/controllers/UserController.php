@@ -598,18 +598,32 @@ class UserController extends Controller {
             curl_close($ch2);
             $userInfo = json_decode($r2);
 
+            $ch3 = curl_init('https://api.twitch.tv/helix/users/follows?to_id='.$userInfo->data[0]->id);
+            curl_setopt($ch3, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch3, CURLOPT_HTTPHEADER, array(
+                'Client-ID: ' .config()->twitch['client_id'],
+                'Authorization: Bearer '.$token->access_token
+            ));
+
+            $r3 = curl_exec($ch3);
+            $i3 = curl_getinfo($ch3);
+
+            curl_close($ch3);
+            $userInfoFollows = json_decode($r3);
+
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
-                    "user_login"        => "twitch_" . $userInfo->data[0]->login,
-                    "user_login_show"   => $userInfo->data[0]->display_name,
-                    "user_domain"       => "twitch_" . $userInfo->data[0]->display_name,
-                    "user_avatar"       => (!empty($userInfo->data[0]->profile_image_url)) ? $userInfo->data[0]->profile_image_url : "/assets/images/no_avatar.png",
-                    "user_twitch"       => $userInfo->data[0]->display_name,
-                    "user_reg_ip"       => $_SERVER["REMOTE_ADDR"],
-                    "user_twitch_token" => $token->access_token,
-                    "user_twitch_id"    => $userInfo->data[0]->id,
-                    "user_donate_page"  => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
-                    "user_reg_time"     => "NOW()",
+                    "user_login"            => "twitch_" . $userInfo->data[0]->login,
+                    "user_login_show"       => $userInfo->data[0]->display_name,
+                    "user_domain"           => "twitch_" . $userInfo->data[0]->display_name,
+                    "user_avatar"           => (!empty($userInfo->data[0]->profile_image_url)) ? $userInfo->data[0]->profile_image_url : "/assets/images/no_avatar.png",
+                    "user_twitch"           => $userInfo->data[0]->display_name,
+                    "user_reg_ip"           => $_SERVER["REMOTE_ADDR"],
+                    "user_twitch_token"     => $token->access_token,
+                    "user_twitch_follows"   => $userInfoFollows->total,
+                    "user_twitch_id"        => $userInfo->data[0]->id,
+                    "user_donate_page"      => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
+                    "user_reg_time"         => "NOW()",
                 ];
                 $id = $this->UserModel->addUser($data);
                 //$this->getUserSmiles("twitch", $id, "twitch_" . $userInfo->name);
@@ -619,7 +633,8 @@ class UserController extends Controller {
             }
 
             $this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token->access_token, 'user_login' => 'twitch_' . $userInfo->data[0]->login,
-                'user_login_show' => $userInfo->data[0]->display_name, 'user_twitch' => $userInfo->data[0]->display_name, 'user_avatar' => $userInfo->data[0]->profile_image_url]);
+                'user_login_show' => $userInfo->data[0]->display_name, 'user_twitch' => $userInfo->data[0]->display_name, 'user_avatar' => $userInfo->data[0]->profile_image_url,
+                'user_twitch_follows' => $userInfoFollows->total]);
             return $this->ToOnline($user['user_id']);
         }
 	}
