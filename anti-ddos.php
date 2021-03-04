@@ -1,17 +1,17 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>DDoS protection | IPDonate</title>
-<style type="text/css">
-    .main_t {height: 100%%; width: 100%%; border: 0px solid black;}
-    .main_t td {text-align: center;}
-    .main_t td.info {height: 100%%; text-align: center; vertical-align: top; padding-top: 5em;}
-    .sign { color: #ccc; margin-top: 5em;}
-    .sign a { color: #ccc; }
-    body {
-        background: url(https://ipdonate.com/assets/images/bg.png)
-    }
-</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>DDoS protection | IPDonate</title>
+    <style type="text/css">
+        .main_t {height: 100%%; width: 100%%; border: 0px solid black;}
+        .main_t td {text-align: center;}
+        .main_t td.info {height: 100%%; text-align: center; vertical-align: top; padding-top: 5em;}
+        .sign { color: #ccc; margin-top: 5em;}
+        .sign a { color: #ccc; }
+        body {
+            background: url(https://ipdonate.com/assets/images/bg.png)
+        }
+    </style>
     <script>
         function get_current_url() {
             document.write(window.location.href);
@@ -20,40 +20,40 @@
     </script>
 </head>
 <body>
-    <table class="main_t">
-        <tr>
-            <td class="info">
-                <h2>Checking your browser before accessing IPDonate.com</h2>
-                <span>Пожалуйста, дождитесь проверки вашего браузера перед посещением сайта</span>
+<table class="main_t">
+    <tr>
+        <td class="info">
+            <h2>Checking your browser before accessing IPDonate.com</h2>
+            <span>Пожалуйста, дождитесь проверки вашего браузера перед посещением сайта</span>
 
-                <h2>This process is automatic. Your browser will redirect to your requested content shortly. Please allow up to %d seconds...</h2>
-                <span>Этот процесс автоматический и займёт несколько секунд, после чего произойдёт переход на сайт</span>
-                <div id="js_info">
-                    <h2>Чтобы продолжить работу с сайтом, пожалуйста, убедитесь, что у вас включен JavaScript.</h2>
-                    <p>To continue working with web-site, please make sure that you have enabled JavaScript.</p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="sign">
-                   DDoS protection by <a href="https://t.me/frontedbackend"><span style="color: #49C73B;">Voron</span><span style="color: #349EBF;">Voronov</span></a><br />
-                    <a href="/blacklists/%s" target="_new"><? echo $_SERVER['REMOTE_ADDR']; ?></a>
-                <noscript>Please enable Javascript to see the requested page.</noscript>
-                <noscript>Пожалуйста, включите Javascript, чтобы увидеть запрошенную страницу.</noscript>
-            </td>
-        </tr>
-    </table>
-    <script type="text/javascript">
-        document.getElementById('js_info').style.display = 'none';
-        var date = new Date();
+            <h2>This process is automatic. Your browser will redirect to your requested content shortly. Please allow up to %d seconds...</h2>
+            <span>Этот процесс автоматический и займёт несколько секунд, после чего произойдёт переход на сайт</span>
+            <div id="js_info">
+                <h2>Чтобы продолжить работу с сайтом, пожалуйста, убедитесь, что у вас включен JavaScript.</h2>
+                <p>To continue working with web-site, please make sure that you have enabled JavaScript.</p>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="sign">
+            DDoS protection by <a href="https://t.me/frontedbackend"><span style="color: #49C73B;">Voron</span><span style="color: #349EBF;">Voronov</span></a><br />
+            Ваш IP-адрес: %s
+            <noscript>Please enable Javascript to see the requested page.</noscript>
+            <noscript>Пожалуйста, включите Javascript, чтобы увидеть запрошенную страницу.</noscript>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    document.getElementById('js_info').style.display = 'none';
+    var date = new Date();
 
-        days = '%s';
-        date.setTime(date.getTime() + (days * 24*60*60*1000));
+    days = '%s';
+    date.setTime(date.getTime() + (days * 24*60*60*1000));
 
-        document.cookie = '%s' + "=" + escape('%s') + "; expires = " + date.toGMTString() + "; path=/";
-        setTimeout(function(){
-           window.location.reload(1);
-        }, %d);
-    </script>
+    document.cookie = '%s' + "=" + escape('%s') + "; expires = " + date.toGMTString() + "; path=/";
+    setTimeout(function(){
+        window.location.reload(1);
+    }, %d);
+</script>
 </body>
 </html>
