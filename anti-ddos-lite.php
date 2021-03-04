@@ -98,7 +98,7 @@ if ($anti_ddos_protection_enable && isset($_SERVER['REMOTE_ADDR'])) {
 
     $run_stop_action = $test_ip;
     if ($run_stop_action) {
-        $html_file = file_get_contents(dirname(__FILE__) . '/anti-ddos.html');
+        $html_file = file_get_contents(dirname(__FILE__) . '/anti-ddos.php');
         echo sprintf($html_file,
             $remote_ip,
             $remote_ip,
