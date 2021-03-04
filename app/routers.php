@@ -21,6 +21,7 @@ Router::group(['param' => ['session', '!empty', 'user_id']], function(){
     Router::post("check_url/{url:[a-z0-9A-Z_.]+}", "UserController@check_url");
 
     Router::get("connect/{type:[a-z]+}","UserController@connect");
+    Router::get("disconnect/{type:[a-z]+}","UserController@disconnect");
 
     Router::post("user", ["as" => "user.post", "uses" => "UserController@post_user"]);
     Router::get("user", ["as" => "user.profile", "uses" => "UserController@profile"]);
