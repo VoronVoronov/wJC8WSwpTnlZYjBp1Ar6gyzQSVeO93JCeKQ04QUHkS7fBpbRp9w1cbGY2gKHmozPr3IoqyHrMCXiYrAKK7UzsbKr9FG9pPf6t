@@ -598,13 +598,13 @@ class UserController extends Controller {
             curl_close($ch2);
             $userInfo = json_decode($r2);
 
-            if (!($user = $this->UserModel->getUser($userInfo->display_name, "user_twitch"))) {
+            if (!($user = $this->UserModel->getUser($userInfo->data[0]->display_name, "user_twitch"))) {
                 $data = [
-                    "user_login" => "twitch_" . $userInfo->display_name,
-                    "user_login_show" => $userInfo->display_name,
-                    "user_domain" => "twitch_" . $userInfo->display_name,
-                    "user_avatar" => (!empty($userInfo->profile_image_url)) ? $userInfo->profile_image_url : "/assets/images/no_avatar.png",
-                    "user_twitch" => $userInfo->display_name,
+                    "user_login" => "twitch_" . $userInfo->data[0]->display_name,
+                    "user_login_show" => $userInfo->data[0]->display_name,
+                    "user_domain" => "twitch_" . $userInfo->data[0]->display_name,
+                    "user_avatar" => (!empty($userInfo->data[0]->profile_image_url)) ? $userInfo->data[0]->profile_image_url : "/assets/images/no_avatar.png",
+                    "user_twitch" => $userInfo->data[0]->display_name,
                     "user_reg_ip" => $_SERVER["REMOTE_ADDR"],
                     "user_twitch_token" => $token->access_token,
                     "user_donate_page" => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
