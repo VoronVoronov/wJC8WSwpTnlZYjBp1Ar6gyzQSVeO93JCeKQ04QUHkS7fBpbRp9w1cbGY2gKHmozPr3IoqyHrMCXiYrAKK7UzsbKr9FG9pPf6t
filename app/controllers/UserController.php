@@ -752,7 +752,7 @@ class UserController extends Controller {
                     $userInfo = $userInfo['response'][0];
                     if(!($user = $this->UserModel->getUser($userInfo['id'], "user_vk"))) {
                         $this->UserModel->editUser(session("user_id"), ['user_vk' => $userInfo['id']]);
-                        redirect(route("user.profile"));
+                        header('Location: '.config()->url.'profile');
                     }else {
                         redirect(route("user.profile"));
                     }
