@@ -619,7 +619,7 @@ class UserController extends Controller {
             }
 
             $this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token->access_token, 'user_login' => 'twitch_' . $userInfo->data[0]->login,
-                'user_login_show' => $userInfo->data[0]->display_name, 'user_twitch' => $userInfo->data[0]->display_name]);
+                'user_login_show' => $userInfo->data[0]->display_name, 'user_twitch' => $userInfo->data[0]->display_name, 'user_avatar' => $userInfo->data[0]->profile_image_url]);
             return $this->ToOnline($user['user_id']);
         }
 	}
