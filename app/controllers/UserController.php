@@ -755,7 +755,7 @@ class UserController extends Controller {
                         //header('Location: '.config()->url.'profile');
                         return json_encode(['status' => "success"]);
                     }else {
-                        redirect(route("user.profile"));
+                        //redirect(route("user.profile"));
                         return json_encode(["status" => "error", "error" => "Данная страница VK уже привязана."]);
                     }
 
