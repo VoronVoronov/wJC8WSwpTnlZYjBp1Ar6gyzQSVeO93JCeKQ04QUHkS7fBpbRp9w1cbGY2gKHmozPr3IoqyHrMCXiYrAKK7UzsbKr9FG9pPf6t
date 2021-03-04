@@ -47,13 +47,13 @@
     document.getElementById('js_info').style.display = 'none';
     var date = new Date();
 
-    days = '%s';
+    days = '%d';
     date.setTime(date.getTime() + (days * 24*60*60*1000));
 
     document.cookie = '%s' + "=" + escape('%s') + "; expires = " + date.toGMTString() + "; path=/";
     setTimeout(function(){
         window.location.reload(1);
-    }, %d);
+    }, %s);
 </script>
 </body>
 </html>
