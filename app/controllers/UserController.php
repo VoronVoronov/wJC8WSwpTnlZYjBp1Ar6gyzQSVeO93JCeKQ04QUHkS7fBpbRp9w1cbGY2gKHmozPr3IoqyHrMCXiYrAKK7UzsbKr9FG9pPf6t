@@ -600,7 +600,7 @@ class UserController extends Controller {
 
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
-                    "user_login"        => "twitch_" . $userInfo->data[0]->display_name,
+                    "user_login"        => "twitch_" . $userInfo->data[0]->login,
                     "user_login_show"   => $userInfo->data[0]->display_name,
                     "user_domain"       => "twitch_" . $userInfo->data[0]->display_name,
                     "user_avatar"       => (!empty($userInfo->data[0]->profile_image_url)) ? $userInfo->data[0]->profile_image_url : "/assets/images/no_avatar.png",
