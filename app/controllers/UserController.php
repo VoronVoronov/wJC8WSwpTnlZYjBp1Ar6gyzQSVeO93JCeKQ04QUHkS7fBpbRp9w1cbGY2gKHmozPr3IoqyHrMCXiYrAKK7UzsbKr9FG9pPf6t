@@ -774,7 +774,7 @@ class UserController extends Controller {
 
             $params = array(
                 'client_id'     => config()->twitch['client_id'],
-                'redirect_uri'  => config()->twitch['redirect_uri'],
+                'redirect_uri'  => config()->twitch['connect_uri'],
                 'response_type' => 'code',
                 'force_verify'  => 'true',
                 'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
@@ -792,7 +792,7 @@ class UserController extends Controller {
                 'client_secret' => config()->twitch['client_secret'],
                 'code' => Request::get('code'),
                 'grant_type' => 'authorization_code',
-                'redirect_uri' => config()->twitch['redirect_uri']
+                'redirect_uri' => config()->twitch['connect_uri']
             ));
 
             // fetch the data
