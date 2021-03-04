@@ -27,20 +27,10 @@
         <p>Подписчики(Twitch)</p>
     </div>
 
-    <!--<div class="stats-block">
-        <h3>{{ isOnline()->user_donations }}</h3>
-        <p>Донатов</p>
-    </div>-->
-
     <div class="stats-block">
         <h3>{{ isOnline()->user_balance }}</h3>
         <p>Заработано / руб.</p>
     </div>
-
-    <!--<div class="stats-block">
-        <h3>{{ number_format(isOnline()->user_stream_time, 0, '.', ' ') }}ч</h3>
-        <p>Время стрима</p>
-    </div>-->
 
 </div>
 
