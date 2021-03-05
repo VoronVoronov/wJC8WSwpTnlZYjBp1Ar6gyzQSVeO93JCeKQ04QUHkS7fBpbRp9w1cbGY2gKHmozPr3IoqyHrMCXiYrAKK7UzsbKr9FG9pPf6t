@@ -12,6 +12,7 @@
 //Router::any("go", "HomeController@redirect");
 Router::any("agreement", "HomeController@agreement");
 Router::any("oferta", "HomeController@oferta");
+Router::any("privacy", "HomeController@privacy");
 Router::any("news", "HomeController@news");
 
 

@@ -38,6 +38,11 @@ class HomeController extends Controller {
          return view("oferta");
     }
 
+    public function privacy()
+    {
+        return view("privacy");
+    }
+
     public function news()
     {
         model("News");
