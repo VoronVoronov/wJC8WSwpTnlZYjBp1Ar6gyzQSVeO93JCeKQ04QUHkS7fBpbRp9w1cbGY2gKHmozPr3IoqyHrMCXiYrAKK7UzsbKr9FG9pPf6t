@@ -520,19 +520,18 @@ class UserController extends Controller {
                 curl_close($ch1);
 
                 $userInfo = json_decode($r1);
-                //dd($userInfo);
 
-                if(!($user = $this->UserModel->getUser($userInfo['items'][0]['id'], "user_youtube"))) {
+                if(!($user = $this->UserModel->getUser($userInfo->items[0]->id, "user_youtube"))) {
                     $data = [
-                        "user_login" 	            =>	"youtube_" . $userInfo['items'][0]['id'],
-                        "user_login_show"           =>	$userInfo['items'][0]['snippet']['title'],
+                        "user_login" 	            =>	"youtube_" . $userInfo->items[0]->id,
+                        "user_login_show"           =>	$userInfo->items[0]->snippet->title,
                         //'user_email'                =>  $userInfo['email'],
-                        "user_domain"               =>  "youtube_" . $userInfo['items'][0]['id'],
-                        "user_avatar"	            =>	(!empty($userInfo['items'][0]['snippet']['thumbnails']['default']['url'])) ? $userInfo['items'][0]['snippet']['thumbnails']['default']['url'] : "/assets/images/no_avatar.png",
-                        "user_youtube"	            =>	$userInfo['items'][0]['id'],
+                        "user_domain"               =>  "youtube_" . $userInfo->items[0]->id,
+                        "user_avatar"	            =>	(!empty($userInfo->items[0]->snippet->thumbnails->default->url)) ? $userInfo->items[0]->snippet->thumbnails->default->url : "/assets/images/no_avatar.png",
+                        "user_youtube"	            =>	$userInfo->items[0]->id,
                         "user_reg_ip"	            =>  $_SERVER["REMOTE_ADDR"],
                         "user_youtube_token"        =>  $tokenInfo['access_token'],
-                        "user_youtube_subs"         =>  $userInfo['items'][0]['statistics']['subscriberCount'],
+                        "user_youtube_subs"         =>  $userInfo->items[0]->statistics->subscriberCount,
                         "user_donate_page"          =>  "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
                         "user_reg_time"             => "NOW()",
                     ];
