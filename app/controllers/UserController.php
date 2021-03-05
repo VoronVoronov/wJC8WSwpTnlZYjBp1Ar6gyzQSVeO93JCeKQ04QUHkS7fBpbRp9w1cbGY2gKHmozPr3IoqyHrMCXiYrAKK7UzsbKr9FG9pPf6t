@@ -503,33 +503,33 @@ class UserController extends Controller {
             curl_close($curl);
 
             $tokenInfo = json_decode($result, true);
-            dd($tokenInfo);
             if(isset($tokenInfo['access_token'])) {
-                $params = array(
-                    'access_token' => $tokenInfo['access_token'],
-                    //'id_token'     => $tokenInfo['id_token'],
-                    'token_type'   => 'Bearer',
-                    'expires_in'   => 3599
-                );
-                $info = file_get_contents('https://www.googleapis.com/oauth2/v1/userinfo?' . urldecode(http_build_query($params)));
-                $userInfo = json_decode($info, true);
-                //$userInfo = file_get_contents("https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=1&myRecentSubscribers=true&access_token=".$tokenInfo['access_token']);
-                //$userInfo = file_get_contents("https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true&access_token=".$tokenInfo['access_token']);
-                //$userInfo = $this->getYouTubeChannelInfo($userInfo);
-                dd($userInfo);
+                $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&key='.config()->youtube['client_secret']);
+                curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
+                    'Authorization: Bearer ' . $tokenInfo['access_token'],
+                    'Accept: application/json'
+                ));
+
+                $r1 = curl_exec($ch1);
+                $i1 = curl_getinfo($ch1);
+
+                curl_close($ch);
+
+                $userInfo = json_decode($r);
                 if(!($user = $this->UserModel->getUser($userInfo['id'], "user_youtube"))) {
                     $data = [
-                        "user_login" 	            =>	"youtube_" . $userInfo['id'],
-                        "user_login_show"           =>	$userInfo['login'],
-                        'user_email'                =>  $userInfo['email'],
-                        "user_domain"               =>  "youtube_" . $userInfo['id'],
-                        "user_avatar"	            =>	(!empty($userInfo['avatar'])) ? $userInfo['avatar'] : "/assets/images/no_avatar.png",
-                        "user_youtube"	            =>	$userInfo['id'],
+                        "user_login" 	            =>	"youtube_" . $userInfo['items'][0]['id'],
+                        "user_login_show"           =>	$userInfo['items'][0]['snippet']['title'],
+                        //'user_email'                =>  $userInfo['email'],
+                        "user_domain"               =>  "youtube_" . $userInfo['items'][0]['id'],
+                        "user_avatar"	            =>	(!empty($userInfo['items'][0]['snippet']['thumbnails']['default']['url'])) ? $userInfo['items'][0]['snippet']['thumbnails']['default']['url'] : "/assets/images/no_avatar.png",
+                        "user_youtube"	            =>	$userInfo['items'][0]['id'],
                         "user_reg_ip"	            =>  $_SERVER["REMOTE_ADDR"],
                         "user_youtube_token"        =>  $tokenInfo['access_token'],
-                        "user_youtube_subs"         =>  $userInfo['subs'],
+                        "user_youtube_subs"         =>  $userInfo['items'][0]['statistics']['subscriberCount'],
                         "user_donate_page"          =>  "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
-                        "user_reg_time" => "NOW()",
+                        "user_reg_time"             => "NOW()",
                     ];
                     $id = $this->UserModel->addUser($data);
                     $this->UserModel->trackIP($id, 1);
