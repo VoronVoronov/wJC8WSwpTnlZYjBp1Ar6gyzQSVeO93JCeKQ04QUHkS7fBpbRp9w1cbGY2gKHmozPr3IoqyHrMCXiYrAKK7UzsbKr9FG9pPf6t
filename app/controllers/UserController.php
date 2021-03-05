@@ -514,7 +514,7 @@ class UserController extends Controller {
                 $r1 = curl_exec($ch1);
                 $i1 = curl_getinfo($ch1);
 
-                curl_close($ch);
+                curl_close($ch1);
 
                 $userInfo = json_decode($r);
                 if(!($user = $this->UserModel->getUser($userInfo['id'], "user_youtube"))) {
