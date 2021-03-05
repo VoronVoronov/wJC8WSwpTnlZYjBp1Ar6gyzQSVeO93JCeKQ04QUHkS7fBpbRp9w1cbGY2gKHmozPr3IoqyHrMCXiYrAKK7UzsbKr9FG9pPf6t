@@ -55,6 +55,7 @@
                     <td><a href="/connect/vk" class="btn btn-default btn-xs">Подключить</a></td>
                     @else
                     <td class="active"><i class="fa fa-vk"></i> Подключено</td>
+                    <td><a href="" class="btn btn-danger btn-xs"></a></td>
                     <!--<td><a href="/disconnect/vk" class="btn btn-danger btn-xs">Отключить</a></td>-->
                     @endif
                 </tr>
@@ -64,6 +65,7 @@
                     <td><a href="/connect/twitch" class="btn btn-default btn-xs">Подключить</a></td>
                     @else
                     <td class="active"><i class="fa fa-twitch"></i> Подключено</td>
+                    <td><a href="" class="btn btn-danger btn-xs"></a></td>
                     <!--<td><a href="/disconnect/vk" class="btn btn-danger btn-xs">Отключить</a></td>-->
                     @endif
                 </tr>
@@ -73,6 +75,7 @@
                     <td><a href="/connect/youtube" class="btn btn-default btn-xs">Подключить</a></td>
                     @else
                     <td class="active"><i class="fa fa-youtube"></i> Подключено</td>
+                    <td><a href="" class="btn btn-danger btn-xs"></a></td>
                     <!--<td><a href="/disconnect/vk" class="btn btn-danger btn-xs">Отключить</a></td>-->
                     @endif
                 </tr>
