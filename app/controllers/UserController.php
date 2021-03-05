@@ -481,7 +481,6 @@ class UserController extends Controller {
         printf("Open this link in your browser:\n%s\n", $authUrl);
         print('Enter verification code: ');
         $authCode = trim(fgets(STDIN));
-.
         $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
         $client->setAccessToken($accessToken);
 
