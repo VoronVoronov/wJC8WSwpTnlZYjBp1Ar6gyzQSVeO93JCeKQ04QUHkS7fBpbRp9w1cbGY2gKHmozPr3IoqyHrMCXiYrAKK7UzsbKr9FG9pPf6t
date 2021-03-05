@@ -869,10 +869,8 @@ class UserController extends Controller {
 
     private function ConnectYoutube()
     {
-        model("User");
-        if(empty(Request::get("code"))) {
-
-            if(empty(Request::get("code"))) {
+                model("User");
+                if(empty(Request::get("code"))) {
 
                 $url = 'https://accounts.google.com/o/oauth2/auth';
 
@@ -885,7 +883,7 @@ class UserController extends Controller {
                 );
 
                 redirect($url . '?' . urldecode(http_build_query($params)));
-            } else {
+                } else {
                 $result = false;
 
                 $params = array(
@@ -901,7 +899,6 @@ class UserController extends Controller {
                 $curl = curl_init();
                 curl_setopt($curl, CURLOPT_URL, $url);
                 curl_setopt($curl, CURLOPT_POST, 1);
-                //curl_setopt($curl, CURLOPT_POSTFIELDS, urldecode(http_build_query($params)));
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
@@ -932,7 +929,7 @@ class UserController extends Controller {
                         header('Location: '.config()->url.'/profile/');
                     }
                 }
-            }
+                }
     }
 
     public function disconnect($type) {
