@@ -70,10 +70,10 @@
                 <tr>
                     @if(empty($user->user_youtube))
                     <td><i class="fa fa-youtube"></i> Не подключено</td>
-                    <td><a href="#" class="btn btn-default btn-xs">Подключить</a></td>
+                    <td><a href="/connect/youtube" class="btn btn-default btn-xs">Подключить</a></td>
                     @else
                     <td class="active"><i class="fa fa-youtube"></i> Подключено</td>
-                    <td><a href="#" class="btn btn-danger btn-xs">Отключить</a></td>
+                    <td><a href="/disconnect/youtube" class="btn btn-danger btn-xs">Отключить</a></td>
                     @endif
                 </tr>
             </table>

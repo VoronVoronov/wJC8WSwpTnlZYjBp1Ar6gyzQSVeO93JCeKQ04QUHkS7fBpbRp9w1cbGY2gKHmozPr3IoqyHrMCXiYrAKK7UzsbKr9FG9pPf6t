@@ -541,7 +541,8 @@ class UserController extends Controller {
                     $this->ToOnline($id);
                 }
 
-                $this->UserModel->editUser($user['user_id'], ['user_youtube_token' => $tokenInfo['access_token']]);
+                $this->UserModel->editUser($user['user_id'], ['user_youtube_token' => $tokenInfo['access_token'], 'user_youtube_subs' => $userInfo->items[0]->statistics->subscriberCount,
+                    'user_avatar' => $userInfo->items[0]->snippet->thumbnails->default->url]);
                 return $this->ToOnline($user['user_id']);
             }
         }
@@ -745,6 +746,9 @@ class UserController extends Controller {
             case "vk":
                 $this->ConnectVk();
                 break;
+            case "youtube":
+                $this->ConnectYoutube();
+                break;
 
             default:
                 abort(404);
@@ -863,6 +867,72 @@ class UserController extends Controller {
         }
     }
 
+    private function ConnectYoutube()
+    {
+        model("User");
+        if(empty(Request::get("code"))) {
+
+            if(empty(Request::get("code"))) {
+
+                $url = 'https://accounts.google.com/o/oauth2/auth';
+
+                $params = array(
+                    'redirect_uri' => config()->youtube['redirect_uri'],
+                    'response_type' => 'code',
+                    'client_id' => config()->youtube['client_id'],
+                    //'scope' => 'https://www.googleapis.com/auth/youtube',
+                    'scope' => 'https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.readonly https://www.googleapis.com/auth/youtube.channel-memberships.creator'
+                );
+
+                redirect($url . '?' . urldecode(http_build_query($params)));
+            } else {
+                $result = false;
+
+                $params = array(
+                    'client_id' => config()->youtube['client_id'],
+                    'client_secret' => config()->youtube['client_secret'],
+                    'redirect_uri' => config()->youtube['redirect_uri'],
+                    'grant_type' => 'authorization_code',
+                    'code' => Request::get('code')
+                );
+
+                $url = 'https://accounts.google.com/o/oauth2/token';
+
+                $curl = curl_init();
+                curl_setopt($curl, CURLOPT_URL, $url);
+                curl_setopt($curl, CURLOPT_POST, 1);
+                //curl_setopt($curl, CURLOPT_POSTFIELDS, urldecode(http_build_query($params)));
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+                $result = curl_exec($curl);
+                curl_close($curl);
+
+                $tokenInfo = json_decode($result, true);
+                //dd($tokenInfo);
+                if(isset($tokenInfo['access_token'])) {
+                    $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&access_token='.$tokenInfo['access_token'].'&ley='.config()->youtube['youtube_api']);
+                    curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
+                        'Authorization: Bearer ' . $tokenInfo['access_token'],
+                        'Accept: application/json'
+                    ));
+
+                    $r1 = curl_exec($ch1);
+                    $i1 = curl_getinfo($ch1);
+
+                    curl_close($ch1);
+
+                    $userInfo = json_decode($r1);
+
+            if (!($user = $this->UserModel->getUser($userInfo->items[0]->id, "user_youtube"))) {
+                $this->UserModel->editUser(session("user_id"), ["user_youtube" => $userInfo->items[0]->id, 'user_youtube_token' => $tokenInfo['access_token'], 'user_youtube_subs' => $userInfo->items[0]->statistics->subscriberCount,);
+                header('Location: '.config()->url.'/profile/');
+            }else {
+                header('Location: '.config()->url.'/profile/');
+            }
+        }
+    }
 
     public function disconnect($type) {
 
@@ -873,6 +943,9 @@ class UserController extends Controller {
                 break;
             case "vk":
                 $this->DisConnectVk();
+                break;
+            case "youtube":
+                $this->DisConnectYoutube();
                 break;
 
             default:
