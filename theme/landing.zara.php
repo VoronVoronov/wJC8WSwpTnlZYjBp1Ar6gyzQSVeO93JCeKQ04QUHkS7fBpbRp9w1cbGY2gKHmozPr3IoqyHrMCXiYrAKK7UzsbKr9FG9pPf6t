@@ -219,7 +219,7 @@
                             echo $version[0]['version'];
                             echo $version[0]['type'];
                             ?>. 
-                            <a href="https://updown.io/wkrd">
+                            <a href="https://status.ipdonate.com/">
                             UPTIME: 
                                 <!--
                                 <i class="fas fa-signal"></i>
