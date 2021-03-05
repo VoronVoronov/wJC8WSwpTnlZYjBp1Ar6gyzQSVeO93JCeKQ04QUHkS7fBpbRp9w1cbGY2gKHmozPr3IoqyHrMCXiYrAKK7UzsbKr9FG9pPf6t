@@ -224,14 +224,11 @@
 
         <div class="content">
             <div class="stats container">
-                <h5>Пользовательское соглашение</h5>
+                <h5>Политикой конфиденциальности</h5>
                 <div style="    line-height: 20px;">
                     <div style="width: 100%; height: 61px;"></div>
 
                     <section class="content container text-white">
-                        <h1>Privacy Policy</h1>
-                        <h4>Last updated: September 27, 2019</h4>
-
                         <ol class="mt40 ol-mod ol-parent" style="padding-left: 15px;">
                             <li><strong>Who we are</strong>
                                 <ol class="ol-mod">
