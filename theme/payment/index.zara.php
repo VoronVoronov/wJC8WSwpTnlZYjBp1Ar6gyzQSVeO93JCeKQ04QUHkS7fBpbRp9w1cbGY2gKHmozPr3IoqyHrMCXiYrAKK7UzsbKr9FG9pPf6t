@@ -246,7 +246,7 @@
             <div class="modal-body">
                 <form action="/pay/qiwi/{{ $payment['donation_id'] }}" method="post">
                     <center>
-                        <p><input type="text" class="input-text" style="margin-right: 10px;" name="to" id="to" placeholder="Ваш e-mail адрес"></p><br>
+                        <p><input type="text" class="input-text" style="margin-right: 10px;" name="to" id="to" value="+"></p><br>
                         <p><input type="text" class="input-text" style="margin-right: 10px;" name="email" id="email" placeholder="Ваш e-mail адрес"></p><br>
                         <p><input class="btn btn-default" type="submit"></p>
                     </center>

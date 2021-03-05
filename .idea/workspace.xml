@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ipdonate.com.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ipdonate.com.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anti_ddos_protection_fire.dat" beforeDir="false" afterPath="$PROJECT_DIR$/anti_ddos_protection_fire.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/audio/Сообщение оповещение.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/audio/Сообщение оповещение.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/email/update.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/email/update.zara.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/email/verify.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/email/verify.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/theme/payment/index.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/payment/index.zara.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/payment/webmoney.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/payment/webmoney.zara.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/baibaratsky/php-webmoney/Api/ATM/ATM1/Request.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/baibaratsky/php-webmoney/Api/ATM/ATM1/Response.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/baibaratsky/php-webmoney/WMUsedRootCAs.cer" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/baibaratsky/php-webmoney/WMUsedRootCAs.cer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/platform_check.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whitelist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/whitelist.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +53,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
-      <workItem from="1614916290901" duration="25000" />
+      <workItem from="1614916290901" duration="916000" />
     </task>
+    <task id="LOCAL-00001" summary="05.03.2021 6:2">
+      <created>1614916373877</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614916373877</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="05.03.2021 6:2" />
+    <option name="LAST_COMMIT_MESSAGE" value="05.03.2021 6:2" />
   </component>
 </project>
