@@ -505,9 +505,9 @@ class UserController extends Controller {
             $tokenInfo = json_decode($result, true);
 
             if(isset($tokenInfo['access_token'])) {
-                $userInfo = file_get_contents("https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=1&myRecentSubscribers=true&access_token=".$tokenInfo['access_token']);
+                //$userInfo = file_get_contents("https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=1&myRecentSubscribers=true&access_token=".$tokenInfo['access_token']);
                 //$userInfo = file_get_contents("https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true&access_token=".$tokenInfo['access_token']);
-                //$userInfo = $this->getYouTubeChannelInfo($userInfo);
+                $userInfo = $this->getYouTubeChannelInfo($userInfo);
                 dd($userInfo);
                 if(!($user = $this->UserModel->getUser($userInfo['id'], "user_youtube"))) {
                     $data = [
@@ -851,7 +851,26 @@ class UserController extends Controller {
         }
     }
 
-	function get_curl($url) {
+
+    public function disconnect($type) {
+
+        switch($type)
+        {
+            case "twitch":
+                $this->DisonnectTwitch();
+                break;
+            case "vk":
+                $this->DisConnectVk();
+                break;
+
+            default:
+                abort(404);
+                break;
+        }
+    }
+
+
+    function get_curl($url) {
 		if(function_exists('curl_init')) {
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL,$url);
