@@ -503,11 +503,11 @@ class UserController extends Controller {
             curl_close($curl);
 
             $tokenInfo = json_decode($result, true);
-
+            dd($tokenInfo);
             if(isset($tokenInfo['access_token'])) {
                 $params = array(
                     'access_token' => $tokenInfo['access_token'],
-                    'id_token'     => $tokenInfo['id_token'],
+                    //'id_token'     => $tokenInfo['id_token'],
                     'token_type'   => 'Bearer',
                     'expires_in'   => 3599
                 );
