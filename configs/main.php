@@ -83,10 +83,10 @@ return [
 	],
 
     "youtube"   =>      [
-        "client_id" 		=> '888676261813-qughuv0n186hhrrv0vpnejql0d3f2ntn.apps.googleusercontent.com',
-        "client_secret" 	=> '0l08deM5aYPY8h9zBaTQ-0_t',
+        "client_id" 		=> '781257126597-nru3i9nv2ngignvv3patt83irca3t9nb.apps.googleusercontent.com',
+        "client_secret" 	=> 'bN7uBVLyVt2nJJ-ZNfOR1mTW',
         "redirect_uri" 		=> 'https://ipdonate.com/login/youtube',
-        'youtube_api'		=> 'AIzaSyCU5VqW4A7siaifEj05lmA_9HUyFpnb4UA',
+        'youtube_api'		=> 'AIzaSyAwjm0gO1JwrWROR6IhkP8Dq8D-JyS_Za8',
     ],
 
 	// Настройки почты
