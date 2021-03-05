@@ -10,16 +10,16 @@
 */
 return [
 
-	// Режим откладки, рекомендуеться использовать во время разработки
-	'debug_mode'	=>		true,
+    // Режим откладки, рекомендуеться использовать во время разработки
+    'debug_mode'	=>		true,
 
-	// URL вашего сайта.
-	// Будет использовано при формировании URL адреса
-	'url'			=>		'https://ipdonate.com/',
-	
-	// Ключ приложения
-	// Будет использоват в шифровке данных
-	'app_key'		=>		"empty",
+    // URL вашего сайта.
+    // Будет использовано при формировании URL адреса
+    'url'			=>		'https://ipdonate.com/',
+
+    // Ключ приложения
+    // Будет использоват в шифровке данных
+    'app_key'		=>		"empty",
 
     'token'         =>      "OitQDh8fwQIO0ZaFJZwXuz5R",
 
@@ -34,104 +34,105 @@ return [
         "secret_key" => "40313a57bce19a186f23c2a14a431517",
     ],
 
-	// Данные Базы Данных
-	'db'			=>		[
-		
-		// Драйвер для работы с БД.
-		// По умолчанию MySQL (mysqli).
-		'driver'		=>		'mysql',
+    // Данные Базы Данных
+    'db'			=>		[
 
-		// Тип СУБД.
-		// По умолчанию поддерживается только СУБД MySQL (mysql).
-		'type'			=>		'mysql',
-		
-		// Хост БД.
-		// Пример: localhost, 127.0.0.1, db.example.com и пр.
-		'hostname'		=>		'localhost',
-		
-		// Имя пользователя СУБД.
-		'username'		=>		'ipdonate.com',
-		
-		// Пароль пользователя СУБД.
-		'password'		=>		'4G1w2Z1c',
-		
-		// Название БД.
-		'database'		=>		'ipdonate.com',
+        // Драйвер для работы с БД.
+        // По умолчанию MySQL (mysqli).
+        'driver'		=>		'mysql',
 
-		// Испльзуемая кодировка
-		'charset'   	=> 		'utf8',
-		
-	],
-	
-	'vk'		=>		[
-		'client_id'		=>		'7239263',
-		'client_secret'		=>		'tc2ESM9UWhEfziDQ6qCM',
-		'redirect_uri'		=>		'https://ipdonate.com/login/vk',
+        // Тип СУБД.
+        // По умолчанию поддерживается только СУБД MySQL (mysql).
+        'type'			=>		'mysql',
+
+        // Хост БД.
+        // Пример: localhost, 127.0.0.1, db.example.com и пр.
+        'hostname'		=>		'localhost',
+
+        // Имя пользователя СУБД.
+        'username'		=>		'ipdonate.com',
+
+        // Пароль пользователя СУБД.
+        'password'		=>		'4G1w2Z1c',
+
+        // Название БД.
+        'database'		=>		'ipdonate.com',
+
+        // Испльзуемая кодировка
+        'charset'   	=> 		'utf8',
+
+    ],
+
+    'vk'		=>		[
+        'client_id'		=>		'7239263',
+        'client_secret'		=>		'tc2ESM9UWhEfziDQ6qCM',
+        'redirect_uri'		=>		'https://ipdonate.com/login/vk',
         'connect_uri'		=>		'https://ipdonate.com/connect/vk',
-	],
+    ],
 
-	'hitbox'	=>		[
-		'requestToken'			=>		'kuhKSTMwQg9OFa5o7iPAp1jsnvcyNHWGYUXDetCz',
-		'secret'				=>		'FYyM6BQ07fjIcx5rGqUukSzhLPDaKWtbOJCXigA1',
-	],
+    'hitbox'	=>		[
+        'requestToken'			=>		'kuhKSTMwQg9OFa5o7iPAp1jsnvcyNHWGYUXDetCz',
+        'secret'				=>		'FYyM6BQ07fjIcx5rGqUukSzhLPDaKWtbOJCXigA1',
+    ],
 
-	'twitch'	=>		[
-		'client_id' 		=> 'gyueptk1c7m8m7iaob1u3i6v06rfmj',
-	    'client_secret' 	=> '80poli2fmnikdouo2d8lnyclnth1k6',
-	    'redirect_uri' 		=> 'https://ipdonate.com/login/twitch',
+    'twitch'	=>		[
+        'client_id' 		=> 'gyueptk1c7m8m7iaob1u3i6v06rfmj',
+        'client_secret' 	=> '80poli2fmnikdouo2d8lnyclnth1k6',
+        'redirect_uri' 		=> 'https://ipdonate.com/login/twitch',
         'connect_uri'		=>	'https://ipdonate.com/connect/twitch',
-	],
+    ],
 
     "youtube"   =>      [
         "client_id" 		=> '781257126597-nru3i9nv2ngignvv3patt83irca3t9nb.apps.googleusercontent.com',
         "client_secret" 	=> 'bN7uBVLyVt2nJJ-ZNfOR1mTW',
         "redirect_uri" 		=> 'https://ipdonate.com/login/youtube',
         'youtube_api'		=> 'AIzaSyAwjm0gO1JwrWROR6IhkP8Dq8D-JyS_Za8',
+        'connect_uri'		=>	'https://ipdonate.com/connect/youtube',
     ],
 
-	// Настройки почты
-	'mail' 		=> 		[
-		
-		// E-Mail отправителя.
-		// Пример: support@example.com, noreply@example.com
-		'mail_from'		=>		'no-reply@ipdonate.com',
-		
-		// Имя отправителя.
-		// Пример: Ivan Petrov
-		'mail_sender'		=>		'IPDonate Support',
-	],
+    // Настройки почты
+    'mail' 		=> 		[
 
-	// Настройки массовой выплаты
-	'masspayment' 		=> 		[
-		
-		'login'				=>		'info@zholdas.icu',
-		
-		'secret_key'		=>		'7637382C26D-987D9DF2877-4EBEEDD0F4',
-	],
-	
-	// Настройки qiwi
-	'qiwi' 		=> 		[
-		
-		'public_key'		=>		'48e7qUxn9T7RyYE1MVZswX1FRSbE6iyCj2gCRwwF3Dnh5XrasNTx3BGPiMsyXQFNKQhvukniQG8RTVhYm3iPuakaTjqcMceLC2odGUmgkhfEzGcL6jupmJ4Ucr1CwadWQS3kd2nhHKA2GVJ1GHfwyeJQqgiQejQ8Bpfwof66y6xsA6MwDGvwU9j5GhMax',
-		
-		'secret_key'		=>		'eyJ2ZXJzaW9uIjoiUDJQIiwiZGF0YSI6eyJwYXlpbl9tZXJjaGFudF9zaXRlX3VpZCI6Im0xemlkci0wMCIsInVzZXJfaWQiOiI3OTY0MzY0MTEwMCIsInNlY3JldCI6IjNjNjk3YmE5NzAzYzNlOWQxYTczMDQyYjhiZjZjMmMxNTk1MDUxYTBmYWFlNzY4OGFlYTgyNDEzNjcwNWVjZTkifX0=',
-	],	
-	
-	// Настройки yoomoney
-	'yoomoney' 		=> 		[
+        // E-Mail отправителя.
+        // Пример: support@example.com, noreply@example.com
+        'mail_from'		=>		'no-reply@ipdonate.com',
 
-		'wallet'			=>		'410014429063545',
-		
-		'secret_key'		=>		'8gUimObg0EJKQS8/jA3FjU48',
-	
-	],	
-	
-	// Настройки webmoneyP
-	'webmoneyP' 		=> 		[
-		'wallet'			=>		'P050915098697',
-		'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
-	    'secret_key_x20'    =>		'UoPyhd5I7XI2WSuvPIBkHVI1',
-	],
+        // Имя отправителя.
+        // Пример: Ivan Petrov
+        'mail_sender'		=>		'IPDonate Support',
+    ],
+
+    // Настройки массовой выплаты
+    'masspayment' 		=> 		[
+
+        'login'				=>		'info@zholdas.icu',
+
+        'secret_key'		=>		'7637382C26D-987D9DF2877-4EBEEDD0F4',
+    ],
+
+    // Настройки qiwi
+    'qiwi' 		=> 		[
+
+        'public_key'		=>		'48e7qUxn9T7RyYE1MVZswX1FRSbE6iyCj2gCRwwF3Dnh5XrasNTx3BGPiMsyXQFNKQhvukniQG8RTVhYm3iPuakaTjqcMceLC2odGUmgkhfEzGcL6jupmJ4Ucr1CwadWQS3kd2nhHKA2GVJ1GHfwyeJQqgiQejQ8Bpfwof66y6xsA6MwDGvwU9j5GhMax',
+
+        'secret_key'		=>		'eyJ2ZXJzaW9uIjoiUDJQIiwiZGF0YSI6eyJwYXlpbl9tZXJjaGFudF9zaXRlX3VpZCI6Im0xemlkci0wMCIsInVzZXJfaWQiOiI3OTY0MzY0MTEwMCIsInNlY3JldCI6IjNjNjk3YmE5NzAzYzNlOWQxYTczMDQyYjhiZjZjMmMxNTk1MDUxYTBmYWFlNzY4OGFlYTgyNDEzNjcwNWVjZTkifX0=',
+    ],
+
+    // Настройки yoomoney
+    'yoomoney' 		=> 		[
+
+        'wallet'			=>		'410014429063545',
+
+        'secret_key'		=>		'8gUimObg0EJKQS8/jA3FjU48',
+
+    ],
+
+    // Настройки webmoneyP
+    'webmoneyP' 		=> 		[
+        'wallet'			=>		'P050915098697',
+        'secret_key'		=>		'UoPyhd5I7XI2WSuvPIBkHVI0',
+        'secret_key_x20'    =>		'UoPyhd5I7XI2WSuvPIBkHVI1',
+    ],
 
     // Настройки webmoneyR
     'webmoneyR' 		=> 		[
