@@ -505,9 +505,17 @@ class UserController extends Controller {
             $tokenInfo = json_decode($result, true);
 
             if(isset($tokenInfo['access_token'])) {
+                $params = array(
+                    'access_token' => $tokenInfo['access_token'],
+                    'id_token'     => $tokenInfo['id_token'],
+                    'token_type'   => 'Bearer',
+                    'expires_in'   => 3599
+                );
+                $info = file_get_contents('https://www.googleapis.com/oauth2/v1/userinfo?' . urldecode(http_build_query($params)));
+                $userInfo = json_decode($info, true);
                 //$userInfo = file_get_contents("https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=1&myRecentSubscribers=true&access_token=".$tokenInfo['access_token']);
                 //$userInfo = file_get_contents("https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true&access_token=".$tokenInfo['access_token']);
-                $userInfo = $this->getYouTubeChannelInfo($userInfo);
+                //$userInfo = $this->getYouTubeChannelInfo($userInfo);
                 dd($userInfo);
                 if(!($user = $this->UserModel->getUser($userInfo['id'], "user_youtube"))) {
                     $data = [
