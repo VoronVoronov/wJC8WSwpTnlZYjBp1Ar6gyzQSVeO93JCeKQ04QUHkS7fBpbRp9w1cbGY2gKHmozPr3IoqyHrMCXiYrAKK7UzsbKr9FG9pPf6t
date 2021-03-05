@@ -520,7 +520,7 @@ class UserController extends Controller {
                 curl_close($ch1);
 
                 $userInfo = json_decode($r1);
-                dd($userInfo);
+                //dd($userInfo);
 
                 if(!($user = $this->UserModel->getUser($userInfo['id'], "user_youtube"))) {
                     $data = [
