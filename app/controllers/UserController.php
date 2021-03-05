@@ -503,6 +503,7 @@ class UserController extends Controller {
             curl_close($curl);
 
             $tokenInfo = json_decode($result, true);
+            dd($tokenInfo);
             if(isset($tokenInfo['access_token'])) {
                 $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&key='.config()->youtube['client_secret']);
                 curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
@@ -518,7 +519,7 @@ class UserController extends Controller {
 
                 $userInfo = json_decode($r1);
                 dd($userInfo);
-                dd($tokenInfo);
+
                 if(!($user = $this->UserModel->getUser($userInfo['id'], "user_youtube"))) {
                     $data = [
                         "user_login" 	            =>	"youtube_" . $userInfo['items'][0]['id'],
