@@ -504,7 +504,7 @@ class UserController extends Controller {
             curl_close($curl);
 
             $tokenInfo = json_decode($result, true);
-            //dd($tokenInfo);
+            dd($tokenInfo);
             if(isset($tokenInfo['access_token'])) {
                 $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&key=AIzaSyCU5VqW4A7siaifEj05lmA_9HUyFpnb4UA');
                 curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
