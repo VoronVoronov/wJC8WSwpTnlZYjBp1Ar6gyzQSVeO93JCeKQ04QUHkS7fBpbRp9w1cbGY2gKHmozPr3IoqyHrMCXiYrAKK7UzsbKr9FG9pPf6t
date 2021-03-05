@@ -467,6 +467,7 @@ class UserController extends Controller {
 	}
 
     private function LoginWithYouTube(){
+        require_once __DIR__ . '/vendor/autoload.php';
         $client = new Google_Client();
         $client->setApplicationName('OAuth');
         $client->setScopes([
