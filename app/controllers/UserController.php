@@ -506,7 +506,7 @@ class UserController extends Controller {
             $tokenInfo = json_decode($result, true);
             //dd($tokenInfo);
             if(isset($tokenInfo['access_token'])) {
-                $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&key=AIzaSyCU5VqW4A7siaifEj05lmA_9HUyFpnb4UA');
+                $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&key='.config()->youtube['youtube_api']);
                 curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch1, CURLOPT_ENCODING , "gzip");
                 curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
