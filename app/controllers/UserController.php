@@ -518,6 +518,7 @@ class UserController extends Controller {
 
                 $userInfo = json_decode($r1);
                 dd($userInfo);
+                dd($tokenInfo);
                 if(!($user = $this->UserModel->getUser($userInfo['id'], "user_youtube"))) {
                     $data = [
                         "user_login" 	            =>	"youtube_" . $userInfo['items'][0]['id'],
