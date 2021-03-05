@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/landing.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/landing.zara.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/oferta.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/oferta.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/privacy.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/privacy.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
-      <workItem from="1614916290901" duration="13835000" />
+      <workItem from="1614916290901" duration="13913000" />
     </task>
     <task id="LOCAL-00001" summary="05.03.2021 6:2">
       <created>1614916373877</created>
@@ -294,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614984594529</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Add Privacy">
+      <created>1614984678329</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1614984678329</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
