@@ -165,46 +165,43 @@
                     </div>
 
                     <div class="left-menu">
-						<a href="https://passport.webmoney.ru/asp/certview.asp?wmid=413143268781" target="_blank"><img src="/assets/images/v_blue_on_white_ru.png" alt="Здесь находится аттестат нашего WM идентификатора 413143268781" border="0" /></a>
-					</div>
-                    <div class="left-menu">
-                        <a href="https://webmoney.ru/" target="_blank"><img src="/assets/images/88x31_wm_white_blue.png"></a>
+                        <a href="https://passport.webmoney.ru/asp/certview.asp?wmid=413143268781" target="_blank"><img src="/assets/images/v_blue_on_white_ru.png" alt="Здесь находится аттестат нашего WM идентификатора 413143268781" border="0" /></a>
                     </div>
-                    <div class="right-menu">
-                        <a href="https://unitpay.ru/" target="_blank"><img src="/assets/images/unitpay.png"></a>                        
+                    <div class="left-menu">
+                        <a href="https://megastock.ru/" target="_blank"><img src="/assets/images/webmoney_accept.png"></a>
                     </div>
                 </div>
-		
+
                 <div class="clear"></div>
             </div>
             <div class="footer-line">
                 <div class="container">
                     <div class="copyright">
-                        2019 - <?php echo date ( 'Y' ) ; ?> &copy; IPDonate 
-                            <i class="fab fa-vimeo"></i>
-                            <?
-                            $version_json = @file_get_contents('https://ipdonate.com/api/v1/version/?token=OitQDh8fwQIO0ZaFJZwXuz5R');
-                            $version = json_decode($version_json, true);
-                            echo $version[0]['version'];
-                            echo $version[0]['type'];
-                            ?>. 
-                            <a href="https://updown.io/wkrd">
-                            UPTIME: 
-                                <!--
-                                <i class="fas fa-signal"></i>
-                                <i class="fab fa-dev"></i>
-                                -->
+                        2019 - <?php echo date ( 'Y' ) ; ?> &copy; IPDonate
+                        <i class="fab fa-vimeo"></i>
+                        <?
+                        $version_json = @file_get_contents('https://ipdonate.com/api/v1/version/?token=OitQDh8fwQIO0ZaFJZwXuz5R');
+                        $version = json_decode($version_json, true);
+                        echo $version[0]['version'];
+                        echo $version[0]['type'];
+                        ?>.
+                        <a href="https://updown.io/wkrd">
+                            UPTIME:
+                            <!--
+                            <i class="fas fa-signal"></i>
+                            <i class="fab fa-dev"></i>
+                            -->
 
                             <?
-                             $status_json = @file_get_contents('https://updown.io/api/checks?api-key=CayZiwAv5S9oVkEUYxnu');
-                             $status = json_decode( $status_json, true );
-                             echo $uptime = $status[0]['uptime'].'%';
+                            $status_json = @file_get_contents('https://updown.io/api/checks?api-key=CayZiwAv5S9oVkEUYxnu');
+                            $status = json_decode( $status_json, true );
+                            echo $uptime = $status[0]['uptime'].'%';
                             ?>
-                            </a>
+                        </a>
                     </div>
 
                     <div class="copyright-right">
-                        Все права защищены 
+                        Все права защищены
                     </div>
 
                     <div class="clear"></div>
@@ -218,28 +215,40 @@
 
 
 <!-- Модальное окно -->
-<div id="authModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="row row-sm-offset-3 socialButtons">
-                    <div class="col-xs-2 col-sm-2">
-                        <a href="/login/vk" class="btn btn-lg btn-block lgn_btn-vk" data-toggle="tooltip" data-placement="top" title="VK Login">
-                            <i class="fa fa-vk fa-2x"></i>
-                            <span class="hidden-xs"></span>
-                        </a>
+    <div id="authModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row row-sm-offset-3 socialButtons">
+                        <center>
+                            <div class="col-xs-2 col-sm-2">
+                                <a href="/login/twitch" class="btn btn-lg btn-block lgn_btn-twitch" data-toggle="tooltip" data-placement="top" title="Twitch Login">
+                                    <i class="fa fa-twitch fa-2x"></i>
+                                    <span class="hidden-xs"></span>
+                                </a>
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                <a href="/login/vk" class="btn btn-lg btn-block lgn_btn-vk" data-toggle="tooltip" data-placement="top" title="VK Login">
+                                    <i class="fa fa-vk fa-2x"></i>
+                                    <span class="hidden-xs"></span>
+                                </a>
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                <a href="/login/youtube" class="btn btn-lg btn-block lgn_btn-google-plus" data-toggle="tooltip" data-placement="top" title="YouTube login">
+                                    <i class="fa fa-youtube fa-2x"></i>
+                                    <span class="hidden-xs"></span>
+                                </a>
+                            </div>
+                            <br>
+                        </center>
                     </div>
-                    <div class="col-xs-2 col-sm-2">
-                        <a href="/login/youtube" class="btn btn-lg btn-block lgn_btn-google-plus" data-toggle="tooltip" data-placement="top" title="YouTube login">
-                            <i class="fa fa-youtube fa-2x"></i>
-                            <span class="hidden-xs"></span>
-                        </a>
-                    </div>
+                    <center>
+                        <small>Авторизуясь, Вы подтверждаете, что внимательно прочитали и согласились нашими <a href="/agreement">пользовательским соглашением</a> и нашей <a href="/privacy">Политикой конфиденциальности</a>.</small>
+                    </center>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
 <div id="vk_community_messages"></div>
 <script type="text/javascript">
