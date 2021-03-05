@@ -483,20 +483,21 @@ class UserController extends Controller {
         } else {
             $result = false;
 
-            $params = [
+            $params = array(
                 'client_id' => config()->youtube['client_id'],
                 'client_secret' => config()->youtube['client_secret'],
                 'redirect_uri' => config()->youtube['redirect_uri'],
                 'grant_type' => 'authorization_code',
                 'code' => Request::get('code')
-            ];
+            );
 
             $url = 'https://accounts.google.com/o/oauth2/token';
 
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_URL, $url);
             curl_setopt($curl, CURLOPT_POST, 1);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, urldecode(http_build_query($params)));
+            //curl_setopt($curl, CURLOPT_POSTFIELDS, urldecode(http_build_query($params)));
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
             $result = curl_exec($curl);
