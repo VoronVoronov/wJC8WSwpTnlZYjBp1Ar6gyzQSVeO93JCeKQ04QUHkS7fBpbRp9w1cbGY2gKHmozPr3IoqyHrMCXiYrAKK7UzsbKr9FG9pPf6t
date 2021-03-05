@@ -508,6 +508,7 @@ class UserController extends Controller {
             if(isset($tokenInfo['access_token'])) {
                 $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&key=AIzaSyCU5VqW4A7siaifEj05lmA_9HUyFpnb4UA');
                 curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch1, CURLOPT_ENCODING , "gzip");
                 curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
                     'Authorization: Bearer ' . $tokenInfo['access_token'],
                     'Accept: application/json'
