@@ -476,7 +476,7 @@ class UserController extends Controller {
                 'redirect_uri' => config()->youtube['redirect_uri'],
                 'response_type' => 'code',
                 'client_id' => config()->youtube['client_id'],
-                'scope' => 'https://www.googleapis.com/auth/youtube.readonly&https://www.googleapis.com/auth/youtube.channel-memberships.creator'
+                'scope' => 'https://www.googleapis.com/auth/youtube.readonly https://www.googleapis.com/auth/youtube.channel-memberships.creator'
             );
 
             redirect($url . '?' . urldecode(http_build_query($params)));
