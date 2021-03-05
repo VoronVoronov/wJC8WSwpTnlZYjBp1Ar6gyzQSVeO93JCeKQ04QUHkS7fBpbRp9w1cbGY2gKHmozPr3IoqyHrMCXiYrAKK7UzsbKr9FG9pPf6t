@@ -86,7 +86,7 @@ return [
         "client_id" 		=> '888676261813-qughuv0n186hhrrv0vpnejql0d3f2ntn.apps.googleusercontent.com',
         "client_secret" 	=> '0l08deM5aYPY8h9zBaTQ-0_t',
         "redirect_uri" 		=> 'https://ipdonate.com/login/youtube',
-        'youtube_api'		=> 'AIzaSyCw1qSKPQTEG77l2BH3gXY_fONE3K6tex4',
+        'youtube_api'		=> 'AIzaSyCU5VqW4A7siaifEj05lmA_9HUyFpnb4UA',
     ],
 
 	// Настройки почты
