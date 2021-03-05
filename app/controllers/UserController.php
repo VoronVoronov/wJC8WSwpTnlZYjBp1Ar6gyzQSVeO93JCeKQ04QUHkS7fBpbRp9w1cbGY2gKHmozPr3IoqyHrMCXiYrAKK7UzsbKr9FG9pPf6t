@@ -476,7 +476,8 @@ class UserController extends Controller {
                 'redirect_uri' => config()->youtube['redirect_uri'],
                 'response_type' => 'code',
                 'client_id' => config()->youtube['client_id'],
-                'scope' => 'https://www.googleapis.com/auth/youtube.readonly https://www.googleapis.com/auth/youtube.channel-memberships.creator'
+                'scope' => 'https://www.googleapis.com/auth/youtube',
+                //'scope' => 'https://www.googleapis.com/auth/youtube.readonly https://www.googleapis.com/auth/youtube.channel-memberships.creator'
             );
 
             redirect($url . '?' . urldecode(http_build_query($params)));
@@ -506,11 +507,11 @@ class UserController extends Controller {
             $tokenInfo = json_decode($result, true);
             //dd($tokenInfo);
             if(isset($tokenInfo['access_token'])) {
-                $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&key='.config()->youtube['youtube_api']);
+                $ch1 = curl_init('https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&maxResults=1&myRecentSubscribers=true&access_token='.$tokenInfo['access_token'].'&ley='.config()->youtube['youtube_api']);
                 curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch1, CURLOPT_ENCODING , "gzip");
                 curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
-                    'Authorization: Bearer ' . $tokenInfo['access_token'],
+                    //'Authorization: Bearer ' . $tokenInfo['access_token'],
                     'Accept: application/json'
                 ));
 
