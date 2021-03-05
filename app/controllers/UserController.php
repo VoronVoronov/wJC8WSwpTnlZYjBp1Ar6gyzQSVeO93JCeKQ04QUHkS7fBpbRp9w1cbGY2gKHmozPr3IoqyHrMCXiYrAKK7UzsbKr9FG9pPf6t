@@ -923,7 +923,7 @@ class UserController extends Controller {
                     $userInfo = json_decode($r1);
 
                     if (!($user = $this->UserModel->getUser($userInfo->items[0]->id, "user_youtube"))) {
-                        $this->UserModel->editUser(session("user_id"), ["user_youtube" => $userInfo->items[0]->id, 'user_youtube_token' => $tokenInfo['access_token'], 'user_youtube_subs' => $userInfo->items[0]->statistics->subscriberCount,);
+                        $this->UserModel->editUser(session("user_id"), ["user_youtube" => $userInfo->items[0]->id, 'user_youtube_token' => $tokenInfo['access_token'], 'user_youtube_subs' => $userInfo->items[0]->statistics->subscriberCount]);
                         header('Location: '.config()->url.'/profile/');
                     }else {
                         header('Location: '.config()->url.'/profile/');
