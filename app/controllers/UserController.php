@@ -511,8 +511,9 @@ class UserController extends Controller {
                 curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch1, CURLOPT_ENCODING , "gzip");
                 curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
-                    //'Authorization: Bearer ' . $tokenInfo['access_token'],
-                    'Accept: application/json'
+                    'Authorization: Bearer ' . $tokenInfo['access_token'],
+                    'Accept: application/json',
+                    'Accept-Encoding: gzip'
                 ));
 
                 $r1 = curl_exec($ch1);
