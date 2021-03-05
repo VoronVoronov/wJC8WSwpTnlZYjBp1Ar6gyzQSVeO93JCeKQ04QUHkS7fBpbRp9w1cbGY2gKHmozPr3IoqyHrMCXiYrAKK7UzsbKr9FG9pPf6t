@@ -109,7 +109,7 @@
         }
         .table-striped > tbody > tr:nth-child(odd) > td,
         .table-striped > tbody > tr:nth-child(odd) > th {
-            background-color: #f9f9f9;
+            background-color: #c5c5c5;
         }
         .table-hover > tbody > tr:hover > td,
         .table-hover > tbody > tr:hover > th {
@@ -230,306 +230,221 @@
 
                     <section class="content container text-white">
                         <ol class="mt40 ol-mod ol-parent" style="padding-left: 15px;">
-                            <li><strong>Who we are</strong>
+                            <li><strong>Кто мы?</strong>
                                 <ol class="ol-mod">
-                                    <li>This Privacy Policy sets out how we collect and use your personal information when you visit our
-                                        site https://donatepay.ru("Site") or use our online service “DonatePay” (“DP Services”) offered by
-                                        ООО &quot;ХАУС СЕРВИС&quot; and the choices available to you in connection with our use of your personal information
-                                        (“Privacy Policy”). The Site and DP Services are hereinafter collectively referred to as the “DP Platform”.
-                                        This Privacy Policy should be read alongside.
+                                    <li>В этой политике конфиденциальности описано, как мы собираем и используем ваши персональные данные,
+                                        когда вы посещаете НАШ САЙТ https://ipdonate.com("сайт") или
+                                        использовать наш онлайн-сервис "IPDonate” (“IPD платформа”).
+                                        А также доступные вам варианты в связи с использованием нами вашей личной информации (“Политика Конфиденциальности”).
+                                        Сайт и услуги IPD в дальнейшем совместно именуются “платформа IPD”.
+                                        Эта политика конфиденциальности должна быть прочитана вместе с ней.
                                     </li>
                                 </ol>
                             </li>
 
                             <li>
-                                <strong>This Privacy Policy</strong>
+                                <strong>Настоящая Политика Конфиденциальности</strong>
                                 <ol class="ol-mod">
-                                    <li>By making available the DP Platform we, acting reasonably and in good faith, believe that you:
+                                    <li>Предоставляя доступ к платформе IPD, мы, действуя разумно и добросовестно, считаем, что вы::
                                         <ol class="ol-mod">
-                                            <li>have all necessary rights to register and use the DP Platform;</li>
-                                            <li>provide true information about yourself to the extent necessary for use of the DP Platform;</li>
-                                            <li>understand that by the posting your personal information you have manifestly made this information
-                                                public, and this information may become available to other DP Platform users and internet users, be
-                                                copied and disseminated by them;
+                                            <li>иметь все необходимые права для регистрации и использования платформы IPD;</li>
+                                            <li>предоставьте достоверную информацию о себе в объеме, необходимом для использования платформы IPD;</li>
+                                            <li>поймите, что публикуя свою личную информацию, вы явно сделали эту информацию общедоступной, и эта информация может стать доступной другим пользователям платформы IPD и пользователям Интернета, быть скопирована и распространена ими;
                                             </li>
-                                            <li>understand that some types of information transferred by you to other DP Platform users cannot be
-                                                deleted by you or us;
+                                            <li>поймите, что некоторые типы информации, переданные вами другим пользователям платформы IPD, не могут быть удалены вами или нами;
                                             </li>
-                                            <li>are aware of and accept this Privacy Policy.</li>
+                                            <li>вы знаете и принимаете настоящую Политику конфиденциальности.</li>
                                         </ol>
                                     </li>
-                                    <li>We do not check the user information received from you, except where such check is necessary in order for
-                                        us to fulfill our obligations to you.
+                                    <li>Мы не проверяем полученную от вас пользовательскую информацию, за исключением случаев, когда такая проверка необходима для выполнения нами своих обязательств перед вами.
                                     </li>
                                 </ol>
                             </li>
 
                             <li>
-                                <strong>Information we collect about you</strong>
+                                <strong>Информация, которую мы собираем о вас</strong>
                                 <ol class="ol-mod">
-                                    <li>In order to implement the agreement between you and us, and provide you with access to the use of the DP
-                                        Platform, we will improve, develop and implement new features to the DP Platform, and enhance the available
-                                        DP Platform functionality. To achieve these objectives, and in compliance with applicable laws, we will
-                                        collect, store, aggregate, organise, extract, compare, use, and supplement your data. We will also receive
-                                        and pass this data, and our automatically processed analyses of this data to our affiliates and partners as
-                                        set out in the table below and section 4 of this Privacy Policy.
+                                    <li>В целях реализации соглашения между вами и нами, а также предоставления вам доступа к использованию IPD Платформа, мы будем улучшать, разрабатывать и внедрять новые функции для платформы IPD, а также улучшать доступные Функциональность платформы IPD. Для достижения этих целей и в соответствии с применимым законодательством мы будем собирать, хранить, агрегировать, организовывать, извлекать, сравнивать, использовать и дополнять ваши данные. Мы также будем получать и передавать эти данные, а также наш автоматически обработанный анализ этих данных нашим аффилированным лицам и партнерам в качестве изложено в таблице ниже и разделе 4 настоящей Политики конфиденциальности.
                                     </li>
                                     <li>
-                                        We set out in more detail the information we may collect when you use the DP Platform, why we collect
-                                        and process it and the legal bases below.<br><br>
+                                        Мы более подробно описываем информацию, которую мы можем собирать, когда вы используете платформу IPD, почему мы собираем и обрабатываем ее, а также правовые основы ниже.<br><br>
 
                                         <table class="table table-bordered table-striped">
                                             <tr>
-                                                <th>Information Collected</th>
-                                                <th>Purpose</th>
-                                                <th>Legal Basis</th>
+                                                <th>Собранная Информация</th>
+                                                <th>Цель</th>
+                                                <th>Правовая Основа</th>
                                             </tr>
                                             <tr>
-                                                <td>Data you provide for registering in DP Platform: data obtained via third parties - your social
-                                                    network nickname and email (such as Facebook, Google, YouTube), your nickname that you create at the
-                                                    process of registering
+                                                <td>Данные, которые вы предоставляете для регистрации в IPD платформа: данные, полученные через третьих лиц - ваш ник в социальной сети и адрес электронной почты (например, Facebook, Google, YouTube), ваш ник, который вы создаете в процессе регистрации
                                                 </td>
-                                                <td>We use this information in order to manage and administer DP Platform provided to you. We use this
-                                                    data to enable us to fulfill our obligations to you as part of DA Platform (e.g. in cases where you
-                                                    request restoration of your account). See section 8.3 of this Privacy Policy for more information.
+                                                <td>Мы используем эту информацию для управления и администрирования предоставленной вам платформы IPD. Мы используем эти данные для выполнения наших обязательств перед вами как частью платформы IPD (например, в тех случаях, когда вы запрашиваете восстановление своей учетной записи). Дополнительную информацию смотрите в разделе 8.3 настоящей Политики конфиденциальности.
                                                 </td>
-                                                <td>Legitimate interests<br><br>Performance of our contract with you</td>
+                                                <td>Законные интересы<br><br>Исполнение нашего договора с вами</td>
                                             </tr>
                                             <tr>
-                                                <td>Additional data you provide when you edit your profile page at https://donatepay.ru or on
-                                                    dedicated service profile page via including your name, surname, mobile phone, email, nickname,
-                                                    country.
+                                                <td>Дополнительные данные, которые вы предоставляете при редактировании страницы своего профиля по адресу https://ipdonate.com или на специальной странице профиля службы, включая ваше имя, фамилию, мобильный телефон, электронную почту, ник, страну.
                                                 </td>
-                                                <td>We use this information in order to provide DP Platform to you, to manage and administer DP Platform
-                                                    and as additional information to verify your account to prevent abuse and infringements of your or
-                                                    other persons' rights.<br>
-                                                    We also use this information in order to provide you with updates and information on our and selected
-                                                    third parties' products and DP Platform we think you may be interested in.
+                                                <td>Мы используем эту информацию для предоставления вам платформы IPD, для управления и администрирования платформы IPD, а также в качестве дополнительной информации для проверки вашей учетной записи, чтобы предотвратить злоупотребления и нарушения Ваших или других прав.<br>
+                                                    Мы также используем эту информацию для того, чтобы предоставлять вам обновления и информацию о наших и выбранных сторонних продуктах и платформе IPD, которые, по нашему мнению, могут вас заинтересовать.
                                                 </td>
-                                                <td>Legitimate interests<br><br>Performance of our contract with you</td>
+                                                <td>Законные интересы<br><br>Исполнение нашего договора с вами</td>
                                             </tr>
                                             <tr>
-                                                <td>Additional data received when you access DP Platform, including information regarding technical
-                                                    interaction with DP Platform such as your IP-address, time of registration on DP Platform, time of
-                                                    your last visit of DP Platform, device ids, country and language settings.
+                                                <td>Дополнительные данные, полученные при доступе к платформе IPD, включая информацию о техническом взаимодействии с платформой IPD, такую как ваш IP-адрес, время регистрации на платформе IPD, время вашего последнего посещения платформы IPD, идентификаторы устройств, настройки страны и языка.
                                                 </td>
-                                                <td>We use your data for internal review in order to constantly improve the content of DP Platform and
-                                                    web pages, optimizing your user experience, to understand any errors you may encounter when using DP
-                                                    Platform, to notify you of changes to DP Platform and to personalise the use of our DP Platform.
+                                                <td>Мы используем ваши данные для внутреннего анализа с целью постоянного улучшения содержания платформы IPD и веб-страниц, оптимизации вашего пользовательского опыта, понимания любых ошибок, с которыми вы можете столкнуться при использовании IPD Платформа, чтобы уведомить вас об изменениях в платформе IPD и персонализировать использование нашей платформы IPD.
                                                 </td>
-                                                <td>Legitimate Interests</td>
+                                                <td>Законные Интересы</td>
                                             </tr>
                                             <tr>
-                                                <td>Information that is created by you while using DP Platform (including User Content). This
-                                                    information can be available to all viewers of the Broadcaster Content where the User Content is
-                                                    placed
+                                                <td>Информация, созданная вами при использовании платформы IPD (включая пользовательский контент). Эта информация может быть доступна всем зрителям контента вещателя, в котором размещен пользовательский контент
                                                 </td>
-                                                <td>We use this information in order to manage and administer DP Platform including providing our DP
-                                                    Platform to you.
+                                                <td>Мы используем эту информацию для управления и администрирования платформы IPD, включая предоставление наших IPD Платформа для вас.
                                                 </td>
-                                                <td>Legitimate interests</td>
+                                                <td>Законные Интересы</td>
                                             </tr>
                                             <tr>
-                                                <td>Information that is created by you while placing requests to our Services support.</td>
-                                                <td>We use this information in order to verify your identity and to fulfill your support request.<br>
-                                                    We may also use this data in order to investigate any complaints on your behalf and to provide you
-                                                    with a more efficient service.
+                                                <td>Информация, которая создается вами при размещении запросов в нашу службу поддержки.</td>
+                                                <td>Мы используем эту информацию для того, чтобы подтвердить вашу личность и выполнить ваш запрос в службу поддержки.
+                                                    Мы также можем использовать эти данные для расследования любых жалоб от вашего имени и предоставления вам более эффективного сервиса.
                                                 </td>
-                                                <td>Legitimate interests<br><br>Performance of our contract with you</td>
+                                                <td>Законные интересы<br><br>исполнение нашего договора с вами</td>
                                             </tr>
                                             <tr>
-                                                <td>Information that is received as the result of your using payment functionality on the Site (e.g.
-                                                    first and last four digits of your card number that are needed for the option of matching these
-                                                    details with user’s id number).
+                                                <td>Информация, полученная в результате использования вами платежного функционала на сайте (например , первые и последние четыре цифры номера вашей карты, необходимые для возможности сопоставления этих данных с идентификационным номером пользователя).
                                                 </td>
-                                                <td>We use this information in order to manage and administer the Site including providing our Site
-                                                    Services to you.<br>
-                                                    We may also use this data in order to investigate any complaints on your behalf and to provide you
-                                                    with a more efficient service.
+                                                <td>Мы используем эту информацию для управления и администрирования сайта включая предоставление нашего сайта Услуги для вас.<br>
+                                                    Мы также можем использовать эти данные для расследования любых жалоб от вашего имени и предоставления вам более эффективного сервиса.
                                                 </td>
-                                                <td>Legitimate interests<br><br>Performance of our contract with you</td>
+                                                <td>Законные интересы<br><br>исполнение нашего договора с вами</td>
                                             </tr>
                                             <tr>
-                                                <td>Data collected via third parties, in case you choose to provide such data from a third-party social
-                                                    network or authentication service (such as Facebook, Google, YouTube, among others), when you log in
-                                                    using such network and/or service or connect such network and/or service to our DP Platform, including
-                                                    your social network ids (such as Google ID), application store ids, nickname, email, subscribers list,
-                                                    channel name, channel URL, avatar.
+                                                <td>Собранные данные через третьих лиц, в случае, если вы решите не предоставлять такие данные, от стороннего социальной сеть или службы аутентификации (например, Facebook, Google, Youtube и т. д.), Когда вы входите в с помощью такой сети и/или услуги или подключить такую сеть и/или услуг на нашей платформе IPD, в том числе ваш социальной сети с идентификаторами (например, Google ID), магазин приложений идентификаторы, ник, адрес электронной почты, подписчиком рассылки, имя канала, URL-адрес канала, аватар.
                                                 </td>
-                                                <td>We use this information in order to manage and administer the DA Platform provided to you.</td>
-                                                <td>Legitimate interests<br><br>Performance of our contract with you.</td>
+                                                <td>Мы используем эту информацию для управления и администрирования платформы IPD, предоставленной вам.</td>
+                                                <td>Законные интересы<br><br>исполнение нашего договора с вами</td>
                                             </tr>
                                         </table>
                                         <br>
                                     </li>
-                                    <li>Our legitimate interests include (1) maintaining and administrating Dp Platform; (2) providing DP
-                                        Platform to you; (3) improving the content of DP Platform and web pages; (4) processing of the data that was
-                                        manifestly made public by you (5) ensuring your account is adequately protected; and (6) compliance with any
-                                        contractual, legal or regulatory obligations under any applicable law.
+                                    <li>Наши законные интересы включают (1) поддержание и администрирование Платформы IPD; (2) предоставление вам Платформы DA; (3) улучшение контента Платформы DA и веб-страниц; (4) обработку данных, которые были явным образом разглашены вами; (5) обеспечение надлежащей защиты вашей учетной записи; и (6) соблюдение любых договорных, правовых или нормативных обязательств в соответствии с любым применимым законодательством.
                                     </li>
-                                    <li>Your personal information may also be processed if it is required by a law enforcement or regulatory
-                                        authority, body or agency or in the defence or exercise of legal claims.<br>
-                                        We will not delete personal information if it is relevant to an investigation or a dispute. It will continue
-                                        to be stored until those issues are fully resolved and/or during the term that is required and/or
-                                        permissible under applicable/relevant law.
+                                    <li>Ваши персональные данные также могут обрабатываться, если это требуется правоохранительным или регулирующим органом, ведомством или учреждением, или при защите или реализации прав требования.<br>
+                                        Мы не будем удалять персональные данные, если они имеют отношение к расследованию или спору. Они будут храниться до тех пор, пока указанные расследования или споры не будут полностью урегулированы и/или в течение срока, который требуется и/или допускается применимым/соответствующим законодательством.
                                     </li>
-                                    <li>You may withdraw your consent for sending you marketing information by amending your privacy settings
-                                        of your account. An option to unsubscribe will also be included in every email sent to you by us or our
-                                        selected third party partners.
+                                    <li>Вы можете отозвать свое согласие на отправку вам маркетинговой информации, изменив настройки конфиденциальности своей учетной записи. Возможность отказаться от подписки также будет включена в каждое электронное письмо, отправленное вам нами или нашими избранными сторонними партнерами.
                                     </li>
-                                    <li>Please note, if you do not want us to process sensitive and special categories of data about you
-                                        (including data relating to your health, racial or ethnic origin, political opinion, religious or
-                                        philosophical beliefs, sex life, and your sexual orientation) you should take care not to post this
-                                        information or share this data on DP Platform.<br>
-                                        Once you have provided this data it will be accessible by the users of the web-sites (including mobile
-                                        versions) where this data is posted and it becomes difficult for us to remove this data.
+                                    <li>Обратите внимание, что если вы не хотите, чтобы мы обрабатывали конфиденциальные и особые категории данных (включая данные, касающиеся вашего здоровья, расового или этнического происхождения, политических взглядов, религиозных или философских убеждений, интимной жизни и сексуальной ориентации), вы должны проявить осторожность и не размещать эту информацию, а также не делиться этими данными при использовании Платформы IPD.<br>
+                                        После предоставления вами этих данных они станут доступными пользователям веб-сайтов (включая мобильные версии), где размещены эти данные, и нам станет трудно удалить эти данные.
                                     </li>
-                                    <li>Please note, if you withdraw your consent to processing or you do not provide the data that we
-                                        require in order to maintain and administer DP Platform, you may not be able to access and use DP Platform.
+                                    <li>Обратите внимание, что, если вы отзываете свое согласие на обработку или не предоставляете данные, которые нам требуются для технической поддержки и администрирования Платформы IPD, вы не сможете получить доступ к Платформе IPD и пользоваться ей.
                                     </li>
-                                    <li>If we intend to further process your data for any other purpose to those set out in this Privacy
-                                        Policy, we shall provide you with details of this further purpose before we commence processing.
+                                    <li>Если мы намереваемся обрабатывать ваши данные в каких-либо иных целях, помимо тех, которые указаны в настоящей Политике конфиденциальности, мы предоставим вам подробную информацию об этой дополнительной цели до того, как мы начнем обработку.
                                     </li>
                                 </ol>
                             </li>
 
                             <li>
-                                <strong>Data sharing</strong>
+                                <strong>Обмен данными</strong>
                                 <ol class="ol-mod">
-                                    <li>Your nickname can be available to all viewers of your Broadcasting Content in the Internet when you
-                                        use DP Platform. We take technical and organizational measures to ensure that your data is safe. Please note
-                                        that by the posting your personal information you have manifestly made this information public, and this may
-                                        become available to other Service users and internet users and be copied and/ or disseminated by such users.
-                                        Once this data is transferred by you to other users you will not be able to delete this data.
+                                    <li>Ваше имя пользователя может быть доступно всем зрителям вашего Контента Стримера в сети Интернет при использовании вами Платформы IPD. Мы принимаем технические и организационные меры для обеспечения безопасности ваших данных. Примите к сведению, что, публикуя ваши персональные данные, вы явно разглашаете эти данные, и эти данные могут стать доступны для других пользователей Сервиса и пользователей сети Интернет, и копироваться и/или распространяться такими пользователями. Как только вы передадите эти данные другим пользователям, вы не сможете их удалить.
                                     </li>
-                                    <li>We may share your data with our affiliates. Sometimes we may also need to share your data with a
-                                        third party in order to provide DP Platform to you or to administer DP Platform, for example if you choose
-                                        to share your data across other social media platforms.
+                                    <li>Мы вправе передавать ваши данные компании нашим аффилированным лицам. Иногда нам также может потребоваться предоставить ваши данные третьему лицу для предоставления вам Платформы IPD или для управления Платформой IPD, например, если вы решите поделиться своими данными с другими социальными сетями.
                                     </li>
                                 </ol>
                             </li>
 
                             <li>
-                                <strong>Privacy Settings</strong>
+                                <strong>Настройки конфиденциальности</strong>
                                 <ol class="ol-mod">
                                     <li>
-                                        DP Platform may contain links to sites operated by third parties. We are not responsible for your data
-                                        privacy when you access these links or engage with third party DP Platform and you should ensure you review
-                                        the relevant third party's privacy statement which will govern your data privacy rights.
+                                        Платформа IPD может содержать ссылки на сайты, управляемые третьими лицами. Мы не несем ответственности за конфиденциальность ваших данных, когда вы получаете доступ к этим ссылкам или взаимодействуете со сторонними сервисами на Платформе IPD, и вам следует убедиться, что вы ознакомились с соответствующим заявлением о конфиденциальности третьего лица, которое будет регулировать ваши права на конфиденциальность данных.
                                     </li>
-                                    <li>In case you intend to connect your YouTube or Google account to the DA Platform using YouTube API, you may
-                                        review and, if necessary, adjust your YouTube privacy settings before linking or connecting them to our
-                                        website or Service. You can find more information on YouTube and Google’s privacy at
-                                        <a href="http://www.google.com/policies/privacy" target="_blank">http://www.google.com/policies/privacy</a>.
+                                    <li>Если вы собираетесь привязать вашу учетную запись YouTube или Google к Платформе IPD с использованием YouTube API, вы можете проверить и, при необходимости, изменить ваши настройки конфиденциальности YouTube на странице настроек безопасности Google по ссылке <a href="https://security.google.com/settings/security/permissions" target="_blank">https://security.google.com/settings/security/permissions</a> до подключения или привязки их к нашему сайту или IPD Сервисам. С подробной информацией о конфиденциальности YouTube и Google вы можете ознакомиться на <a href="https://policies.google.com/" target="_blank">https://policies.google.com/</a> и с Политикой конфиденциальности Google по адресу <a href="https://www.google.com/policies/privacy" target="_blank">https://www.google.com/policies/privacy</a>.
                                     </li>
-                                    <li>We bear no liability for the actions of third parties which, as the result of your use of the
-                                        internet or the DP Platform, obtain access to your information in accordance with the confidentiality level
-                                        selected by you.
+                                    <li>Мы не несем ответственность за действия третьих лиц, которые в результате использования вами сети Интернет или Платформы IPD получают доступ к вашей информации в соответствии с выбранным вами уровнем конфиденциальности.
                                     </li>
-                                    <li>We bear no liability for the consequences of use of the information which, due to DP Platform nature,
-                                        is available to any internet user. We ask you to take a responsible approach to the scope of their
-                                        information posted in DP Platform.
+                                    <li>Мы не несем ответственности за последствия использования информации, которая в силу характера Платформы IPD доступна любому пользователю сети Интернет. Мы просим вас ответственно подходить к выбору вашей информации, размещенной в Платформе IPD.
                                     </li>
                                 </ol>
                             </li>
 
                             <li>
-                                <strong>International Transfers</strong>
+                                <strong>Трансграничная передача</strong>
                                 <ol class="ol-mod">
-                                    <li>We may transfer and maintain on our servers or databases some of your personal information in different
-                                        countries worldwide.
+                                    <li>Мы можем передавать и хранить на наших серверах или в базах данных часть ваших персональных данных в различных странах на территории всего мира.
                                     </li>
                                 </ol>
                             </li>
 
                             <li>
-                                <strong>Retention Periods</strong>
+                                <strong>Сроки хранения</strong>
                                 <ol class="ol-mod">
                                     <li>
-                                        We will retain your personal information for as long as required to perform the purposes for which the
-                                        data was collected depending on the legal basis for which that data was obtained and/or whether additional
-                                        legal/regulatory obligations mandate that we retain your personal information during the term that is
-                                        required and/or permissible under applicable/relevant law.
+                                        Мы будем хранить ваши персональные данные в течение срока, необходимого для выполнения целей, для которых данные были собраны в зависимости от правовых оснований, по которым эти данные были получены и/или в зависимости от того, будут ли дополнительные установленные законом/нормативные обязательства требовать, чтобы мы хранили ваши персональные данные в течение срока, необходимого и/или допустимого в соответствии с применимым/действующим законодательством.
                                     </li>
                                     <li>
-                                        You may delete your personal data by removing the data from your account or by sending us an email to
-                                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a6d5d3d6d6c9d4d2e6c2c9c8c7d2c3d6c7df88d4d388">[email&#160;protected]</a>
+                                        Вы можете удалить свои персональные данные, удалив данные из вашей учетной записи или прислав нам электронное письмо по адресу privacy@ipdonate.com.
                                     </li>
                                 </ol>
                             </li>
 
                             <li>
-                                <strong>Your Rights</strong>
+                                <strong>Ваши права</strong>
                                 <ol class="ol-mod">
-                                    <li>You have the following rights, in certain circumstances, in relation to your personal information:
+                                    <li>При определенных обстоятельствах вы имеете следующие права в отношении ваших персональных данных:
                                         <ol class="ol-mod">
-                                            <li>Right to access your personal information.</li>
-                                            <li>Right to rectify your personal information: you can request that we update, block or delete your
-                                                personal data, if the data is incomplete, outdated, incorrect, unlawfully received or no longer relevant
-                                                for the purpose of processing.
+                                            <li>право на доступ к Вашим персональным данным;</li>
+                                            <li>право на внесение исправлений в Ваши персональные данные: Вы можете потребовать, чтобы мы обновили, заблокировали или удалили Ваши персональные данные, если такие данные являются неполными, устаревшими, неверными, незаконно полученными или не актуальными для целей обработки;
                                             </li>
-                                            <li>Right to restrict the use of your personal information.</li>
-                                            <li>Right to request that your personal information is erased.</li>
-                                            <li>Right to object to processing of your personal information.</li>
-                                            <li>Right to data portability (in certain specific circumstances).</li>
-                                            <li>Right not to be subject to an automated decision.</li>
-                                            <li>Right to lodge a complaint with a supervisory authority.</li>
+                                            <li>право ограничить использование Ваших персональных данных;</li>
+                                            <li>Право требовать, чтобы ваша личная информация была удалена.</li>
+                                            <li>Право возражать против обработки вашей личной информации.</li>
+                                            <li>Право на переносимость данных (при определенных конкретных обстоятельствах).</li>
+                                            <li>Право не подчиняться автоматическому решению.</li>
+                                            <li>Право на подачу жалобы в надзорный орган.</li>
                                         </ol>
-                                    <li>You also have a right to independently remove personal information on your account and make changes
-                                        and corrections to your information, provided that such changes and corrections contain up-to-date and true
-                                        information. You can also view an overview of the information we hold about you.
+                                    <li>Вы также имеете право самостоятельно удалять личную информацию в вашем аккаунте и вносить изменения и исправления в вашу информацию, при условии, что такие изменения и исправления содержат актуальную и достоверную информацию. Вы также можете просмотреть обзор информации, которую мы храним о вас.
                                     </li>
-                                    <li>If you would like to exercise these rights, please contact Support Service at
-                                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a696f6a6a75686e5a7e75747b6e7f6a7b6334686f34">[email&#160;protected]</a> We will aim to respond to you within period established by applicable law. We
-                                        will need to verify your identity before we are able to disclose any personal data to you.
+                                    <li>Если вы хотите воспользоваться этими правами, пожалуйста, свяжитесь со службой поддержки по адресу privacy@ipdonate.com мы постараемся ответить вам в срок, установленный действующим законодательством. Нам необходимо будет подтвердить вашу личность, прежде чем мы сможем раскрыть вам какие-либо персональные данные.
                                     </li>
                                 </ol>
                             </li>
 
                             <li>
-                                <strong>Security Measures</strong>
+                                <strong>Меры Безопасности</strong>
                                 <ol class="ol-mod">
-                                    <li>We take technical, organizational and legal measures, including, where suitable, encryption, to
-                                        ensure that your personal data are protected from unauthorized or accidental access, deletion, modification,
-                                        blocking, copying and dissemination.
+                                    <li>
+                                        Мы принимаем технические, организационные и правовые меры, включая, при необходимости, шифрование, чтобы обеспечить защиту Ваших персональных данных от несанкционированного или случайного доступа, удаления, изменения, блокирования, копирования и распространения.
                                     </li>
-                                    <li>Access to DP Platform is authorized using by the relevant social network your login (e-mail address
-                                        or mobile phone number) and password. You are responsible for keeping this information confidential. You
-                                        should not share your credentials with third parties and we recommend you take measures to ensure this
-                                        information is kept confidential.
+                                    <li>
+                                        Доступ к платформе IPD авторизуется с использованием соответствующей социальной сетью Вашего логина (адреса электронной почты или номера мобильного телефона) и пароля. Вы несете ответственность за сохранение этой информации в тайне. Вы не должны передавать свои учетные данные третьим лицам, и мы рекомендуем вам принять меры для обеспечения конфиденциальности этой информации.
                                     </li>
                                 </ol>
                             </li>
 
                             <li>
-                                <strong>Changes to this Policy</strong>
+                                <strong>Изменения в настоящей Политике</strong>
                                 <ol class="ol-mod">
-                                    <li>From time to time, we may change and/or update this Privacy Policy. If this Privacy Policy changes
-                                        in any way, we will post an updated version on this page. We will store the previous versions of this
-                                        Privacy Policy in our documentation achieve. We recommend you regularly review this page to ensure that you
-                                        are always aware of our information practices and any changes to such.
-                                    </li>
+                                    <li>Время от времени мы можем изменять и/или обновлять настоящую Политику конфиденциальности. Если эта политика конфиденциальности каким-либо образом изменится, мы опубликуем обновленную версию на этой странице. Мы будем хранить предыдущие версии этой политики конфиденциальности в нашей документации achieve. Мы рекомендуем вам регулярно просматривать эту страницу, чтобы убедиться, что вы всегда в курсе нашей информационной практики и любых изменений в ней.</li>
                                 </ol>
                             </li>
 
                             <li>
                                 <strong>Contact Us</strong>
                                 <ol class="ol-mod">
-                                    <li>If you have any questions, please send your inquiries to Service support at
-                                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80f3f5f0f0eff2f4c0e4efeee1f4e5f0e1f9aef2f5ae">[email&#160;protected]</a> So we can deal with your enquiry effectively, please quote this Privacy Policy.
-                                        We will aim to respond to you within period established by applicable law.
+                                    <li>Если у вас есть какие-либо вопросы, пожалуйста, отправьте свои запросы в службу технической поддержки по адресу privacy@ipdonate.com. чтобы мы могли эффективно справиться с вашим запросом, пожалуйста, процитируйте эту политику конфиденциальности. Мы постараемся ответить вам в срок, установленный действующим законодательством.
                                     </li>
-                                    <li>All correspondence received by us from you is classified as restricted-access information and may not be
-                                        disclosed without your written consent. The personal data and other information about you may not be used
-                                        without your consent for any purpose other than for response to the inquiry, except as expressly provided by
-                                        law.
+                                    <li>
+                                        Вся корреспонденция, полученная нами от вас, классифицируется как информация ограниченного доступа и не может быть раскрыта без вашего письменного согласия. Персональные данные и другая информация о вас не могут быть использованы без вашего согласия в каких-либо иных целях, кроме как для ответа на запрос, за исключением случаев, прямо предусмотренных законом.
                                     </li>
                                 </ol>
                             </li>
                         </ol>
                     </section>
                     <br><br><br>
-                    <small>Последнее изменение: 03.03.2021 - 23:35</small>
+                    <small>Последнее изменение: 06.03.2021 - 1:45</small>
                 </div>
             </div>
         </div>
@@ -550,9 +465,6 @@
                     </div>
                     <div class="left-menu">
                         <a href="https://webmoney.ru/" target="_blank"><img src="/assets/images/88x31_wm_white_blue.png"></a>
-                    </div>
-                    <div class="right-menu">
-                        <a href="https://unitpay.ru/" target="_blank"><img src="/assets/images/unitpay.png"></a>
                     </div>
                 </div>
 
