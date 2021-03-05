@@ -4,7 +4,7 @@
     <meta charset="UTF-8" name="robots" content="none">
     <title>Прием платежей</title>
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="https://mjstc.ru/pay/style/bill.css">
+    <link rel="stylesheet" href="/assets/css/bill.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <style>
         a.paysystem {
