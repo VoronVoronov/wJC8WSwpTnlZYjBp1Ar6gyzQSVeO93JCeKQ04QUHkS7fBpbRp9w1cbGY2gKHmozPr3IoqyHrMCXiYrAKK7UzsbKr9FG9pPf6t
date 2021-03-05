@@ -466,37 +466,7 @@ class UserController extends Controller {
 		}
 	}
 
-    private function LoginWithYouTube(){
-        require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
-        $client = new Google_Client();
-        $client->setApplicationName('OAuth');
-        $client->setScopes([
-            'https://www.googleapis.com/auth/youtube.readonly',
-            'https://www.googleapis.com/auth/youtube.channel-memberships.creator',
-        ]);
-
-        $client->setAuthConfig($_SERVER['DOCUMENT_ROOT'].'/client_secret_888676261813-qughuv0n186hhrrv0vpnejql0d3f2ntn.apps.googleusercontent.com.json');
-        $client->setAccessType('offline');
-
-        $authUrl = $client->createAuthUrl();
-        printf("Open this link in your browser:\n%s\n", $authUrl);
-        print('Enter verification code: ');
-        $authCode = trim(fgets(STDIN));
-        $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
-        $client->setAccessToken($accessToken);
-
-        $service = new Google_Service_YouTube($client);
-
-        $queryParams = [
-            'mine' => true
-        ];
-
-        $response = $service->channels->listChannels('snippet,contentDetails,statistics', $queryParams);
-        print_r($response);
-
-    }
-
-	/*private function LoginWithYouTube()
+    private function LoginWithYouTube()
     {
         if(empty(Request::get("code"))) {
 
@@ -575,7 +545,7 @@ class UserController extends Controller {
                 return $this->ToOnline($user['user_id']);
             }
         }
-    }*/
+    }
 
 	private function LoginWithTwitch() 
 	{
