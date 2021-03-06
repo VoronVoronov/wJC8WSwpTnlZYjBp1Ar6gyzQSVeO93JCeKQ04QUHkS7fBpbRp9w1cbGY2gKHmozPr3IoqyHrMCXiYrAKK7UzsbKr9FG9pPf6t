@@ -60,7 +60,7 @@ class CronController extends Controller
 
     public function updateTwitchFollows($params = [])
     {
-        model("User", "Widget");
+        model("User", "Widget", "Alert");
         $params = Request::get("params");
 
         $widgets = $this->WidgetModel->getUserAlertsWidget($params['user_id']);
