@@ -877,14 +877,14 @@ class UserController extends Controller {
             $userInfoFollows = json_decode($r3);
             $app_url = 'https://id.twitch.tv/oauth2/token';
 
-            $params = array(
+            $app_params = array(
                 'client_id'     => config()->twitch['client_id'],
                 'client_secret' => config()->twitch['client_secret'],
                 'grant_type'    => 'client_credentials',
                 'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
             );
 //https://id.twitch.tv/oauth2/token?client_id=gyueptk1c7m8m7iaob1u3i6v06rfmj&client_secret=80poli2fmnikdouo2d8lnyclnth1k6&grant_type=client_credentials&scope=user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread
-            $ch4 = curl_init($app_url . '?' . urldecode(http_build_query($params)));
+            $ch4 = curl_init($app_url . '?' . urldecode(http_build_query($app_params)));
             curl_setopt($ch4, CURLOPT_POST, true);
             curl_setopt($ch4, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch4, CURLOPT_POSTFIELDS, array(
