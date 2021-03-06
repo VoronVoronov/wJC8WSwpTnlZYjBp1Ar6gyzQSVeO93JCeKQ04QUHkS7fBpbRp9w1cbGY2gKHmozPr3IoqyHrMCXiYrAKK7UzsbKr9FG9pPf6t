@@ -670,7 +670,7 @@ class UserController extends Controller {
             $i5 = curl_getinfo($ch5);
             curl_close($ch5);
             $webhook = json_decode($r5);
-            dd($webhook);
+            //dd($webhook);
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
                     "user_login"            => "twitch_" . $userInfo->data[0]->login,
