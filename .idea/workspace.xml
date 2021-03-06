@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cron.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/CronController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CronController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/configs/main.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
-      <workItem from="1614916290901" duration="21063000" />
+      <workItem from="1614916290901" duration="22041000" />
     </task>
     <task id="LOCAL-00001" summary="05.03.2021 6:2">
       <created>1614916373877</created>
@@ -350,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614991525175</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Add new cron">
+      <created>1614997319551</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1614997319551</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,6 +398,7 @@
     <MESSAGE value="Add Privacy" />
     <MESSAGE value="Disabled disconnect" />
     <MESSAGE value="test cron" />
-    <option name="LAST_COMMIT_MESSAGE" value="test cron" />
+    <MESSAGE value="Add new cron" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new cron" />
   </component>
 </project>

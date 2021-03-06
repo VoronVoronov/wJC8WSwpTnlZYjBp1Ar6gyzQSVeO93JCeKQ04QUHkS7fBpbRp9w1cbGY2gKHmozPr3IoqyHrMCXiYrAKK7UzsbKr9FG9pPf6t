@@ -624,6 +624,24 @@ class UserController extends Controller {
             curl_close($ch3);
             $userInfoFollows = json_decode($r3);
 
+            $app_url = 'https://id.twitch.tv/oauth2/token';
+
+            $params = array(
+                'client_id'     => config()->twitch['client_id'],
+                'client_secret' => config()->twitch['client_secret'],
+                'grant_type'    => 'client_credentials',
+                'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
+            );
+//https://id.twitch.tv/oauth2/token?client_id=gyueptk1c7m8m7iaob1u3i6v06rfmj&client_secret=80poli2fmnikdouo2d8lnyclnth1k6&grant_type=client_credentials&scope=user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread
+            $ch4 = curl_init($app_url . '?' . urldecode(http_build_query($params)));
+            curl_setopt($ch4, CURLOPT_POST, true);
+            curl_setopt($ch4, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch4, CURLOPT_POSTFIELDS, array(
+            ));
+            $r4 = curl_exec($ch4);
+            $i4 = curl_getinfo($ch4);
+            curl_close($ch4);
+            $app_access_token = json_decode($r3);
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
                     "user_login"            => "twitch_" . $userInfo->data[0]->login,
@@ -633,6 +651,7 @@ class UserController extends Controller {
                     "user_twitch"           => $userInfo->data[0]->display_name,
                     "user_reg_ip"           => $_SERVER["REMOTE_ADDR"],
                     "user_twitch_token"     => $token->access_token,
+                    "user_twitch_app_token" => $app_access_token->access_token,
                     "user_twitch_follows"   => $userInfoFollows->total,
                     "user_twitch_id"        => $userInfo->data[0]->id,
                     "user_donate_page"      => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
@@ -645,7 +664,7 @@ class UserController extends Controller {
                 $this->ToOnline($id);
             }
 
-            $this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token->access_token, 'user_login' => 'twitch_' . $userInfo->data[0]->login,
+            $this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token->access_token, 'user_twitch_app_token' => $app_access_token->access_token, 'user_login' => 'twitch_' . $userInfo->data[0]->login,
                 'user_login_show' => $userInfo->data[0]->display_name, 'user_twitch' => $userInfo->data[0]->display_name, 'user_avatar' => $userInfo->data[0]->profile_image_url,
                 'user_twitch_follows' => $userInfoFollows->total]);
             return $this->ToOnline($user['user_id']);
@@ -856,7 +875,24 @@ class UserController extends Controller {
 
             curl_close($ch3);
             $userInfoFollows = json_decode($r3);
+            $app_url = 'https://id.twitch.tv/oauth2/token';
 
+            $params = array(
+                'client_id'     => config()->twitch['client_id'],
+                'client_secret' => config()->twitch['client_secret'],
+                'grant_type'    => 'client_credentials',
+                'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
+            );
+//https://id.twitch.tv/oauth2/token?client_id=gyueptk1c7m8m7iaob1u3i6v06rfmj&client_secret=80poli2fmnikdouo2d8lnyclnth1k6&grant_type=client_credentials&scope=user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread
+            $ch4 = curl_init($app_url . '?' . urldecode(http_build_query($params)));
+            curl_setopt($ch4, CURLOPT_POST, true);
+            curl_setopt($ch4, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch4, CURLOPT_POSTFIELDS, array(
+            ));
+            $r4 = curl_exec($ch4);
+            $i4 = curl_getinfo($ch4);
+            curl_close($ch4);
+            $app_access_token = json_decode($r3);
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $this->UserModel->editUser(session("user_id"), ["user_twitch_id" => $userInfo->data[0]->id, 'user_twitch_token' => $token->access_token, 'user_twitch' => $userInfo->data[0]->display_name,
                     'user_twitch_follows' => $userInfoFollows->total]);

@@ -76,10 +76,10 @@ return [
     ],
 
     'twitch'	=>		[
-        'client_id' 		=> 'gyueptk1c7m8m7iaob1u3i6v06rfmj',
-        'client_secret' 	=> '80poli2fmnikdouo2d8lnyclnth1k6',
-        'redirect_uri' 		=> 'https://ipdonate.com/login/twitch',
-        'connect_uri'		=>	'https://ipdonate.com/connect/twitch',
+        'client_id' 		=>  'gyueptk1c7m8m7iaob1u3i6v06rfmj',
+        'client_secret' 	=>  '80poli2fmnikdouo2d8lnyclnth1k6',
+        'redirect_uri' 		=>  'https://ipdonate.com/login/twitch',
+        'connect_uri'		=>  'https://ipdonate.com/connect/twitch',
     ],
 
     "youtube"   =>      [
