@@ -57,61 +57,24 @@ class CronController extends Controller
         }
     }
 
-    public function updateSubs() { //Доработать для всех юзеров
-        library("TwitchSDK");
-        model("User", "Alert", "Widget");
 
-        $twitch = new TwitchSDK(config()->twitch);
-
-        foreach ($this->UserModel->getUsers() as $user)
-        {
-            if(!empty($user['user_twitch']))
-            {
-                //dd($user);
-                $follows = $this->updateTwitchFollows($twitch, $user);
-                dd($follows);
-                $this->updateTwitchSubs($twitch, $user);
-            }
-
-            if(!empty($user['user_hitbox']))
-            {
-                $this->updateHitboxFollows($user);
-                $this->updateHitboxSubs($user);
-            }
-        }
-    }
-
-    private function updateTwitchFollows(TwitchSDK $twitch, $user)
+    public function updateTwitchFollows($params = [])
     {
-        $followers = $twitch->channelFollows($user['user_twitch']);
-        if($followers->_total > $user['user_twitch_follows']){
-            $limit = $followers->_total - $user['user_twitch_follows'];
+        $params = Request::get("params");
 
-            if($limit != 0) {
-                for($i = 0; $i < $limit; $i++) {
-                    echo "[UID: ".$user['user_id']."][Twitch] New Follower: ".$followers->follows[$i]->user->name."<br>";
-
-                    $widgets = $this->WidgetModel->getUserAlertsWidget($user['user_id']);
-                    foreach ($widgets as $widget)
-                    {
-                        $this->AlertModel->newAlert([
-                            "widget_id" =>  $widget['widget_id'],
-                            "msg" => null,
-                            "user_name" => $followers->follows[$i]->user->name,
-                            "sum" => null,
-                            "curr" => null,
-                            "type" => 1,
-                        ], true);
-                    }
-                }
-            }
-
-            $this->UserModel->editUser($user['user_id'], ["user_twitch_follows" => $followers->_total]);
-        } else {
-            if($user['user_twitch_follows'] != $followers->_total) {
-                $this->UserModel->editUser($user['user_id'], ["user_twitch_follows" => $followers->_total]);
-            }
+        $widgets = $this->WidgetModel->getUserAlertsWidget($params['user_id']);
+        foreach ($widgets as $widget)
+        {
+            $this->AlertModel->newAlert([
+                "widget_id" =>  $widget['widget_id'],
+                "msg" => null,
+                "user_name" => $params['followername'],
+                "sum" => null,
+                "curr" => null,
+                "type" => 1,
+            ], true);
         }
+
     }
 
     private function updateTwitchSubs(TwitchSDK $twitch, $user)
