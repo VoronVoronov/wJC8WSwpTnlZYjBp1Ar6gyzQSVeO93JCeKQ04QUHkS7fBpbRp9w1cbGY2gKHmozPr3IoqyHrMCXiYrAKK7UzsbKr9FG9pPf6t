@@ -648,7 +648,7 @@ class UserController extends Controller {
                 'Authorization: Bearer ' . $app_access_token->access_token,
                 'Accept: application/json');
             $webhook_json = array(
-                'type'                      => 'channel.follow,channel.subscribe,stream.online,stream.offline',
+                'type'                      => 'channel.follow',
                 'version'                   => '1',
                 'condition'                 => array(
                     'broadcaster_user_id'   => $userInfo->data[0]->id,
