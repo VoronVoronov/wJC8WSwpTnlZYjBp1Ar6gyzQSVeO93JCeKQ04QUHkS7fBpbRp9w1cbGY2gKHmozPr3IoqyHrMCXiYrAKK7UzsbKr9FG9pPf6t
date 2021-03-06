@@ -67,6 +67,10 @@ switch ($action) {
         break;
 
     case 'twitchfollows':
+        $log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/twitchhook.txt', 'a+');
+        fwrite($log_file, print_r(json_decode(file_get_contents('php://input')), true).PHP_EOL);
+        fwrite($log_file, print_r(getallheaders(), true).PHP_EOL);
+        fclose($log_file);
         $postData = file_get_contents('php://input');
         $data = json_decode($postData, 1);
         $challenge = $data['challenge'];
