@@ -104,10 +104,10 @@ Router::get("control", "WidgetController@control");
 Router::post("control", "WidgetController@controlPost");
 Router::get("stopShow", "WidgetController@stopShow");
 
-Router::group(['param' => ['get', '==', ["token" => config()->token]]], function(){
-    Router::get("cron/updateSubs", "CronController@updateSubs");
+/*Router::group(['param' => ['get', '==', ["token" => config()->token]]], function(){
+    Router::get("cron/followstwitch", "CronController@updateTwitchFollows");
     Router::get("cron/updateStreamStatus", "CronController@updateStreamStatus");
-});
+});*/
 
 Router::group(['param' => ['get', '==', ["token" => config()->token]]], function () {
     Router::get("api/v1/{action:[a-z]+}", "ApiController@tokenActions");
@@ -116,6 +116,7 @@ Router::group(['param' => ['get', '==', ["token" => config()->token]]], function
 
 
 //Callback уведомления
+Router::get("cron/followstwitch", "CronController@updateTwitchFollows");
 Router::get("unitpay/handler", "UnitPayController@handler");
 Router::get("qiwi/handler", "PaymentController@QiwiHandler");
 Router::get("yoomoney/handler", "PaymentController@YoomoneyHandler");
