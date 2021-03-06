@@ -17,7 +17,7 @@ class CronController extends Controller
 
             if(!empty($user->user_youtube)){
                 $url = 'https://www.googleapis.com/youtube/v3/liveBroadcasts?part=status&broadcastStatus=active';
-                $headers = array('Authorization: Bearer ' . $user['user_youtube_token'],
+                $headers = array('Authorization: Bearer ' . $user->user_youtube_token,
                     'Accept: application/json');
                 $curl = curl_init();
                 curl_setopt($curl, CURLOPT_URL, $url);
@@ -29,15 +29,15 @@ class CronController extends Controller
                 curl_close($curl);
                 $obj = json_decode($result, true);
                 if ($obj['items'][0]['status']['recordingStatus'] == "recording") {
-                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]
+                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"];
                     dd($obj);
                 } else {
-                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]
+                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"];
                     dd($obj);
                 }
-            }elseif(!empty($user['user_twitch'])) {
+            }elseif(!empty($user->user_twitch)) {
                 $url = 'https://api.twitch.tv/helix/streams?user_id=' . $user['user_id'];
-                $headers = array('Authorization: Bearer ' . $user['user_twitch_token'],
+                $headers = array('Authorization: Bearer ' . $user->user_twitch_token,
                     'Accept: application/json');
                 $curl = curl_init();
                 curl_setopt($curl, CURLOPT_URL, $url);
@@ -49,10 +49,10 @@ class CronController extends Controller
                 curl_close($curl);
                 $obj = json_decode($result, true);
                 if ($obj->data[0]->type == "live") {
-                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]
+                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"];
                     dd($obj);
                 } else {
-                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]
+                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"];
                     dd($obj);
                 }
             }
