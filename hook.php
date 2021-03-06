@@ -80,7 +80,7 @@ switch ($action) {
             case 'enabled':
                 $followerid = $data['event']['user_id'];
                 $followername = $data['event']['user_name'];
-                file_get_contents('https://ipdonate.com/cron/followstwitch?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername.'?token=');
+                file_get_contents('https://ipdonate.com/cron/followstwitch?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername);
         }
 
         break;
