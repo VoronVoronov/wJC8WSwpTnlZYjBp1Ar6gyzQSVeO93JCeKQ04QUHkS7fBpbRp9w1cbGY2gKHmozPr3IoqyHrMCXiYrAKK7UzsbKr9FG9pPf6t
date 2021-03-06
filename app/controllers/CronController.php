@@ -69,10 +69,10 @@ class CronController extends Controller
             $this->AlertModel->newAlert([
                 "user_id"   => $user['user_id'],
                 "widget_id" => $widget['widget_id'],
-                "msg"       => null,
+                //"msg"       => null,
                 "user_name" => $params['followername'],
-                "sum"       => null,
-                "curr"      => null,
+                //"sum"       => null,
+                //"curr"      => null,
                 "type"      => 1,
             ], true);
         }
