@@ -73,19 +73,26 @@ switch ($action) {
         fclose($log_file);
         $postData = file_get_contents('php://input');
         $data = json_decode($postData, 1);
-        $challenge = $data['challenge'];
-        $type = $data['subscription']['type'];
-        $userid = $data['subscription']['condition']['broadcaster_user_id'];
-        $webhookid = $data['subscription']['f1c2a387-161a-49f9-a165-0f21d7a4e1c4'];
-        $status = $data['subscription']['status'];
+        $challenge = $data->challenge;
+        $type = $data->subscription->type;
+        $userid = $data->subscription->condition->broadcaster_user_id;
+        $webhookid = $data->subscription->id;
+        $status = $data->subscription->status;
         switch ($status){
             case 'enabled':
-                $followerid = $data['event']['user_id'];
-                $followername = $data['event']['user_name'];
+                $followerid = $data->event->user_id;
+                $followername = $data->event->user_name;
                 file_get_contents('https://ipdonate.com/cron/followstwitch?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername);
             case 'webhook_callback_verification_pending':
                 echo $challenge;
+            default:
+                header('Location: /');;
+                break;
         }
 
+        break;
+
+    default:
+        header('Location: /');;
         break;
 }
