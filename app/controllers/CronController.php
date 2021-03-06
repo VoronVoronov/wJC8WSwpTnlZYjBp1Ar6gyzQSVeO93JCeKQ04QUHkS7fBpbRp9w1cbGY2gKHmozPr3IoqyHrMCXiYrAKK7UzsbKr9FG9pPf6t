@@ -29,10 +29,10 @@ class CronController extends Controller
                 curl_close($curl);
                 $obj = json_decode($result, true);
                 if ($obj['items'][0]['status']['recordingStatus'] == "recording") {
-                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"];
+                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]);
                     dd($obj);
                 } else {
-                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"];
+                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]);
                     dd($obj);
                 }
             }elseif(!empty($user->user_twitch)) {
@@ -49,10 +49,10 @@ class CronController extends Controller
                 curl_close($curl);
                 $obj = json_decode($result, true);
                 if ($obj->data[0]->type == "live") {
-                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"];
+                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]);
                     dd($obj);
                 } else {
-                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"];
+                    $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]);
                     dd($obj);
                 }
             }
