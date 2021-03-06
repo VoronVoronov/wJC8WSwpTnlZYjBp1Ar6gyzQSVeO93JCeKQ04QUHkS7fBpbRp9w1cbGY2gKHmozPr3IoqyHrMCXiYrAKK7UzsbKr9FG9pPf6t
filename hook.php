@@ -66,10 +66,22 @@ switch ($action) {
         }
         break;
 
-    case 'twitchsubs':
+    case 'twitchfollows':
         $postData = file_get_contents('php://input');
         $data = json_decode($postData, 1);
-        $response = $data['challenge'];
+        $challenge = $data['challenge'];
         $type = $data['subscription']['type'];
+        $userid = $data['subscription']['condition']['broadcaster_user_id'];
+        $webhookid = $data['subscription']['f1c2a387-161a-49f9-a165-0f21d7a4e1c4'];
+        $status = $data['subscription']['status'];
+        switch ($status){
+            case 'webhook_callback_verification_pending':
+                echo $challenge;
+            case 'enabled':
+                $followerid = $data['event']['user_id'];
+                $followername = $data['event']['user_name'];
+                file_get_contents('https://ipdonate.com/twitch/handler?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[user_id]='.$followername);
+        }
+
         break;
 }

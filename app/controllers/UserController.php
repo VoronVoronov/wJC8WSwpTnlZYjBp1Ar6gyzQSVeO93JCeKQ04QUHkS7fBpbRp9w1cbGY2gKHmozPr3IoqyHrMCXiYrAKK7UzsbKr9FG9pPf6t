@@ -648,14 +648,14 @@ class UserController extends Controller {
                 'Authorization: Bearer ' . $app_access_token->access_token,
                 'Accept: application/json');
             $webhook_json = array(
-                'type'                      => 'channel.follow',
+                'type'                      => 'channel.follow,channel.subscribe,stream.online,stream.offline',
                 'version'                   => '1',
                 'condition'                 => array(
                     'broadcaster_user_id'   => $userInfo->data[0]->id,
                 ),
                 'transport'                 => array(
                     'method'                => 'webhook',
-                    'callback'              => config()->url.'/hook.php?action=twitchsubs',
+                    'callback'              => config()->url.'/hook.php?action=twitchfollows',
                     'secret'                => md5('ipdonate'.$userInfo->data[0]->id)
                 )
             );

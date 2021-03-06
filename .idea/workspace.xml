@@ -4,7 +4,7 @@
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cron.php" beforeDir="false" afterPath="$PROJECT_DIR$/hook.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hook.php" beforeDir="false" afterPath="$PROJECT_DIR$/hook.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,14 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
-      <workItem from="1614916290901" duration="29158000" />
-    </task>
-    <task id="LOCAL-00009" summary="05.03.2021 23:24">
-      <created>1614975883746</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1614975883746</updated>
+      <workItem from="1614916290901" duration="29734000" />
     </task>
     <task id="LOCAL-00010" summary="05.03.2021 23:24">
       <created>1614975898251</created>
@@ -406,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615061051746</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Updated webhook">
+      <created>1615065962302</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1615065962302</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,7 +424,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="05.03.2021 7:07" />
     <MESSAGE value="05.03.2021 7:10" />
     <MESSAGE value="05.03.2021 20:38" />
     <MESSAGE value="05.03.2021 20:41" />
@@ -449,6 +448,7 @@
     <MESSAGE value="Add new cron" />
     <MESSAGE value="Add App Access Token" />
     <MESSAGE value="Updated Cron" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Cron" />
+    <MESSAGE value="Updated webhook" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated webhook" />
   </component>
 </project>
