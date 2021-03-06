@@ -79,12 +79,12 @@ switch ($action) {
         $webhookid = $data['subscription']['f1c2a387-161a-49f9-a165-0f21d7a4e1c4'];
         $status = $data['subscription']['status'];
         switch ($status){
-            case 'webhook_callback_verification_pending':
-                echo $challenge;
             case 'enabled':
                 $followerid = $data['event']['user_id'];
                 $followername = $data['event']['user_name'];
                 file_get_contents('https://ipdonate.com/cron/followstwitch?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername);
+            case 'webhook_callback_verification_pending':
+                echo $challenge;
         }
 
         break;
