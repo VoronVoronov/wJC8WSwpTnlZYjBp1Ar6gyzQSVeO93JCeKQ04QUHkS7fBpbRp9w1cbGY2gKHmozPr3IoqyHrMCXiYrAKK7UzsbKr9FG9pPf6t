@@ -28,7 +28,6 @@ class CronController extends Controller
                 $result = curl_exec($curl);
                 curl_close($curl);
                 $obj = json_decode($result, true);
-                dd($obj);
                 if ($obj['items'][0]['status']['recordingStatus'] == "recording") {
                     $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]);
                 } else {
@@ -47,7 +46,6 @@ class CronController extends Controller
                 $result = curl_exec($curl);
                 curl_close($curl);
                 $obj = json_decode($result, true);
-                dd($obj);
                 if ($obj->data[0]->type == "live") {
                     $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]);
                 } else {
