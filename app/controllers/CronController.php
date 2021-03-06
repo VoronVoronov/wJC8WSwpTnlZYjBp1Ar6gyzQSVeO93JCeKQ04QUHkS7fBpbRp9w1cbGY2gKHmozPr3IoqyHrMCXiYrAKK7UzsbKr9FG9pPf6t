@@ -56,8 +56,9 @@ class CronController extends Controller
         {
             if(!empty($user['user_twitch']))
             {
-                dd($user);
-                $this->updateTwitchFollows($twitch, $user);
+                //dd($user);
+                $follows = $this->updateTwitchFollows($twitch, $user);
+                dd($follows);
                 $this->updateTwitchSubs($twitch, $user);
             }
 
