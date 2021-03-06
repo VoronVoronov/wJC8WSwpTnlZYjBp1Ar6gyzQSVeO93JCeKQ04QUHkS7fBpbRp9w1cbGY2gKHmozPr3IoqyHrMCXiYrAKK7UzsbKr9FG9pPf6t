@@ -67,12 +67,13 @@ class CronController extends Controller
         foreach ($widgets as $widget)
         {
             $this->AlertModel->newAlert([
-                "widget_id" =>  $widget['widget_id'],
-                "msg" => null,
+                "user_id"   => $user['user_id'],
+                "widget_id" => $widget['widget_id'],
+                "msg"       => null,
                 "user_name" => $params['followername'],
-                "sum" => null,
-                "curr" => null,
-                "type" => 1,
+                "sum"       => null,
+                "curr"      => null,
+                "type"      => 1,
             ], true);
         }
 
