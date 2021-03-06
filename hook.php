@@ -80,7 +80,7 @@ switch ($action) {
         //$status = $data->subscription->status;
         if($data->subscription->status == 'webhook_callback_verification_pending') {
             echo $data->challenge;
-        }elseif($data->subscription->status == 'status'){
+        }elseif($data->subscription->status == 'enabled'){
             $followerid = $data->event->user_id;
             $followername = $data->event->user_name;
             file_get_contents('https://ipdonate.com/cron/followstwitch?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername);
