@@ -21,14 +21,25 @@ class AlertModel extends Model
 
     public function newAlert($data = [], $show = false)
     {
+        if($data['type'] == 1) {
+            $alert_id = $this->create([
+                'user_id' => $data['user_id'],
+                'widget_id' => $data['widget_id'],
+                //'alert_text' => $data['msg'],
+                'alert_name' => $data['user_name'],
+                //'alert_sum' => $data['sum'],
+                //'alert_curr' => $data['curr'],
+                'alert_type' => $data['type'],
+            ]);
+        }
         $alert_id = $this->create([
             'user_id' => $data['user_id'],
             'widget_id' => $data['widget_id'],
-            'alert_text'=> $data['msg'],
-            'alert_name'=> $data['user_name'],
+            'alert_text' => $data['msg'],
+            'alert_name' => $data['user_name'],
             'alert_sum' => $data['sum'],
-            'alert_curr'=> $data['curr'],
-            'alert_type'=> $data['type'],
+            'alert_curr' => $data['curr'],
+            'alert_type' => $data['type'],
         ]);
             if($data['type'] == 3){
             //@file_get_contents("https://api.sdonate.ru/voice.php?text=".$data['msg']."&name=".$data['msg']);
