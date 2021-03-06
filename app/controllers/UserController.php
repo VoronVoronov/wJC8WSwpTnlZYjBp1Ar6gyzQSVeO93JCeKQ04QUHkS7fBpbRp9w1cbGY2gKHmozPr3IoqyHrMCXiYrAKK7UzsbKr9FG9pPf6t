@@ -632,7 +632,6 @@ class UserController extends Controller {
                 'grant_type'    => 'client_credentials',
                 'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
             );
-//https://id.twitch.tv/oauth2/token?client_id=gyueptk1c7m8m7iaob1u3i6v06rfmj&client_secret=80poli2fmnikdouo2d8lnyclnth1k6&grant_type=client_credentials&scope=user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread
             $ch4 = curl_init($app_url . '?' . urldecode(http_build_query($app_params)));
             curl_setopt($ch4, CURLOPT_POST, true);
             curl_setopt($ch4, CURLOPT_RETURNTRANSFER, true);
@@ -642,6 +641,36 @@ class UserController extends Controller {
             $i4 = curl_getinfo($ch4);
             curl_close($ch4);
             $app_access_token = json_decode($r4);
+
+            $webhook_url = 'https://api.twitch.tv/helix/eventsub/subscriptions';
+
+            $webhook_headers = array('Client-ID: ' .config()->twitch['client_id'],
+                'Authorization: Bearer ' . $app_access_token->access_token,
+                'Accept: application/json');
+            $webhook_json = array(
+                'type'                      => 'channel.follow',
+                'version'                   => '1',
+                'condition'                 => array(
+                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                ),
+                'transport'                 => array(
+                    'method'                => 'webhook',
+                    'callback'              => config()->url.'/hook.php?action=twitchsubs',
+                    'secret'                => md5('ipdonate'.$userInfo->data[0]->id)
+                )
+            );
+            $webhook_post = json_encode($webhook_json);
+            $ch5 = curl_init($webhook_url);
+            curl_setopt($ch5, CURLOPT_HTTPHEADER, $webhook_headers);
+            curl_setopt($ch5, CURLOPT_POST, true);
+            curl_setopt($ch5, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch5, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch5, CURLOPT_POSTFIELDS, $webhook_post);
+            $r5 = curl_exec($ch5);
+            $i5 = curl_getinfo($ch5);
+            curl_close($ch5);
+            $webhook = json_decode($r5);
+            dd($webhook);
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
                     "user_login"            => "twitch_" . $userInfo->data[0]->login,

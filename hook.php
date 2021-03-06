@@ -67,6 +67,9 @@ switch ($action) {
         break;
 
     case 'twitchsubs':
-
+        $postData = file_get_contents('php://input');
+        $data = json_decode($postData, 1);
+        $response = $data['challenge'];
+        $type = $data['subscription']['type'];
         break;
 }
