@@ -85,9 +85,6 @@ switch ($action) {
                 file_get_contents('https://ipdonate.com/cron/followstwitch?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername);
             case 'webhook_callback_verification_pending':
                 echo $challenge;
-            default:
-                header('Location: /');;
-                break;
         }
 
         break;
