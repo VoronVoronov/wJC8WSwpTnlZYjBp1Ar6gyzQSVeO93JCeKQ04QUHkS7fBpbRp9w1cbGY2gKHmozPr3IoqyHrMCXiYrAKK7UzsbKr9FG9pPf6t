@@ -79,7 +79,7 @@ switch ($action) {
         $webhookid = $data->subscription->id;
         //$status = $data->subscription->status;
         if($data->subscription->status == 'webhook_callback_verification_pending') {
-            echo $challenge;
+            echo $data->challenge;
         }elseif($data->subscription->status == 'status'){
             $followerid = $data->event->user_id;
             $followername = $data->event->user_name;
