@@ -35,6 +35,7 @@ class CronController extends Controller
 
                 $obj = json_decode($result, true);
 
+
                 if($obj['items'][0]['status']['recordingStatus'] == "recording"){
                     $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]);
                 }else{
