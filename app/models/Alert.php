@@ -31,17 +31,7 @@ class AlertModel extends Model
                 //'alert_curr' => $data['curr'],
                 'alert_type' => $data['type'],
             ]);
-        }else {
-            $alert_id = $this->create([
-                'user_id' => $data['user_id'],
-                'widget_id' => $data['widget_id'],
-                'alert_text' => $data['msg'],
-                'alert_name' => $data['user_name'],
-                'alert_sum' => $data['sum'],
-                'alert_curr' => $data['curr'],
-                'alert_type' => $data['type'],
-            ]);
-        }
+
             if ($data['type'] == 3) {
                 //@file_get_contents("https://api.sdonate.ru/voice.php?text=".$data['msg']."&name=".$data['msg']);
 
@@ -57,11 +47,43 @@ class AlertModel extends Model
 
                 file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/assets/audio/' . urldecode($data['msg']) . '.mp3', $result);
             }
-        if($show) {
-            $this->showAlert($alert_id);
-        }
+            if ($show) {
+                $this->showAlert($alert_id);
+            }
 
-        return $alert_id;
+            return $alert_id;
+        }else {
+            $alert_id = $this->create([
+                'user_id' => $data['user_id'],
+                'widget_id' => $data['widget_id'],
+                'alert_text' => $data['msg'],
+                'alert_name' => $data['user_name'],
+                'alert_sum' => $data['sum'],
+                'alert_curr' => $data['curr'],
+                'alert_type' => $data['type'],
+            ]);
+
+            if ($data['type'] == 3) {
+                //@file_get_contents("https://api.sdonate.ru/voice.php?text=".$data['msg']."&name=".$data['msg']);
+
+                $url = 'https://translate.google.com.vn/translate_tts?ie=UTF-8&client=tw-ob&q=' . urlencode($data['msg']) . '&tl=ru';
+
+                $curl = curl_init();
+                curl_setopt($curl, CURLOPT_URL, $url);
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+                $result = curl_exec($curl);
+                curl_close($curl);
+
+
+                file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/assets/audio/' . urldecode($data['msg']) . '.mp3', $result);
+            }
+            if ($show) {
+                $this->showAlert($alert_id);
+            }
+
+            return $alert_id;
+        }
     }
 
     private function showAlert($alert_id)
