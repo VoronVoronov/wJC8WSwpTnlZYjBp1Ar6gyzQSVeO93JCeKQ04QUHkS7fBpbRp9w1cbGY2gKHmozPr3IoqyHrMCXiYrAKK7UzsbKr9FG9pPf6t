@@ -37,10 +37,10 @@ switch ($action) {
                 $obj = json_decode($result, true);
                 if ($obj['items'][0]['status']['recordingStatus'] == "recording") {
                     $db->query('UPDATE `users` SET `user_stream_status` = 1 WHERE `user_id` = ' . $user['user_id']);
-                    echo 'ok';
+                    echo 'ok youtube';
                 } else {
                     $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_id` = ' . $user['user_id']);
-                    echo 'no';
+                    echo 'no youtube';
                 }
             } elseif (!empty($user['user_twitch'])) {
                 $url = 'https://api.twitch.tv/helix/streams?user_id=' . $user['user_id'];
@@ -57,10 +57,10 @@ switch ($action) {
                 $obj = json_decode($result, true);
                 if ($info->data[0]->type == "live") {
                     $db->query('UPDATE `users` SET `user_stream_status` = 1 WHERE `user_id` = ' . $user['user_id']);
-                    echo 'ok';
+                    echo 'ok twitch';
                 } else {
                     $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_id` = ' . $user['user_id']);
-                    echo 'no';
+                    echo 'no twitch';
                 }
             }
         }
