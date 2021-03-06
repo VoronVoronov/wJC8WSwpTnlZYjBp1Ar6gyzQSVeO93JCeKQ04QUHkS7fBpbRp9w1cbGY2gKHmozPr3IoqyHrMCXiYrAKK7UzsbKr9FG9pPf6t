@@ -30,10 +30,10 @@ class CronController extends Controller
                 $obj = json_decode($result, true);
                 if ($obj['items'][0]['status']['recordingStatus'] == "recording") {
                     $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]
-                    echo 'ok';
+                    return 'ok';
                 } else {
                     $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]
-                    echo 'no';
+                    return 'no';
                 }
             }elseif(!empty($user['user_twitch'])) {
                 $url = 'https://api.twitch.tv/helix/streams?user_id=' . $user['user_id'];
@@ -50,10 +50,10 @@ class CronController extends Controller
                 $obj = json_decode($result, true);
                 if ($info->data[0]->type == "live") {
                     $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]
-                    echo 'ok';
+                    return 'ok';
                 } else {
                     $this->UserModel->editUser($user['user_id'], ["user_stream_status" => "1"]
-                    echo 'no';
+                    return 'no';
                 }
             }
 
