@@ -641,7 +641,7 @@ class UserController extends Controller {
             $r4 = curl_exec($ch4);
             $i4 = curl_getinfo($ch4);
             curl_close($ch4);
-            $app_access_token = json_decode($r3);
+            $app_access_token = json_decode($r4);
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
                     "user_login"            => "twitch_" . $userInfo->data[0]->login,
@@ -892,9 +892,9 @@ class UserController extends Controller {
             $r4 = curl_exec($ch4);
             $i4 = curl_getinfo($ch4);
             curl_close($ch4);
-            $app_access_token = json_decode($r3);
+            $app_access_token = json_decode($r4);
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
-                $this->UserModel->editUser(session("user_id"), ["user_twitch_id" => $userInfo->data[0]->id, 'user_twitch_token' => $token->access_token, 'user_twitch' => $userInfo->data[0]->display_name,
+                $this->UserModel->editUser(session("user_id"), ["user_twitch_id" => $userInfo->data[0]->id, 'user_twitch_token' => $token->access_token, 'user_twitch_app_token' => $app_access_token->access_token,  'user_twitch' => $userInfo->data[0]->display_name,
                     'user_twitch_follows' => $userInfoFollows->total]);
                 header('Location: '.config()->url.'/profile/');
             }else {
