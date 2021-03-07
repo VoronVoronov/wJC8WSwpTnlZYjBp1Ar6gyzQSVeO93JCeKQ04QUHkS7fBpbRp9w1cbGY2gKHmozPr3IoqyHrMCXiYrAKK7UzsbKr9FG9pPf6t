@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/WidgetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/WidgetController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,14 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
-      <workItem from="1615150821904" duration="2796000" />
-    </task>
-    <task id="LOCAL-00075" summary="Updated hook.php">
-      <created>1615074192168</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1615074192168</updated>
+      <workItem from="1615150821904" duration="2981000" />
     </task>
     <task id="LOCAL-00076" summary="Updated hook.php">
       <created>1615074259567</created>
@@ -406,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615154430319</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="test widgets">
+      <created>1615157220928</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1615157220928</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +425,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="05.03.2021 23:55" />
     <MESSAGE value="Add Youtube Login" />
     <MESSAGE value="Add Connect Youtube" />
     <MESSAGE value="Add Youtube Button" />
@@ -450,7 +449,8 @@
     <MESSAGE value="Updated VK Widgets" />
     <MESSAGE value="Updated events" />
     <MESSAGE value="updated twitch" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated twitch" />
+    <MESSAGE value="test widgets" />
+    <option name="LAST_COMMIT_MESSAGE" value="test widgets" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
