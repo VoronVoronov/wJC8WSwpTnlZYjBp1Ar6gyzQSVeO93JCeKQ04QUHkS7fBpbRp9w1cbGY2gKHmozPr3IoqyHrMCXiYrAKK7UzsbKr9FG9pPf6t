@@ -62,7 +62,7 @@ class CronController extends Controller
     {
         model("User", "Widget", "Alert");
         $params = Request::get("params");
-        $user = $this->UserModel->getUser($params['user_id'], "user_twitch_id");
+        $user = $this->UserModel->getUser($params['user_id'], "user_id");
         $widgets = $this->WidgetModel->getUserAlertsWidget($user['user_id']);
         foreach ($widgets as $widget)
         {
