@@ -74,11 +74,18 @@ switch ($action) {
         $postData = file_get_contents('php://input');
         $data = json_decode($postData, 1);
         //$status = $data->subscription->status;
-        if($data->subscription->status == 'webhook_callback_verification_pending') {
+        /*if($data->subscription->status == 'webhook_callback_verification_pending') {
             echo $data->challenge;
         }elseif($data->subscription->status == 'enabled'){
             $followerid = $data->event->user_id;
             $followername = $data->event->user_name;
+            file_get_contents('https://ipdonate.com/cron/followstwitch?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername);
+        }*/
+        if($data['subscription']['status'] == 'webhook_callback_verification_pending') {
+            echo $data['challenge'];
+        }elseif($data['subscription']['status'] == 'enabled'){
+            $followerid = $data['event']['user_id'];
+            $followername = $data['event']['user_name'];
             file_get_contents('https://ipdonate.com/cron/followstwitch?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername);
         }
 
