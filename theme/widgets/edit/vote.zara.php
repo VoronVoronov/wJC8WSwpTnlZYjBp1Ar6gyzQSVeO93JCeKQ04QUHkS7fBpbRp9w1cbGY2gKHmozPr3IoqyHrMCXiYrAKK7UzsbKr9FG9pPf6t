@@ -448,13 +448,6 @@
 
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
 @stop
-<script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
-
-<!-- VK Widget -->
-<div id="vk_community_messages"></div>
-<script type="text/javascript">
-VK.Widgets.CommunityMessages("vk_community_messages", 190202028, {tooltipButtonText: "Здравствуйте,чем могу вам помочь?"});
-</script>
 @section("plugins-scripts")
 <script src="/assets/js/bootstrap-colorpicker.min.js"></script>
 <script src="/assets/js/bootstrap-slider.min.js"></script>

@@ -80,12 +80,6 @@
 @section("plugins-scripts")
 <script src="/assets/js/jquery.form.js"></script>
 @stop
-<script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
-
-<div id="vk_community_messages"></div>
-<script type="text/javascript">
-VK.Widgets.CommunityMessages("vk_community_messages", 190202028, {tooltipButtonText: "Здравствуйте,чем могу вам помочь?"});
-</script>
 @section("scripts")
 <script>
     

@@ -16,7 +16,7 @@
         </div>
     </div>
 </div>
-<!--<div class="row">
+<div class="row">
     <div class="col-md-12" style="margin-bottom: 20px;">
         <div class="btn-group" data-toggle="buttons">
             <label class="btn btn-default btn-sm active">
@@ -30,7 +30,7 @@
             </label>
         </div>
     </div>
-</div>-->
+</div>
 <div class="row">
     <div class="col-md-9" style="margin-bottom: 20px;">
         <div class="input-group">
@@ -55,13 +55,6 @@
 
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
 @stop
-<script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
-
-<!-- VK Widget -->
-<div id="vk_community_messages"></div>
-<script type="text/javascript">
-VK.Widgets.CommunityMessages("vk_community_messages", 190202028, {tooltipButtonText: "Здравствуйте,чем могу вам помочь?"});
-</script>
 @section("plugins-scripts")
 <script src="/assets/js/bootstrap-colorpicker.min.js"></script>
 <script src="/assets/js/bootstrap-slider.min.js"></script>

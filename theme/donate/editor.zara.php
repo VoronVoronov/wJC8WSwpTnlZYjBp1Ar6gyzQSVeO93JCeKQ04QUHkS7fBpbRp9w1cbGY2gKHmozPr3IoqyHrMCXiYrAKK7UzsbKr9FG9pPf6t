@@ -314,9 +314,10 @@
 <script src="/assets/js/jquery.form.js"></script>
 <script src="/assets/js/common.js"></script>
 <script src="/assets/js/bootstrap-colorpicker.min.js"></script>
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
 <div id="vk_community_messages"></div>
 <script type="text/javascript">
-VK.Widgets.CommunityMessages("vk_community_messages", 174659405, {tooltipButtonText: "Здравствуйте,чем могу вам помочь?"});
+    VK.Widgets.CommunityMessages("vk_community_messages", 174659405, {expanded: "1",tooltipButtonText: "Есть вопрос?"});
 </script>
 <script>
     $(document).ready(function () {
