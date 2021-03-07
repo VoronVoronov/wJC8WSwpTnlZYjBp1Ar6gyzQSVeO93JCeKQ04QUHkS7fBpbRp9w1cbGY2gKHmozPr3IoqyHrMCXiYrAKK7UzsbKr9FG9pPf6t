@@ -79,37 +79,25 @@ class CronController extends Controller
 
     }
 
-    private function updateTwitchSubs(TwitchSDK $twitch, $user)
+    public function updateTwitchSubscribe($params = [])
     {
-        $subscribers = $twitch->authChannelSubscriptions($user['user_twitch_token'], $user['user_twitch']);
-        if($subscribers->_total > $user['user_twitch_subs']){
-            $limit = $subscribers->_total - $user['user_twitch_subs'];
-
-            if($limit != 0) {
-                for($i = 0; $i < $limit; $i++) {
-                    echo "[UID: ".$user['user_id']."][Twitch] New Subscriber: ".$subscribers->follows[$i]->user->name."<br>";
-
-                    $widgets = $this->WidgetModel->getUserAlertsWidget($user['user_id']);
-                    foreach ($widgets as $widget)
-                    {
-                        $this->AlertModel->newAlert([
-                            "widget_id" =>  $widget['widget_id'],
-                            "msg" => null,
-                            "user_name" => $subscribers->follows[$i]->user->name,
-                            "sum" => null,
-                            "curr" => null,
-                            "type" => 2,
-                        ], true);
-                    }
-                }
-            }
-
-            $this->UserModel->editUser($user['user_id'], ["user_twitch_subs" => $subscribers->_total]);
-        } else {
-            if($user['user_twitch_subs'] != $subscribers->_total) {
-                $this->UserModel->editUser($user['user_id'], ["user_twitch_subs" => $subscribers->_total]);
-            }
+        model("User", "Widget", "Alert");
+        $params = Request::get("params");
+        $user = $this->UserModel->getUser($params['user_id'], "user_id");
+        $widgets = $this->WidgetModel->getUserAlertsWidget($user['user_id']);
+        foreach ($widgets as $widget)
+        {
+            $this->AlertModel->newAlert([
+                "user_id"   => $user['user_id'],
+                "widget_id" => $widget['widget_id'],
+                "msg"       => 'Подписался',
+                "user_name" => $params['followername'],
+                "sum"       => '0',
+                "curr"      => 'RUB',
+                "type"      => 2,
+            ], true);
         }
+
     }
 
     private function updateHitboxFollows($user)

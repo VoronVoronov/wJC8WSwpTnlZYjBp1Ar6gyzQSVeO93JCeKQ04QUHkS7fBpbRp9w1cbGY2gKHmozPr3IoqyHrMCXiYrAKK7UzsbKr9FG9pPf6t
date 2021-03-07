@@ -117,6 +117,7 @@ Router::group(['param' => ['get', '==', ["token" => config()->token]]], function
 
 //Callback уведомления
 Router::get("cron/followstwitch", "CronController@updateTwitchFollows");
+Router::get("cron/twitchsubscribe", "CronController@updateTwitchSubscribe");
 Router::get("unitpay/handler", "UnitPayController@handler");
 Router::get("qiwi/handler", "PaymentController@QiwiHandler");
 Router::get("yoomoney/handler", "PaymentController@YoomoneyHandler");

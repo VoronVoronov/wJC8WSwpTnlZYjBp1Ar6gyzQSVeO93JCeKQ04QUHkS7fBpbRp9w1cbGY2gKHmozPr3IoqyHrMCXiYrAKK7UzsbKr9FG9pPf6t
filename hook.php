@@ -92,7 +92,26 @@ switch ($action) {
             $followername = $data['event']['user_name'];
             file_get_contents('https://ipdonate.com/cron/followstwitch?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername);
         }
+        break;
 
+    case 'twitchsubscribe':
+        $log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/twitchhook.txt', 'a+');
+        fwrite($log_file, print_r(json_decode(file_get_contents('php://input')), true).PHP_EOL);
+        fwrite($log_file, print_r(getallheaders(), true).PHP_EOL);
+        fclose($log_file);
+        $postData = file_get_contents('php://input');
+        $data = json_decode($postData, 1);
+        if($data['subscription']['status'] == 'webhook_callback_verification_pending') {
+            echo $data['challenge'];
+        }elseif($data['subscription']['status'] == 'enabled'){
+            $useridsql = $db->query('SELECT * FROM `users` WHERE `user_twitch_id` = '.$data['subscription']['condition']['broadcaster_user_id']);
+            while ($user = mysqli_fetch_assoc($useridsql)) {
+                $userid = $user['user_id'];
+            }
+            $followerid = $data['event']['user_id'];
+            $followername = $data['event']['user_name'];
+            file_get_contents('https://ipdonate.com/cron/twitchsubscribe?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername);
+        }
         break;
 
     default:
