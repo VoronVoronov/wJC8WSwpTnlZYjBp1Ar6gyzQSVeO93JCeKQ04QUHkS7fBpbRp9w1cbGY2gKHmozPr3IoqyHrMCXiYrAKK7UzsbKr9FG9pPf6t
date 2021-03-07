@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-12">
 
-        {{ if($user->user_group == 1 }}
+        @if($user->user_group == 1)
             <!-- Tab panes -->
             <div class="tab-content" style="padding-top: 15px">
                 <div role="tabpanel" class="tab-pane active" id="main">
