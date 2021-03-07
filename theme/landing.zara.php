@@ -157,7 +157,6 @@
                     </div>
                 </center>
             </div>
-        </div>
 
         <div class="pay-methods container">
             <h5>Мы работаем с различными платёжными системами</h5>
