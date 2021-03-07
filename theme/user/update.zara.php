@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-12">
 
-
+        {{ if($user->user_group == 1 }}
             <!-- Tab panes -->
             <div class="tab-content" style="padding-top: 15px">
                 <div role="tabpanel" class="tab-pane active" id="main">
@@ -129,6 +129,14 @@
                     <input type="submit" class="btn btn-success" value="Сохранить">
                 </div>
             </div>
+            @else
+            <center>
+                Для приёма пожертвовании на свои кошельки, необходимо оплатить тарифный план.
+                Стоимость - 499 рублей в месяц.
+                <a href="#" class="btn btn-success">Оплатить</a>
+                Услуга временно недоступна.
+            </center>
+            @endif
         </div>
     </div>
 </form>
