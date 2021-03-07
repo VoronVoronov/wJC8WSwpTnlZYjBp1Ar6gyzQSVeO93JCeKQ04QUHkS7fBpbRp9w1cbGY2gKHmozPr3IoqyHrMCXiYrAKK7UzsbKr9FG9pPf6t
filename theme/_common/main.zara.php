@@ -71,7 +71,7 @@
                         <li @if(route()->url == "widgets/my/stats") class="active" @endif><a href="/widgets/my/stats"><i class="icon icon-mic"></i> Внутристримовая статистика</a></li>
                         <li @if(route()->url == "widgets/my/goals") class="active" @endif><a href="/widgets/my/goals"><i class="icon icon-balance"></i> Сбор средств</a></li>
                         <li @if(route()->url == "widgets/my/votes") class="active" @endif><a href="/widgets/my/votes"><i class="icon icon-vote"></i> Голосования</a></li>
-                        <li @if(route()->url == "widgets/my/events") class="active" @endif><a href="/widgets/events"><i class="fa fa-list"></i> Последние действия</a></li>
+                        <li @if(route()->url == "widgets/events") class="active" @endif><a href="/widgets/events"><i class="fa fa-list"></i> Последние действия</a></li>
                     </ul>
                 </li>
             </ul>

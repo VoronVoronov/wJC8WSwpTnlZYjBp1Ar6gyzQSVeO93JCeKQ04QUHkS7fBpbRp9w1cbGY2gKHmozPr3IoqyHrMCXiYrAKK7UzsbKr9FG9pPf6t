@@ -59,14 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
-      <workItem from="1614916290901" duration="47587000" />
-    </task>
-    <task id="LOCAL-00070" summary="Updated AlertModel">
-      <created>1615069597142</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1615069597142</updated>
+      <workItem from="1614916290901" duration="47737000" />
     </task>
     <task id="LOCAL-00071" summary="Updated AlertModel">
       <created>1615069669532</created>
@@ -404,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615098998063</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="Updated events">
+      <created>1615099222720</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1615099222721</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +422,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="05.03.2021 23:51" />
     <MESSAGE value="05.03.2021 23:52" />
     <MESSAGE value="05.03.2021 23:55" />
     <MESSAGE value="Add Youtube Login" />
@@ -447,6 +446,7 @@
     <MESSAGE value="Add Tarif" />
     <MESSAGE value="Deleted VK widgets" />
     <MESSAGE value="Updated VK Widgets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated VK Widgets" />
+    <MESSAGE value="Updated events" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated events" />
   </component>
 </project>
