@@ -10,15 +10,15 @@
     <meta http-equiv="Cache-Control" content="no-cache" />
 
     <title>IPDonate - зарабатывай вместе с нами!</title>
-    
+
     <script src="https://vk.com/js/api/openapi.js?160" type="text/javascript"></script>
     <meta name="telderi" content="c15a225b1642bd3749c3eeb00ecf51d0" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-	<meta name="webmoney" content="CAB1D522-3C80-4778-9D95-EBC276A179C7"/>
-    
+    <meta name="webmoney" content="CAB1D522-3C80-4778-9D95-EBC276A179C7"/>
+
     @yield("styles")
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -124,125 +124,112 @@
                     </div>
 
                 </div>
-            </div>
-
-            <div class="rates ">
-                <div class="container row">
-                    <h5>Наши тарифы</h5>
-                    <div class="col-md-4">
-                        <div class="rate">
-                            <p class="name free">FREE</p>
-                            <div class="desc">Бесплатный тариф, который доступен каждому стримеру. Включает стартовый набор инструментов для проведение первокласных стримов.</div>
-                            <span>Преимущество</span>
-                            <span>Преимущество</span>
-                            <span>Преимущество</span>
-                            <span>Преимущество</span>
-                            <a href="#" class="btn btn-default btn-sm">Опробовать</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="rate not-active-rate">
-                            <p class="name two">Тариф 2</p>
-                            <div class="desc">Бесплатный тариф, который доступен каждому стримеру. Включает стартовый набор инструментов для проведение первокласных стримов.</div>
-                            <span>Преимущество</span>
-                            <span>Преимущество</span>
-                            <span>Преимущество</span>
-                            <span>Преимущество</span>
-                            <div class="price two">
-                                <b>1000</b>
-                                <p>рублей</p>
-                            </div>
-                            <a href="#" class="btn btn-danger btn-sm">Купить</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="rate not-active-rate">
-                            <p class="name three">Тариф 3</p>
-                            <div class="desc">Бесплатный тариф, который доступен каждому стримеру. Включает стартовый набор инструментов для проведение первокласных стримов.</div>
-                            <span>Преимущество</span>
-                            <span>Преимущество</span>
-                            <span>Преимущество</span>
-                            <span>Преимущество</span>
-                            <div class="price three">
-                                <b>2500</b>
-                                <p>рублей</p>
-                            </div>
-                            <a href="#" class="btn btn-default btn-sm">Купить</a>
-                        </div>
-                    </div>
-
-                    <h5>Мы работаем с сервисами</h5>
-                    <div class="social-platform">
-                        <a href="#"><i class="fa fa-twitch"></i> Twitch</a>
-                        <a href="#"><i class="fa fa-youtube-play"></i> YouTube</a>
-                        <a href="#"><i class="fa fa-vk"></i> VK Gaming</a>
-                    </div>
-                </div>
             </div>-->
 
-            <div class="pay-methods container">
-                <h5>Мы работаем с различными платёжными системами</h5>
-                <img src="/assets/images/pay-methods.png">
-                <h5>А так же уникальня возможность принимать скины</h5>
-                <img src="/assets/images/pay-methods-games.png">
+            <div class="rates ">
+                <center>
+                    <div class="container row">
+                        <h5>Наши тарифы</h5>
+                        <div class="col-md-4">
+                            <div class="rate">
+                                <p class="name free">FREE</p>
+                                <div class="desc">Бесплатный тариф, который доступен каждому стримеру. Включает стартовый набор инструментов для проведение первокласных стримов.</div>
+                                <span>Комиссия на приём: до 7%</span>
+                                <span>Комиссия на вывод: до 7%</span>
+                                <span>Discord-бот</span>
+                                <a href="#" class="btn btn-default btn-sm">Опробовать</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="rate not-active-rate">
+                                <p class="name two">Advanced</p>
+                                <div class="desc">Данный тарифный план включает в себя функционал сервиса и возможность принимать пожертвования на свои электронные кошельки.</div>
+                                <span>Комиссия на приём: 0%</span>
+                                <span>Комиссия на вывод: 0%</span>
+                                <span>Discord-бот</span>
+                                <div class="price two">
+                                    <b>499</b>
+                                    <p>рублей</p>
+                                </div>
+                                <a href="#" class="btn btn-danger btn-sm">Купить</a>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+
+
+                <h5>Мы работаем с сервисами</h5>
+                <div class="social-platform">
+                    <a href="#"><i class="fa fa-twitch"></i> Twitch</a>
+                    <a href="#"><i class="fa fa-youtube-play"></i> YouTube</a>
+                    <a href="#"><i class="fa fa-vk"></i> VK Gaming</a>
+                </div>
             </div>
         </div>
 
-        <div class="footer">
-            <div class="container">
-                <div class="left-footer">
-                    <div class="left-menu">
-                        <a href="/">- Главная</a>
-                        <a href="/oferta">- Публичная оферта</a>
-                        <a href="/agreement">- Пользовательское соглашение</a>
-                        <a href="https://vk.com/ipdonate">- ВКонтакте</a>
-                    </div>
+        <div class="pay-methods container">
+            <h5>Мы работаем с различными платёжными системами</h5>
+            <img src="/assets/images/pay-methods.png">
+            <h5>А так же уникальня возможность принимать скины</h5>
+            <img src="/assets/images/pay-methods-games.png">
+        </div>
+    </div>
 
-                    <div class="left-menu">
-						<a href="https://passport.webmoney.ru/asp/certview.asp?wmid=413143268781" target="_blank"><img src="/assets/images/v_blue_on_white_ru.png" alt="Здесь находится аттестат нашего WM идентификатора 413143268781" border="0" /></a>
-					</div>
-                    <div class="left-menu">
-                        <a href="https://megastock.ru/" target="_blank"><img src="/assets/images/webmoney_accept.png"></a>
-                    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="left-footer">
+                <div class="left-menu">
+                    <a href="/">- Главная</a>
+                    <a href="/oferta">- Публичная оферта</a>
+                    <a href="/agreement">- Пользовательское соглашение</a>
+                    <a href="https://vk.com/ipdonate">- ВКонтакте</a>
                 </div>
-		
-                <div class="clear"></div>
+
+                <div class="left-menu">
+                    <a href="https://passport.webmoney.ru/asp/certview.asp?wmid=413143268781" target="_blank"><img src="/assets/images/v_blue_on_white_ru.png" alt="Здесь находится аттестат нашего WM идентификатора 413143268781" border="0" /></a>
+                </div>
+                <div class="left-menu">
+                    <a href="https://megastock.ru/" target="_blank"><img src="/assets/images/webmoney_accept.png"></a>
+                </div>
             </div>
-            <div class="footer-line">
-                <div class="container">
-                    <div class="copyright">
-                        2019 - <?php echo date ( 'Y' ) ; ?> &copy; IPDonate 
-                            <i class="fab fa-vimeo"></i>
-                            <?
-                            $version_json = @file_get_contents('https://ipdonate.com/api/v1/version/?token=OitQDh8fwQIO0ZaFJZwXuz5R');
-                            $version = json_decode($version_json, true);
-                            echo $version[0]['version'];
-                            echo $version[0]['type'];
-                            ?>. 
-                            <a href="https://status.ipdonate.com/">
-                            UPTIME: 
-                                <!--
-                                <i class="fas fa-signal"></i>
-                                <i class="fab fa-dev"></i>
-                                -->
 
-                            <?
-                             $status_json = @file_get_contents('https://updown.io/api/checks?api-key=CayZiwAv5S9oVkEUYxnu');
-                             $status = json_decode( $status_json, true );
-                             echo $uptime = $status[0]['uptime'].'%';
-                            ?>
-                            </a>
-                    </div>
+            <div class="clear"></div>
+        </div>
+        <div class="footer-line">
+            <div class="container">
+                <div class="copyright">
+                    2019 - <?php echo date ( 'Y' ) ; ?> &copy; IPDonate
+                    <i class="fab fa-vimeo"></i>
+                    <?
+                    $version_json = @file_get_contents('https://ipdonate.com/api/v1/version/?token=OitQDh8fwQIO0ZaFJZwXuz5R');
+                    $version = json_decode($version_json, true);
+                    echo $version[0]['version'];
+                    echo $version[0]['type'];
+                    ?>.
+                    <a href="https://status.ipdonate.com/">
+                        UPTIME:
+                        <!--
+                        <i class="fas fa-signal"></i>
+                        <i class="fab fa-dev"></i>
+                        -->
 
-                    <div class="copyright-right">
-                        Все права защищены 
-                    </div>
-
-                    <div class="clear"></div>
+                        <?
+                        $status_json = @file_get_contents('https://updown.io/api/checks?api-key=CayZiwAv5S9oVkEUYxnu');
+                        $status = json_decode( $status_json, true );
+                        echo $uptime = $status[0]['uptime'].'%';
+                        ?>
+                    </a>
                 </div>
+
+                <div class="copyright-right">
+                    Все права защищены
+                </div>
+
+                <div class="clear"></div>
             </div>
         </div>
     </div>
+</div>
 
 </div>
 
@@ -256,25 +243,25 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="row row-sm-offset-3 socialButtons">
-					<center>
-						<div class="col-xs-2 col-sm-2">
-							<a href="/login/twitch" class="btn btn-lg btn-block lgn_btn-twitch" data-toggle="tooltip" data-placement="top" title="Twitch Login">
-								<i class="fa fa-twitch fa-2x"></i>
-								<span class="hidden-xs"></span>
-							</a>
-						</div>
-						<div class="col-xs-2 col-sm-2">
-							<a href="/login/vk" class="btn btn-lg btn-block lgn_btn-vk" data-toggle="tooltip" data-placement="top" title="VK Login">
+                    <center>
+                        <div class="col-xs-2 col-sm-2">
+                            <a href="/login/twitch" class="btn btn-lg btn-block lgn_btn-twitch" data-toggle="tooltip" data-placement="top" title="Twitch Login">
+                                <i class="fa fa-twitch fa-2x"></i>
+                                <span class="hidden-xs"></span>
+                            </a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2">
+                            <a href="/login/vk" class="btn btn-lg btn-block lgn_btn-vk" data-toggle="tooltip" data-placement="top" title="VK Login">
                                 <i class="fa fa-vk fa-2x"></i>
                                 <span class="hidden-xs"></span>
-							</a>
-						</div>
-						<div class="col-xs-2 col-sm-2">
-							<a href="/login/youtube" class="btn btn-lg btn-block lgn_btn-google-plus" data-toggle="tooltip" data-placement="top" title="YouTube login">
-								<i class="fa fa-youtube fa-2x"></i>
-								<span class="hidden-xs"></span>
-							</a>
-						</div>
+                            </a>
+                        </div>
+                        <div class="col-xs-2 col-sm-2">
+                            <a href="/login/youtube" class="btn btn-lg btn-block lgn_btn-google-plus" data-toggle="tooltip" data-placement="top" title="YouTube login">
+                                <i class="fa fa-youtube fa-2x"></i>
+                                <span class="hidden-xs"></span>
+                            </a>
+                        </div>
                         <br>
                     </center>
                 </div>
@@ -311,7 +298,7 @@
 
 <div id="vk_community_messages"></div>
 <script type="text/javascript">
-VK.Widgets.CommunityMessages("vk_community_messages", 174659405, {tooltipButtonText: "Здравствуйте,чем могу вам помочь?"});
+    VK.Widgets.CommunityMessages("vk_community_messages", 174659405, {tooltipButtonText: "Здравствуйте,чем могу вам помочь?"});
 </script>
 <script>
     var curr_slide = 1;
@@ -340,13 +327,13 @@ VK.Widgets.CommunityMessages("vk_community_messages", 174659405, {tooltipButtonT
     });
 
     $(".slide-btn, .auth").click(function() {
-       $("#authModal").modal("show");
+        $("#authModal").modal("show");
 
         return false;
     });
 
     $(".contact").click(function() {
-       $("#contactModal").modal("show");
+        $("#contactModal").modal("show");
 
         return false;
     });
