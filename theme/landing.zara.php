@@ -157,15 +157,6 @@
                     </div>
                 </center>
             </div>
-
-
-                <h5>Мы работаем с сервисами</h5>
-                <div class="social-platform">
-                    <a href="#"><i class="fa fa-twitch"></i> Twitch</a>
-                    <a href="#"><i class="fa fa-youtube-play"></i> YouTube</a>
-                    <a href="#"><i class="fa fa-vk"></i> VK Gaming</a>
-                </div>
-            </div>
         </div>
 
         <div class="pay-methods container">
