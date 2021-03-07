@@ -3,15 +3,15 @@
 * MyUCP
 */
 
-class UserController extends Controller {
+class UserController extends Controller
+{
 
     public function verify($id, $code)
     {
         model('User');
         $user = $this->UserModel->getUser($id)[0];
         dd($user);
-        if($code == strrev(md5($user['user_login'])))
-        {
+        if ($code == strrev(md5($user['user_login']))) {
             Builder::table('users')->where('user_id', $user['user_id'])
                 ->set(['user_group' => 1])
                 ->update();
@@ -21,9 +21,8 @@ class UserController extends Controller {
             redirect(route("user.profile"));
             header('Location: https://sdonate.ru/user/');
 
-        }
-        else
-            abort(401,lang('errors/system.verify_error'));
+        } else
+            abort(401, lang('errors/system.verify_error'));
     }
 
     public function post_user()
@@ -43,83 +42,83 @@ class UserController extends Controller {
             } else {
                 abort(401, lang('errors/system.incorrect_mail'));
             }
-        } elseif(!empty(Request::post('change_email'))) {
-            if(empty(Request::post('value')))
+        } elseif (!empty(Request::post('change_email'))) {
+            if (empty(Request::post('value')))
                 return json_encode(["status" => "error", "error" => "Введите новый E-mail адрес!"]);
             model("Secure");
             $action_id = $this->SecureModel->addAction(session("user_id"), 1, json_encode(['email' => Request::post("value")]));
             $this->UserModel->sendChangeMail(session("user_id"), $action_id);
 
             return json_encode(['status' => "success"]);
-        } elseif(!empty(Request::post('pay_wallet'))) {
-            if(Request::post("name") == "qiwi") {
+        } elseif (!empty(Request::post('pay_wallet'))) {
+            if (Request::post("name") == "qiwi") {
                 $data = [
-                    "qiwi"  =>  Request::post('value'),
-                    "webmoney"  =>  $user->user_wallets->webmoney,
-                    "yamoney"   =>  $user->user_wallets->yamoney,
-                    "bank"      =>  $user->user_wallets->bank,
+                    "qiwi" => Request::post('value'),
+                    "webmoney" => $user->user_wallets->webmoney,
+                    "yamoney" => $user->user_wallets->yamoney,
+                    "bank" => $user->user_wallets->bank,
                 ];
             }
 
             switch (Request::post("name")) {
                 case "qiwi":
-                    if(empty(Request::post('value')))
+                    if (empty(Request::post('value')))
                         return json_encode(["status" => "error", "error" => "Введите номер телефона кошелька Qiwi!"]);
 
                     $data = [
-                        "qiwi"      =>  Request::post('value'),
-                        "webmoney"  =>  $user->user_wallets->webmoney,
-                        "yamoney"   =>  $user->user_wallets->yamoney,
-                        "bank"      =>  $user->user_wallets->bank,
-                        "paypal"    =>  $user->user_wallets->paypal,
+                        "qiwi" => Request::post('value'),
+                        "webmoney" => $user->user_wallets->webmoney,
+                        "yamoney" => $user->user_wallets->yamoney,
+                        "bank" => $user->user_wallets->bank,
+                        "paypal" => $user->user_wallets->paypal,
                     ];
                     break;
                 case "webmoney":
-                    if(empty(Request::post('value')))
+                    if (empty(Request::post('value')))
                         return json_encode(["status" => "error", "error" => "Введите номер кошелька WebMoney!"]);
 
                     $data = [
-                        "qiwi"      =>  $user->user_wallets->qiwi,
-                        "webmoney"  =>  Request::post('value'),
-                        "yamoney"   =>  $user->user_wallets->yamoney,
-                        "bank"      =>  $user->user_wallets->bank,
-                        "paypal"    =>  $user->user_wallets->paypal,
+                        "qiwi" => $user->user_wallets->qiwi,
+                        "webmoney" => Request::post('value'),
+                        "yamoney" => $user->user_wallets->yamoney,
+                        "bank" => $user->user_wallets->bank,
+                        "paypal" => $user->user_wallets->paypal,
                     ];
                     break;
                 case "yamoney":
-                    if(empty(Request::post('value')))
+                    if (empty(Request::post('value')))
                         return json_encode(["status" => "error", "error" => "Введите номер кошелька Яндекс.Деньги!"]);
 
                     $data = [
-                        "qiwi"      =>  $user->user_wallets->qiwi,
-                        "webmoney"  =>  $user->user_wallets->webmoney,
-                        "yamoney"   =>  Request::post('value'),
-                        "bank"      =>  $user->user_wallets->bank,
-                        "paypal"    =>  $user->user_wallets->paypal,
+                        "qiwi" => $user->user_wallets->qiwi,
+                        "webmoney" => $user->user_wallets->webmoney,
+                        "yamoney" => Request::post('value'),
+                        "bank" => $user->user_wallets->bank,
+                        "paypal" => $user->user_wallets->paypal,
                     ];
                     break;
                 case "bank":
-                    if(empty(Request::post('value')))
+                    if (empty(Request::post('value')))
                         return json_encode(["status" => "error", "error" => "Введите номер банковского счета!"]);
 
                     $data = [
-                        "qiwi"      =>  $user->user_wallets->qiwi,
-                        "webmoney"  =>  $user->user_wallets->webmoney,
-                        "yamoney"   =>  $user->user_wallets->yamoney,
-                        "bank"      =>  Request::post('value'),
-                        "paypal"    =>  $user->user_wallets->paypal,
+                        "qiwi" => $user->user_wallets->qiwi,
+                        "webmoney" => $user->user_wallets->webmoney,
+                        "yamoney" => $user->user_wallets->yamoney,
+                        "bank" => Request::post('value'),
+                        "paypal" => $user->user_wallets->paypal,
                     ];
                     break;
                 case "paypal":
-                    if(empty(Request::post('value')))
+                    if (empty(Request::post('value')))
                         return json_encode(["status" => "error", "error" => "Укажите Paypal кошелек!"]);
 
                     $data = [
-                        "qiwi"      =>  $user->user_wallets->qiwi,
-                        "webmoney"  =>  $user->user_wallets->webmoney,
-                        "yamoney"   =>  $user->user_wallets->yamoney,
-                        "bank"      =>  $user->user_wallets->bank,
-                        "paypal"    =>  Request::post('value'),
+                        "qiwi" => $user->user_wallets->qiwi,
+                        "webmoney" => $user->user_wallets->webmoney,
+                        "yamoney" => $user->user_wallets->yamoney,
+                        "bank" => $user->user_wallets->bank,
+                        "paypal" => Request::post('value'),
                     ];
                     break;
             }
@@ -136,17 +135,17 @@ class UserController extends Controller {
 
     public function profile()
     {
-        if(!($data['user'] = IsOnline()))
+        if (!($data['user'] = IsOnline()))
             abort(403);
 
         model("User", "Donation");
 
         $data['user']->user_wallets = json_decode($data['user']->user_wallets);
         $data['user']->user_all_balance = $this->DonationModel->getBalance(session("user_id"), 3)['balance'];
-        $data['user']->user_stream_time = (float) ($this->UserModel->getStreamTime(session("user_id")) / 60);
+        $data['user']->user_stream_time = (float)($this->UserModel->getStreamTime(session("user_id")) / 60);
         $balance = $this->UserModel->getBalance(session('user_id'));
         $data['user']->user_balance = (empty($balance)) ? 0 : $balance;
-        $data['ip']  = $this->UserModel->getLog(session("user_id"));
+        $data['ip'] = $this->UserModel->getLog(session("user_id"));
 
         return view("user/profile", $data);
     }
@@ -155,7 +154,7 @@ class UserController extends Controller {
     {
         model("User");
 
-        if($this->UserModel->checkDomain($url) == 0) {
+        if ($this->UserModel->checkDomain($url) == 0) {
             return json_encode(["status" => "success"]);
         } else {
             return json_encode(["status" => "error", "error" => "Адрес занят"]);
@@ -173,8 +172,8 @@ class UserController extends Controller {
         $paginationLib = new paginationLibrary;
         $total = $this->DonationModel->getCountUserDonations(session("user_id"));
         $options = array(
-            'start'		=>	($page - 1) * $limit,
-            'limit'		=>	$limit
+            'start' => ($page - 1) * $limit,
+            'limit' => $limit
         );
 
         $paginationLib->total = $total;
@@ -208,8 +207,8 @@ class UserController extends Controller {
         $paginationLib = new paginationLibrary;
         $total = $this->MessageModel->getCountUserMessages(session("user_id"));
         $options = array(
-            'start'		=>	($page - 1) * $limit,
-            'limit'		=>	$limit
+            'start' => ($page - 1) * $limit,
+            'limit' => $limit
         );
 
         $paginationLib->total = $total;
@@ -243,8 +242,8 @@ class UserController extends Controller {
         $paginationLib = new paginationLibrary;
         $total = $this->FaqModel->getCountFaq(session("user_id"));
         $options = array(
-            'start'     =>  ($page - 1) * $limit,
-            'limit'     =>  $limit
+            'start' => ($page - 1) * $limit,
+            'limit' => $limit
         );
 
         $paginationLib->total = $total;
@@ -278,8 +277,8 @@ class UserController extends Controller {
         $paginationLib = new paginationLibrary;
         $total = $this->MoneyModel->getCountRequestsMoney(session("user_id"));
         $options = array(
-            'start'		=>	($page - 1) * $limit,
-            'limit'		=>	$limit
+            'start' => ($page - 1) * $limit,
+            'limit' => $limit
         );
 
         $paginationLib->total = $total;
@@ -316,15 +315,15 @@ class UserController extends Controller {
         //$block_start = $user['user_reg_time'];
         //$block_end = date("now") - date("Y-m-d H:i:s", strtotime($user['user_reg_time']. " + 3 days"));
 
-        if(Request::post("request_money")) {
-            if(strtotime(date("now")) >= strtotime($user['user_block_time'])){
+        if (Request::post("request_money")) {
+            if (strtotime(date("now")) >= strtotime($user['user_block_time'])) {
                 //if( $block_start < $block_end ){
-                if(Request::post("money_system") >= 1 && Request::post("money_system") <= 4) {
-                    if(Request::post("money_sum") >= 50 && Request::post("money_sum") <= 14999) {
-                        if(isOnline()->user_balance >= Request::post("money_sum")) {
+                if (Request::post("money_system") >= 1 && Request::post("money_system") <= 4) {
+                    if (Request::post("money_sum") >= 50 && Request::post("money_sum") <= 14999) {
+                        if (isOnline()->user_balance >= Request::post("money_sum")) {
                             $wallets = json_decode(isOnline()->user_wallets, true);
-                            if(!empty($wallets[$money_systems[Request::post("money_system")]])) {
-                                if(Request::post("money_system") == 1){
+                            if (!empty($wallets[$money_systems[Request::post("money_system")]])) {
+                                if (Request::post("money_system") == 1) {
                                     $system = "qiwi";
                                     $wallet = $wallets["qiwi"];
 
@@ -339,14 +338,14 @@ class UserController extends Controller {
                                         $wallet
                                     );
 
-                                    $json_money = @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]='.(float)$sum.'&params[purse]='.$wallet.'&params[login]='.$this->config->masspayment["login"].'&params[transactionId]='.$code.'&params[secretKey]='.$this->config->masspayment["secret_key"].'&params[paymentType]='.$system);
+                                    $json_money = @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]=' . (float)$sum . '&params[purse]=' . $wallet . '&params[login]=' . $this->config->masspayment["login"] . '&params[transactionId]=' . $code . '&params[secretKey]=' . $this->config->masspayment["secret_key"] . '&params[paymentType]=' . $system);
                                     $info_money = json_deocde($json_money);
-                                    if($info_money['result']['status'] == 'success'){
+                                    if ($info_money['result']['status'] == 'success') {
                                         $update = $this->MoneyModel->editMoney($code, ['money_status' => '1']);
                                         $this->MessageModel->addMessage(session("user_id"), "Вы запросили " . Request::post("money_sum") . " руб. на выплату.");
                                         $result = ['status' => "success"];
                                     }
-                                }elseif(Request::post("money_system") == 2){
+                                } elseif (Request::post("money_system") == 2) {
                                     $system = "webmoney";
                                     $wallet = $wallets["webmoney"];
 
@@ -360,12 +359,12 @@ class UserController extends Controller {
                                         (int)Request::post("money_system"),
                                         $wallet
                                     );
-                                    @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]='.(float)$sum.'&params[purse]='.$wallet.'&params[login]='.$this->config->masspayment["login"].'&params[transactionId]='.$code.'&params[secretKey]='.$this->config->masspayment["secret_key"].'&params[paymentType]='.$system);
+                                    @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]=' . (float)$sum . '&params[purse]=' . $wallet . '&params[login]=' . $this->config->masspayment["login"] . '&params[transactionId]=' . $code . '&params[secretKey]=' . $this->config->masspayment["secret_key"] . '&params[paymentType]=' . $system);
 
                                     $this->MessageModel->addMessage(session("user_id"), "Вы запросили " . Request::post("money_sum") . " руб. на выплату.");
                                     $result = ['status' => "success"];
 
-                                }elseif(Request::post("money_system") == 3){
+                                } elseif (Request::post("money_system") == 3) {
                                     $system = "yandex";
                                     $wallet = $wallets["yamoney"];
 
@@ -379,19 +378,19 @@ class UserController extends Controller {
                                         (int)Request::post("money_system"),
                                         $wallet
                                     );
-                                    @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]='.(float)$sum.'&params[purse]='.$wallet.'&params[login]='.$this->config->masspayment["login"].'&params[transactionId]='.$code.'&params[secretKey]='.$this->config->masspayment["secret_key"].'&params[paymentType]='.$system);
+                                    @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]=' . (float)$sum . '&params[purse]=' . $wallet . '&params[login]=' . $this->config->masspayment["login"] . '&params[transactionId]=' . $code . '&params[secretKey]=' . $this->config->masspayment["secret_key"] . '&params[paymentType]=' . $system);
 
                                     $this->MessageModel->addMessage(session("user_id"), "Вы запросили " . Request::post("money_sum") . " руб. на выплату.");
                                     $result = ['status' => "success"];
 
-                                }elseif(Request::post("money_system") == 4){
-                                    if(Request::post("money_sum") >= 1000){
+                                } elseif (Request::post("money_system") == 4) {
+                                    if (Request::post("money_sum") >= 1000) {
                                         $system = "card";
                                         $wallet = $wallets["bank"];
 
                                         $percent = Request::post("money_sum") * 0.05;
 
-                                        if($percent < 180 ){
+                                        if ($percent < 180) {
                                             $sum = Request::post("money_sum") - '180';
                                             $code = $this->MoneyModel->addRequest(
                                                 session("user_id"),
@@ -400,8 +399,8 @@ class UserController extends Controller {
                                                 (int)Request::post("money_system"),
                                                 $wallet
                                             );
-                                            @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]='.(float)$sum.'&params[purse]='.$wallet.'&params[login]='.$this->config->masspayment["login"].'&params[transactionId]='.$code.'&params[secretKey]='.$this->config->masspayment["secret_key"].'&params[paymentType]='.$system);
-                                        }else{
+                                            @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]=' . (float)$sum . '&params[purse]=' . $wallet . '&params[login]=' . $this->config->masspayment["login"] . '&params[transactionId]=' . $code . '&params[secretKey]=' . $this->config->masspayment["secret_key"] . '&params[paymentType]=' . $system);
+                                        } else {
                                             $sum = Request::post("money_sum") - $percent;
                                             $code = $this->MoneyModel->addRequest(
                                                 session("user_id"),
@@ -410,11 +409,11 @@ class UserController extends Controller {
                                                 (int)Request::post("money_system"),
                                                 $wallet
                                             );
-                                            @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]='.(float)$sum.'&params[purse]='.$wallet.'&params[login]='.$this->config->masspayment["login"].'&params[transactionId]='.$code.'&params[secretKey]='.$this->config->masspayment["secret_key"].'&params[paymentType]='.$system);
+                                            @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]=' . (float)$sum . '&params[purse]=' . $wallet . '&params[login]=' . $this->config->masspayment["login"] . '&params[transactionId]=' . $code . '&params[secretKey]=' . $this->config->masspayment["secret_key"] . '&params[paymentType]=' . $system);
                                         }
                                         $this->MessageModel->addMessage(session("user_id"), "Вы запросили " . Request::post("money_sum") . " руб. на выплату.");
                                         $result = ['status' => "success"];
-                                    }else{
+                                    } else {
                                         $result = ["status" => "error", "error" => "Минимальная сумма вывода 1000 рублей!"];
                                     }
                                 }
@@ -430,7 +429,7 @@ class UserController extends Controller {
                 } else {
                     $result = ["status" => "error", "error" => "Выберите платежную систему для выплаты!"];
                 }
-            }else{
+            } else {
                 $result = ["status" => "error", "error" => "Новые пользователи не могут выводить средства первые 3 дня с момента регистраций!"];
             }
         } else {
@@ -440,13 +439,13 @@ class UserController extends Controller {
         return json_encode($result);
     }
 
-    public function login($type) {
+    public function login($type)
+    {
 
-        if(IsOnline())
+        if (IsOnline())
             redirect(route("home"));
 
-        switch($type)
-        {
+        switch ($type) {
             case "twitch":
                 $this->LoginWithTwitch();
                 break;
@@ -468,7 +467,7 @@ class UserController extends Controller {
 
     private function LoginWithYouTube()
     {
-        if(empty(Request::get("code"))) {
+        if (empty(Request::get("code"))) {
 
             $url = 'https://accounts.google.com/o/oauth2/auth';
 
@@ -506,8 +505,8 @@ class UserController extends Controller {
 
             $tokenInfo = json_decode($result, true);
             //dd($tokenInfo);
-            if(isset($tokenInfo['access_token'])) {
-                $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&access_token='.$tokenInfo['access_token'].'&ley='.config()->youtube['youtube_api']);
+            if (isset($tokenInfo['access_token'])) {
+                $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&access_token=' . $tokenInfo['access_token'] . '&ley=' . config()->youtube['youtube_api']);
                 curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
                     'Authorization: Bearer ' . $tokenInfo['access_token'],
@@ -521,19 +520,19 @@ class UserController extends Controller {
 
                 $userInfo = json_decode($r1);
 
-                if(!($user = $this->UserModel->getUser($userInfo->items[0]->id, "user_youtube"))) {
+                if (!($user = $this->UserModel->getUser($userInfo->items[0]->id, "user_youtube"))) {
                     $data = [
-                        "user_login" 	            =>	"youtube_" . $userInfo->items[0]->id,
-                        "user_login_show"           =>	$userInfo->items[0]->snippet->title,
+                        "user_login" => "youtube_" . $userInfo->items[0]->id,
+                        "user_login_show" => $userInfo->items[0]->snippet->title,
                         //'user_email'                =>  $userInfo['email'],
-                        "user_domain"               =>  "youtube_" . $userInfo->items[0]->id,
-                        "user_avatar"	            =>	(!empty($userInfo->items[0]->snippet->thumbnails->default->url)) ? $userInfo->items[0]->snippet->thumbnails->default->url : "/assets/images/no_avatar.png",
-                        "user_youtube"	            =>	$userInfo->items[0]->id,
-                        "user_reg_ip"	            =>  $_SERVER["REMOTE_ADDR"],
-                        "user_youtube_token"        =>  $tokenInfo['access_token'],
-                        "user_youtube_subs"         =>  $userInfo->items[0]->statistics->subscriberCount,
-                        "user_donate_page"          =>  "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
-                        "user_reg_time"             => "NOW()",
+                        "user_domain" => "youtube_" . $userInfo->items[0]->id,
+                        "user_avatar" => (!empty($userInfo->items[0]->snippet->thumbnails->default->url)) ? $userInfo->items[0]->snippet->thumbnails->default->url : "/assets/images/no_avatar.png",
+                        "user_youtube" => $userInfo->items[0]->id,
+                        "user_reg_ip" => $_SERVER["REMOTE_ADDR"],
+                        "user_youtube_token" => $tokenInfo['access_token'],
+                        "user_youtube_subs" => $userInfo->items[0]->statistics->subscriberCount,
+                        "user_donate_page" => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
+                        "user_reg_time" => "NOW()",
                     ];
                     $id = $this->UserModel->addUser($data);
                     $this->UserModel->trackIP($id, 1);
@@ -551,16 +550,16 @@ class UserController extends Controller {
     private function LoginWithTwitch()
     {
         model("User");
-        if(empty(Request::get("code"))) {
+        if (empty(Request::get("code"))) {
 
             $url = 'https://id.twitch.tv/oauth2/authorize';
 
             $params = array(
-                'client_id'     => config()->twitch['client_id'],
-                'redirect_uri'  => config()->twitch['redirect_uri'],
+                'client_id' => config()->twitch['client_id'],
+                'redirect_uri' => config()->twitch['redirect_uri'],
                 'response_type' => 'code',
-                'force_verify'  => 'true',
-                'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
+                'force_verify' => 'true',
+                'scope' => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
             );
 
             redirect($url . '?' . urldecode(http_build_query($params)));
@@ -611,11 +610,11 @@ class UserController extends Controller {
             curl_close($ch2);
             $userInfo = json_decode($r2);
 
-            $ch3 = curl_init('https://api.twitch.tv/helix/users/follows?to_id='.$userInfo->data[0]->id);
+            $ch3 = curl_init('https://api.twitch.tv/helix/users/follows?to_id=' . $userInfo->data[0]->id);
             curl_setopt($ch3, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch3, CURLOPT_HTTPHEADER, array(
-                'Client-ID: ' .config()->twitch['client_id'],
-                'Authorization: Bearer '.$token->access_token
+                'Client-ID: ' . config()->twitch['client_id'],
+                'Authorization: Bearer ' . $token->access_token
             ));
 
             $r3 = curl_exec($ch3);
@@ -627,16 +626,15 @@ class UserController extends Controller {
             $app_url = 'https://id.twitch.tv/oauth2/token';
 
             $app_params = array(
-                'client_id'     => config()->twitch['client_id'],
+                'client_id' => config()->twitch['client_id'],
                 'client_secret' => config()->twitch['client_secret'],
-                'grant_type'    => 'client_credentials',
-                'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
+                'grant_type' => 'client_credentials',
+                'scope' => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
             );
             $ch4 = curl_init($app_url . '?' . urldecode(http_build_query($app_params)));
             curl_setopt($ch4, CURLOPT_POST, true);
             curl_setopt($ch4, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch4, CURLOPT_POSTFIELDS, array(
-            ));
+            curl_setopt($ch4, CURLOPT_POSTFIELDS, array());
             $r4 = curl_exec($ch4);
             $i4 = curl_getinfo($ch4);
             curl_close($ch4);
@@ -644,21 +642,21 @@ class UserController extends Controller {
 
             $webhook_url = 'https://api.twitch.tv/helix/eventsub/subscriptions';
 
-            $webhook_headers = array('Client-ID: ' .config()->twitch['client_id'],
+            $webhook_headers = array('Client-ID: ' . config()->twitch['client_id'],
                 'Authorization: Bearer ' . $app_access_token->access_token,
                 'Accept: application/json',
                 'Content-Type: application/json'
             );
             $webhook_channel_follow_json = array(
-                'type'                      => 'channel.follow',
-                'version'                   => '1',
-                'condition'                 => array(
-                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                'type' => 'channel.follow',
+                'version' => '1',
+                'condition' => array(
+                    'broadcaster_user_id' => $userInfo->data[0]->id,
                 ),
-                'transport'                 => array(
-                    'method'                => 'webhook',
-                    'callback'              => config()->url.'/hook.php?action=twitchfollows',
-                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                'transport' => array(
+                    'method' => 'webhook',
+                    'callback' => config()->url . '/hook.php?action=twitchfollows',
+                    'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                 ));
             $webhook_channel_follow_post = json_encode($webhook_channel_follow_json);
             $ch5 = curl_init($webhook_url);
@@ -672,15 +670,15 @@ class UserController extends Controller {
             curl_close($ch5);
 
             $webhook_channel_subscribe_json = array(
-                'type'                      => 'channel.subscribe',
-                'version'                   => '1',
-                'condition'                 => array(
-                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                'type' => 'channel.subscribe',
+                'version' => '1',
+                'condition' => array(
+                    'broadcaster_user_id' => $userInfo->data[0]->id,
                 ),
-                'transport'                 => array(
-                    'method'                => 'webhook',
-                    'callback'              => config()->url.'/hook.php?action=twitchsubscribe',
-                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                'transport' => array(
+                    'method' => 'webhook',
+                    'callback' => config()->url . '/hook.php?action=twitchsubscribe',
+                    'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                 ));
             $webhook_channel_subscribe_post = json_encode($webhook_channel_subscribe_json);
             $ch6 = curl_init($webhook_url);
@@ -694,15 +692,15 @@ class UserController extends Controller {
             curl_close($ch6);
 
             $webhook_stream_online_json = array(
-                'type'                      => 'stream.online',
-                'version'                   => '1',
-                'condition'                 => array(
-                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                'type' => 'stream.online',
+                'version' => '1',
+                'condition' => array(
+                    'broadcaster_user_id' => $userInfo->data[0]->id,
                 ),
-                'transport'                 => array(
-                    'method'                => 'webhook',
-                    'callback'              => config()->url.'/hook.php?action=streamonline',
-                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                'transport' => array(
+                    'method' => 'webhook',
+                    'callback' => config()->url . '/hook.php?action=streamonline',
+                    'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                 ));
             $webhook_stream_online_post = json_encode($webhook_stream_online_json);
             $ch7 = curl_init($webhook_url);
@@ -716,15 +714,15 @@ class UserController extends Controller {
             curl_close($ch7);
 
             $webhook_stream_offline_json = array(
-                'type'                      => 'stream.offline',
-                'version'                   => '1',
-                'condition'                 => array(
-                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                'type' => 'stream.offline',
+                'version' => '1',
+                'condition' => array(
+                    'broadcaster_user_id' => $userInfo->data[0]->id,
                 ),
-                'transport'                 => array(
-                    'method'                => 'webhook',
-                    'callback'              => config()->url.'/hook.php?action=streamonffline',
-                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                'transport' => array(
+                    'method' => 'webhook',
+                    'callback' => config()->url . '/hook.php?action=streamonffline',
+                    'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                 ));
             $webhook_stream_offline_post = json_encode($webhook_stream_offline_json);
             $ch8 = curl_init($webhook_url);
@@ -739,18 +737,18 @@ class UserController extends Controller {
 
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
-                    "user_login"            => "twitch_" . $userInfo->data[0]->login,
-                    "user_login_show"       => $userInfo->data[0]->display_name,
-                    "user_domain"           => "twitch_" . $userInfo->data[0]->display_name,
-                    "user_avatar"           => (!empty($userInfo->data[0]->profile_image_url)) ? $userInfo->data[0]->profile_image_url : "/assets/images/no_avatar.png",
-                    "user_twitch"           => $userInfo->data[0]->display_name,
-                    "user_reg_ip"           => $_SERVER["REMOTE_ADDR"],
-                    "user_twitch_token"     => $token->access_token,
+                    "user_login" => "twitch_" . $userInfo->data[0]->login,
+                    "user_login_show" => $userInfo->data[0]->display_name,
+                    "user_domain" => "twitch_" . $userInfo->data[0]->display_name,
+                    "user_avatar" => (!empty($userInfo->data[0]->profile_image_url)) ? $userInfo->data[0]->profile_image_url : "/assets/images/no_avatar.png",
+                    "user_twitch" => $userInfo->data[0]->display_name,
+                    "user_reg_ip" => $_SERVER["REMOTE_ADDR"],
+                    "user_twitch_token" => $token->access_token,
                     "user_twitch_app_token" => $app_access_token->access_token,
-                    "user_twitch_follows"   => $userInfoFollows->total,
-                    "user_twitch_id"        => $userInfo->data[0]->id,
-                    "user_donate_page"      => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
-                    "user_reg_time"         => "NOW()",
+                    "user_twitch_follows" => $userInfoFollows->total,
+                    "user_twitch_id" => $userInfo->data[0]->id,
+                    "user_donate_page" => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
+                    "user_reg_time" => "NOW()",
                 ];
                 $id = $this->UserModel->addUser($data);
                 //$this->getUserSmiles("twitch", $id, "twitch_" . $userInfo->name);
@@ -770,40 +768,37 @@ class UserController extends Controller {
     {
         model("User");
 
-        if(!isset($this->request->get["authToken"]) && !isset($this->request->get["request_token"])) //Переадресация на авторизацию
-            redirect("https://api.hitbox.tv/oauth/login?app_token=".config()->hitbox['requestToken']);
+        if (!isset($this->request->get["authToken"]) && !isset($this->request->get["request_token"])) //Переадресация на авторизацию
+            redirect("https://api.hitbox.tv/oauth/login?app_token=" . config()->hitbox['requestToken']);
 
-        if(!isset($this->request->get["authToken"]))
+        if (!isset($this->request->get["authToken"]))
             $authToken = $this->HitBoxExchangeToken($this->request->get["request_token"]);
         else
             $authToken = $this->request->get["authToken"];
 
         $userInfo = $this->HitBoxGetUserInfo($authToken);
 
-        if(!($user = $this->UserModel->getUser($userInfo->user_id, "user_hitbox")))
-        {
+        if (!($user = $this->UserModel->getUser($userInfo->user_id, "user_hitbox"))) {
             $data = [
-                "user_login" 	=>		"hitbox".$userInfo->user_name,
-                "user_login_show"=>     $userInfo->user_name,
-                "user_domain"   =>      "hitbox".$userInfo->user_name,
-                "user_avatar"	=>		(!empty($userInfo->user_logo)) ? "http://edge.sf.hitbox.tv".$userInfo->user_logo : "/assets/images/no_avatar.png",
-                "user_hitbox"	=>		$userInfo->user_name,
-                "user_hitbox_token"=>   $authToken,
-                "user_hitbox_follows"=> $userInfo->followers,
-                "user_hitbox_subs"=>    0,
-                "user_hitbox_last_sub"=>"test",
-                "user_reg_ip"	=>		$_SERVER["REMOTE_ADDR"],
-                "user_donate_page"      =>  "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
+                "user_login" => "hitbox" . $userInfo->user_name,
+                "user_login_show" => $userInfo->user_name,
+                "user_domain" => "hitbox" . $userInfo->user_name,
+                "user_avatar" => (!empty($userInfo->user_logo)) ? "http://edge.sf.hitbox.tv" . $userInfo->user_logo : "/assets/images/no_avatar.png",
+                "user_hitbox" => $userInfo->user_name,
+                "user_hitbox_token" => $authToken,
+                "user_hitbox_follows" => $userInfo->followers,
+                "user_hitbox_subs" => 0,
+                "user_hitbox_last_sub" => "test",
+                "user_reg_ip" => $_SERVER["REMOTE_ADDR"],
+                "user_donate_page" => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
                 "user_reg_time" => "NOW()",
             ];
             $id = Builder::table('users')->insert($data);
-            $this->getUserSmiles("hitbox", $id, "hitbox".$userInfo->user_name);
-            $this->UserModel->trackIP($id,0);
+            $this->getUserSmiles("hitbox", $id, "hitbox" . $userInfo->user_name);
+            $this->UserModel->trackIP($id, 0);
             $this->createDefaultWidgets($id);
             $this->ToOnline($id);
-        }
-        else
-        {
+        } else {
             $this->ToOnline($user['user_id']);
         }
 
@@ -819,41 +814,38 @@ class UserController extends Controller {
                 //dd($userInfo);
                 if (isset($userInfo['response'][0]['id'])) {
                     $userInfo = $userInfo['response'][0];
-                    if(!($user = $this->UserModel->getUser($userInfo['id'], "user_vk")))
-                    {
+                    if (!($user = $this->UserModel->getUser($userInfo['id'], "user_vk"))) {
                         $data = [
-                            "user_login" 	  =>		"vkid".$userInfo["id"],
-                            "user_login_show" =>     $userInfo['first_name']. " " . $userInfo['last_name'],
-                            "user_domain"   =>      "vkid".$userInfo["id"],
+                            "user_login" => "vkid" . $userInfo["id"],
+                            "user_login_show" => $userInfo['first_name'] . " " . $userInfo['last_name'],
+                            "user_domain" => "vkid" . $userInfo["id"],
                             //"user_avatar"	=>		"/assets/images/no_avatar.png",
-                            "user_avatar"	    =>		(!empty($userInfo["photo_big"])) ? $userInfo["photo_big"] : "/assets/images/no_avatar.png",
-                            "user_vk"		=>		$userInfo['id'],
-                            "user_reg_ip"	=>		$_SERVER["REMOTE_ADDR"],
-                            "user_donate_page"          =>  "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
+                            "user_avatar" => (!empty($userInfo["photo_big"])) ? $userInfo["photo_big"] : "/assets/images/no_avatar.png",
+                            "user_vk" => $userInfo['id'],
+                            "user_reg_ip" => $_SERVER["REMOTE_ADDR"],
+                            "user_donate_page" => "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
                             "user_reg_time" => "NOW()",
                         ];
                         $id = Builder::table('users')->insert($data);
                         $this->UserModel->trackIP($id, 1);
                         $this->createDefaultWidgets($id);
                         $this->ToOnline($id);
-                    }else {
+                    } else {
                         $this->ToOnline($user['user_id']);
                     }
 
                 }
             }
-        }
-        else
-        {
+        } else {
             $this->VKRedirectToLogin();
         }
 
     }
 
-    public function connect($type) {
+    public function connect($type)
+    {
 
-        switch($type)
-        {
+        switch ($type) {
             case "twitch":
                 $this->ConnectTwitch();
                 break;
@@ -880,16 +872,16 @@ class UserController extends Controller {
                 //dd($userInfo);
                 if (isset($userInfo['response'][0]['id'])) {
                     $userInfo = $userInfo['response'][0];
-                    if(!($user = $this->UserModel->getUser($userInfo['id'], "user_vk"))) {
+                    if (!($user = $this->UserModel->getUser($userInfo['id'], "user_vk"))) {
                         $this->UserModel->editUser(session("user_id"), ['user_vk' => $userInfo['id']]);
-                        header('Location: '.config()->url.'/profile/');
-                    }else {
-                        header('Location: '.config()->url.'/profile/');
+                        header('Location: ' . config()->url . '/profile/');
+                    } else {
+                        header('Location: ' . config()->url . '/profile/');
                     }
 
                 }
             }
-        }else{
+        } else {
             $this->VKRedirectToConnect();
         }
 
@@ -898,16 +890,16 @@ class UserController extends Controller {
     private function ConnectTwitch()
     {
         model("User");
-        if(empty(Request::get("code"))) {
+        if (empty(Request::get("code"))) {
 
             $url = 'https://id.twitch.tv/oauth2/authorize';
 
             $params = array(
-                'client_id'     => config()->twitch['client_id'],
-                'redirect_uri'  => config()->twitch['connect_uri'],
+                'client_id' => config()->twitch['client_id'],
+                'redirect_uri' => config()->twitch['connect_uri'],
                 'response_type' => 'code',
-                'force_verify'  => 'true',
-                'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
+                'force_verify' => 'true',
+                'scope' => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
             );
 
             redirect($url . '?' . urldecode(http_build_query($params)));
@@ -973,38 +965,37 @@ class UserController extends Controller {
             $app_url = 'https://id.twitch.tv/oauth2/token';
 
             $app_params = array(
-                'client_id'     => config()->twitch['client_id'],
+                'client_id' => config()->twitch['client_id'],
                 'client_secret' => config()->twitch['client_secret'],
-                'grant_type'    => 'client_credentials',
-                'scope'         => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
+                'grant_type' => 'client_credentials',
+                'scope' => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
             );
 //https://id.twitch.tv/oauth2/token?client_id=gyueptk1c7m8m7iaob1u3i6v06rfmj&client_secret=80poli2fmnikdouo2d8lnyclnth1k6&grant_type=client_credentials&scope=user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread
             $ch4 = curl_init($app_url . '?' . urldecode(http_build_query($app_params)));
             curl_setopt($ch4, CURLOPT_POST, true);
             curl_setopt($ch4, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch4, CURLOPT_POSTFIELDS, array(
-            ));
+            curl_setopt($ch4, CURLOPT_POSTFIELDS, array());
             $r4 = curl_exec($ch4);
             $i4 = curl_getinfo($ch4);
             curl_close($ch4);
             $app_access_token = json_decode($r4);
             $webhook_url = 'https://api.twitch.tv/helix/eventsub/subscriptions';
 
-            $webhook_headers = array('Client-ID: ' .config()->twitch['client_id'],
+            $webhook_headers = array('Client-ID: ' . config()->twitch['client_id'],
                 'Authorization: Bearer ' . $app_access_token->access_token,
                 'Accept: application/json',
                 'Content-Type: application/json'
             );
             $webhook_channel_follow_json = array(
-                'type'                      => 'channel.follow',
-                'version'                   => '1',
-                'condition'                 => array(
-                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                'type' => 'channel.follow',
+                'version' => '1',
+                'condition' => array(
+                    'broadcaster_user_id' => $userInfo->data[0]->id,
                 ),
-                'transport'                 => array(
-                    'method'                => 'webhook',
-                    'callback'              => config()->url.'/hook.php?action=twitchfollows',
-                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                'transport' => array(
+                    'method' => 'webhook',
+                    'callback' => config()->url . '/hook.php?action=twitchfollows',
+                    'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                 ));
             $webhook_channel_follow_post = json_encode($webhook_channel_follow_json);
             $ch5 = curl_init($webhook_url);
@@ -1018,15 +1009,15 @@ class UserController extends Controller {
             curl_close($ch5);
 
             $webhook_channel_subscribe_json = array(
-                'type'                      => 'channel.subscribe',
-                'version'                   => '1',
-                'condition'                 => array(
-                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                'type' => 'channel.subscribe',
+                'version' => '1',
+                'condition' => array(
+                    'broadcaster_user_id' => $userInfo->data[0]->id,
                 ),
-                'transport'                 => array(
-                    'method'                => 'webhook',
-                    'callback'              => config()->url.'/hook.php?action=twitchsubscribe',
-                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                'transport' => array(
+                    'method' => 'webhook',
+                    'callback' => config()->url . '/hook.php?action=twitchsubscribe',
+                    'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                 ));
             $webhook_channel_subscribe_post = json_encode($webhook_channel_subscribe_json);
             $ch6 = curl_init($webhook_url);
@@ -1040,15 +1031,15 @@ class UserController extends Controller {
             curl_close($ch6);
 
             $webhook_stream_online_json = array(
-                'type'                      => 'stream.online',
-                'version'                   => '1',
-                'condition'                 => array(
-                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                'type' => 'stream.online',
+                'version' => '1',
+                'condition' => array(
+                    'broadcaster_user_id' => $userInfo->data[0]->id,
                 ),
-                'transport'                 => array(
-                    'method'                => 'webhook',
-                    'callback'              => config()->url.'/hook.php?action=streamonline',
-                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                'transport' => array(
+                    'method' => 'webhook',
+                    'callback' => config()->url . '/hook.php?action=streamonline',
+                    'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                 ));
             $webhook_stream_online_post = json_encode($webhook_stream_online_json);
             $ch7 = curl_init($webhook_url);
@@ -1062,15 +1053,15 @@ class UserController extends Controller {
             curl_close($ch7);
 
             $webhook_stream_offline_json = array(
-                'type'                      => 'stream.offline',
-                'version'                   => '1',
-                'condition'                 => array(
-                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                'type' => 'stream.offline',
+                'version' => '1',
+                'condition' => array(
+                    'broadcaster_user_id' => $userInfo->data[0]->id,
                 ),
-                'transport'                 => array(
-                    'method'                => 'webhook',
-                    'callback'              => config()->url.'/hook.php?action=streamonffline',
-                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                'transport' => array(
+                    'method' => 'webhook',
+                    'callback' => config()->url . '/hook.php?action=streamonffline',
+                    'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                 ));
             $webhook_stream_offline_post = json_encode($webhook_stream_offline_json);
             $ch8 = curl_init($webhook_url);
@@ -1083,11 +1074,11 @@ class UserController extends Controller {
             $i8 = curl_getinfo($ch8);
             curl_close($ch8);
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
-                $this->UserModel->editUser(session("user_id"), ["user_twitch_id" => $userInfo->data[0]->id, 'user_twitch_token' => $token->access_token, 'user_twitch_app_token' => $app_access_token->access_token,  'user_twitch' => $userInfo->data[0]->display_name,
+                $this->UserModel->editUser(session("user_id"), ["user_twitch_id" => $userInfo->data[0]->id, 'user_twitch_token' => $token->access_token, 'user_twitch_app_token' => $app_access_token->access_token, 'user_twitch' => $userInfo->data[0]->display_name,
                     'user_twitch_follows' => $userInfoFollows->total]);
-                header('Location: '.config()->url.'/profile/');
-            }else {
-                header('Location: '.config()->url.'/profile/');
+                header('Location: ' . config()->url . '/profile/');
+            } else {
+                header('Location: ' . config()->url . '/profile/');
             }
         }
     }
@@ -1095,7 +1086,7 @@ class UserController extends Controller {
     private function ConnectYoutube()
     {
         model("User");
-        if(empty(Request::get("code"))) {
+        if (empty(Request::get("code"))) {
 
             $url = 'https://accounts.google.com/o/oauth2/auth';
 
@@ -1130,8 +1121,8 @@ class UserController extends Controller {
             curl_close($curl);
 
             $tokenInfo = json_decode($result, true);
-            if(isset($tokenInfo['access_token'])) {
-                $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&access_token='.$tokenInfo['access_token'].'&ley='.config()->youtube['youtube_api']);
+            if (isset($tokenInfo['access_token'])) {
+                $ch1 = curl_init('https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&access_token=' . $tokenInfo['access_token'] . '&ley=' . config()->youtube['youtube_api']);
                 curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch1, CURLOPT_HTTPHEADER, array(
                     'Authorization: Bearer ' . $tokenInfo['access_token'],
@@ -1146,18 +1137,18 @@ class UserController extends Controller {
                 $userInfo = json_decode($r1);
                 if (!($user = $this->UserModel->getUser($userInfo->items[0]->id, "user_youtube"))) {
                     $this->UserModel->editUser(session("user_id"), ["user_youtube" => $userInfo->items[0]->id, 'user_youtube_token' => $tokenInfo['access_token'], 'user_youtube_subs' => $userInfo->items[0]->statistics->subscriberCount]);
-                    header('Location: '.config()->url.'/profile/');
-                }else {
-                    header('Location: '.config()->url.'/profile/');
+                    header('Location: ' . config()->url . '/profile/');
+                } else {
+                    header('Location: ' . config()->url . '/profile/');
                 }
             }
         }
     }
 
-    public function disconnect($type) {
+    public function disconnect($type)
+    {
 
-        switch($type)
-        {
+        switch ($type) {
             case "twitch":
                 $this->DisonnectTwitch();
                 break;
@@ -1175,10 +1166,11 @@ class UserController extends Controller {
     }
 
 
-    function get_curl($url) {
-        if(function_exists('curl_init')) {
+    function get_curl($url)
+    {
+        if (function_exists('curl_init')) {
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
@@ -1192,16 +1184,17 @@ class UserController extends Controller {
         }
     }
 
-    function post_curl($url,$token) {
-        if(function_exists('curl_init')) {
+    function post_curl($url, $token)
+    {
+        if (function_exists('curl_init')) {
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($ch, CURLOPT_POST, true);
-            $row = "request_token=".$token."&app_token=".config()->hitbox['requestToken']."&hash=".base64_encode(config()->hitbox["requestToken"].config()->hitbox["secret"]);
+            $row = "request_token=" . $token . "&app_token=" . config()->hitbox['requestToken'] . "&hash=" . base64_encode(config()->hitbox["requestToken"] . config()->hitbox["secret"]);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $row);
             $output = curl_exec($ch);
             echo curl_error($ch);
@@ -1215,14 +1208,14 @@ class UserController extends Controller {
     private function ToOnline($id)
     {
         model("User");
-        $this->UserModel->trackIP($id,1);
+        $this->UserModel->trackIP($id, 1);
         $this->session->data['user_id'] = $id;
         redirect(route("home"));
     }
 
     public function logout()
     {
-        if(IsOnline())
+        if (IsOnline())
             unset($this->session->data['user_id']);
         redirect(route("home"));
     }
@@ -1230,15 +1223,15 @@ class UserController extends Controller {
     /*HitBoxAuth*/
     private function HitBoxGetUserInfo($authToken)
     {
-        $name = json_decode($this->get_curl("https://api.hitbox.tv/userfromtoken/".$authToken))->user_name;
-        $userInfo = json_decode($this->get_curl("https://api.hitbox.tv/user/".$name));
+        $name = json_decode($this->get_curl("https://api.hitbox.tv/userfromtoken/" . $authToken))->user_name;
+        $userInfo = json_decode($this->get_curl("https://api.hitbox.tv/user/" . $name));
 
         return $userInfo;
     }
 
     private function HitBoxExchangeToken($token)
     {
-        return json_decode($this->post_curl("https://api.hitbox.tv/oauth/exchange",$token))->access_token;
+        return json_decode($this->post_curl("https://api.hitbox.tv/oauth/exchange", $token))->access_token;
     }
     /*EndHitBoxAuth*/
 
@@ -1247,20 +1240,20 @@ class UserController extends Controller {
     {
         $url = 'http://oauth.vk.com/authorize';
         $params = array(
-            'client_id'     => config()->vk["client_id"],
-            'redirect_uri'  => config()->vk["connect_uri"],
+            'client_id' => config()->vk["client_id"],
+            'redirect_uri' => config()->vk["connect_uri"],
             'response_type' => 'code'
         );
-        redirect($url.'?'.urldecode(http_build_query($params)));
+        redirect($url . '?' . urldecode(http_build_query($params)));
     }
 
     private function VKGetConnectToken($code)
     {
         $params = [
-            'client_id'     => config()->vk["client_id"],
+            'client_id' => config()->vk["client_id"],
             'client_secret' => config()->vk["client_secret"],
             'code' => $code,
-            'redirect_uri'  => config()->vk["connect_uri"],
+            'redirect_uri' => config()->vk["connect_uri"],
         ];
         return json_decode($this->get_curl('https://oauth.vk.com/access_token' . '?' . urldecode(http_build_query($params))), true);
     }
@@ -1269,20 +1262,20 @@ class UserController extends Controller {
     {
         $url = 'http://oauth.vk.com/authorize';
         $params = array(
-            'client_id'     => config()->vk["client_id"],
-            'redirect_uri'  => config()->vk["redirect_uri"],
+            'client_id' => config()->vk["client_id"],
+            'redirect_uri' => config()->vk["redirect_uri"],
             'response_type' => 'code'
         );
-        redirect($url.'?'.urldecode(http_build_query($params)));
+        redirect($url . '?' . urldecode(http_build_query($params)));
     }
 
     private function VKGetAuthToken($code)
     {
         $params = [
-            'client_id'     => config()->vk["client_id"],
+            'client_id' => config()->vk["client_id"],
             'client_secret' => config()->vk["client_secret"],
             'code' => $code,
-            'redirect_uri'  => config()->vk["redirect_uri"],
+            'redirect_uri' => config()->vk["redirect_uri"],
         ];
         return json_decode($this->get_curl('https://oauth.vk.com/access_token' . '?' . urldecode(http_build_query($params))), true);
     }
@@ -1290,10 +1283,10 @@ class UserController extends Controller {
     private function VKGetUserInfo($token)
     {
         $params = [
-            'uids'         => $token['user_id'],
-            'fields'       => 'uid,first_name,last_name,photo',
+            'uids' => $token['user_id'],
+            'fields' => 'uid,first_name,last_name,photo',
             'access_token' => $token['access_token'],
-            'v'            => '5.103'
+            'v' => '5.103'
         ];
         return $userInfo = json_decode($this->get_curl('https://api.vk.com/method/users.get' . '?' . urldecode(http_build_query($params))), true);
     }
@@ -1311,20 +1304,19 @@ class UserController extends Controller {
             "avatar" => $result['items'][0]['snippet']['thumbnails']['medium']['url'],
         ];
     }
+
     /* EndYouTube */
 
     private function getUserSmiles($platform, $user_id, $login)
     {
         model("Smile");
 
-        if($platform == "twitch") {
+        if ($platform == "twitch") {
 
             $channels = json_decode($this->get_curl("https://twitchemotes.com/api_cache/v3/global.json"));
-            foreach($channels->channels as $name => $channel)
-            {
-                if($name == $login) {
-                    foreach ($channel->emotes as $emote)
-                    {
+            foreach ($channels->channels as $name => $channel) {
+                if ($name == $login) {
+                    foreach ($channel->emotes as $emote) {
                         $this->SmileModel->addSmile("twitch", [
                             "user_id" => $user_id,
                             "smile_image_id" => $emote->image_id,
@@ -1336,13 +1328,12 @@ class UserController extends Controller {
 
             $data['user_id'] = $user_id;
         } else {
-            $emotes = json_decode($this->get_curl("https://api.hitbox.tv/chat/emotes/".$login));
-            foreach ($emotes as $emote)
-            {
+            $emotes = json_decode($this->get_curl("https://api.hitbox.tv/chat/emotes/" . $login));
+            foreach ($emotes as $emote) {
                 $this->SmileModel->addSmile("hitbox", [
                     "user_id" => $user_id,
                     "smile_name" => $emote->icon_name,
-                    "smile_image" => "http://edge.sf.hitbox.tv".$emote->icon_path,
+                    "smile_image" => "http://edge.sf.hitbox.tv" . $emote->icon_path,
                 ]);
             }
         }
@@ -1371,10 +1362,10 @@ class UserController extends Controller {
             $goal['widget_config'] = json_decode($goal['widget_config']);
         }
 
-        $data['vote'] = (object) $data['vote'][0];
+        $data['vote'] = (object)$data['vote'][0];
         $data['vote']->widget_config = json_decode($data['vote']->widget_config);
 
-        if($data['vote']->widget_config->status != 1)
+        if ($data['vote']->widget_config->status != 1)
             unset($data['vote']);
         else {
             $variants_ready = [];
@@ -1387,7 +1378,7 @@ class UserController extends Controller {
             }
 
             foreach ($variants_ready as $key => $value) {
-                if($variants_ready[$key]['balance'] != 0) {
+                if ($variants_ready[$key]['balance'] != 0) {
                     $variants_ready[$key]['percent'] = round(100 / ($variants_sum / $variants_ready[$key]['balance']), 2);
                     $variants_ready[$key]['bar_percent'] = 385 - ((385 / 100) * $variants_ready[$key]['percent']);
                 } else {
@@ -1400,7 +1391,7 @@ class UserController extends Controller {
 
         $data['smiles'] = $this->SmileModel->getUserSmiles($data['user']->user_id);
 
-        if($login == isOnline()->user_domain) {
+        if ($login == isOnline()->user_domain) {
             return view("donate/editor", $data);
         }
 
@@ -1417,17 +1408,17 @@ class UserController extends Controller {
         $settings = json_decode($user->user_donate_page);
         unset($data);
 
-        if(!empty(Request::post("user_name"))) {
-            if(!empty(Request::post("donate_sum"))) {
-                if(Request::post("donate_sum") >= $settings->min_sum) {
+        if (!empty(Request::post("user_name"))) {
+            if (!empty(Request::post("donate_sum"))) {
+                if (Request::post("donate_sum") >= $settings->min_sum) {
                     $data = [];
 
                     if (!empty(Request::post("donate_text"))) {
 
-                        if(mb_strlen(preg_replace('/<\/?[^>]+>/ui', "s", html_entity_decode(Request::post("donate_text")))) > 300)
+                        if (mb_strlen(preg_replace('/<\/?[^>]+>/ui', "s", html_entity_decode(Request::post("donate_text")))) > 300)
                             return json_encode($result = ['status' => "error", "error" => "Максимальное количество символов в тексте <b>300<b>!"]);
 
-                        if($settings->fuck_filter == 0) {
+                        if ($settings->fuck_filter == 0) {
                             $data['text'] = Request::post("donate_text");
                         } else {
                             $data["text"] = $this->FilterModel->filter(Request::post("donate_text"));
@@ -1448,7 +1439,7 @@ class UserController extends Controller {
                         $data['vote'] = [$vote[0] => $vote[1]];
                     }
 
-                    if($settings->fuck_name_filter == 0) {
+                    if ($settings->fuck_name_filter == 0) {
                         $u_name = Request::post("user_name");
                     } else {
                         $u_name = $this->FilterModel->filter(Request::post("user_name"), "Аноним");
@@ -1466,7 +1457,7 @@ class UserController extends Controller {
 
                     $result = ['status' => "success", "id" => $id];
                 } else {
-                    $result = ['status' => "error", "error" => "Минимальная сумма пополнени <b>". $settings->min_sum ." руб.</b>!"];
+                    $result = ['status' => "error", "error" => "Минимальная сумма пополнени <b>" . $settings->min_sum . " руб.</b>!"];
                 }
             } else {
                 $result = ['status' => "error", "error" => "Введите сумму!"];
@@ -1480,7 +1471,7 @@ class UserController extends Controller {
 
     public function editorDonatePage()
     {
-        if(!($user = isOnline()))
+        if (!($user = isOnline()))
             abort(403);
 
         model("User");
@@ -1505,7 +1496,7 @@ class UserController extends Controller {
         $settings['btn_color'] = $settingsR['btn_color'];
         $settings['btn_text_color'] = $settingsR['btn_text_color'];
 
-        if($this->UserModel->editUser(session("user_id"), ['user_donate_page' => json_encode($settings)])) {
+        if ($this->UserModel->editUser(session("user_id"), ['user_donate_page' => json_encode($settings)])) {
             $result = ["status" => "success"];
         } else {
             $result = ["status" => "error", "error" => "При сохранении изменений произошла ошибка. Повторите попытку позже!"];
@@ -1517,7 +1508,7 @@ class UserController extends Controller {
     public function donationPage()
     {
 
-        if(!($user = isOnline()))
+        if (!($user = isOnline()))
             abort(403);
 
         $data['user'] = $user;
@@ -1528,7 +1519,7 @@ class UserController extends Controller {
 
     public function donationPagePost()
     {
-        if(!($user = isOnline()))
+        if (!($user = isOnline()))
             abort(403);
 
         $settingsR = Request::post("settings");
@@ -1543,12 +1534,12 @@ class UserController extends Controller {
         $settings['fuck_name_filter'] = $settingsR['fuck_name_filter'];
         $settings['fuck_words'] = base64_encode($settingsR['fuck_words']);
 
-        if($settings['min_sum'] >= 1) {
-            if($settings['rec_sum'] >= 0) {
+        if ($settings['min_sum'] >= 1) {
+            if ($settings['rec_sum'] >= 0) {
 
                 $data['user_donate_page'] = json_encode($settings);
-                if(!empty($settings['user_domain'])) {
-                    if($this->UserModel->checkDomain($settings['user_domain']) != 0) {
+                if (!empty($settings['user_domain'])) {
+                    if ($this->UserModel->checkDomain($settings['user_domain']) != 0) {
                         $result = ["status" => "error", "error" => "Введенный вами адрес занят!"];
                         return json_encode($result);
                     } else {
@@ -1574,7 +1565,7 @@ class UserController extends Controller {
     public function Paypal()
     {
 
-        if(!($user = isOnline()))
+        if (!($user = isOnline()))
             abort(403);
 
         $data['user'] = $user;
@@ -1585,7 +1576,7 @@ class UserController extends Controller {
 
     public function PaypalPost()
     {
-        if(!($user = isOnline()))
+        if (!($user = isOnline()))
             abort(403);
 
         $paypalR = Request::post("paypal");
@@ -1609,17 +1600,17 @@ class UserController extends Controller {
     {
 
         if (!($user = isOnline()))
-                abort(403);
-            $data['user'] = $user;
-            $data['wallets'] = json_decode($user->user_wallets_pay);
+            abort(403);
+        $data['user'] = $user;
+        $data['wallets'] = json_decode($user->user_wallets_pay);
 
-            return view("user/update", $data);
+        return view("user/update", $data);
 
     }
 
     public function updatePost()
     {
-        if(!($user = isOnline()))
+        if (!($user = isOnline()))
             abort(403);
         $updateR = Request::post("update");
 
@@ -1640,3 +1631,4 @@ class UserController extends Controller {
 
         return json_encode($result);
     }
+}
