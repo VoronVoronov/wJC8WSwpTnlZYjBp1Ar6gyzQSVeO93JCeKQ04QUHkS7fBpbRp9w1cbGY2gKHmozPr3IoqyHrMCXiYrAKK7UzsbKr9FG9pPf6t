@@ -71,8 +71,8 @@ class CronController extends Controller
                 "widget_id" => $widget['widget_id'],
                 "msg"       => 'Подписался',
                 "user_name" => $params['followername'],
-                "sum"       => '0',
-                "curr"      => 'RUB',
+                //"sum"       => '0',
+                //"curr"      => 'RUB',
                 "type"      => 1,
             ], true);
         }
@@ -92,8 +92,8 @@ class CronController extends Controller
                 "widget_id" => $widget['widget_id'],
                 "msg"       => 'Подписался',
                 "user_name" => $params['followername'],
-                "sum"       => '0',
-                "curr"      => 'RUB',
+                //"sum"       => '0',
+                //"curr"      => 'RUB',
                 "type"      => 2,
             ], true);
         }
