@@ -1605,7 +1605,7 @@ class UserController extends Controller {
     }
 
 
-    public function Update()
+    public function update()
     {
 
             if (!($user = isOnline()))
@@ -1620,7 +1620,7 @@ class UserController extends Controller {
         }
     }
 
-    public function UpdatePost()
+    public function updatePost()
     {
         if(!($user = isOnline()))
             abort(403);
