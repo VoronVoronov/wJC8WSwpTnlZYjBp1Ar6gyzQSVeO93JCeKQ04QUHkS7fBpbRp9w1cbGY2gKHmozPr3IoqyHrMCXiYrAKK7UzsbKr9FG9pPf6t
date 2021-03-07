@@ -1571,7 +1571,6 @@ class UserController extends Controller {
         return json_encode($result);
     }
 
-
     public function Paypal()
     {
 
@@ -1604,4 +1603,47 @@ class UserController extends Controller {
 
         return json_encode($result);
     }
+
+
+    public function Update()
+    {
+
+            if (!($user = isOnline()))
+                abort(403);
+        if($user->group == 2) {
+            $data['user'] = $user;
+            $data['wallets'] = json_decode($user->user_wallets_pay);
+
+            return view("user/update", $data);
+        }else{
+            header('Location: https://ipdonate.com/profile');
+        }
+    }
+
+    public function UpdatePost()
+    {
+        if(!($user = isOnline()))
+            abort(403);
+        if($user->group == 2) {
+        $updateR = Request::post("update");
+
+        $update = json_decode($user->user_wallets_pay, true);
+        $update['qiwi'] = $updateR['qiwi'];
+        $update['qiwi_public'] = $updateR['qiwi_public'];
+        $update['qiwi_secret'] = $updateR['qiwi_secret'];
+        $update['webmoney'] = $updateR['webmoney'];
+        $update['webmoney_secret'] = $updateR['webmoney_secret'];
+        $update['webmoney_secret_x20'] = $updateR['webmoney_secret_x20'];
+        $update['yoomoney'] = $updateR['yoomoney'];
+        $update['yoomoney_secret'] = $updateR['yoomoney_secret'];
+        $data['user_wallets_pay'] = json_encode($update);
+
+        if ($this->UserModel->editUser(session("user_id"), $data)) {
+            $result = ["status" => "success"];
+        }
+
+        return json_encode($result);
+        }else{
+            header('Location: https://ipdonate.com/profile');
+        }
 }
