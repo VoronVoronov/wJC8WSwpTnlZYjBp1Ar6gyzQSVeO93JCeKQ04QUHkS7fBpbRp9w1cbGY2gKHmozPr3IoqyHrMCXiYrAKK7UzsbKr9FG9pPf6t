@@ -137,7 +137,7 @@
                                 <span>Комиссия на приём: до 7%</span>
                                 <span>Комиссия на вывод: до 7%</span>
                                 <span>Discord-бот</span>
-                                <a href="#" class="btn btn-default btn-sm">Опробовать</a>
+                                <li class="auth"><a href="#" class="btn btn-default btn-sm">Опробовать</a></li>
                             </div>
                         </div>
                         <div class="col-md-4">
