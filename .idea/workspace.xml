@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/theme/landing.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/landing.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/widgets/my.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/widgets/my.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,21 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
-      <workItem from="1614916290901" duration="46107000" />
-    </task>
-    <task id="LOCAL-00062" summary="Updated webhook">
-      <created>1615067426316</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1615067426316</updated>
-    </task>
-    <task id="LOCAL-00063" summary="Updated webhook">
-      <created>1615067694904</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1615067694904</updated>
+      <workItem from="1614916290901" duration="46856000" />
     </task>
     <task id="LOCAL-00064" summary="Updated webhook">
       <created>1615067930866</created>
@@ -404,7 +391,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615096783331</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Add Tarif">
+      <created>1615096839543</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1615096839543</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Add Tarif">
+      <created>1615096919238</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1615096919238</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
