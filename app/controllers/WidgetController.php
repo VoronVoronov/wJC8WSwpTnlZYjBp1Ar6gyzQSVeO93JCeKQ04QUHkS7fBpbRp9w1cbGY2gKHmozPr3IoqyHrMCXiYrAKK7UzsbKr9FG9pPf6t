@@ -226,9 +226,9 @@ class WidgetController extends Controller {
             'token' =>  $token,
             'alert_type'=>  Request::get("type"),
             'user_name' =>  Request::get("name"),
-            'sum'   =>  (string) rand(1, 100),
-            'msg'   =>  "Сообщение оповещение",
-            'curr'  =>  $currency[rand(0, 5)],
+            //'sum'   =>  (string) rand(1, 100),
+            //'msg'   =>  "Сообщение оповещение",
+            //'curr'  =>  $currency[rand(0, 5)],
             'alert_id'=>   "0",
         ];
         $message = json_encode($message);
