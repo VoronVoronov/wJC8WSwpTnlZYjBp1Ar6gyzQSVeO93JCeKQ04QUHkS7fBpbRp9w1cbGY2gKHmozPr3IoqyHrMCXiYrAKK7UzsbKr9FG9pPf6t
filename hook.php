@@ -114,6 +114,44 @@ switch ($action) {
         }
         break;
 
+    case 'streamonline':
+        $log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/twitchhook.txt', 'a+');
+        fwrite($log_file, print_r(json_decode(file_get_contents('php://input')), true).PHP_EOL);
+        fwrite($log_file, print_r(getallheaders(), true).PHP_EOL);
+        fclose($log_file);
+        $postData = file_get_contents('php://input');
+        $data = json_decode($postData, 1);
+        if($data['subscription']['status'] == 'webhook_callback_verification_pending') {
+            echo $data['challenge'];
+        }elseif($data['subscription']['status'] == 'enabled'){
+            $useridsql = $db->query('SELECT * FROM `users` WHERE `user_twitch_id` = '.$data['subscription']['condition']['broadcaster_user_id']);
+            while ($user = mysqli_fetch_assoc($useridsql)) {
+                $userid = $user['user_id'];
+            }
+            $db->query('INSERT INTO `streams` (`stream_start`, `stream_status`, `user_id`, `stream_platform`) VALUES (NOW(), 1, '.$userid.', 1)');
+            $db->query('UPDATE `users` SET `user_stream_status` = 1 WHERE `user_id` = ' . $userid);
+        }
+        break;
+
+    case 'streamonffline':
+        $log_file = fopen($_SERVER['DOCUMENT_ROOT'] . '/twitchhook.txt', 'a+');
+        fwrite($log_file, print_r(json_decode(file_get_contents('php://input')), true).PHP_EOL);
+        fwrite($log_file, print_r(getallheaders(), true).PHP_EOL);
+        fclose($log_file);
+        $postData = file_get_contents('php://input');
+        $data = json_decode($postData, 1);
+        if($data['subscription']['status'] == 'webhook_callback_verification_pending') {
+            echo $data['challenge'];
+        }elseif($data['subscription']['status'] == 'enabled'){
+            $useridsql = $db->query('SELECT * FROM `users` WHERE `user_twitch_id` = '.$data['subscription']['condition']['broadcaster_user_id']);
+            while ($user = mysqli_fetch_assoc($useridsql)) {
+                $userid = $user['user_id'];
+            }
+            $db->query('INSERT INTO `streams` (`stream_end`, `stream_status`, `user_id`, `stream_platform`) VALUES (NOW(), 0, '.$userid.', 1)');
+            $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_id` = ' . $userid);
+        }
+        break;
+
     default:
         header('Location: /');;
         break;
