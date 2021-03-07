@@ -84,6 +84,10 @@ switch ($action) {
         if($data['subscription']['status'] == 'webhook_callback_verification_pending') {
             echo $data['challenge'];
         }elseif($data['subscription']['status'] == 'enabled'){
+            $useridsql = $db->query('SELECT * FROM `users` WHERE `user_twitch_id` = '.$data['subscription']['condition']['broadcaster_user_id']);
+            while ($user = mysqli_fetch_assoc($useridsql)) {
+                $userid = $user['user_id'];
+            }
             $followerid = $data['event']['user_id'];
             $followername = $data['event']['user_name'];
             file_get_contents('https://ipdonate.com/cron/followstwitch?params[user_id]='.$userid.'&params[followerid]='.$followerid.'&params[followername]='.$followername);
