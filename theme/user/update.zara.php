@@ -1,7 +1,7 @@
 @extends("_common/main")
 @section("content")
 <div class="page-name">
-    <h2>Настройка приема Paypal</h2>
+    <h2>Настройка приема платежей</h2>
     <div class="clear"></div>
 </div>
 
