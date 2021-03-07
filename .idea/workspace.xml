@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/widgets/my.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/widgets/my.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/_common/main.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/_common/main.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,14 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
-      <workItem from="1614916290901" duration="46856000" />
-    </task>
-    <task id="LOCAL-00064" summary="Updated webhook">
-      <created>1615067930866</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1615067930866</updated>
+      <workItem from="1614916290901" duration="46936000" />
     </task>
     <task id="LOCAL-00065" summary="Updated Alerts">
       <created>1615067990441</created>
@@ -405,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615096919238</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Deleted VK widgets">
+      <created>1615098390729</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1615098390729</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +422,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="05.03.2021 23:38" />
     <MESSAGE value="05.03.2021 23:50" />
     <MESSAGE value="05.03.2021 23:51" />
     <MESSAGE value="05.03.2021 23:52" />
@@ -448,6 +446,7 @@
     <MESSAGE value="Added Tarif" />
     <MESSAGE value="Upd Icon" />
     <MESSAGE value="Add Tarif" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Tarif" />
+    <MESSAGE value="Deleted VK widgets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted VK widgets" />
   </component>
 </project>
