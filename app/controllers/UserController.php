@@ -646,7 +646,9 @@ class UserController extends Controller {
 
             $webhook_headers = array('Client-ID: ' .config()->twitch['client_id'],
                 'Authorization: Bearer ' . $app_access_token->access_token,
-                'Accept: application/json');
+                'Accept: application/json',
+                'Content-Type: application/json'
+            );
             $webhook_json = array(
                 'type'                      => 'channel.follow',
                 'version'                   => '1',
@@ -656,7 +658,7 @@ class UserController extends Controller {
                 'transport'                 => array(
                     'method'                => 'webhook',
                     'callback'              => config()->url.'/hook.php?action=twitchfollows',
-                    'secret'                => md5('ipdonate'.$userInfo->data[0]->id)
+                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10);
                 )
             );
             $webhook_post = json_encode($webhook_json);
@@ -669,8 +671,6 @@ class UserController extends Controller {
             $r5 = curl_exec($ch5);
             $i5 = curl_getinfo($ch5);
             curl_close($ch5);
-            $webhook = json_decode($r5);
-            //dd($webhook);
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
                     "user_login"            => "twitch_" . $userInfo->data[0]->login,
@@ -922,6 +922,34 @@ class UserController extends Controller {
             $i4 = curl_getinfo($ch4);
             curl_close($ch4);
             $app_access_token = json_decode($r4);
+            $webhook_url = 'https://api.twitch.tv/helix/eventsub/subscriptions';
+
+            $webhook_headers = array('Client-ID: ' .config()->twitch['client_id'],
+                'Authorization: Bearer ' . $app_access_token->access_token,
+                'Accept: application/json',
+                'Content-Type: application/json'
+            );
+            $webhook_json = array(
+                'type'                      => 'channel.follow',
+                'version'                   => '1',
+                'condition'                 => array(
+                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                ),
+                'transport'                 => array(
+                    'method'                => 'webhook',
+                    'callback'              => config()->url.'/hook.php?action=twitchfollows',
+                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10);
+        ));
+            $webhook_post = json_encode($webhook_json);
+            $ch5 = curl_init($webhook_url);
+            curl_setopt($ch5, CURLOPT_HTTPHEADER, $webhook_headers);
+            curl_setopt($ch5, CURLOPT_POST, true);
+            curl_setopt($ch5, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch5, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch5, CURLOPT_POSTFIELDS, $webhook_post);
+            $r5 = curl_exec($ch5);
+            $i5 = curl_getinfo($ch5);
+            curl_close($ch5);
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $this->UserModel->editUser(session("user_id"), ["user_twitch_id" => $userInfo->data[0]->id, 'user_twitch_token' => $token->access_token, 'user_twitch_app_token' => $app_access_token->access_token,  'user_twitch' => $userInfo->data[0]->display_name,
                     'user_twitch_follows' => $userInfoFollows->total]);
