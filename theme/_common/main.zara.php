@@ -102,11 +102,10 @@
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/bootstrap-tour.min.js"></script>
 @yield("plugins-scripts");
-<script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
-
+<script src="/assets/js/common.js"></script>
 <div id="vk_community_messages"></div>
 <script type="text/javascript">
-    VK.Widgets.CommunityMessages("vk_community_messages", 174659405, {tooltipButtonText: "Здравствуйте,чем могу вам помочь?"});
+VK.Widgets.CommunityMessages("vk_community_messages", 174659405, {tooltipButtonText: "Здравствуйте,чем могу вам помочь?"});
 </script>
 <script>
     var tour = new Tour({
