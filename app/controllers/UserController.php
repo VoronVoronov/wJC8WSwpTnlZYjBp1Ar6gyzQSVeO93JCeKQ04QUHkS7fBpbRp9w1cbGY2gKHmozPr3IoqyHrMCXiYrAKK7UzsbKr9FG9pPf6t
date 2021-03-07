@@ -1610,21 +1610,17 @@ class UserController extends Controller {
 
         if (!($user = isOnline()))
                 abort(403);
-        if($user->user_group == 2) {
             $data['user'] = $user;
             $data['wallets'] = json_decode($user->user_wallets_pay);
 
             return view("user/update", $data);
-        }else{
-            header('Location: https://ipdonate.com/profile');
-        }
+
     }
 
     public function updatePost()
     {
         if(!($user = isOnline()))
             abort(403);
-        if($user->user_group == 2) {
         $updateR = Request::post("update");
 
         $update = json_decode($user->user_wallets_pay, true);
@@ -1643,7 +1639,4 @@ class UserController extends Controller {
         }
 
         return json_encode($result);
-        }else{
-            header('Location: https://ipdonate.com/profile');
-        }
-}
+    }
