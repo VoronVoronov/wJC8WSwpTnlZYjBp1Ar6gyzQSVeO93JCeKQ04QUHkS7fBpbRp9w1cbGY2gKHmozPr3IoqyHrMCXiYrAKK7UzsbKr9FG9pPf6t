@@ -689,9 +689,53 @@ class UserController extends Controller {
             curl_setopt($ch6, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch6, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch6, CURLOPT_POSTFIELDS, $webhook_channel_subscribe_post);
-            $r5 = curl_exec($ch6);
-            $i5 = curl_getinfo($ch6);
+            $r6 = curl_exec($ch6);
+            $i6 = curl_getinfo($ch6);
             curl_close($ch6);
+
+            $webhook_stream_online_json = array(
+                'type'                      => 'stream.online',
+                'version'                   => '1',
+                'condition'                 => array(
+                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                ),
+                'transport'                 => array(
+                    'method'                => 'webhook',
+                    'callback'              => config()->url.'/hook.php?action=streamonline',
+                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                ));
+            $webhook_stream_online_post = json_encode($webhook_stream_online_json);
+            $ch7 = curl_init($webhook_url);
+            curl_setopt($ch7, CURLOPT_HTTPHEADER, $webhook_headers);
+            curl_setopt($ch7, CURLOPT_POST, true);
+            curl_setopt($ch7, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch7, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch7, CURLOPT_POSTFIELDS, $webhook_stream_online_post);
+            $r7 = curl_exec($ch7);
+            $i7 = curl_getinfo($ch7);
+            curl_close($ch7);
+
+            $webhook_stream_offline_json = array(
+                'type'                      => 'stream.offline',
+                'version'                   => '1',
+                'condition'                 => array(
+                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                ),
+                'transport'                 => array(
+                    'method'                => 'webhook',
+                    'callback'              => config()->url.'/hook.php?action=streamonline',
+                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                ));
+            $webhook_stream_offline_post = json_encode($webhook_stream_offline_json);
+            $ch8 = curl_init($webhook_url);
+            curl_setopt($ch8, CURLOPT_HTTPHEADER, $webhook_headers);
+            curl_setopt($ch8, CURLOPT_POST, true);
+            curl_setopt($ch8, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch8, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch8, CURLOPT_POSTFIELDS, $webhook_stream_offline_post);
+            $r8 = curl_exec($ch8);
+            $i8 = curl_getinfo($ch8);
+            curl_close($ch8);
 
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
@@ -991,9 +1035,53 @@ class UserController extends Controller {
             curl_setopt($ch6, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch6, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch6, CURLOPT_POSTFIELDS, $webhook_channel_subscribe_post);
-            $r5 = curl_exec($ch6);
-            $i5 = curl_getinfo($ch6);
+            $r6 = curl_exec($ch6);
+            $i6 = curl_getinfo($ch6);
             curl_close($ch6);
+
+            $webhook_stream_online_json = array(
+                'type'                      => 'stream.online',
+                'version'                   => '1',
+                'condition'                 => array(
+                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                ),
+                'transport'                 => array(
+                    'method'                => 'webhook',
+                    'callback'              => config()->url.'/hook.php?action=streamonline',
+                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                ));
+            $webhook_stream_online_post = json_encode($webhook_stream_online_json);
+            $ch7 = curl_init($webhook_url);
+            curl_setopt($ch7, CURLOPT_HTTPHEADER, $webhook_headers);
+            curl_setopt($ch7, CURLOPT_POST, true);
+            curl_setopt($ch7, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch7, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch7, CURLOPT_POSTFIELDS, $webhook_stream_online_post);
+            $r7 = curl_exec($ch7);
+            $i7 = curl_getinfo($ch7);
+            curl_close($ch7);
+
+            $webhook_stream_offline_json = array(
+                'type'                      => 'stream.offline',
+                'version'                   => '1',
+                'condition'                 => array(
+                    'broadcaster_user_id'   => $userInfo->data[0]->id,
+                ),
+                'transport'                 => array(
+                    'method'                => 'webhook',
+                    'callback'              => config()->url.'/hook.php?action=streamonline',
+                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                ));
+            $webhook_stream_offline_post = json_encode($webhook_stream_offline_json);
+            $ch8 = curl_init($webhook_url);
+            curl_setopt($ch8, CURLOPT_HTTPHEADER, $webhook_headers);
+            curl_setopt($ch8, CURLOPT_POST, true);
+            curl_setopt($ch8, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch8, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch8, CURLOPT_POSTFIELDS, $webhook_stream_offline_post);
+            $r8 = curl_exec($ch8);
+            $i8 = curl_getinfo($ch8);
+            curl_close($ch8);
             if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $this->UserModel->editUser(session("user_id"), ["user_twitch_id" => $userInfo->data[0]->id, 'user_twitch_token' => $token->access_token, 'user_twitch_app_token' => $app_access_token->access_token,  'user_twitch' => $userInfo->data[0]->display_name,
                     'user_twitch_follows' => $userInfoFollows->total]);
