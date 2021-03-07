@@ -658,9 +658,8 @@ class UserController extends Controller {
                 'transport'                 => array(
                     'method'                => 'webhook',
                     'callback'              => config()->url.'/hook.php?action=twitchfollows',
-                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10);
-                )
-            );
+                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
+                ));
             $webhook_post = json_encode($webhook_json);
             $ch5 = curl_init($webhook_url);
             curl_setopt($ch5, CURLOPT_HTTPHEADER, $webhook_headers);
@@ -938,7 +937,7 @@ class UserController extends Controller {
                 'transport'                 => array(
                     'method'                => 'webhook',
                     'callback'              => config()->url.'/hook.php?action=twitchfollows',
-                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10);
+                    'secret'                =>  substr(md5('ipdonate'.$userInfo->data[0]->id),0,10)
         ));
             $webhook_post = json_encode($webhook_json);
             $ch5 = curl_init($webhook_url);
