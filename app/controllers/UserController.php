@@ -629,7 +629,7 @@ class UserController extends Controller
                 'client_id' => config()->twitch['client_id'],
                 'client_secret' => config()->twitch['client_secret'],
                 'grant_type' => 'client_credentials',
-                'scope' => 'user%3Aread%3Aemail+channel_subscriptions+channel_check_subscription+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
+                'scope' => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
             );
             $ch4 = curl_init($app_url . '?' . urldecode(http_build_query($app_params)));
             curl_setopt($ch4, CURLOPT_POST, true);
@@ -899,7 +899,7 @@ class UserController extends Controller
                 'redirect_uri' => config()->twitch['connect_uri'],
                 'response_type' => 'code',
                 'force_verify' => 'true',
-                'scope' => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread+channel_check_subscription'
+                'scope' => 'user%3Aread%3Aemail+channel_subscriptions+user_subscriptions+user_read+bits%3Aread+channel%3Aread%3Aredemptions+chat%3Aread'
             );
 
             redirect($url . '?' . urldecode(http_build_query($params)));
