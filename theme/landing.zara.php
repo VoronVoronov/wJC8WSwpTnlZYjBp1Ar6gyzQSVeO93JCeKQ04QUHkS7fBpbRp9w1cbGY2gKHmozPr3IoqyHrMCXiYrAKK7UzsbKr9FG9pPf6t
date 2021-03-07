@@ -126,7 +126,7 @@
                 </div>
             </div>-->
 
-            <div class="rates ">
+            <div class="rates">
                 <center>
                     <div class="container row">
                         <h5>Наши тарифы</h5>
@@ -156,6 +156,7 @@
                         </div>
                     </div>
                 </center>
+            </div>
 
 
                 <h5>Мы работаем с сервисами</h5>

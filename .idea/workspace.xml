@@ -59,14 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
-      <workItem from="1614916290901" duration="45898000" />
-    </task>
-    <task id="LOCAL-00059" summary="Updated webhook">
-      <created>1615066534159</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1615066534159</updated>
+      <workItem from="1614916290901" duration="45925000" />
     </task>
     <task id="LOCAL-00060" summary="Updated webhook">
       <created>1615066569670</created>
@@ -404,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615096581579</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="Add Tarif">
+      <created>1615096629873</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1615096629873</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
