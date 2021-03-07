@@ -47,7 +47,7 @@
                 <h3>{{ $user->user_login_show }}</h3>
             </div>
 
-            <div id="unitpay-redirect">
+            <div id="payment-redirect">
                 <hr>
                 Переадрессация...
             </div>

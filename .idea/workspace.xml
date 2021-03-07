@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/theme/_common/main.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/_common/main.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/donate/editor.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/donate/editor.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,14 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
-      <workItem from="1614916290901" duration="47737000" />
-    </task>
-    <task id="LOCAL-00071" summary="Updated AlertModel">
-      <created>1615069669532</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1615069669532</updated>
+      <workItem from="1614916290901" duration="48344000" />
     </task>
     <task id="LOCAL-00072" summary="Updated webhook">
       <created>1615070920007</created>
@@ -404,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615099222721</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Updated events">
+      <created>1615099275747</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1615099275747</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
