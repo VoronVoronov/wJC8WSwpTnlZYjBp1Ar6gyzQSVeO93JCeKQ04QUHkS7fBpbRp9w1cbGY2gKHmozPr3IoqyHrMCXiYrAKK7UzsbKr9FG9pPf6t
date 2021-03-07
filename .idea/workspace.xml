@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/theme/_common/main.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/_common/main.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,21 +60,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614916288329</updated>
-      <workItem from="1614916290901" duration="43529000" />
-    </task>
-    <task id="LOCAL-00043" summary="Add App Access Token">
-      <created>1614998297615</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1614998297615</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Add App Access Token">
-      <created>1614998422503</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1614998422503</updated>
+      <workItem from="1614916290901" duration="43934000" />
     </task>
     <task id="LOCAL-00045" summary="Add App Access Token">
       <created>1614998621079</created>
@@ -406,7 +391,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615081898047</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Added Tarif">
+      <created>1615094248937</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1615094248938</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Upd Icon">
+      <created>1615094385011</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1615094385011</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,8 +423,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="05.03.2021 23:24" />
-    <MESSAGE value="05.03.2021 23:33" />
     <MESSAGE value="05.03.2021 23:37" />
     <MESSAGE value="05.03.2021 23:38" />
     <MESSAGE value="05.03.2021 23:50" />
@@ -449,6 +446,8 @@
     <MESSAGE value="Updated Webhook twitch" />
     <MESSAGE value="Updated Subscribe" />
     <MESSAGE value="Updated Hooks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Hooks" />
+    <MESSAGE value="Added Tarif" />
+    <MESSAGE value="Upd Icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upd Icon" />
   </component>
 </project>
