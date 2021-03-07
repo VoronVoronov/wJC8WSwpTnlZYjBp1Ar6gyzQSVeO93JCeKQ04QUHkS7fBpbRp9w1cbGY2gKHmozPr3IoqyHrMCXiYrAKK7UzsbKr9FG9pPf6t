@@ -73,10 +73,6 @@ switch ($action) {
         fclose($log_file);
         $postData = file_get_contents('php://input');
         $data = json_decode($postData, 1);
-        $challenge = $data->challenge;
-        $type = $data->subscription->type;
-        $userid = $data->subscription->condition->broadcaster_user_id;
-        $webhookid = $data->subscription->id;
         //$status = $data->subscription->status;
         if($data->subscription->status == 'webhook_callback_verification_pending') {
             echo $data->challenge;
