@@ -13,7 +13,7 @@ class ApiController extends Controller {
 				$version_json[] = array( 
 					'version'   => 0.1,
 					'type'      => 'b',
-                    'server'    => $_SERVER['HTTP_X_API_SIGNATURE_SHA256']);
+                    'server'    => $_SERVER['Accept']);
 				$version = json_encode($version_json);
 				return $version;
 		}elseif ($action == 'status') {
