@@ -109,7 +109,7 @@ class UserModel extends Model
             ->select(DB::raw("*"))
             ->where("log_action", 1)
             ->order("log_time", "desc")
-            ->limit("0", "6")
+            ->limit("0", "3")
             ->get();        
 	}	
 } 
