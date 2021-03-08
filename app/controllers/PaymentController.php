@@ -382,13 +382,14 @@ class PaymentController extends Controller{
         $billPayments = new Qiwi\Api\BillPayments($this->config->qiwi["secret_key"]);
         $postData = file_get_contents('php://input');
         $data = json_decode($postData, 1);
-        if($data['bill']['status']['value'] == 'PAID') {
+        $donation = $this->DonationModel->getDonationInfo($data->bill->customer->account);
+        if($data->bill->status->value == 'PAID') {
             $validSignatureFromNotificationServer = $_SERVER['HTTP_X_API_SIGNATURE_SHA256'];
             $notificationData = [
                 'bill' => [
                     'siteId' => '2304',
                     'billId' =>  $donation['donation_id'].'-'.hash('sha256', $donation['donation_id'].'RUB'.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'],
-                    'amount' => ['value' => $data['bill']['amount']['value'], 'currency' => 'RUB'],
+                    'amount' => ['value' => $data->bill->amount->value, 'currency' => 'RUB'],
                     'status' => ['value' => 'PAID']
                 ],
                 'version' => '3'
@@ -397,8 +398,7 @@ class PaymentController extends Controller{
             $billPayments->checkNotificationSignature(
                 $validSignatureFromNotificationServer, $notificationData, $this->config->qiwi["secret_key"]
             );
-            if ($donation['donation_id'] == $data['bill']['customer']['account']  && $donation['donation_status'] == 0) {
-                $donation = $this->DonationModel->getDonationInfo($data['bill']['customer']['account']);
+            if ($donation['donation_id'] == $data->bill->customer->account  && $donation['donation_status'] == 0) {
                 if ($donation['donation_status'] == 0) {
                     if (!$this->DonationModel->editDonation($donation['donation_id'], [
                         "donation_end_time" => "NOW()",
