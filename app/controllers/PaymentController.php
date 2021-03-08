@@ -167,6 +167,7 @@ class PaymentController extends Controller{
         		            "donation_end_time" => "NOW()",
         		            "donation_status"   =>  1,
         		            "donation_ammount"  =>  (float) $donation['donation_ammount'],
+                            "donation_currency" => 0,
         		        ]));       
         		        $donation['donation_json'] = json_decode($donation['donation_json']);
 
@@ -222,6 +223,7 @@ class PaymentController extends Controller{
                     "donation_end_time" => "NOW()",
                     "donation_status"   =>  1,
                     "donation_ammount"  =>  (float) $donation['donation_ammount'],
+                    "donation_currency" => 0,
                 ]));       
                 $donation['donation_json'] = json_decode($donation['donation_json']);
 
@@ -275,6 +277,7 @@ class PaymentController extends Controller{
                     "donation_end_time" => "NOW()",
                     "donation_status"   =>  1,
                     "donation_ammount"  =>  (float) $donation['donation_ammount'],
+                    "donation_currency" => 0,
                 ]));       
                 $donation['donation_json'] = json_decode($donation['donation_json']);
 
@@ -328,6 +331,7 @@ class PaymentController extends Controller{
                     "donation_end_time" => "NOW()",
                     "donation_status"   =>  1,
                     "donation_ammount"  =>  (float) $donation['donation_ammount'],
+                    "donation_currency" => 0,
                 ]));       
                 $donation['donation_json'] = json_decode($donation['donation_json']);
 
