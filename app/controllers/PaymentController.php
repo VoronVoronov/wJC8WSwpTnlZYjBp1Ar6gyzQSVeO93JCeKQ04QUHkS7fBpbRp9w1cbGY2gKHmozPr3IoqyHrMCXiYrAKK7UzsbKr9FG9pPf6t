@@ -132,8 +132,7 @@ class PaymentController extends Controller{
         $billPayments = new Qiwi\Api\BillPayments($this->config->qiwi["secret_key"]);
         $customFields = ['themeCode' => 'DASTAN-ZhwIXgilMqA', 'paySourcesFilter' => 'card'];            
             $params = [
-                //'amount'        => $donation['donation_ammount']/100*5 + $donation['donation_ammount'],
-                'amount'        => $donation['donation_ammount'],
+                'amount'        => $donation['donation_ammount']/100*5 + $donation['donation_ammount'],
                 'currency'      => 'RUB',
                 'account'       => $id,
                 'email'         => Request::post("email"),
