@@ -106,31 +106,31 @@ class DonationModel extends Model
     {
         switch ($time) {
             case 1: // За текущий стрим
-                $time = "`donation_end_time` != 0";
+                $time = "`donation_end_time` != 0 ";
                 break;
 
             case 2: // За прошлый стрим
-                $time = "`donation_end_time` != 0";
+                $time = "`donation_end_time` != 0 ";
                 break;
 
             case 3: // За все время
-                $time = "`donation_end_time` != 0";
+                $time = "`donation_end_time` != 0 ";
                 break;
 
             case 4: //За текущий день
-                $time = "`donation_end_time` LIKE '%". date("Y") ."-". date("m") ."-". date("d") ." %'";
+                $time = "`donation_end_time` LIKE '%". date("Y") ."-". date("m") ."-". date("d") ." %' ";
                 break;
 
             case 5: //За текущую неделю
-                $time = "`donation_end_time` >= NOW()-INTERVAL 7 DAY";
+                $time = "`donation_end_time` >= NOW()-INTERVAL 7 DAY ";
                 break;
 
             case 6: //За текущий месяц
-                $time = "`donation_end_time` LIKE '%". date("Y") ."-". date("m") ."-%'";
+                $time = "`donation_end_time` LIKE '%". date("Y") ."-". date("m") ."-%' ";
                 break;
 
             case 7: //За год
-                $time = "`donation_end_time` LIKE '%". date("Y") ."-%'";
+                $time = "`donation_end_time` LIKE '%". date("Y") ."-%' ";
                 break;
         }
 
