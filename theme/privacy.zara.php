@@ -221,10 +221,9 @@
 
     <div id="landing">
 
-
         <div class="content">
             <div class="stats container">
-                <h5>Политикой конфиденциальности</h5>
+                <h5>Политика конфиденциальности</h5>
                 <div style="    line-height: 20px;">
                     <div style="width: 100%; height: 61px;"></div>
 
@@ -457,7 +456,7 @@
                         <a href="/">- Главная</a>
                         <a href="/oferta">- Публичная оферта</a>
                         <a href="/agreement">- Пользовательское соглашение</a>
-                        <a href="https://vk.com/ipdonate">- ВКонтакте</a>
+                        <a href="/privacy">- Политика конфиденциальности</a>
                     </div>
 
                     <div class="left-menu">

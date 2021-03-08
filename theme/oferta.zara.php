@@ -87,7 +87,7 @@
                         <a href="/">- Главная</a>
                         <a href="/oferta">- Публичная оферта</a>
                         <a href="/agreement">- Пользовательское соглашение</a>
-                        <a href="https://vk.com/ipdonate">- ВКонтакте</a>
+                        <a href="/privacy">- Политика конфиденциальности</a>
                     </div>
 
                     <div class="left-menu">
