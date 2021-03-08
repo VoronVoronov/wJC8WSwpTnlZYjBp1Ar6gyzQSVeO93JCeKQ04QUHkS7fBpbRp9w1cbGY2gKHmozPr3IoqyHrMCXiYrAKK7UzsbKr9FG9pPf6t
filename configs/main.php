@@ -27,7 +27,7 @@ return [
     'locale'        =>      'ru',
 
     // Резервный язык локализации
-    'fallback_locale'=>     'ru',
+    'fallback_locale'=>     'en',
 
     "unitpay"   =>  [
         "public_key" => "374671-56ad9",
