@@ -128,5 +128,6 @@ Router::get("webmoney/handler", "PaymentController@WebmoneyHandler");
 Router::get("paypal/handler", "PaymentController@PaypalHandler");
 
 //Testing
+Router::get("qiwi/handlertest", "PaymentController@QiwiTestHandler");
 Router::post("qiwi/handlertest", "PaymentController@QiwiTestHandler");
 
