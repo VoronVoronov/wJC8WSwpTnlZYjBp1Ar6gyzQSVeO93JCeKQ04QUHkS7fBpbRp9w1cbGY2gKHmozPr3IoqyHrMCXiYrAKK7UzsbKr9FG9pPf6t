@@ -399,7 +399,6 @@ class PaymentController extends Controller{
                 $validSignatureFromNotificationServer, $notificationData, $this->config->qiwi["secret_key"]
             );
             if ($donation['donation_id'] == $data->bill->customer->account  && $donation['donation_status'] == 0) {
-                if ($donation['donation_status'] == 0) {
                     if (!$this->DonationModel->editDonation($donation['donation_id'], [
                         "donation_end_time" => "NOW()",
                         "donation_status" => 1,
@@ -438,7 +437,6 @@ class PaymentController extends Controller{
                         //$name = urlencode($this->FilterModel->url_to_html_element(base64_decode($donation['donation_json']->text)));
                         //file_get_contents("https://api.sdonate.ru/voice.php?text=".$this->FilterModel->url_to_html_element(base64_decode($donation['donation_json']->text))."&name=".$this->FilterModel->url_to_html_element(base64_decode($donation['donation_json']->text)));
                     }
-                }
             }
         }
     }
