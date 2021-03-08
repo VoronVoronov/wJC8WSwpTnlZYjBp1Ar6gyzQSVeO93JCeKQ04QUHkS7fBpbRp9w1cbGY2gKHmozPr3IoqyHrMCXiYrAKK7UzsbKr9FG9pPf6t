@@ -13,7 +13,7 @@ class ApiController extends Controller {
 				$version_json[] = array( 
 					'version'   => 0.1,
 					'type'      => 'b',
-                    'server'    => $_SERVER['Accept']);
+                    'server'    => $_SERVER['Content-Type']);
 				$version = json_encode($version_json);
 				return $version;
 		}elseif ($action == 'status') {
