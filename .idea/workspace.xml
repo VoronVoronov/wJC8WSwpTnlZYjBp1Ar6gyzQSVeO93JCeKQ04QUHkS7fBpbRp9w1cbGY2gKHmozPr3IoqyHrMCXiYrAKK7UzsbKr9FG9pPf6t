@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/theme/widgets/alert/alert.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/widgets/alert/alert.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/WidgetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/WidgetController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,21 +66,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="14372000" />
-    </task>
-    <task id="LOCAL-00138" summary="Returned">
-      <created>1615168792081</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1615168792081</updated>
-    </task>
-    <task id="LOCAL-00139" summary="Returned">
-      <created>1615168921275</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1615168921275</updated>
+      <workItem from="1615235024719" duration="14652000" />
     </task>
     <task id="LOCAL-00140" summary="Returned">
       <created>1615168947517</created>
@@ -411,7 +397,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615262935959</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="Check console.log">
+      <created>1615263144278</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1615263144278</updated>
+    </task>
+    <task id="LOCAL-00188" summary="Check console.log">
+      <created>1615263309880</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1615263309880</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
