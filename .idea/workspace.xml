@@ -62,14 +62,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="5800000" />
-    </task>
-    <task id="LOCAL-00105" summary="Add Tarif">
-      <created>1615096446002</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1615096446003</updated>
+      <workItem from="1615235024719" duration="5902000" />
     </task>
     <task id="LOCAL-00106" summary="Add Tarif">
       <created>1615096531872</created>
@@ -407,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615252925022</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="Add admin panel">
+      <created>1615252986268</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1615252986268</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
