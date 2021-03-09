@@ -57,8 +57,8 @@ class AdminController extends Controller {
 
         $data['user'] = $this->UserModel->getUser($id);
 
-
-        $data['user']->user_wallets = json_decode($data['user']->user_wallets);
+        $user = $this->UserModel->getUser($id);
+        $data['wallets']->user_wallets = json_decode($user->user_wallets);
         $allb = $this->DonationModel->getBalance($id, 3)['balance'];
         $balance = $this->UserModel->getBalance($id);
 
