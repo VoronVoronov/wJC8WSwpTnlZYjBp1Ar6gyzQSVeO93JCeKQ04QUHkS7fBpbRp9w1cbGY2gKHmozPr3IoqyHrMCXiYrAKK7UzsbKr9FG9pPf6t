@@ -4,6 +4,16 @@ class EventModel extends Model
 {
     public $table = "events";
 
+    public function addEvent($user_id, $type, $data)
+    {
+        return $this->create([
+            "user_id" => $user_id,
+            "event_type" => $type,
+            "event_json" => $data,
+            "event_time" => "NOW()"
+        ]);
+    }
+
     public function getUserEvents($user_id)
     {
         $events = $this->where("user_id", $user_id)->get();

@@ -158,7 +158,7 @@ class PaymentController extends Controller{
             //die("hacking attempt!");
             header('Location: https://ipdonate.com/');
         }
-    	model("Donation", "Alert", "Widget", "Filter");
+    	model("Donation", "Alert", "Widget", "Filter", "Event");
         $params = Request::get("params");
         if(isset($params['donation_id'])){
             $donation = $this->DonationModel->getDonationInfo($params['donation_id']);
@@ -187,6 +187,17 @@ class PaymentController extends Controller{
         		                "type" => 1,
         		            ], true);
         		        }
+                        $event_json = array(
+                            'user_name' =>  $donation['donation_name'],
+                            'sum'       => (float) $donation['donation_ammount'],
+                            'curr'      => 'RUB',
+                            );
+        		        $this->EventModel->addEvent([
+        		            "user_id"       => $donation['user_id'],
+                            "event_type"    => 1,
+                            "event_json"    => json_encode($event_json);
+
+                        ], true);
 
         		        $widgets = $this->WidgetModel->getUserAlertsWidget($donation['user_id']);
         		        foreach ($widgets as $widget)

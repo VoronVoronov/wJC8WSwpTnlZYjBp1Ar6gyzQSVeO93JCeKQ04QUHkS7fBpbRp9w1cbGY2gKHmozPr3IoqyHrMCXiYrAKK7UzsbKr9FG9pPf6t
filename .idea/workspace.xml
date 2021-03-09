@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/theme/admin/stats.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/admin/stats.zara.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/user/donations.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/user/donations.zara.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/user/faq.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/user/faq.zara.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/user/messages.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/user/messages.zara.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/user/money.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/user/money.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Event.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,14 +64,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="10060000" />
-    </task>
-    <task id="LOCAL-00129" summary="Testing">
-      <created>1615166560805</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1615166560805</updated>
+      <workItem from="1615235024719" duration="10830000" />
     </task>
     <task id="LOCAL-00130" summary="Testing">
       <created>1615166591905</created>
@@ -411,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615257061390</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="Update Admin">
+      <created>1615257278753</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1615257278753</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
