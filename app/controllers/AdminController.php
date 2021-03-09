@@ -58,19 +58,16 @@ class AdminController extends Controller {
         $data['user'] = $this->UserModel->getUser($id);
 
 
-        $data['user']->user_wallets = json_decode($data['user']->user_wallets);
-        $data['user']->user_all_balance = $this->DonationModel->getBalance($id, 3)['balance'];
-        $data['user']->user_stream_time = (float)($this->UserModel->getStreamTime($id) / 60);
-        $balance = $this->UserModel->getBalance($id);
-        $data['user']->user_balance = (empty($balance)) ? 0 : $balance;
-        $data['ip'] = $this->UserModel->getLog($id);
+        $wallets = $this->UserModel->getUser($id, "user_wallets");
+
         //   $wallets = json_decode($data['user']->user_wallets);
+        $allb = $this->DonationModel->getBalance($id, 3)['balance'];
         //$data['user']->user_stream_time = (float) ($this->UserModel->getStreamTime($id) / 60);
-        //   $data['user']->user_balance = (empty($balance)) ? 0 : $balance;
+        $balance = $this->UserModel->getBalance($id);
 
         //dd($data['user']);
 
-        return view("/admin/users/index", $data);
+        return view("/admin/users/index", ['balance' => $balance] + ['allbalance' => $allb] + $data);
     }
 
     public function payouts() {
