@@ -41,7 +41,11 @@
             <div class="header" style="background-image: url('{{ $settings->bg_header_image }}'); background-size: {{ $settings->bg_header_size }}; background-position: {{ $settings->bg_header_position }}; background-repeat: {{ $settings->bg_header_repeat }};">
                 @endif
                 <img src="{{ $user->user_avatar }}" alt="">
+                @if($user->user_stream_status == 1)
+                <i class="status-online"></i>
+                @else
                 <i class="status-offline"></i>
+                @endif
                 <h3>{{ $user->user_login_show }}</h3>
             </div>
 
