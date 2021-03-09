@@ -453,11 +453,8 @@
             $("#donate_text").val($(this).html());
         });
 
-
-
-        $('#editor').ajaxForm({
-            url: "edit-donate-page",
-            //url: location.href,
+        $('#donate-form').ajaxForm({
+            url: location.href,
             dataType: 'text',
             success: function(data) {
                 console.log(data);
@@ -468,12 +465,37 @@
                         $('button[type=submit]').prop('disabled', false);
                         break;
                     case 'success':
-                        fly_p("success", "Настройки успешно сохранены!");
+                        $("#donate-form").hide();
+                        $("#unitpay-redirect").show();
+                        setTimeout (function (){
+                            location.href = "https://unitpay.ru/pay/{{ config()->unitpay['public_key'] }}?sum="+ $("#donate_sum").val() +"&account="+ data.id;
+                        }, 1000);
                         break;
                 }
             },
             beforeSubmit: function(arr, $form, options) {
                 $('button[type=submit]').prop('disabled', true);
+            }
+        });
+
+        $('#editor').ajaxForm({
+            url: "edit-donate-page",
+            dataType: 'text',
+            success: function(data) {
+                console.log(data);
+                data = $.parseJSON(data);
+                switch(data.status) {
+                    case 'error':
+                        fly_p('danger', data.error);
+                        $('button[id=save]').prop('disabled', false);
+                        break;
+                    case 'success':
+                        fly_p("success", "Настройки успешно сохранены!");
+                        break;
+                }
+            },
+            beforeSubmit: function(arr, $form, options) {
+                $('button[id=save]').prop('disabled', true);
             }
         });
     });
