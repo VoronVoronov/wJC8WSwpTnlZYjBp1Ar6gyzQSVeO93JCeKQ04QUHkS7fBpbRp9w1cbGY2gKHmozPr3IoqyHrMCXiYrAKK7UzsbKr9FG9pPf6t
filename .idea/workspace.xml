@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/dashboard.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/dashboard.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/widgets/alert/alert.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/widgets/alert/alert.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,14 +67,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="13620000" />
-    </task>
-    <task id="LOCAL-00136" summary="Testing">
-      <created>1615167927669</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1615167927669</updated>
+      <workItem from="1615235024719" duration="14156000" />
     </task>
     <task id="LOCAL-00137" summary="Testing">
       <created>1615168637269</created>
@@ -413,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615261988361</updated>
     </task>
-    <option name="localTasksCounter" value="185" />
+    <task id="LOCAL-00185" summary="Add Event">
+      <created>1615262399891</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1615262399891</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
