@@ -26,9 +26,9 @@ class EventModel extends Model
         return $events;
     }
 
-    public function getUserEvents($user_id)
+    public function getAllUserEvents()
     {
-        $events = $this->where("user_id", $user_id)->get();
+        $events = $this->get();
 
         foreach ($events as &$event) {
             $event['event_json'] = json_decode($event['event_json']);
