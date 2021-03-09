@@ -425,6 +425,7 @@
                 audio.play();
             };
             setTimeout(tts, 1000);
+            console.log('https://api.ipdonate.com/' + data.msg + '.mp3');
         }
 
         setTimeout(function() {
