@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/theme/widgets/alert/alert.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/widgets/alert/alert.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,14 +66,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="14156000" />
-    </task>
-    <task id="LOCAL-00137" summary="Testing">
-      <created>1615168637269</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1615168637269</updated>
+      <workItem from="1615235024719" duration="14372000" />
     </task>
     <task id="LOCAL-00138" summary="Returned">
       <created>1615168792081</created>
@@ -412,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615262399891</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="Check console.log">
+      <created>1615262935959</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1615262935959</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +431,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated Alerts" />
     <MESSAGE value="Updated AlertModel" />
     <MESSAGE value="Updated webhook" />
     <MESSAGE value="Updated hook.php" />
@@ -457,7 +455,8 @@
     <MESSAGE value="Update AdminController.php" />
     <MESSAGE value="Update Admin" />
     <MESSAGE value="Add Event" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Event" />
+    <MESSAGE value="Check console.log" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check console.log" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

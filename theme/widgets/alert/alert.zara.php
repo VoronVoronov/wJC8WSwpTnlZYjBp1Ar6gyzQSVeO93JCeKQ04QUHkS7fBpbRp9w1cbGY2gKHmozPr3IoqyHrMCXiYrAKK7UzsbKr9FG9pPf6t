@@ -421,7 +421,7 @@
                 if(data.alert_type == 3) {
                     var tts = function(){
                         var audio = new Audio('https://ipdonate.com/assets/audio/' + data.msg + '.mp3');
-                        console.log('https://ipdonate.com/assets/audio/' + data.msg + '.mp3');
+                        console.log('https://ipdonate.com/assets/audio/' + btoa(data.msg) + '.mp3');
                         audio.play();
                     };
                     setTimeout(tts, 1000);
