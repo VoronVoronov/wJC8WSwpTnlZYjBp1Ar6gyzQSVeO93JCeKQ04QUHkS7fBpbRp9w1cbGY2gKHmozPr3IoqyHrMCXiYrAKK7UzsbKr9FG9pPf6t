@@ -199,7 +199,6 @@ a:hover {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     font-size: 15px;
-    height: 800px;
 }
 
 .sidebar ul {
@@ -352,7 +351,6 @@ a:hover {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background: #fff;
-    height: 800px;
 }
 
 .page-content {
