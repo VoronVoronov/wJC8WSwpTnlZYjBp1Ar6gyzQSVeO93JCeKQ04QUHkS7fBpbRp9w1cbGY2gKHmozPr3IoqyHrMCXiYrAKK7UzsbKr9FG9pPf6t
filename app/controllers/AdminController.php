@@ -67,7 +67,7 @@ class AdminController extends Controller {
 
         //dd($data['user']);
 
-        return view("/admin/users/index", ['balance' => $balance] + ['allbalance' => $allb] + $data);
+        return view("/admin/users/index", ['balance' => $balance] + ['allbalance' => $allb] + $data + $wallets);
     }
 
     public function payouts() {
