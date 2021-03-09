@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web&subset=latin,latin-ext);
 @media (min-width: 768px) {
     .row-sm-offset-3 div:first-child[class*="col-"] {
         margin-left: 25%;
@@ -199,6 +199,7 @@ a:hover {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     font-size: 15px;
+    height: 800px;
 }
 
 .sidebar ul {
@@ -208,7 +209,6 @@ a:hover {
     margin-left: 10px;
     margin-bottom: 20px;
     padding: 0px;
-    height: 800px;
 }
 
 .sidebar ul li {
@@ -1018,7 +1018,7 @@ a:hover {
 
 }
 
-#unitpay-redirect {
+#payment-redirect {
     text-align: center;
     padding: 20px;
     font-size: 25px;
