@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/user/money.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/user/money.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/donate/editor.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/donate/editor.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,21 +67,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="18516000" />
-    </task>
-    <task id="LOCAL-00156" summary="Add admin panel">
-      <created>1615253310429</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1615253310429</updated>
-    </task>
-    <task id="LOCAL-00157" summary="Add admin panel">
-      <created>1615253449185</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1615253449185</updated>
+      <workItem from="1615235024719" duration="18954000" />
     </task>
     <task id="LOCAL-00158" summary="updated style.css">
       <created>1615254119410</created>
@@ -412,7 +398,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615266666236</updated>
     </task>
-    <option name="localTasksCounter" value="205" />
+    <task id="LOCAL-00205" summary="Add location.reload">
+      <created>1615268024632</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1615268024632</updated>
+    </task>
+    <task id="LOCAL-00206" summary="Update editor donate page">
+      <created>1615268290954</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1615268290954</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,8 +432,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added Tarif" />
-    <MESSAGE value="Upd Icon" />
     <MESSAGE value="Add Tarif" />
     <MESSAGE value="Deleted VK widgets" />
     <MESSAGE value="Updated VK Widgets" />
@@ -457,7 +455,9 @@
     <MESSAGE value="Update MD5 JS" />
     <MESSAGE value="Update TTS" />
     <MESSAGE value="Update trackip" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update trackip" />
+    <MESSAGE value="Add location.reload" />
+    <MESSAGE value="Update editor donate page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update editor donate page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

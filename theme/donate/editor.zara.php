@@ -52,67 +52,67 @@
                 Переадрессация...
             </div>
 
-            <div class="donate-form" method="POST" action="">
-                @if(!empty($settings->text))
-                {{ base64_decode($settings->text) }}
-                <hr>
-                @endif
-                <div class="input-block">
-                    <label for="">Ваше имя</label>
-                    <input type="text" name="user_name" class="form-control" value="{{ cookie("user_name")->getValue() }}">
-                </div>
-                <div class="input-block">
-                    <label for="">Сумма доната</label>
-                    <div class="input-group">
-                        <input type="number" name="donate_sum" id="donate_sum" class="form-control" value="{{ $settings->rec_sum }}">
-                        <span class="input-group-addon">руб.</span>
+                <form class="donate-form" id="donate-form" method="POST" action="">
+                    @if(!empty($settings->text))
+                    {{ base64_decode($settings->text) }}
+                    <hr>
+                    @endif
+                    <div class="input-block">
+                        <label for="">Ваше имя</label>
+                        <input type="text" name="user_name" class="form-control" value="{{ cookie("user_name")->getValue() }}">
                     </div>
-                </div>
-                <div class="input-block">
-                    <label for="">Ваше сообщение</label>
-                    <span class="text-counter">
-                        <p id="text-symbols">0</p> / 300
-                    </span>
-                    <i class="icon icon-smiles" data-template='<div class="popover" style="max-height: 200px; min-width: 297px; overflow-y: auto;" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-container="body" data-toggle="popover" data-placement="top" data-html="true" data-content=""></i>
-                    <div contenteditable="true" class="form-control" style="height: 120px; overflow: auto; padding-right: 26px;" id="text-input"></div>
-                    <textarea class="form-control" name="donate_text" id="donate_text" style="display:none;"></textarea>
-                </div>
-                <hr>
-                @if(count($goals) > 1)
-                <div class="input-block">
-                    <label for="">Сбор средств</label>
-                    <span class="tip">У пользователя организован сбор средств на различные цели, отправляя сообщение,
+                    <div class="input-block">
+                        <label for="">Сумма доната</label>
+                        <div class="input-group">
+                            <input type="number" name="donate_sum" id="donate_sum" class="form-control" value="{{ $settings->rec_sum }}">
+                            <span class="input-group-addon">руб.</span>
+                        </div>
+                    </div>
+                    <div class="input-block">
+                        <label for="">Ваше сообщение</label>
+                        <span class="text-counter">
+                    <p id="text-symbols">0</p> / 300
+                </span>
+                        <i class="icon icon-smiles" data-template='<div class="popover" style="max-height: 200px; min-width: 297px; overflow-y: auto;" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-container="body" data-toggle="popover" data-placement="top" data-html="true" data-content=""></i>
+                        <div contenteditable="true" class="form-control" style="height: 120px; overflow: auto; padding-right: 26px;" id="text-input"></div>
+                        <textarea class="form-control" name="donate_text" id="donate_text" style="display:none;"></textarea>
+                    </div>
+                    <hr>
+                    @if(count($goals) > 1)
+                    <div class="input-block">
+                        <label for="">Сбор средств</label>
+                        <span class="tip">У пользователя организован сбор средств на различные цели, отправляя сообщение,
                     Вы можете выбрать одну из них.</span>
-                    @foreach($goals as $goal)
-                    <label class="radio-inline">
-                        <input type="radio" name="goal_id" value="{{ $goal['widget_id'] }}" checked> {{ base64_decode($goal['widget_config']->goal_title) }}
-                    </label>
-                    @endforeach
-                </div>
-                <hr>
-                @else
-                <input type="hidden" name="goal_id" value="{{ $goals[0]['widget_id'] }}">
-                @endif
-                @if(isset($vote))
-                <div class="input-block">
-                    <label for="">{{ base64_decode($vote->widget_config->title) }}</label>
-                    @foreach($vote->widget_config->variants as $key => $variant)
-                    <label class="radio-inline vote-bar" style="background-position-x: -{{ $variant['bar_percent'] }}px;">
-                        <input type="radio" name="vote" value="{{ $vote->widget_id }}_{{ $key }}"> {{ $variant['name'] }}
-                        <span class="vote-variant-percent">{{ $variant['percent'] }}%</span>
-                    </label>
-                    @endforeach
-                </div>
-                <hr>
-                @endif
-                <div class="input-block agreement-text">
-                    Нажимая на кнопку "<b>Отправить</b>", Вы принимаете <a href="https://ipdonate.com/oferta">Условия предоставления услуг</a>
-                </div>
+                        @foreach($goals as $goal)
+                        <label class="radio-inline">
+                            <input type="radio" name="goal_id" value="{{ $goal['widget_id'] }}" checked> {{ base64_decode($goal['widget_config']->goal_title) }}
+                        </label>
+                        @endforeach
+                    </div>
+                    <hr>
+                    @else
+                    <input type="hidden" name="goal_id" value="{{ $goals[0]['widget_id'] }}">
+                    @endif
+                    @if(isset($vote))
+                    <div class="input-block">
+                        <label for="">{{ base64_decode($vote->widget_config->title) }}</label>
+                        @foreach($vote->widget_config->variants as $key => $variant)
+                        <label class="radio-inline vote-bar" style="background-position-x: -{{ $variant['bar_percent'] }}px;">
+                            <input type="radio" name="vote" value="{{ $vote->widget_id }}_{{ $key }}"> {{ $variant['name'] }}
+                            <span class="vote-variant-percent">{{ $variant['percent'] }}%</span>
+                        </label>
+                        @endforeach
+                    </div>
+                    <hr>
+                    @endif
+                    <div class="input-block agreement-text">
+                        Нажимая на кнопку "<b>Отправить</b>", Вы принимаете <a href="https://ipdonate.com/oferta">Условия предоставления услуг</a>
+                    </div>
 
-                <div class="input-block send-btn-block">
-                    <div  class="btn btn-warning" style="background: {{ $settings->btn_color }}; border-color: {{ $settings->btn_color }}; color: {{ $settings->btn_text_color }};">Отправить</div>
-                </div>
-            </div>
+                    <div class="input-block send-btn-block">
+                        <button type="submit" class="btn btn-warning" style="background: {{ $settings->btn_color }}; border-color: {{ $settings->btn_color }}; color: {{ $settings->btn_text_color }};">Отправить</button>
+                    </div>
+                </form>
         </div>
     </div>
 </div>
@@ -466,9 +466,9 @@
                         break;
                     case 'success':
                         $("#donate-form").hide();
-                        $("#unitpay-redirect").show();
+                        $("#payment-redirect").show();
                         setTimeout (function (){
-                            location.href = "https://unitpay.ru/pay/{{ config()->unitpay['public_key'] }}?sum="+ $("#donate_sum").val() +"&account="+ data.id;
+                            location.href = "/payment/"+ data.id;
                         }, 1000);
                         break;
                 }
