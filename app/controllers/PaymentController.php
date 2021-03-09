@@ -150,14 +150,14 @@ class PaymentController extends Controller{
     }    
 
     public function QiwiHandler($params = []){
-        /*function getIP() {
+        function getIP() {
             if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
             return $_SERVER['REMOTE_ADDR'];
         }
             if (!in_array(getIP(), array('78.47.129.94'))) {
             //die("hacking attempt!");
             header('Location: https://ipdonate.com/');
-        }*/
+        }
     	model("Donation", "Alert", "Widget", "Filter", "Event");
         $params = Request::get("params");
         if(isset($params['donation_id'])){
