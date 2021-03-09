@@ -67,21 +67,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="19712000" />
-    </task>
-    <task id="LOCAL-00161" summary="Update Payout">
-      <created>1615255311591</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1615255311591</updated>
-    </task>
-    <task id="LOCAL-00162" summary="Update Payout">
-      <created>1615255327913</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1615255327913</updated>
+      <workItem from="1615235024719" duration="20003000" />
     </task>
     <task id="LOCAL-00163" summary="Update Payout">
       <created>1615255467602</created>
@@ -412,7 +398,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615268843706</updated>
     </task>
-    <option name="localTasksCounter" value="210" />
+    <task id="LOCAL-00210" summary="Update alert.js">
+      <created>1615269231021</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1615269231021</updated>
+    </task>
+    <task id="LOCAL-00211" summary="Update alert.js">
+      <created>1615269333496</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1615269333496</updated>
+    </task>
+    <option name="localTasksCounter" value="212" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +432,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add Tarif" />
     <MESSAGE value="Deleted VK widgets" />
     <MESSAGE value="Updated VK Widgets" />
     <MESSAGE value="Updated events" />
@@ -457,7 +456,8 @@
     <MESSAGE value="Update trackip" />
     <MESSAGE value="Add location.reload" />
     <MESSAGE value="Update editor donate page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update editor donate page" />
+    <MESSAGE value="Update alert.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update alert.js" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
