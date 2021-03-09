@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/WidgetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/WidgetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Alert.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Alert.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,14 +66,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="15270000" />
-    </task>
-    <task id="LOCAL-00142" summary="Returned">
-      <created>1615169087413</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1615169087413</updated>
+      <workItem from="1615235024719" duration="15429000" />
     </task>
     <task id="LOCAL-00143" summary="Returned">
       <created>1615169566258</created>
@@ -413,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615263501398</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="Updated">
+      <created>1615264104223</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1615264104223</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +431,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated AlertModel" />
     <MESSAGE value="Updated webhook" />
     <MESSAGE value="Updated hook.php" />
     <MESSAGE value="Updated Webhook twitch" />
@@ -458,7 +455,8 @@
     <MESSAGE value="Update Admin" />
     <MESSAGE value="Add Event" />
     <MESSAGE value="Check console.log" />
-    <option name="LAST_COMMIT_MESSAGE" value="Check console.log" />
+    <MESSAGE value="Updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -245,7 +245,7 @@ class WidgetController extends Controller {
         $message = json_encode($message);
 
         if(Request::get("type") == 3){
-        $name = urlencode("Сообщение оповещение");
+        $name = "Сообщение оповещение";
         @file_get_contents("https://api.ipdonate.com/voice.php?text=".$name);
                 /*$url = 'https://translate.google.com.vn/translate_tts?ie=UTF-8&client=tw-ob&q='.urlencode($name).'&tl=ru';
 
