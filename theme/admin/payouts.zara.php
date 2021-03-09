@@ -51,7 +51,8 @@
             <td><time datetime="{{ date("Y-m-d\TH:i:s\Z", strtotime($payout['money_time'])) }}" class="timeago"></time></td>
             <td> @if($payout['money_status'] == 0)
             
-            <a stmnid="<?php echo $payout['money_id'] ?>" class="btn btn-warning btn-xs">Ожидается</a> 
+            <a stmnid="<?php echo $payout['money_id'] ?>" class="btn btn-warning btn-xs">Ожидается</a>
+
             @elseif($payout['money_status'] == 1)
             
             <a stmnid="<?php echo $payout['money_id'] ?>" class="btn btn-success btn-xs">Выплачено</a> 
@@ -60,9 +61,9 @@
             <a stmnid="<?php echo $payout['money_id'] ?>" class="btn btn-danger btn-xs">Ошибка</a> 
             @endif
             </td>
-            
+            @if($payout['money_status'] == 0)
              <td ><i class="fa fa-check okRequest" data-id="<?php echo $payout['money_id'] ?>" data-toggle="tooltip" data-placement="top" title="Оплачено"></i><i class="fa fa-remove aremoveRequest" data-id="<?php echo $payout['money_id'] ?>" data-toggle="tooltip" data-placement="top" title="Отменить"></i></td>
-            
+            @endif
         </tr>
         @endforeach
         @endif
