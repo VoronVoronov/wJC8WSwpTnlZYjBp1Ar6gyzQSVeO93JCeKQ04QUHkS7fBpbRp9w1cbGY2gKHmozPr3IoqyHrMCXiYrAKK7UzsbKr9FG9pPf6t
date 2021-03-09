@@ -178,27 +178,7 @@
         years: function(value) { return numpf(value, "%d год", "%d года", "%d лет"); }
     };
     $('time.timeago').timeago();
-    
-    $('#payout-page-form').ajaxForm({
-    url: location.href,
-    dataType: 'text',
-    success: function(data) {
-        console.log(data);
-        data = $.parseJSON(data);
-        switch(data.status) {
-            case 'error':
-                fly_p('danger', data.error);
-                $('button[type=submit]').prop('disabled', false);
-                break;
-            case 'success':
-                fly_p("success", "Настройки успешно сохранены!");
-                break;
-        }
-    },
-    beforeSubmit: function(arr, $form, options) {
-        $('button[type=submit]').prop('disabled', true);
-    }
-    });
+
     
     
     
