@@ -63,21 +63,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="9293000" />
-    </task>
-    <task id="LOCAL-00121" summary="Updated events">
-      <created>1615099886109</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1615099886109</updated>
-    </task>
-    <task id="LOCAL-00122" summary="updated twitch">
-      <created>1615154365567</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1615154365568</updated>
+      <workItem from="1615235024719" duration="9492000" />
     </task>
     <task id="LOCAL-00123" summary="updated twitch">
       <created>1615154430319</created>
@@ -408,7 +394,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615256425502</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="Update Admin">
+      <created>1615256507205</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1615256507205</updated>
+    </task>
+    <task id="LOCAL-00171" summary="Update Admin">
+      <created>1615256623736</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1615256623736</updated>
+    </task>
+    <option name="localTasksCounter" value="172" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,9 +450,9 @@
     <MESSAGE value="Add admin panel" />
     <MESSAGE value="updated style.css" />
     <MESSAGE value="Update Payout" />
-    <MESSAGE value="Update Admin" />
     <MESSAGE value="Update AdminController.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update AdminController.php" />
+    <MESSAGE value="Update Admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Admin" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

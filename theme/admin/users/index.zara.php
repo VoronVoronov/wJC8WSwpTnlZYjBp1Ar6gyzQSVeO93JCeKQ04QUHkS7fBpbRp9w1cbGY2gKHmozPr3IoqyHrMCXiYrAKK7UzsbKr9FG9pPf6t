@@ -89,22 +89,22 @@
                 <tr>
                     <td>Qiwi</td>
                     <td id="profile-change-qiwi" style="display: none;"><input type="text" name="qiwi" data-type="qiwi" class="form-control input-sm profile-change-input" value="{{ $user->user_wallets->qiwi }}"></td>
-                    <td class="profile-change @if(empty($wallets->user_wallets->qiwi)) empty @endif" data-type="qiwi" data-toggle="tooltip" data-placement="top" title="Для изменения кликните дважды">{{ $user->user_wallets->qiwi or "Не указано" }}</td>
+                    <td class="profile-change @if(empty($user->user_wallets->qiwi)) empty @endif" data-type="qiwi" data-toggle="tooltip" data-placement="top" title="Для изменения кликните дважды">{{ $user->user_wallets->qiwi or "Не указано" }}</td>
                 </tr>
                 <tr>
                     <td>WebMoney</td>
                     <td id="profile-change-webmoney" style="display: none;"><input type="text" name="webmoney" data-type="webmoney" class="form-control input-sm profile-change-input" value="{{ $user->user_wallets->webmoney }}"></td>
-                    <td class="profile-change @if(empty($wallets->user_wallets->webmoney)) empty @endif" data-type="webmoney" data-toggle="tooltip" data-placement="top" title="Для изменения кликните дважды">{{ $user->user_wallets->webmoney or "Не указано" }}</td>
+                    <td class="profile-change @if(empty($user->user_wallets->webmoney)) empty @endif" data-type="webmoney" data-toggle="tooltip" data-placement="top" title="Для изменения кликните дважды">{{ $user->user_wallets->webmoney or "Не указано" }}</td>
                 </tr>
                 <tr>
                     <td>YooMoney</td>
                     <td id="profile-change-yamoney" style="display: none;"><input type="text" name="yamoney" data-type="yamoney" class="form-control input-sm profile-change-input" value="{{ $user->user_wallets->yamoney }}"></td>
-                    <td class="profile-change @if(empty($wallets->user_wallets->yamoney)) empty @endif" data-type="yamoney" data-toggle="tooltip" data-placement="top" title="Для изменения кликните дважды">{{ $user->user_wallets->yamoney or "Не указано" }}</td>
+                    <td class="profile-change @if(empty($user->user_wallets->yamoney)) empty @endif" data-type="yamoney" data-toggle="tooltip" data-placement="top" title="Для изменения кликните дважды">{{ $user->user_wallets->yamoney or "Не указано" }}</td>
                 </tr>
                 <tr>
                     <td>Банковская карта</td>
                     <td id="profile-change-bank" style="display: none;"><input type="text" name="bank" data-type="bank" class="form-control input-sm profile-change-input" value="{{ $user->user_wallets->bank }}"></td>
-                    <td class="profile-change @if(empty($wallets->user_wallets->bank)) empty @endif" data-type="bank" data-toggle="tooltip" data-placement="top" title="Для изменения кликните дважды">{{ $user->user_wallets->bank or "Не указано" }}</td>
+                    <td class="profile-change @if(empty($user->user_wallets->bank)) empty @endif" data-type="bank" data-toggle="tooltip" data-placement="top" title="Для изменения кликните дважды">{{ $user->user_wallets->bank or "Не указано" }}</td>
                 </tr>
             </table>
         </div>
