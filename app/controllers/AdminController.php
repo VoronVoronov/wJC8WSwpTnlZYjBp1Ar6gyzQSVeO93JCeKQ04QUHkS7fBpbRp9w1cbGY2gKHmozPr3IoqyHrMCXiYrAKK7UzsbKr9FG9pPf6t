@@ -41,7 +41,7 @@ class AdminController extends Controller {
         model("User");
 
         $data['users'] = $this->UserModel->getUsers();
-
+        $data['balance'] = $this->UserModel->getBalance($id);
 
         return view("/admin/users/all", $data);
     }
