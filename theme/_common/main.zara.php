@@ -84,7 +84,11 @@
         <div class="page-wrapper col-md-9">
             <div class="page-head">
                 <img src="{{ isOnline()->user_avatar }}" class="mini-avatar">
+                @if(isOnline()->user_stream_status == 1)
                 <i class="status-online"></i>
+                @else
+                <i class="status-offline"></i>
+                @endif
                 <b>{{ isOnline()->user_login_show }}</b>
                 <p>({{ isOnline()->user_balance }} руб.)</p>
 
