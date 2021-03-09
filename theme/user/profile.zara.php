@@ -81,7 +81,7 @@
                 </tr>
                 <tr>
                     <td>Discord Webhook</td>
-                    <td id="profile-change-discord" style="display: none;"><input type="text" name="discord" data-type="discord" class="form-control input-sm profile-change-input" value="{{ $user->user_discord_webhook }}"></td>
+                    <td id="profile-change-discord" style="display: none;"><input type="text" name="discord" data-type="discord" style="length:20px" class="form-control input-sm profile-change-input" value="{{ $user->user_discord_webhook }}"></td>
                     <td class="profile-change @if(empty($user->user_discord_webhook)) empty @endif" data-type="discord" data-toggle="tooltip" data-placement="top" title="Для изменения кликните дважды">{{ $user->user_discord_webhook or "Не указано" }}</td>
                 </tr>
             </table>
