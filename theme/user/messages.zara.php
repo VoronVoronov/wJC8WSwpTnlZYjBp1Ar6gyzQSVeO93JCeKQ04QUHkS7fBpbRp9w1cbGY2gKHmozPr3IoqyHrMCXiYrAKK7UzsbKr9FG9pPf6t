@@ -12,8 +12,8 @@
             <tr>
                 <td>{{ $item['message_text'] }}</td>
                 <td>
-                    <b>{{ date("H:i", strtotime($item['donation_end_time'])) }}</b>
-                    <p>{{ date("d/m/Y", strtotime($item['donation_end_time'])) }}</p>
+                    <b>{{ date("H:i", strtotime($item['message_time'])) }}</b>
+                    <p>{{ date("d/m/Y", strtotime($item['message_time'])) }}</p>
                 </td>
             </tr>
             @endforeach
