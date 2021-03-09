@@ -22,6 +22,13 @@ class DonationModel extends Model
         ]);
     }
 
+    public function getAllDonations()
+    {
+        return $this->order("donation_create_time", "desc")
+            ->get();
+    }
+
+
     public function getLastDonations($user_id, $time, $limit)
     {
         switch ($time) {
