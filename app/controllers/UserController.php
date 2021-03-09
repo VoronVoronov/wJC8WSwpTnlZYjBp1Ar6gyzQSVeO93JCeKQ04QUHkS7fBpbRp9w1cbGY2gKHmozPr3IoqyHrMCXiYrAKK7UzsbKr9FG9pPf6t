@@ -526,7 +526,7 @@ class UserController extends Controller
                         "user_reg_time" => "NOW()",
                     ];
                     $id = $this->UserModel->addUser($data);
-                    $this->UserModel->trackIP($id, 1);
+                    //$this->UserModel->trackIP($id, 1);
                     $this->createDefaultWidgets($id);
                     $this->ToOnline($id);
                 }
@@ -743,7 +743,7 @@ class UserController extends Controller
                 ];
                 $id = $this->UserModel->addUser($data);
                 //$this->getUserSmiles("twitch", $id, "twitch_" . $userInfo->name);
-                $this->UserModel->trackIP($id, 1);
+               // $this->UserModel->trackIP($id, 1);
                 $this->createDefaultWidgets($id);
                 $this->ToOnline($id);
             }
@@ -818,7 +818,7 @@ class UserController extends Controller
                             "user_reg_time" => "NOW()",
                         ];
                         $id = Builder::table('users')->insert($data);
-                        $this->UserModel->trackIP($id, 1);
+                        //$this->UserModel->trackIP($id, 1);
                         $this->createDefaultWidgets($id);
                         $this->ToOnline($id);
                     } else {
