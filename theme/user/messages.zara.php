@@ -12,7 +12,8 @@
             <tr>
                 <td>{{ $item['message_text'] }}</td>
                 <td>
-                    <time datetime="{{ date("Y-m-d\TH:i:s\Z", strtotime($item['message_time'])) }}" class="timeago"></time>
+                    <b>{{ date("H:i", strtotime($item['donation_end_time'])) }}</b>
+                    <p>{{ date("d/m/Y", strtotime($item['donation_end_time'])) }}</p>
                 </td>
             </tr>
             @endforeach
