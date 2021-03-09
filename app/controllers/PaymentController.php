@@ -188,7 +188,7 @@ class PaymentController extends Controller{
         		            ], true);
         		        }
                         $event_json = array(
-                            'user_name' =>  $donation['donation_name'],
+                            'user_name' =>  base64_encode($donation['donation_name']),
                             'sum'       => (float) $donation['donation_ammount'],
                             'curr'      => 0,
                             );
