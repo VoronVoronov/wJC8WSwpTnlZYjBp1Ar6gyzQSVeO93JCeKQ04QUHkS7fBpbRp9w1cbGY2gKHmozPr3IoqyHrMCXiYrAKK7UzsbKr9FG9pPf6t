@@ -56,7 +56,7 @@
         @else
         @foreach($events as $event)
         <tr>
-            <td>{{ $event['event_json']->user_name }}</td>
+            <td>{{ base64_decode($event['event_json']->user_name) }}</td>
             <td><time datetime="{{ date("Y-m-d\TH:i:s\Z", strtotime($event['event_time'])) }}" class="timeago"></time></td>
             <td>{{ $event['action'] }}</td>
         </tr>

@@ -190,7 +190,7 @@ class PaymentController extends Controller{
                         $event_json = array(
                             'user_name' =>  $donation['donation_name'],
                             'sum'       => (float) $donation['donation_ammount'],
-                            'curr'      => 'RUB',
+                            'curr'      => 0,
                             );
         		        $event = json_encode($event_json);
         		        $this->EventModel->addEvent([
