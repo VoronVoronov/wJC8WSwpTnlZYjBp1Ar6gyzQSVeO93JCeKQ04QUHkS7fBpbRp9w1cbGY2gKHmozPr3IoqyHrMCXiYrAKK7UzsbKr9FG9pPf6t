@@ -66,21 +66,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="15677000" />
-    </task>
-    <task id="LOCAL-00145" summary="updated собранная сумма">
-      <created>1615236317652</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1615236317652</updated>
-    </task>
-    <task id="LOCAL-00146" summary="Add admin panel">
-      <created>1615252257145</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1615252257145</updated>
+      <workItem from="1615235024719" duration="15927000" />
     </task>
     <task id="LOCAL-00147" summary="Add admin panel">
       <created>1615252425869</created>
@@ -411,7 +397,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615264272862</updated>
     </task>
-    <option name="localTasksCounter" value="194" />
+    <task id="LOCAL-00194" summary="Updated">
+      <created>1615264457872</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1615264457872</updated>
+    </task>
+    <task id="LOCAL-00195" summary="Updated">
+      <created>1615264627528</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1615264627528</updated>
+    </task>
+    <option name="localTasksCounter" value="196" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
