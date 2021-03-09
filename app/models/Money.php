@@ -44,8 +44,8 @@ class MoneyModel extends Model
         return $this->where("user_id", $user_id)->count();
     }
 
-	public function editMoney($id, $data = []) {
-        return $this->where("user_id", $id)->set($data)->update();
+    public function editMoney($id, $data = []) {
+        return $this->where("money_id", $id)->set($data)->update();
     }
 
     public function getRequests($user_id, $options = [])
