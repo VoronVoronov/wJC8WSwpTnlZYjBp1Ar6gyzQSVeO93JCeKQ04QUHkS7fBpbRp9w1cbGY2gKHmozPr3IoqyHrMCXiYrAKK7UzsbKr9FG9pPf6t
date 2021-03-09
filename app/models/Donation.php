@@ -235,6 +235,16 @@ class DonationModel extends Model
             ->get();
     }
 
+
+    public function getAllGraphData()
+    {
+        return $this->
+        select(DB::raw("SUM(`donation_ammount`) as sum, donation_end_time"))
+            ->groupBy("DATE(donation_end_time)")
+            ->where("donation_status", 1)
+            ->get();
+    }
+
     public function getVotePercent($w_id, $v_id)
     {
         return $this->where(DB::raw("`donation_json` LIKE '%\"vote\":{\"". $w_id ."\":\"". $v_id ."\"}%'"))
