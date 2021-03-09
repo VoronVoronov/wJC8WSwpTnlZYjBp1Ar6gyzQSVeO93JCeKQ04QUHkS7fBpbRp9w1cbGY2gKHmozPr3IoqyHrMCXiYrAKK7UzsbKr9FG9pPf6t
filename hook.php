@@ -260,7 +260,7 @@ switch ($action) {
             while ($user = mysqli_fetch_assoc($useridsql)) {
                 $userid = $user['user_id'];
             }
-            $db->query('UPDATE `streams` SET `stream_end` = NOW(), `stream_status` = 2, `twitch_id` = "'.$data['subscription']['id'].'" WHERE `stream_status` = 1 AND `user_id` = ' . $userid);
+            $db->query('UPDATE `streams` SET `stream_end` = NOW(), `stream_status` = 2 WHERE `stream_status` = 1 AND `twitch_id` = "'.$data['subscription']['id'].'" AND `user_id` = ' . $userid);
             $time_sql = $db->query('SELECT * FROM `streams` WHERE `user_id` = '.$userid);
             while ($time = mysqli_fetch_assoc($time_sql)) {
                 $start = $time['stream_start'];
