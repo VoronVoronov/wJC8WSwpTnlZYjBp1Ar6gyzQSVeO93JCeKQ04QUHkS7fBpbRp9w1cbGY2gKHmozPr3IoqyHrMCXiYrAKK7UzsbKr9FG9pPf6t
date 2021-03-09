@@ -6,124 +6,124 @@
 class AdminController extends Controller {
 
 
- 	public function stats() {
-		if(!IsOnline())
-		    return view("landing");
-		    
-		if(IsOnline()->user_group <= 2)
-		    return view("dashboard");
+    public function stats() {
+        if(!IsOnline())
+            return view("landing");
+
+        if(IsOnline()->user_group <= 2)
+            return view("dashboard");
 
         model("Donation", "Event");
 
-        $data['events'] = $this->EventModel->getUserEvents(session("user_id"));
-        $data['stats'] = $this->DonationModel->getGraphData(session("user_id"));
-     
-          $data['events'] = $this->EventModel->getAllUserEvents();
-          $data['stats'] = $this->DonationModel->getAllGraphData();
-          
-          $data['users'] = $this->UserModel->getUsers();
-          $data['donations'] = $this->DonationModel->getAllDonations();
-          $data['payouts'] = $this->MoneyModel->getAllPayOuts();
-        
-       $data['userdonations'] = $this->DonationModel->getUserDonations();
+        //  $data['events'] = $this->EventModel->getUserEvents(session("user_id"));
+        //    $data['stats'] = $this->DonationModel->getGraphData(session("user_id"));
+
+        $data['events'] = $this->EventModel->getAllUserEvents();
+        $data['stats'] = $this->DonationModel->getAllGraphData();
+
+        $data['users'] = $this->UserModel->getUsers();
+        $data['donations'] = $this->DonationModel->getAllDonations();
+        $data['payouts'] = $this->MoneyModel->getAllPayOuts();
+
+        //   $data['userdonations'] = $this->DonationModel->getUserDonations();
 
 
         return view("/admin/stats", $data);
-	}
-	
-	public function users() {
-		if(!IsOnline())
-		    return view("landing");
-		    
-		if(IsOnline()->user_group <= 2)
-		    return view("dashboard");
-		    
-		model("User");    
-      
+    }
+
+    public function users() {
+        if(!IsOnline())
+            return view("landing");
+
+        if(IsOnline()->user_group <= 2)
+            return view("dashboard");
+
+        model("User");
+
         $data['users'] = $this->UserModel->getUsers();
-    
+
 
         return view("/admin/users/all", $data);
-	}
-	
-	public function editUsers($id) {
-		if(!IsOnline())
-		    return view("landing");
-		    
-		if(IsOnline()->user_group <= 2)
-		    return view("dashboard");
-		 
-		model("User", "Donation");    
-		    
-		$data['user'] = $this->UserModel->getUser($id);
-		
-		
-		$wallets = $this->UserModel->getUser($id, "user_balance");
-		
-     //   $wallets = json_decode($data['user']->user_wallets);
-         $allb = $this->DonationModel->getBalance($id, 3)['balance'];
+    }
+
+    public function editUsers($id) {
+        if(!IsOnline())
+            return view("landing");
+
+        if(IsOnline()->user_group <= 2)
+            return view("dashboard");
+
+        model("User", "Donation");
+
+        $data['user'] = $this->UserModel->getUser($id);
+
+
+        $wallets = $this->UserModel->getUser($id, "user_balance");
+
+        //   $wallets = json_decode($data['user']->user_wallets);
+        $allb = $this->DonationModel->getBalance($id, 3)['balance'];
         //$data['user']->user_stream_time = (float) ($this->UserModel->getStreamTime($id) / 60);
-          $balance = $this->UserModel->getBalance($id);
-     //   $data['user']->user_balance = (empty($balance)) ? 0 : $balance;
-		
-		dd($data['user']);
-	    
+        $balance = $this->UserModel->getBalance($id);
+        //   $data['user']->user_balance = (empty($balance)) ? 0 : $balance;
+
+        dd($data['user']);
+
         return view("/admin/users/index", ['balance' => $balance] + ['allbalance' => $allb] + $data);
-	}
-	
-	public function payouts() {
-		if(!IsOnline())
-		    return view("landing");
-		    
-		if(IsOnline()->user_group <= 2)
-		    return view("dashboard");
-    
-      
+    }
+
+    public function payouts() {
+        if(!IsOnline())
+            return view("landing");
+
+        if(IsOnline()->user_group <= 2)
+            return view("dashboard");
+
+
         $data['payouts'] = $this->MoneyModel->getAllPayOuts();
-        
+
         return view("/admin/payouts", $data);
-	}
-	
-	
-	public function payoutsPost(){
-	    
-	    model("Money");
-	    
-	    switch (Request::post("ajax")) {
+    }
+
+
+    public function payoutsPost(){
+
+        model("Money");
+
+        switch (Request::post("ajax")) {
             case "okRequest":
                 if(empty(Request::post('item_id')))
                     return json_encode(["status" => "error", "error" => "Укажите ID выплаты!"]);
-                    $this->MoneyModel->editMoney(Request::post('item_id'), ['money_status' => 1]);    
-                        
+                $this->MoneyModel->editMoney(Request::post('item_id'), ['money_status' => 1]);
+
                 break;
             case "aremoveRequest":
                 if(empty(Request::post('item_id')))
                     return json_encode(["status" => "error", "error" => "Укажите ID выплаты!"]);
-                    $this->MoneyModel->editMoney(Request::post('item_id'), ['money_status' => 2]); 
+                $this->MoneyModel->editMoney(Request::post('item_id'), ['money_status' => 2]);
 
                 break;
-            }
- 
-        return json_encode(['status' => "success"]);  
-	    
-	}
+        }
+
+        return json_encode(['status' => "success"]);
+
+    }
 
 
-	public function verify($id, $code)
-	{
-		model('User');
-		$user = $this->UserModel->getUser($id)[0];
-		dd($user);
-		if($code == strrev(md5($user['user_login'])))
-		{
-			Builder::table('users')->where('user_id', $user['user_id'])
-	             	->set(['user_group' => 1])
-	             	->update();
-	        redirect(route("user.profile"));
-		}
-		else
-			abort(401,lang('errors/system.verify_error'));
-	}
+    public function verify($id, $code)
+    {
+        model('User');
+        $user = $this->UserModel->getUser($id)[0];
+        dd($user);
+        if($code == strrev(md5($user['user_login'])))
+        {
+            Builder::table('users')->where('user_id', $user['user_id'])
+                ->set(['user_group' => 1])
+                ->update();
+            redirect(route("user.profile"));
+        }
+        else
+            abort(401,lang('errors/system.verify_error'));
+    }
 
     public function post_user()
     {
@@ -218,10 +218,10 @@ class AdminController extends Controller {
         }
     }
 
-	public function profile()
-	{
-		if(!($data['user'] = IsOnline()))
-			abort(403);
+    public function profile()
+    {
+        if(!($data['user'] = IsOnline()))
+            abort(403);
 
         model("User", "Donation");
 
@@ -231,10 +231,10 @@ class AdminController extends Controller {
         $balance = $this->UserModel->getBalance(session('user_id'));
         $data['user']->user_balance = (empty($balance)) ? 0 : $balance;
 
-		return view("user/profile", $data);
-	}
+        return view("user/profile", $data);
+    }
 
-	public function check_url($url)
+    public function check_url($url)
     {
         model("User");
 
@@ -245,7 +245,7 @@ class AdminController extends Controller {
         }
     }
 
-	public function donations()
+    public function donations()
     {
         model("Donation");
         library('pagination');
@@ -396,33 +396,33 @@ class AdminController extends Controller {
         return json_encode($result);
     }
 
-	public function login($type) {
+    public function login($type) {
 
-		if(IsOnline())
-			redirect(route("home"));
+        if(IsOnline())
+            redirect(route("home"));
 
-		switch($type)
-		{
-			case "twitch":
-				$this->LoginWithTwitch();
-				break;
-			case "youtube":
-			    $this->LoginWithYouTube();
-				break;
-			case "hitbox":
-				$this->LoginWithHitbox();
-				break;
-			case "vk":
-				$this->LoginWithVk();
-				break;
+        switch($type)
+        {
+            case "twitch":
+                $this->LoginWithTwitch();
+                break;
+            case "youtube":
+                $this->LoginWithYouTube();
+                break;
+            case "hitbox":
+                $this->LoginWithHitbox();
+                break;
+            case "vk":
+                $this->LoginWithVk();
+                break;
 
-			default:
-				abort(404);
-				break;
-		}
-	}
+            default:
+                abort(404);
+                break;
+        }
+    }
 
-	private function LoginWithYouTube()
+    private function LoginWithYouTube()
     {
         if(empty(Request::get("code"))) {
 
@@ -489,230 +489,230 @@ class AdminController extends Controller {
         }
     }
 
-	private function LoginWithTwitch() 
-	{
-		library("TwitchSDK");
-		model("User");
+    private function LoginWithTwitch()
+    {
+        library("TwitchSDK");
+        model("User");
 
-		$twitch = new TwitchSDK(config()->twitch);
+        $twitch = new TwitchSDK(config()->twitch);
 
-		if(empty(Request::get('code')))
-			return redirect($twitch->authLoginURL('user_read+user_subscriptions+channel_subscriptions+chat_login'));
+        if(empty(Request::get('code')))
+            return redirect($twitch->authLoginURL('user_read+user_subscriptions+channel_subscriptions+chat_login'));
 
-		$tokens = $twitch->authAccessTokenGet(Request::get('code'));
-		$token = $tokens->access_token;
+        $tokens = $twitch->authAccessTokenGet(Request::get('code'));
+        $token = $tokens->access_token;
 
-		$user = $twitch->authUserGet($token);
-		$userInfo = $twitch->channelGet($user->name);
+        $user = $twitch->authUserGet($token);
+        $userInfo = $twitch->channelGet($user->name);
 
-		if(!($user = $this->UserModel->getUser($userInfo->name, "user_twitch"))) {
-			$data = [
-        		"user_login" 	=>		"twitch_" . $userInfo->name,
+        if(!($user = $this->UserModel->getUser($userInfo->name, "user_twitch"))) {
+            $data = [
+                "user_login" 	=>		"twitch_" . $userInfo->name,
                 "user_login_show" =>	$userInfo->display_name,
                 "user_domain"   =>      "twitch_" . $userInfo->name,
-        		"user_avatar"	=>		(!empty($userInfo->logo)) ? $userInfo->logo : "/assets/images/no_avatar.png",
-        		"user_twitch"	=>		$userInfo->name,
-        		"user_reg_ip"	=>		ip2long(Request::server("REMOTE_ADDR")),
+                "user_avatar"	=>		(!empty($userInfo->logo)) ? $userInfo->logo : "/assets/images/no_avatar.png",
+                "user_twitch"	=>		$userInfo->name,
+                "user_reg_ip"	=>		ip2long(Request::server("REMOTE_ADDR")),
                 "user_twitch_token"=>   $token,
                 "user_donate_page"          =>  "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
-        	];
-        	$id = $this->UserModel->addUser($data);
+            ];
+            $id = $this->UserModel->addUser($data);
             $this->getUserSmiles("twitch", $id, "twitch_" . $userInfo->name);
-        	$this->UserModel->trackIP($id, 0);
+            $this->UserModel->trackIP($id, 0);
             $this->createDefaultWidgets($id);
-			$this->ToOnline($id);
-		}
+            $this->ToOnline($id);
+        }
 
-		$this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token]);
+        $this->UserModel->editUser($user['user_id'], ['user_twitch_token' => $token]);
         return $this->ToOnline($user['user_id']);
-	}
+    }
 
-	private function LoginWithHitbox()
-	{
-		model("User");
-		
-		if(!isset($this->request->get["authToken"]) && !isset($this->request->get["request_token"])) //Переадресация на авторизацию
-			redirect("https://api.hitbox.tv/oauth/login?app_token=".config()->hitbox['requestToken']);
+    private function LoginWithHitbox()
+    {
+        model("User");
 
-		if(!isset($this->request->get["authToken"]))
-		 	$authToken = $this->HitBoxExchangeToken($this->request->get["request_token"]);
-		else
-			$authToken = $this->request->get["authToken"];
+        if(!isset($this->request->get["authToken"]) && !isset($this->request->get["request_token"])) //Переадресация на авторизацию
+            redirect("https://api.hitbox.tv/oauth/login?app_token=".config()->hitbox['requestToken']);
 
-		$userInfo = $this->HitBoxGetUserInfo($authToken);
+        if(!isset($this->request->get["authToken"]))
+            $authToken = $this->HitBoxExchangeToken($this->request->get["request_token"]);
+        else
+            $authToken = $this->request->get["authToken"];
 
-		if(!($user = $this->UserModel->getUser($userInfo->user_id, "user_hitbox")))
-		{
-			$data = [
-        		"user_login" 	=>		"hitbox".$userInfo->user_name,
+        $userInfo = $this->HitBoxGetUserInfo($authToken);
+
+        if(!($user = $this->UserModel->getUser($userInfo->user_id, "user_hitbox")))
+        {
+            $data = [
+                "user_login" 	=>		"hitbox".$userInfo->user_name,
                 "user_login_show"=>     $userInfo->user_name,
                 "user_domain"   =>      "hitbox".$userInfo->user_name,
-        		"user_avatar"	=>		(!empty($userInfo->user_logo)) ? "http://edge.sf.hitbox.tv".$userInfo->user_logo : "/assets/images/no_avatar.png",
-        		"user_hitbox"	=>		$userInfo->user_name,
+                "user_avatar"	=>		(!empty($userInfo->user_logo)) ? "http://edge.sf.hitbox.tv".$userInfo->user_logo : "/assets/images/no_avatar.png",
+                "user_hitbox"	=>		$userInfo->user_name,
                 "user_hitbox_token"=>   $authToken,
                 "user_hitbox_follows"=> $userInfo->followers,
                 "user_hitbox_subs"=>    0,
                 "user_hitbox_last_sub"=>"test",
-        		"user_reg_ip"	=>		ip2long($_SERVER["REMOTE_ADDR"]),
+                "user_reg_ip"	=>		ip2long($_SERVER["REMOTE_ADDR"]),
                 "user_donate_page"      =>  "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
-        	];
-        	$id = Builder::table('users')->insert($data);
+            ];
+            $id = Builder::table('users')->insert($data);
             $this->getUserSmiles("hitbox", $id, "hitbox".$userInfo->user_name);
-        	$this->UserModel->trackIP($id,0);
+            $this->UserModel->trackIP($id,0);
             $this->createDefaultWidgets($id);
-			$this->ToOnline($id);
-		}
-		else
-		{
-			$this->ToOnline($user['user_id']);
-		}
+            $this->ToOnline($id);
+        }
+        else
+        {
+            $this->ToOnline($user['user_id']);
+        }
 
-	}
+    }
 
-	private function LoginWithVk()
-	{
-		model("User");
-		if (isset($this->request->get["code"])) {	
-	    	$token = $this->VKGetAuthToken($this->request->get["code"]);
-	    	if (isset($token['access_token'])) {
-	    		$userInfo = $this->VKGetUserInfo($token);
-		        if (isset($userInfo['response'][0]['id'])) {
-		            $userInfo = $userInfo['response'][0];
-		            if(!($user = $this->UserModel->getUser($userInfo['id'], "user_vk")))
-		            {
-		            	$data = [
-                              "user_login" 	=>		"vkid".$userInfo["id"],
-                              "user_login_show"=>     $userInfo['first_name']. " " . $userInfo['last_name'],
-                              "user_domain"   =>      "vkid".$userInfo["id"],
-		            		  "user_avatar"	=>		/*(!empty($userInfo["photo_big"])) ? $userInfo["photo_big"] :*/ "/assets/images/no_avatar.png",
-		            		  "user_vk"		=>		$userInfo['id'],
-		            		  "user_reg_ip"	=>		ip2long($_SERVER["REMOTE_ADDR"]),
-                              "user_donate_page"          =>  "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
-		            	];
-		            	$id = Builder::table('users')->insert($data);
-		            	$this->UserModel->trackIP($id,0);
+    private function LoginWithVk()
+    {
+        model("User");
+        if (isset($this->request->get["code"])) {
+            $token = $this->VKGetAuthToken($this->request->get["code"]);
+            if (isset($token['access_token'])) {
+                $userInfo = $this->VKGetUserInfo($token);
+                if (isset($userInfo['response'][0]['id'])) {
+                    $userInfo = $userInfo['response'][0];
+                    if(!($user = $this->UserModel->getUser($userInfo['id'], "user_vk")))
+                    {
+                        $data = [
+                            "user_login" 	=>		"vkid".$userInfo["id"],
+                            "user_login_show"=>     $userInfo['first_name']. " " . $userInfo['last_name'],
+                            "user_domain"   =>      "vkid".$userInfo["id"],
+                            "user_avatar"	=>		/*(!empty($userInfo["photo_big"])) ? $userInfo["photo_big"] :*/ "/assets/images/no_avatar.png",
+                            "user_vk"		=>		$userInfo['id'],
+                            "user_reg_ip"	=>		ip2long($_SERVER["REMOTE_ADDR"]),
+                            "user_donate_page"          =>  "{\"min_sum\":\"1\",\"rec_sum\":\"50\",\"text\":\"\",\"fuck_filter\":\"0\",\"fuck_name_filter\":\"0\",\"fuck_words\":\"\",\"bg_color\":\"#e0e0e0\",\"bg_type\":\"1\",\"bg_size\":\"auto\",\"bg_image\":\"\",\"bg_image_name\":\"\",\"bg_repeat\":\"no-repeat\",\"bg_position\":\"center\",\"bg_header_type\":\"1\",\"bg_header_image\":\"\",\"bg_header_size\":\"auto\",\"bg_header_repeat\":\"no-repeat\",\"bg_header_position\":\"center\",\"bg_header_color\":\"#f2f2f2\",\"text_header_color\":\"#000000\",\"btn_color\":\"#ff5400\",\"btn_text_color\":\"#ffffff\"}",
+                        ];
+                        $id = Builder::table('users')->insert($data);
+                        $this->UserModel->trackIP($id,0);
                         $this->createDefaultWidgets($id);
-		            	$this->ToOnline($id);
-		            } 
-		            else {
-		            	$this->ToOnline($user['user_id']);
-		            }
-		            
-		        }
-	    	}  
-		}
-		else
-		{
-			$this->VKRedirectToLogin();
-		}
+                        $this->ToOnline($id);
+                    }
+                    else {
+                        $this->ToOnline($user['user_id']);
+                    }
 
-	}
+                }
+            }
+        }
+        else
+        {
+            $this->VKRedirectToLogin();
+        }
 
-	function get_curl($url) {
-		if(function_exists('curl_init')) {
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,$url);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_HEADER, 0);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-			$output = curl_exec($ch);
-			echo curl_error($ch);
-			curl_close($ch);
-			return $output;
-		} else {
-			return file_get_contents($url);
-		}
-	}
+    }
 
-	function post_curl($url,$token) {
-		if(function_exists('curl_init')) {
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,$url);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_HEADER, 0);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		    curl_setopt($ch, CURLOPT_POST, true);
-		    $row = "request_token=".$token."&app_token=".config()->hitbox['requestToken']."&hash=".base64_encode(config()->hitbox["requestToken"].config()->hitbox["secret"]);
-   			curl_setopt($ch, CURLOPT_POSTFIELDS, $row);
-			$output = curl_exec($ch);
-			echo curl_error($ch);
-			curl_close($ch);
-			return $output;
-		} else {
-			return file_get_contents($url);
-		}
-	}
+    function get_curl($url) {
+        if(function_exists('curl_init')) {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            $output = curl_exec($ch);
+            echo curl_error($ch);
+            curl_close($ch);
+            return $output;
+        } else {
+            return file_get_contents($url);
+        }
+    }
 
-	private function ToOnline($id)
-	{
-		model("User");
-		$this->UserModel->trackIP($id,1);          
-		$this->session->data['user_id'] = $id;
-	    redirect(route("home"));
-	}
+    function post_curl($url,$token) {
+        if(function_exists('curl_init')) {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($ch, CURLOPT_POST, true);
+            $row = "request_token=".$token."&app_token=".config()->hitbox['requestToken']."&hash=".base64_encode(config()->hitbox["requestToken"].config()->hitbox["secret"]);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $row);
+            $output = curl_exec($ch);
+            echo curl_error($ch);
+            curl_close($ch);
+            return $output;
+        } else {
+            return file_get_contents($url);
+        }
+    }
 
-	public function logout()
-	{
-		if(IsOnline())
-			unset($this->session->data['user_id']);
-		redirect(route("home"));
-	}
+    private function ToOnline($id)
+    {
+        model("User");
+        $this->UserModel->trackIP($id,1);
+        $this->session->data['user_id'] = $id;
+        redirect(route("home"));
+    }
 
-	/*HitBoxAuth*/
-	private function HitBoxGetUserInfo($authToken)
-	{
-		$name = json_decode($this->get_curl("https://api.hitbox.tv/userfromtoken/".$authToken))->user_name;
-		$userInfo = json_decode($this->get_curl("https://api.hitbox.tv/user/".$name));
+    public function logout()
+    {
+        if(IsOnline())
+            unset($this->session->data['user_id']);
+        redirect(route("home"));
+    }
 
-		return $userInfo;
-	}
+    /*HitBoxAuth*/
+    private function HitBoxGetUserInfo($authToken)
+    {
+        $name = json_decode($this->get_curl("https://api.hitbox.tv/userfromtoken/".$authToken))->user_name;
+        $userInfo = json_decode($this->get_curl("https://api.hitbox.tv/user/".$name));
 
-	private function HitBoxExchangeToken($token)
-	{
-		return json_decode($this->post_curl("https://api.hitbox.tv/oauth/exchange",$token))->access_token;
-	}
-	/*EndHitBoxAuth*/
+        return $userInfo;
+    }
 
-	/*VKAuth*/
-	private function VKRedirectToLogin()
-	{
-		$url = 'http://oauth.vk.com/authorize';
-		$params = array(
-		    'client_id'     => config()->vk["client_id"],
-		    'redirect_uri'  => config()->vk["redirect_uri"],
-		   	'response_type' => 'code'
-		);
-		redirect($url.'?'.urldecode(http_build_query($params)));
-	}
+    private function HitBoxExchangeToken($token)
+    {
+        return json_decode($this->post_curl("https://api.hitbox.tv/oauth/exchange",$token))->access_token;
+    }
+    /*EndHitBoxAuth*/
 
-	private function VKGetAuthToken($code)
-	{
-		$params = [
-		    'client_id'     => config()->vk["client_id"],
-		    'client_secret' => config()->vk["client_secret"],
-		    'code' => $code,
-		    'redirect_uri'  => config()->vk["redirect_uri"],
-		];
-		return json_decode($this->get_curl('https://oauth.vk.com/access_token' . '?' . urldecode(http_build_query($params))), true);
-	}
+    /*VKAuth*/
+    private function VKRedirectToLogin()
+    {
+        $url = 'http://oauth.vk.com/authorize';
+        $params = array(
+            'client_id'     => config()->vk["client_id"],
+            'redirect_uri'  => config()->vk["redirect_uri"],
+            'response_type' => 'code'
+        );
+        redirect($url.'?'.urldecode(http_build_query($params)));
+    }
 
-	private function VKGetUserInfo($token)
-	{
-		$params = [
+    private function VKGetAuthToken($code)
+    {
+        $params = [
+            'client_id'     => config()->vk["client_id"],
+            'client_secret' => config()->vk["client_secret"],
+            'code' => $code,
+            'redirect_uri'  => config()->vk["redirect_uri"],
+        ];
+        return json_decode($this->get_curl('https://oauth.vk.com/access_token' . '?' . urldecode(http_build_query($params))), true);
+    }
+
+    private function VKGetUserInfo($token)
+    {
+        $params = [
             'uids'         => $token['user_id'],
             'fields'       => 'id,first_name,last_name,screen_name,sex,bdate,photo_big',
             'v'            => '5.87',
             'access_token' => $token['access_token']
         ];
-    	return $userInfo = json_decode($this->get_curl('https://api.vk.com/method/users.get' . '?' . urldecode(http_build_query($params))), true);
-	}
+        return $userInfo = json_decode($this->get_curl('https://api.vk.com/method/users.get' . '?' . urldecode(http_build_query($params))), true);
+    }
 
-	/*EndVKAuth*/
+    /*EndVKAuth*/
 
-	/* YouTube */
-	private function getYouTubeChannelInfo($result)
+    /* YouTube */
+    private function getYouTubeChannelInfo($result)
     {
         return [
             "id" => $result['items'][0]['snippet']['channelId'],
@@ -722,9 +722,9 @@ class AdminController extends Controller {
             "avatar" => $result['items'][0]['snippet']['thumbnails']['medium']['url'],
         ];
     }
-	/* EndYouTube */
+    /* EndYouTube */
 
-	private function getUserSmiles($platform, $user_id, $login)
+    private function getUserSmiles($platform, $user_id, $login)
     {
         model("Smile");
 
@@ -759,7 +759,7 @@ class AdminController extends Controller {
         }
     }
 
-	private function createDefaultWidgets($user_id)
+    private function createDefaultWidgets($user_id)
     {
         model("Widget");
 
