@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/_common/main.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/_common/main.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/admin/payouts.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/admin/payouts.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,14 +64,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="7694000" />
-    </task>
-    <task id="LOCAL-00111" summary="Add Tarif">
-      <created>1615096839543</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1615096839543</updated>
+      <workItem from="1615235024719" duration="8096000" />
     </task>
     <task id="LOCAL-00112" summary="Add Tarif">
       <created>1615096919238</created>
@@ -409,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615254264603</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="updated style.css">
+      <created>1615254897089</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1615254897089</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +428,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test cron" />
     <MESSAGE value="Add new cron" />
     <MESSAGE value="Add App Access Token" />
     <MESSAGE value="Updated Cron" />
@@ -453,7 +452,8 @@
     <MESSAGE value="updated собранная сумма" />
     <MESSAGE value="Add admin panel" />
     <MESSAGE value="updated style.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated style.css" />
+    <MESSAGE value="Update Payout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Payout" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

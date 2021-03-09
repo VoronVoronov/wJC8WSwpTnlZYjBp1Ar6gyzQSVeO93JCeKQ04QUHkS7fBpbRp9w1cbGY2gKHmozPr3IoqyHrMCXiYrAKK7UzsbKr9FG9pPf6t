@@ -338,13 +338,8 @@ class UserController extends Controller
                                         $wallet
                                     );
 
-                                    $json_money = @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]=' . (float)$sum . '&params[purse]=' . $wallet . '&params[login]=' . $this->config->masspayment["login"] . '&params[transactionId]=' . $code . '&params[secretKey]=' . $this->config->masspayment["secret_key"] . '&params[paymentType]=' . $system);
-                                    $info_money = json_deocde($json_money);
-                                    if ($info_money['result']['status'] == 'success') {
-                                        $update = $this->MoneyModel->editMoney($code, ['money_status' => '1']);
-                                        $this->MessageModel->addMessage(session("user_id"), "Вы запросили " . Request::post("money_sum") . " руб. на выплату.");
-                                        $result = ['status' => "success"];
-                                    }
+                                    $this->MessageModel->addMessage(session("user_id"), "Вы запросили " . Request::post("money_sum") . " руб. на выплату.");
+                                    $result = ['status' => "success"];
                                 } elseif (Request::post("money_system") == 2) {
                                     $system = "webmoney";
                                     $wallet = $wallets["webmoney"];
@@ -359,7 +354,6 @@ class UserController extends Controller
                                         (int)Request::post("money_system"),
                                         $wallet
                                     );
-                                    @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]=' . (float)$sum . '&params[purse]=' . $wallet . '&params[login]=' . $this->config->masspayment["login"] . '&params[transactionId]=' . $code . '&params[secretKey]=' . $this->config->masspayment["secret_key"] . '&params[paymentType]=' . $system);
 
                                     $this->MessageModel->addMessage(session("user_id"), "Вы запросили " . Request::post("money_sum") . " руб. на выплату.");
                                     $result = ['status' => "success"];
@@ -378,7 +372,6 @@ class UserController extends Controller
                                         (int)Request::post("money_system"),
                                         $wallet
                                     );
-                                    @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]=' . (float)$sum . '&params[purse]=' . $wallet . '&params[login]=' . $this->config->masspayment["login"] . '&params[transactionId]=' . $code . '&params[secretKey]=' . $this->config->masspayment["secret_key"] . '&params[paymentType]=' . $system);
 
                                     $this->MessageModel->addMessage(session("user_id"), "Вы запросили " . Request::post("money_sum") . " руб. на выплату.");
                                     $result = ['status' => "success"];
@@ -399,7 +392,6 @@ class UserController extends Controller
                                                 (int)Request::post("money_system"),
                                                 $wallet
                                             );
-                                            @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]=' . (float)$sum . '&params[purse]=' . $wallet . '&params[login]=' . $this->config->masspayment["login"] . '&params[transactionId]=' . $code . '&params[secretKey]=' . $this->config->masspayment["secret_key"] . '&params[paymentType]=' . $system);
                                         } else {
                                             $sum = Request::post("money_sum") - $percent;
                                             $code = $this->MoneyModel->addRequest(
@@ -409,7 +401,6 @@ class UserController extends Controller
                                                 (int)Request::post("money_system"),
                                                 $wallet
                                             );
-                                            @file_get_contents('https://unitpay.ru/api?method=massPayment&params[sum]=' . (float)$sum . '&params[purse]=' . $wallet . '&params[login]=' . $this->config->masspayment["login"] . '&params[transactionId]=' . $code . '&params[secretKey]=' . $this->config->masspayment["secret_key"] . '&params[paymentType]=' . $system);
                                         }
                                         $this->MessageModel->addMessage(session("user_id"), "Вы запросили " . Request::post("money_sum") . " руб. на выплату.");
                                         $result = ['status' => "success"];
