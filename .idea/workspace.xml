@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/user/money.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/user/money.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,21 +67,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="17648000" />
-    </task>
-    <task id="LOCAL-00154" summary="Add admin panel">
-      <created>1615252986268</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1615252986268</updated>
-    </task>
-    <task id="LOCAL-00155" summary="Add admin panel">
-      <created>1615253088452</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1615253088452</updated>
+      <workItem from="1615235024719" duration="18516000" />
     </task>
     <task id="LOCAL-00156" summary="Add admin panel">
       <created>1615253310429</created>
@@ -411,7 +398,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615266379155</updated>
     </task>
-    <option name="localTasksCounter" value="203" />
+    <task id="LOCAL-00203" summary="Update TTS">
+      <created>1615266451517</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1615266451517</updated>
+    </task>
+    <task id="LOCAL-00204" summary="Update trackip">
+      <created>1615266666236</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1615266666236</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,8 +432,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated Subscribe" />
-    <MESSAGE value="Updated Hooks" />
     <MESSAGE value="Added Tarif" />
     <MESSAGE value="Upd Icon" />
     <MESSAGE value="Add Tarif" />
@@ -456,7 +455,9 @@
     <MESSAGE value="Update scopes youtube" />
     <MESSAGE value="Update audio js" />
     <MESSAGE value="Update MD5 JS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update MD5 JS" />
+    <MESSAGE value="Update TTS" />
+    <MESSAGE value="Update trackip" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update trackip" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

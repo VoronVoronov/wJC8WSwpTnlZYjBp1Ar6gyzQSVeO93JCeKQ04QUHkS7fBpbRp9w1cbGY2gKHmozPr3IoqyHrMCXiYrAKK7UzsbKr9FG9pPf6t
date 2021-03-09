@@ -122,7 +122,8 @@
                             $("#newRequestModal").modal("hide");
                             fly_p("success", "Ваш запрос на выплату был создан!");
                             setTimeout(function () {
-                                location.href = location.href;
+                                //location.href = location.href;
+                                location.reload();
                             }, 2000);
                             break;
 
