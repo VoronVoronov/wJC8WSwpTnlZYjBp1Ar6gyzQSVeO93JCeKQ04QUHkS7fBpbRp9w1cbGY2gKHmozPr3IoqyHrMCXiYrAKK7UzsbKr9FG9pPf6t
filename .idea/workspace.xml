@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,21 +63,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="6096000" />
-    </task>
-    <task id="LOCAL-00107" summary="Add Tarif">
-      <created>1615096581579</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1615096581579</updated>
-    </task>
-    <task id="LOCAL-00108" summary="Add Tarif">
-      <created>1615096629873</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1615096629873</updated>
+      <workItem from="1615235024719" duration="6921000" />
     </task>
     <task id="LOCAL-00109" summary="Add Tarif">
       <created>1615096655250</created>
@@ -408,7 +394,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615253088452</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="Add admin panel">
+      <created>1615253310429</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1615253310429</updated>
+    </task>
+    <task id="LOCAL-00157" summary="Add admin panel">
+      <created>1615253449185</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1615253449185</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

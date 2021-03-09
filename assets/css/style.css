@@ -208,6 +208,7 @@ a:hover {
     margin-left: 10px;
     margin-bottom: 20px;
     padding: 0px;
+    height: 800px;
 }
 
 .sidebar ul li {
@@ -351,6 +352,7 @@ a:hover {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background: #fff;
+    height: 800px;
 }
 
 .page-content {
