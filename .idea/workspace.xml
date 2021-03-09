@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/widgets/alert/alert.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/widgets/alert/alert.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,14 +66,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="16978000" />
-    </task>
-    <task id="LOCAL-00150" summary="Add admin panel">
-      <created>1615252820550</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1615252820551</updated>
+      <workItem from="1615235024719" duration="17382000" />
     </task>
     <task id="LOCAL-00151" summary="Add admin panel">
       <created>1615252839343</created>
@@ -411,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615265405000</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="Update scopes youtube">
+      <created>1615265775408</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1615265775408</updated>
+    </task>
+    <option name="localTasksCounter" value="200" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +431,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated webhook" />
     <MESSAGE value="Updated hook.php" />
     <MESSAGE value="Updated Webhook twitch" />
     <MESSAGE value="Updated Subscribe" />
@@ -456,7 +455,8 @@
     <MESSAGE value="Add Event" />
     <MESSAGE value="Check console.log" />
     <MESSAGE value="Updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated" />
+    <MESSAGE value="Update scopes youtube" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update scopes youtube" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

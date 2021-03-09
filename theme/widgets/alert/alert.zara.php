@@ -420,12 +420,12 @@
         }
         if(data.alert_type == 3) {
             showDonationAlert(data);
+            var file = MD5(data.msg);
             var tts = function(){
-                var audio = new Audio('https://api.ipdonate.com/' + data.msg + '.mp3');
+                var audio = new Audio('https://api.ipdonate.com/' + file + '.mp3');
                 audio.play();
             };
             setTimeout(tts, 1000);
-            console.log('https://api.ipdonate.com/' + data.msg + '.mp3');
         }
 
         setTimeout(function() {
