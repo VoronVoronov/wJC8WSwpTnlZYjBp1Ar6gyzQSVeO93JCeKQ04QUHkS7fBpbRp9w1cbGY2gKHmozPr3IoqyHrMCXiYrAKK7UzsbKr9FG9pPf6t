@@ -31,9 +31,9 @@ class AlertModel extends Model
                 'alert_curr' => $data['curr'],
                 'alert_type' => $data['type'],
             ]);
-                //@file_get_contents("https://api.sdonate.ru/voice.php?text=".$data['msg']."&name=".$data['msg']);
+                @file_get_contents("https://api.ipdonate.com/voice.php?text=".$data['msg']);
 
-                $url = 'https://translate.google.com.vn/translate_tts?ie=UTF-8&client=tw-ob&q=' . urlencode($data['msg']) . '&tl=ru';
+                /*$url = 'https://translate.google.com.vn/translate_tts?ie=UTF-8&client=tw-ob&q=' . urlencode($data['msg']) . '&tl=ru';
 
                 $curl = curl_init();
                 curl_setopt($curl, CURLOPT_URL, $url);
@@ -43,7 +43,7 @@ class AlertModel extends Model
                 curl_close($curl);
 
 
-                file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/assets/audio/' . urldecode($data['msg']) . '.mp3', $result);
+                file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/assets/audio/' . urldecode($data['msg']) . '.mp3', $result);*/
         }else{
             $alert_id = $this->create([
                 'user_id' => $data['user_id'],

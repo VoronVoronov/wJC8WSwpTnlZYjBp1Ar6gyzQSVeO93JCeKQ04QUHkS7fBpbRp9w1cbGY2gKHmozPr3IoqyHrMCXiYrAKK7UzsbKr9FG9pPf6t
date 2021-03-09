@@ -245,9 +245,9 @@ class WidgetController extends Controller {
         $message = json_encode($message);
 
         if(Request::get("type") == 3){
-        $name = urldecode("Сообщение оповещение");
-        //@file_get_contents("https://api.sdonate.ru/voice.php?text=Сообщение+оповещение&name=".$name);
-                $url = 'https://translate.google.com.vn/translate_tts?ie=UTF-8&client=tw-ob&q='.urlencode($name).'&tl=ru';
+        $name = urlencode("Сообщение оповещение");
+        @file_get_contents("https://api.ipdonate.com/voice.php?text=".$name);
+                /*$url = 'https://translate.google.com.vn/translate_tts?ie=UTF-8&client=tw-ob&q='.urlencode($name).'&tl=ru';
 
                 $curl = curl_init();
                 curl_setopt($curl, CURLOPT_URL, $url);
@@ -258,7 +258,7 @@ class WidgetController extends Controller {
 
                 $file = base64_encode(urldecode($name));
 
-                file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/assets/audio/'.$file.'.mp3', $result);
+                file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/assets/audio/'.$file.'.mp3', $result);*/
         }
 
         library("class.ClientWebSocket");
