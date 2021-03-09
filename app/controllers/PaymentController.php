@@ -192,10 +192,11 @@ class PaymentController extends Controller{
                             'sum'       => (float) $donation['donation_ammount'],
                             'curr'      => 'RUB',
                             );
+        		        $event = json_encode($event_json);
         		        $this->EventModel->addEvent([
         		            "user_id"       => $donation['user_id'],
                             "event_type"    => 1,
-                            "event_json"    => json_encode($event_json)
+                            "event_json"    => $event,
                         ], true);
 
         		        $widgets = $this->WidgetModel->getUserAlertsWidget($donation['user_id']);

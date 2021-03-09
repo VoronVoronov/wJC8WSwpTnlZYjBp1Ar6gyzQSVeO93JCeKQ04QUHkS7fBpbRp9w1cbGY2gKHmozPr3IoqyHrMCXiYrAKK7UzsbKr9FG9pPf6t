@@ -4,12 +4,12 @@ class EventModel extends Model
 {
     public $table = "events";
 
-    public function addEvent($user_id, $type, $data)
+    public function addEvent($data = [])
     {
         return $this->create([
-            "user_id" => $user_id,
-            "event_type" => $type,
-            "event_json" => $data,
+            "user_id" => $data['user_id'],
+            "event_type" => $data['event_type'],
+            "event_json" => $data['event_json'],
             "event_time" => "NOW()"
         ]);
     }
