@@ -195,8 +195,7 @@ class PaymentController extends Controller{
         		        $this->EventModel->addEvent([
         		            "user_id"       => $donation['user_id'],
                             "event_type"    => 1,
-                            "event_json"    => json_encode($event_json);
-
+                            "event_json"    => json_encode($event_json)
                         ], true);
 
         		        $widgets = $this->WidgetModel->getUserAlertsWidget($donation['user_id']);
