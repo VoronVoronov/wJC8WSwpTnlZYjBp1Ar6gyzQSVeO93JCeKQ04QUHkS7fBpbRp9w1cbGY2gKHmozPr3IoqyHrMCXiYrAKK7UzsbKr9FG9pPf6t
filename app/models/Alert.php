@@ -31,7 +31,7 @@ class AlertModel extends Model
                 'alert_curr' => $data['curr'],
                 'alert_type' => $data['type'],
             ]);
-                @file_get_contents("https://api.ipdonate.com/voice.php?text=".$data['msg']);
+                @file_get_contents("https://api.ipdonate.com/voice.php?text=".urlencode($data['msg']));
 
                 /*$url = 'https://translate.google.com.vn/translate_tts?ie=UTF-8&client=tw-ob&q=' . urlencode($data['msg']) . '&tl=ru';
 

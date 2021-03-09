@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/WidgetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/WidgetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/widgets/alert/alert.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/widgets/alert/alert.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,14 +66,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="15494000" />
-    </task>
-    <task id="LOCAL-00144" summary="Add Privacy">
-      <created>1615169740242</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1615169740242</updated>
+      <workItem from="1615235024719" duration="15677000" />
     </task>
     <task id="LOCAL-00145" summary="updated собранная сумма">
       <created>1615236317652</created>
@@ -411,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615264209007</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="Updated">
+      <created>1615264272862</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1615264272862</updated>
+    </task>
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
