@@ -43,8 +43,7 @@ Router::group(['param' => ['session', '!empty', 'user_id']], function(){
     Router::get("user/logout", ["as" => "user.logout", "uses" => "UserController@logout"]);
     Router::get("faq", ["as" => "user.faq", "uses" => "UserController@faq"]);
 
-    Router::get("edit-donate-page", ["as" => "user.editor.donate-page", "uses" => "UserController@editorDonatePage"]);
-    Router::post("edit-donate-page", ["as" => "user.editor.donate-page", "uses" => "UserController@editorDonatePagePost"]);
+    Router::post("edit-donate-page", ["as" => "user.editor.donate-page", "uses" => "UserController@editorDonatePage"]);
 
     Router::any("widgets/my", "WidgetController@myWidgets");
     Router::any("widgets/my/{type:[a-zA-Z-]+}", "WidgetController@myWidgets");

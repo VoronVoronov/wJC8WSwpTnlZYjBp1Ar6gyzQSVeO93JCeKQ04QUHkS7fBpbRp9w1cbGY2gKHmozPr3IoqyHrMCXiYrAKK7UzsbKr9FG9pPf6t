@@ -1462,18 +1462,6 @@ class UserController extends Controller
 
     public function editorDonatePage()
     {
-
-        if (!($user = isOnline()))
-            abort(403);
-
-        $data['user'] = $user;
-        $data['settings'] = json_decode($user->user_donate_page);
-
-        return view("donate/editor", $data);
-    }
-
-    public function editorDonatePagePost()
-    {
         if (!($user = isOnline()))
             abort(403);
 
