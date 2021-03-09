@@ -257,7 +257,7 @@ class WidgetController extends Controller {
                 curl_close($curl);
 
 
-                file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/assets/audio/'.urldecode($name).'.mp3', $result);
+                file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/assets/audio/'.base64_encode(urldecode($name)).'.mp3', $result);
         }
 
         library("class.ClientWebSocket");
