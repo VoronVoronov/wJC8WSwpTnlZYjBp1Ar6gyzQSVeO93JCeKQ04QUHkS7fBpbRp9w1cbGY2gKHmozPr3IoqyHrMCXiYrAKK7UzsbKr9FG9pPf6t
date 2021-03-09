@@ -31,7 +31,7 @@
         <tr>
             <td>{{ $user['user_id'] }}</td>
             <td>{{ $user['user_login_show'] }}</td>
-            <td> <a href="{{ $this->config->url() }}/{{ $user['user_domain'] }}/">Клик</a></td>
+            <td> <a href="{{ $_SERVER['HTTP_HOST'] }}/{{ $user['user_domain'] }}/">Клик</a></td>
             
             <td>{{ $user['user_balance'] }} ₽</td>
             <td>{{ long2ip($user['user_last_ip']) }}</td>
@@ -53,7 +53,7 @@
             @endif
             </td>
             
-            <td><a href="{{ $this->config->url() }}/admin/users/{{ $user['user_id'] }}"><i class="fa fa-edit okRequest" data-toggle="tooltip" data-placement="top" title="Редактировать"></i></a></td>
+            <td><a href="{{ $_SERVER['HTTP_HOST'] }}/admin/users/{{ $user['user_id'] }}"><i class="fa fa-edit okRequest" data-toggle="tooltip" data-placement="top" title="Редактировать"></i></a></td>
             
         </tr>
         @endforeach

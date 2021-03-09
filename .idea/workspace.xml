@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/models/Donation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Donation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/admin/users/all.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/admin/users/all.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,14 +62,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="5740000" />
-    </task>
-    <task id="LOCAL-00104" summary="Add Tarif">
-      <created>1615096073454</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1615096073454</updated>
+      <workItem from="1615235024719" duration="5800000" />
     </task>
     <task id="LOCAL-00105" summary="Add Tarif">
       <created>1615096446002</created>
@@ -407,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615252878723</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="Add admin panel">
+      <created>1615252925022</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1615252925022</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
