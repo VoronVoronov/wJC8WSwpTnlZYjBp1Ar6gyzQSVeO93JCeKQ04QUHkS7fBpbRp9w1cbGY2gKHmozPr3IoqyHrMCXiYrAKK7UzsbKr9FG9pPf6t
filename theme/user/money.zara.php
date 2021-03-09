@@ -109,7 +109,7 @@
             return false;
         });
 
-        $("#money_btn").click(function(){
+        $("#money_btn").click(function () {
             $.ajax({
                 url: location.href,
                 type: "POST",
@@ -133,5 +133,6 @@
                 }
             });
         });
+    });
 </script>
 @stop
