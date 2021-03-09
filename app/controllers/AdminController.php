@@ -15,8 +15,8 @@ class AdminController extends Controller {
 
         model("Donation", "Event");
 
-      //  $data['events'] = $this->EventModel->getUserEvents(session("user_id"));
-    //    $data['stats'] = $this->DonationModel->getGraphData(session("user_id"));
+        $data['events'] = $this->EventModel->getUserEvents(session("user_id"));
+        $data['stats'] = $this->DonationModel->getGraphData(session("user_id"));
      
           $data['events'] = $this->EventModel->getAllUserEvents();
           $data['stats'] = $this->DonationModel->getAllGraphData();
@@ -25,7 +25,7 @@ class AdminController extends Controller {
           $data['donations'] = $this->DonationModel->getAllDonations();
           $data['payouts'] = $this->MoneyModel->getAllPayOuts();
         
-     //   $data['userdonations'] = $this->DonationModel->getUserDonations();
+       $data['userdonations'] = $this->DonationModel->getUserDonations();
 
 
         return view("/admin/stats", $data);

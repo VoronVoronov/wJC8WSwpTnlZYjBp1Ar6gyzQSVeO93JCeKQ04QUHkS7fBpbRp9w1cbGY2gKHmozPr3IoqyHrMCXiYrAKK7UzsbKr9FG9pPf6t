@@ -33,6 +33,12 @@ class MoneyModel extends Model
         ]);
     }
 
+    public function getAllPayOuts()
+    {
+        return $this->order("money_time", "desc")
+            ->get();
+    }
+
     public function getCountRequestsMoney($user_id)
     {
         return $this->where("user_id", $user_id)->count();
