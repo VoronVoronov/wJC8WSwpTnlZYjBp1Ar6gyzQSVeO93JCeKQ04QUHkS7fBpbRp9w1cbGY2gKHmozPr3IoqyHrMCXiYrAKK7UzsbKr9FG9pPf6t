@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/theme/admin/users/all.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/admin/users/all.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,14 +62,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="9580000" />
-    </task>
-    <task id="LOCAL-00124" summary="test widgets">
-      <created>1615157220928</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1615157220928</updated>
+      <workItem from="1615235024719" duration="9615000" />
     </task>
     <task id="LOCAL-00125" summary="test widgets">
       <created>1615157355313</created>
@@ -408,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615256724973</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="Update Admin">
+      <created>1615256793947</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1615256793947</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

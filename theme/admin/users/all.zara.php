@@ -33,7 +33,7 @@
             <td>{{ $user['user_login_show'] }}</td>
             <td> <a href="/{{ $user['user_domain'] }}/">Клик</a></td>
             
-            <td>{{{ number_format($balance, 0, '', ' ') }}₽</td>
+            <td>{{ number_format($balance, 0, '', ' ') }}₽</td>
             <td>{{ $user['user_last_ip'] }}</td>
             
             
