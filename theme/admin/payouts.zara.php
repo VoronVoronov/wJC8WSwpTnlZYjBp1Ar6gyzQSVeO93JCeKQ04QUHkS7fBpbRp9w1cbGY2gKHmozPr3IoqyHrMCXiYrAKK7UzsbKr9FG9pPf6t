@@ -31,7 +31,7 @@
             <td>{{ $payout['money_id'] }}</td>
             <td>{{ $payout['user_id'] }}</td>
             <td>{{ $payout['money_wallet'] }}</td>
-            <td>{{ $payout['money_sum'] }} ₽</td>
+            <td>{{ $payout['money_back'] }} ₽</td>
             
             <td> @if($payout['money_method'] == 1)
             
