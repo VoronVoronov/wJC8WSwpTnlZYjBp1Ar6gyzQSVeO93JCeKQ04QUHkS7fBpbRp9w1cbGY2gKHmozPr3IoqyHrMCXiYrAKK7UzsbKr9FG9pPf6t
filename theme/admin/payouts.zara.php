@@ -12,7 +12,6 @@
         <td><b>#</b></td>
         <td><b>ID пользователя</b></td>
         <td><b>Номер счета</b></td>
-        <td><b>Код</b></td>
         <td><b>Сумма</b></td>
         <td><b>Способ</b></td>
         <td><b>Дата</b></td>
@@ -32,7 +31,6 @@
             <td>{{ $payout['money_id'] }}</td>
             <td>{{ $payout['user_id'] }}</td>
             <td>{{ $payout['money_wallet'] }}</td>
-            <td>{{ $payout['money_code'] }}</td>
             <td>{{ $payout['money_sum'] }} ₽</td>
             
             <td> @if($payout['money_method'] == 1)
