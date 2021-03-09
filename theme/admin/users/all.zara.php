@@ -12,7 +12,6 @@
         <td><b>#</b></td>
         <td><b>Логин</b></td>
         <td><b>Ссылка<b></td>
-        <td><b>Баланс</b></td>
         <td><b>IP</b></td>
         <td><b>Последний вход</b></td>
         <td><b>Группа</b></td>
@@ -33,7 +32,6 @@
             <td>{{ $user['user_login_show'] }}</td>
             <td> <a href="/{{ $user['user_domain'] }}/">Клик</a></td>
             
-            <td>{{ number_format($balance, 0, '', ' ') }}₽</td>
             <td>{{ $user['user_last_ip'] }}</td>
             
             
