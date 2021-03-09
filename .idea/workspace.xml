@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PaymentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Event.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,11 +34,15 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1pK04gxDGdhYLiogxG5lzVAzUgI" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -64,14 +67,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="11965000" />
-    </task>
-    <task id="LOCAL-00132" summary="Testing">
-      <created>1615167499136</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1615167499136</updated>
+      <workItem from="1615235024719" duration="12954000" />
     </task>
     <task id="LOCAL-00133" summary="Testing">
       <created>1615167541164</created>
@@ -409,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615258079622</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="Add Event">
+      <created>1615259377007</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1615259377007</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,6 +431,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Updated Alerts" />
     <MESSAGE value="Updated AlertModel" />
     <MESSAGE value="Updated webhook" />

@@ -6,12 +6,7 @@ class EventModel extends Model
 
     public function addEvent($data = [])
     {
-        return $this->create([
-            "user_id" => $data['user_id'],
-            "event_type" => $data['event_type'],
-            "event_json" => $data['event_json'],
-            "event_time" => "NOW()"
-        ]);
+        return $this->create($data);
     }
 
     public function getUserEvents($user_id)
