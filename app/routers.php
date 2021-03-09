@@ -53,6 +53,17 @@ Router::group(['param' => ['session', '!empty', 'user_id']], function(){
     Router::get("widgets/edit/{id:[0-9]+}", "WidgetController@editWidget");
     Router::post("widgets/edit/{id:[0-9]+}", "WidgetController@editWidgetPost");
 
+    Router::any("admin/stats", "AdminController@stats");
+    Router::any("admin/users", "AdminController@users");
+
+    Router::get("admin/users/", "AdminController@users");
+
+    Router::get("admin/users/{id:[0-9]+}", "AdminController@editUsers");
+    Router::post("admin/users/{id:[0-9]+}", "AdminController@editUsersPost");
+
+    Router::get("admin/payouts", "AdminController@payouts");
+    Router::post("admin/payouts", "AdminController@payoutsPost");
+
     Router::post("files/upload", "MediaGalleryController@uploadFile");
     Router::post("files/getgallery", "MediaGalleryController@getGalleryFiles");
     Router::post("files/getown", "MediaGalleryController@getOwnFiles");

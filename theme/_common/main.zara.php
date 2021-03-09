@@ -74,6 +74,16 @@
                         <li @if(route()->url == "widgets/events") class="active" @endif><a href="/widgets/events"><i class="fa fa-list"></i> Последние действия</a></li>
                     </ul>
                 </li>
+                @if(isOnline()->user_group >= 2)
+                <li>
+                    <a href="#">Администратор</a>
+                    <ul>
+                        <li @if(route()->url == "admin/stats") class="active" @endif><a href="/admin/stats"><i class="icon icon-bell"></i> Статистика</a></li>
+                        <li @if(route()->url == "admin/users") class="active" @endif><a href="/admin/users"><i class="icon icon-mic"></i> Пользователи</a></li>
+                        <li @if(route()->url == "admin/payouts") class="active" @endif><a href="/admin/payouts"><i class="icon icon-balance"></i> Выплаты</a></li>
+                    </ul>
+                </li>
+                @endif
             </ul>
         </div>
 

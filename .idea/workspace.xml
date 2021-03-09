@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Donation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Donation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/_common/main.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/_common/main.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,14 +64,7 @@
       <updated>1614916288329</updated>
       <workItem from="1614916290901" duration="49253000" />
       <workItem from="1615150821904" duration="9333000" />
-      <workItem from="1615235024719" duration="989000" />
-    </task>
-    <task id="LOCAL-00096" summary="Add Tarif">
-      <created>1615095541363</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1615095541363</updated>
+      <workItem from="1615235024719" duration="5061000" />
     </task>
     <task id="LOCAL-00097" summary="Add Tarif">
       <created>1615095606118</created>
@@ -408,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615169740242</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="updated собранная сумма">
+      <created>1615236317652</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1615236317652</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +428,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Youtube Button" />
     <MESSAGE value="Add Youtube Connect" />
     <MESSAGE value="Disabled disconnect" />
     <MESSAGE value="test cron" />
@@ -452,7 +452,8 @@
     <MESSAGE value="Testing" />
     <MESSAGE value="Returned" />
     <MESSAGE value="Add Privacy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Privacy" />
+    <MESSAGE value="updated собранная сумма" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated собранная сумма" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
