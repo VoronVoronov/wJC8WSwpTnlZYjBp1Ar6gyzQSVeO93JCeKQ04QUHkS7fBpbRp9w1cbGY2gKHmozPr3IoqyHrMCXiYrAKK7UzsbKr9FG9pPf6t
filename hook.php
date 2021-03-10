@@ -189,7 +189,7 @@ switch ($action) {
                     $obj = json_decode($result, true);
                     $explode = explode('{width}', $obj['data'][0]['thumbnail_url']);
                     //echo $explode[0].'150x150.jpg';
-                    $webhookurl = $user['user_discord_webhook'];
+                    $webhookurl = $discord['webhook'];
                     $timestamp = date("c", strtotime("now"));
                     $json_data = json_encode([
                         "content" => '@everyone Хей! ' . $user['user_login_show'] . ' запустил вещание на канале https://www.twitch.tv/' . $data['event']['broadcaster_user_login'],
