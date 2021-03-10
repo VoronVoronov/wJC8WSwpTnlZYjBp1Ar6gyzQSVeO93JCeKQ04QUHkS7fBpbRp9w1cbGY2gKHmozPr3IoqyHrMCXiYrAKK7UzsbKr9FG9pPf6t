@@ -173,7 +173,7 @@ switch ($action) {
             $useridsql = $db->query('SELECT * FROM `users` WHERE `user_twitch_id` = '.$data['subscription']['condition']['broadcaster_user_id']);
             while ($user = mysqli_fetch_assoc($useridsql)) {
                 $userid = $user['user_id'];
-                $discord = json_decode($user['user_discord']);
+                $discord = json_decode($user['user_discord'], true);
                 if($discord['on'] == 1) {
                     $url = 'https://api.twitch.tv/helix/streams?user_id=' . $user['user_twitch_id'];
                     $headers = array('Authorization: Bearer ' . $user['user_twitch_app_token'],
