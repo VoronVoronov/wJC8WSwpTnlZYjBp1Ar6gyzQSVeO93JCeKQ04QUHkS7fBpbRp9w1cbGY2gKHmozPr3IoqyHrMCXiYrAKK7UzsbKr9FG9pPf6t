@@ -5,7 +5,6 @@
     <div class="clear"></div>
 </div>
 
-<form id="donation-page-form" action="" method="POST">
     <div class="row">
         <div class="col-md-12">
             <ul class="nav nav-tabs" role="tablist">
@@ -326,10 +325,8 @@
             </div>
 
 
-            </div>
         </div>
     </div>
-</form>
 @stop
 
 @section("plugins-scripts")
