@@ -1495,7 +1495,7 @@ class UserController extends Controller
         return json_encode($result);
     }
 
-    public function donationPage()
+    public function settingsPage()
     {
 
         if (!($user = isOnline()))
@@ -1503,11 +1503,14 @@ class UserController extends Controller
 
         $data['user'] = $user;
         $data['settings'] = json_decode($user->user_donate_page);
+        $data['discord'] = json_decode($user->user_discord);
+        $data['pay'] = json_decode($user->user_wallets_pay);
+        $data['paypal'] = json_decode($user->user_paypal);
 
-        return view("user/donation-page", $data);
+        return view("user/settings", $data);
     }
 
-    public function donationPagePost()
+    public function donationPost()
     {
         if (!($user = isOnline()))
             abort(403);
@@ -1552,18 +1555,6 @@ class UserController extends Controller
         return json_encode($result);
     }
 
-    public function Paypal()
-    {
-
-        if (!($user = isOnline()))
-            abort(403);
-
-        $data['user'] = $user;
-        $data['paypal'] = json_decode($user->user_paypal);
-
-        return view("user/paypal", $data);
-    }
-
     public function PaypalPost()
     {
         if (!($user = isOnline()))
@@ -1583,19 +1574,6 @@ class UserController extends Controller
         }
 
         return json_encode($result);
-    }
-
-
-    public function update()
-    {
-
-        if (!($user = isOnline()))
-            abort(403);
-        $data['user'] = $user;
-        $data['wallets'] = json_decode($user->user_wallets_pay);
-
-        return view("user/update", $data);
-
     }
 
     public function updatePost()

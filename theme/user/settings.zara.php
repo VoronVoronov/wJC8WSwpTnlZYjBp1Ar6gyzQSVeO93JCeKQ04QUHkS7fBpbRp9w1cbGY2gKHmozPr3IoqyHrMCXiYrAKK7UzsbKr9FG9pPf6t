@@ -12,6 +12,7 @@
                 <li role="presentation" class="active"><a href="#main" aria-controls="main" role="tab" data-toggle="tab">Основные настройки</a></li>
                 <li role="presentation"><a href="#tariffs" aria-controls="tariffs" role="tab" data-toggle="tab">Тариф</a></li>
                 <li role="presentation"><a href="#discord" aria-controls="discord" role="tab" data-toggle="tab">Discord</a></li>
+                <li role="presentation"><a href="#paypal" aria-controls="paypal" role="tab" data-toggle="tab">Paypal</a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -122,8 +123,7 @@
                 </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="tariffs">
-
-                    <form id="update-form" action="" method="POST">
+                    <form id="tariffs-form" action="" method="POST">
                         <div class="row">
                             <div class="col-md-12">
 
@@ -259,9 +259,70 @@
                         </div>
                     </form>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="discord">
-                    <input type="number" class="form-control" name="user[]" value="1">
+                <div role="tabpanel" class="tab-pane" id="paypal">
+                    <div class="row" style="margin-top: 10px"> <!-- Ваша страница -->
+                        <div class="col-md-3 text-right" style="padding-top: 3px;">
+                            IPN:
+                        </div>
+                        <div class="col-md-6">
+                            <div id="url_change_url">
+                                <a href="https://www.paypal.com/cgi-bin/customerprofileweb?cmd=_profile-ipn-notify">{{ config()->url }}result.php?payment=handlerPaypal</a>
+                            </div>
+                        </div>
+                    </div> <!-- /Ваша страница -->
+
+                    <div class="row" style="margin-top: 10px"> <!-- Фиильтр матов -->
+                        <div class="col-md-3 text-right" style="padding-top: 3px;">
+                            Состояние:
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control" name="paypal[on]">
+                                <option value="1" @if($paypal->on == 1) selected @endif>Включен</option>
+                                <option value="0" @if($paypal->on == 0) selected @endif>Выключен</option>
+                            </select>
+                        </div>
+                    </div> <!-- /Фиильтр матов -->
+
+                    <div class="row" style="margin-top: 10px"> <!-- Минимальная сумма -->
+                        <div class="col-md-3 text-right" style="padding-top: 3px;">
+                            Client ID:
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" name="paypal[clientid]" value="{{ $paypal->clientid }}">
+                        </div>
+                    </div> <!-- /Минимальная сумма -->
+
+                    <div class="row" style="margin-top: 10px"> <!-- Указанная сумма -->
+                        <div class="col-md-3 text-right" style="padding-top: 3px;">
+                            Secret:
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" name="paypal[secret]" value="{{ $paypal->secret }}">
+                        </div>
+                    </div> <!-- /Указанная сумма -->
+
+                    <div class="row" style="margin-top: 10px"> <!-- Сообщение -->
+                        <div class="col-md-3 text-right" style="padding-top: 3px;">
+                            Email:
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" name="paypal[email]" value="{{ $paypal->email }}">
+                        </div>
+                    </div> <!-- /Сообщение -->
+                    <center> Необходимо добавить ссылку на обработчик платежей нашей системы, а также включить функцию "IPN messages" в <a href="https://www.paypal.com/cgi-bin/customerprofileweb?cmd=_profile-ipn-notify">настройках аккаунта</a> PayPal.</center>
+                    <div class="row" style="margin-top: 30px">
+                        <div class="form-group col-lg-12 text-center">
+                            <hr>
+                            <input type="submit" class="btn btn-success" value="Сохранить">
+                        </div>
+                    </div>
                 </div>
+                <div role="tabpanel" class="tab-pane" id="discord">
+                    <input type="number" class="form-control" name="{{ $discord->user_discord_webhook }}" value="1">
+                </div>
+            </div>
+
+
             </div>
         </div>
     </div>
@@ -330,7 +391,7 @@
         }
     });
 
-    $('#update-form').ajaxForm({
+    $('#tariffs-form').ajaxForm({
         url: '{{ config()->url }}update',
         dataType: 'text',
         success: function(data) {

@@ -32,12 +32,11 @@ Router::group(['param' => ['session', '!empty', 'user_id']], function(){
     Router::get("money", ["as" => "user.money", "uses" => "UserController@money"]);
     Router::post("money", ["as" => "user.money.post", "uses" => "UserController@moneyPost"]);
 
-    Router::get("paypal", ["as" => "user.paypal", "uses" => "UserController@paypal"]);
-    Router::post("paypal", ["as" => "user.paypal.post", "uses" => "UserController@paypalPost"]);
 
-    Router::get("donation-page", ["as" => "user.donation-page", "uses" => "UserController@donationPage"]);
-    Router::post("donation-page", ["as" => "user.donation-page.post", "uses" => "UserController@donationPagePost"]);
-    Router::post("update", ["as" => "user.donation-page.post", "uses" => "UserController@updatePost"]);
+    Router::get("settings", ["as" => "user.settings", "uses" => "UserController@settingsPage"]);
+    Router::post("paypal", ["as" => "user.settings.post", "uses" => "UserController@paypalPost"]);
+    Router::post("donation-page", ["as" => "user.settings.post", "uses" => "UserController@donationPagePost"]);
+    Router::post("update", ["as" => "user.settings.post", "uses" => "UserController@updatePost"]);
 
     Router::get("user/logout", ["as" => "user.logout", "uses" => "UserController@logout"]);
     Router::get("faq", ["as" => "user.faq", "uses" => "UserController@faq"]);
