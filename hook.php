@@ -266,7 +266,7 @@ switch ($action) {
             $time = strtotime($end) - strtotime($start);
             $time = $time / 60;
             $db->query('UPDATE `streams` SET `stream_time` = '.$time.', `stream_end` = NOW(), `stream_status` = 2 WHERE `stream_status` = 1 AND `twitch_id` = "'.$data['subscription']['id'].'"');
-            $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_id` = ' . $userid);
+            $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_twitch_id` = ' . $data['subscription']['condition']['broadcaster_user_id']);
         }
         break;
 
