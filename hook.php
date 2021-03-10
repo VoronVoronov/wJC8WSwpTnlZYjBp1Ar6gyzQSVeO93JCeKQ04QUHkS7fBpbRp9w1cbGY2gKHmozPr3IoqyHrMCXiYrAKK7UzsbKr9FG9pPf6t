@@ -245,7 +245,7 @@ switch ($action) {
                     curl_close($ch);
                 }
             }
-            $db->query('INSERT INTO `streams` (`stream_start`, `stream_status`, `user_id`, `stream_platform`, `twitch_id`) VALUES (NOW(), 1, '.$userid.', 1, "'.$data['subscription']['id'].'")');
+            $db->query('INSERT INTO `streams` (`stream_start`, `stream_status`, `user_id`, `stream_platform`, `twitch_id`) VALUES ('.date("Y-m-d H:i:s", strtotime($data['event']['started_at'])).', 1, '.$userid.', 1, "'.$data['subscription']['id'].'")');
             $db->query('UPDATE `users` SET `user_stream_status` = 1 WHERE `user_id` = ' . $userid);
         }
         break;
@@ -263,6 +263,7 @@ switch ($action) {
             $useridsql = $db->query('SELECT * FROM `users` WHERE `user_twitch_id` = '.$data['subscription']['condition']['broadcaster_user_id']);
             while ($user = mysqli_fetch_assoc($useridsql)) {
                 $userid = $user['user_id'] ;
+                $db->query('UPDATE `streams` SET `stream_end` = NOW(), `stream_status` = 2 WHERE `stream_status` = 1 AND `user_id` = ' . $userid);
                 $time_sql = $db->query('SELECT * FROM `streams` WHERE `stream_status` = 1 AND `user_id` = "' . $user['user_id'] . '"');
                 while ($time = mysqli_fetch_assoc($time_sql)) {
                     $start = $time['stream_start'];
@@ -271,7 +272,8 @@ switch ($action) {
                     $time = $time / 60;
                 }
             }
-            $db->query('UPDATE `streams` SET `stream_time` = '.$time.', `stream_end` = NOW(), `stream_status` = 2 WHERE `stream_status` = 1 AND `user_id` = ' . $userid)
+        }
+            $db->query('UPDATE `streams` SET `stream_time` = '.$time.', `stream_end` = NOW(), `stream_status` = 2 WHERE `stream_status` = 1 AND `user_id` = ' . $userid);
             $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_id` = ' . $userid);
         break;
 
