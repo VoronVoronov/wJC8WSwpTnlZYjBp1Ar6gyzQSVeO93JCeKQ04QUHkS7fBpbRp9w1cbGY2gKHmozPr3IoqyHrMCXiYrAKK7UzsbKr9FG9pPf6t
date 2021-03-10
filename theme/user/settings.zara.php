@@ -455,9 +455,30 @@
         }
     });
 
-
     $('#paypal-form').ajaxForm({
         url: '{{ config()->url }}paypal',
+        type: 'POST',
+        success: function(data) {
+            console.log(data);
+            data = $.parseJSON(data);
+            switch(data.status) {
+                case 'error':
+                    fly_p('danger', data.error);
+                    $('button[type=submit]').prop('disabled', false);
+                    break;
+                case 'success':
+                    fly_p("success", "Настройки успешно сохранены!");
+                    break;
+            }
+        },
+        beforeSubmit: function(arr, $form, options) {
+            $('button[type=submit]').prop('disabled', true);
+        }
+    });
+
+
+    $('#discord-form').ajaxForm({
+        url: '{{ config()->url }}discord',
         type: 'POST',
         success: function(data) {
             console.log(data);
