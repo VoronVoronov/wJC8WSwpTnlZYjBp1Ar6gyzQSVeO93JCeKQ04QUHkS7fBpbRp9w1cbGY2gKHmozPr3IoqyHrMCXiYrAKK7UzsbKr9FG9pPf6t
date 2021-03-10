@@ -194,7 +194,7 @@ switch ($action) {
                     $a = explode(':name', $t);
                     $timestamp = date("c", strtotime("now"));
                     $json_data = json_encode([
-                        "content" => $a[0].''.$a[1],
+                        "content" => $a[0].$user['user_login_show'].$a[1],
                         "tts" => false,
                         "embeds" => [
                             [
