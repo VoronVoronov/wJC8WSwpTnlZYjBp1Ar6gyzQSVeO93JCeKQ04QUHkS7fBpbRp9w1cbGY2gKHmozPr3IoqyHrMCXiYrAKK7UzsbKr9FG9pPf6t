@@ -34,10 +34,14 @@ Router::group(['param' => ['session', '!empty', 'user_id']], function(){
 
 
     Router::get("settings", ["as" => "user.settings", "uses" => "UserController@settingsPage"]);
-    Router::any("paypal", ["as" => "user.settings.post", "uses" => "UserController@paypalPost"]);
-    Router::any("donation", ["as" => "user.settings.post", "uses" => "UserController@donationPost"]);
-    Router::any("update", ["as" => "user.settings.post", "uses" => "UserController@updatePost"]);
-    Router::any("discord", ["as" => "user.settings.post", "uses" => "UserController@discordPost"]);
+    Router::post("paypal", ["as" => "user.settings.post", "uses" => "UserController@paypalPost"]);
+    Router::post("donation", ["as" => "user.settings.post", "uses" => "UserController@donationPost"]);
+    Router::post("update", ["as" => "user.settings.post", "uses" => "UserController@updatePost"]);
+    Router::post("discord", ["as" => "user.settings.post", "uses" => "UserController@discordPost"]);
+    Router::get("paypal", ["as" => "user.settings.post", "uses" => "UserController@paypalPost"]);
+    Router::get("donation", ["as" => "user.settings.post", "uses" => "UserController@donationPost"]);
+    Router::get("update", ["as" => "user.settings.post", "uses" => "UserController@updatePost"]);
+    Router::get("discord", ["as" => "user.settings.post", "uses" => "UserController@discordPost"]);
 
     Router::get("user/logout", ["as" => "user.logout", "uses" => "UserController@logout"]);
     Router::get("faq", ["as" => "user.faq", "uses" => "UserController@faq"]);
