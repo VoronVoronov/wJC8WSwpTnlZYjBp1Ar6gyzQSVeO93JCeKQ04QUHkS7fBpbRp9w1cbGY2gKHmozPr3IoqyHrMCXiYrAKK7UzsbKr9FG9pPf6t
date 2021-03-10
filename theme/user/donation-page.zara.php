@@ -329,7 +329,7 @@
     });
 
     $('#update-form').ajaxForm({
-        url: 'update',
+        url: '{{ config()->url }}update',
         dataType: 'text',
         success: function(data) {
             console.log(data);
