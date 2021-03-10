@@ -246,7 +246,7 @@ switch ($action) {
                     curl_close($ch);
                 }
             }
-            $db->query('INSERT INTO `streams` (`stream_start`, `stream_status`, `user_id`, `stream_platform`, `twitch_id`) VALUES ('.date("Y-m-d H:i:s", strtotime($data['event']['started_at'])).', 1, '.$userid.', 1, "'.$data['subscription']['id'].'")');
+            $db->query('INSERT INTO `streams` (`stream_start`, `stream_status`, `user_id`, `stream_platform`, `twitch_id`) VALUES (NOW(), 1, '.$userid.', 1, "'.$data['subscription']['id'].'")');
             $db->query('UPDATE `users` SET `user_stream_status` = 1 WHERE `user_id` = ' . $userid);
         }
         break;
