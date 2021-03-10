@@ -173,8 +173,7 @@ switch ($action) {
             $useridsql = $db->query('SELECT * FROM `users` WHERE `user_twitch_id` = '.$data['subscription']['condition']['broadcaster_user_id']);
             while ($user = mysqli_fetch_assoc($useridsql)) {
                 $userid = $user['user_id'];
-                $discordencode = json_decode($user['user_discord'], true);
-                $discord = base64_decode($discordencode);
+                $discord = json_decode($user['user_discord'], true);
                 if($discord['on'] == 1) {
                     $url = 'https://api.twitch.tv/helix/streams?user_id=' . $user['user_twitch_id'];
                     $headers = array('Authorization: Bearer ' . $user['user_twitch_app_token'],
@@ -191,7 +190,7 @@ switch ($action) {
                     $explode = explode('{width}', $obj['data'][0]['thumbnail_url']);
                     //echo $explode[0].'150x150.jpg';
                     $webhookurl = $discord['webhook'];
-                    $t = $discord['text'];
+                    $t = base64_decode($discord['text']);
                     $a = explode(':name', $t);
                     $timestamp = date("c", strtotime("now"));
                     $json_data = json_encode([
