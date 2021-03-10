@@ -329,7 +329,7 @@
                                 Состояние:
                             </div>
                             <div class="col-md-4">
-                                <select class="form-control" name="paypal[on]">
+                                <select class="form-control" name="discord[on]">
                                     <option value="1" @if($discord->on == 1) selected @endif>Включен</option>
                                     <option value="0" @if($discord->on == 0) selected @endif>Выключен</option>
                                 </select>

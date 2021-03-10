@@ -1604,7 +1604,7 @@ class UserController extends Controller
     {
         if (!($user = isOnline()))
             abort(403);
-        $discordR = Request::post("update");
+        $discordR = Request::post("discord");
 
         $discord = json_decode($user->user_discord, true);
         $discord['webhook'] = $discordR['webhook'];
