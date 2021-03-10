@@ -65,7 +65,7 @@ class CronController extends Controller
         $user = $this->UserModel->getUser($params['user_id'], "user_id");
         $widgets = $this->WidgetModel->getUserAlertsWidget($user['user_id']);
         $event_json = array(
-            'user_name' =>  $params['followername']
+            'user_name' =>  base64_encode($params['followername'])
         );
         $event = json_encode($event_json);
         $this->EventModel->addEvent([
@@ -96,7 +96,7 @@ class CronController extends Controller
         $user = $this->UserModel->getUser($params['user_id'], "user_id");
         $widgets = $this->WidgetModel->getUserAlertsWidget($user['user_id']);
         $event_json = array(
-            'user_name' =>  $params['followername']
+            'user_name' =>  base64_encode($params['followername'])
         );
         $event = json_encode($event_json);
         $this->EventModel->addEvent([

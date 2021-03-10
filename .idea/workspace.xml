@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/CronController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CronController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/PaymentController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,35 +70,7 @@
       <workItem from="1615283658865" duration="2048000" />
       <workItem from="1615303973899" duration="5019000" />
       <workItem from="1615320964668" duration="641000" />
-      <workItem from="1615406419824" duration="7900000" />
-    </task>
-    <task id="LOCAL-00203" summary="Update TTS">
-      <created>1615266451517</created>
-      <option name="number" value="00203" />
-      <option name="presentableId" value="LOCAL-00203" />
-      <option name="project" value="LOCAL" />
-      <updated>1615266451517</updated>
-    </task>
-    <task id="LOCAL-00204" summary="Update trackip">
-      <created>1615266666236</created>
-      <option name="number" value="00204" />
-      <option name="presentableId" value="LOCAL-00204" />
-      <option name="project" value="LOCAL" />
-      <updated>1615266666236</updated>
-    </task>
-    <task id="LOCAL-00205" summary="Add location.reload">
-      <created>1615268024632</created>
-      <option name="number" value="00205" />
-      <option name="presentableId" value="LOCAL-00205" />
-      <option name="project" value="LOCAL" />
-      <updated>1615268024632</updated>
-    </task>
-    <task id="LOCAL-00206" summary="Update editor donate page">
-      <created>1615268290954</created>
-      <option name="number" value="00206" />
-      <option name="presentableId" value="LOCAL-00206" />
-      <option name="project" value="LOCAL" />
-      <updated>1615268290954</updated>
+      <workItem from="1615406419824" duration="8224000" />
     </task>
     <task id="LOCAL-00207" summary="Update editor donate page">
       <created>1615268460828</created>
@@ -417,7 +387,35 @@
       <option name="project" value="LOCAL" />
       <updated>1615414444183</updated>
     </task>
-    <option name="localTasksCounter" value="252" />
+    <task id="LOCAL-00252" summary="Updated">
+      <created>1615414644246</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL-00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1615414644246</updated>
+    </task>
+    <task id="LOCAL-00253" summary="Updated">
+      <created>1615414818825</created>
+      <option name="number" value="00253" />
+      <option name="presentableId" value="LOCAL-00253" />
+      <option name="project" value="LOCAL" />
+      <updated>1615414818825</updated>
+    </task>
+    <task id="LOCAL-00254" summary="Updated">
+      <created>1615414847796</created>
+      <option name="number" value="00254" />
+      <option name="presentableId" value="LOCAL-00254" />
+      <option name="project" value="LOCAL" />
+      <updated>1615414847796</updated>
+    </task>
+    <task id="LOCAL-00255" summary="Updated">
+      <created>1615414881390</created>
+      <option name="number" value="00255" />
+      <option name="presentableId" value="LOCAL-00255" />
+      <option name="project" value="LOCAL" />
+      <updated>1615414881390</updated>
+    </task>
+    <option name="localTasksCounter" value="256" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
