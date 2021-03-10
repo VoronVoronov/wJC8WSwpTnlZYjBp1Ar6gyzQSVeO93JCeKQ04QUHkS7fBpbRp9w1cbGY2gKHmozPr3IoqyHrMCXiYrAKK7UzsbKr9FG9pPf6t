@@ -190,9 +190,11 @@ switch ($action) {
                     $explode = explode('{width}', $obj['data'][0]['thumbnail_url']);
                     //echo $explode[0].'150x150.jpg';
                     $webhookurl = $discord['webhook'];
+                    $t = $discord['text'];
+                    $a = explode(':name', $t);
                     $timestamp = date("c", strtotime("now"));
                     $json_data = json_encode([
-                        "content" => '@everyone Хей! ' . $user['user_login_show'] . ' запустил вещание на канале https://www.twitch.tv/' . $data['event']['broadcaster_user_login'],
+                        "content" => $a[0].''.$a[1],
                         "tts" => false,
                         "embeds" => [
                             [
@@ -262,12 +264,11 @@ switch ($action) {
             while ($time = mysqli_fetch_assoc($time_sql)) {
                 $start = $time['stream_start'];
                 $end = $time['stream_end'];
+                $time = strtotime($end) - strtotime($start);
+                $time = $time / 60;
+                $db->query('UPDATE `streams` SET `stream_time` = '.$time.', `stream_end` = NOW(), `stream_status` = 2 WHERE `stream_status` = 1 AND `user_id` = ' . $time['user_id'])
+                $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_id` = ' . $time['user_id']);
             }
-            $time = strtotime($end) - strtotime($start);
-            $time = $time / 60;
-            $db->query('UPDATE `streams` SET `stream_time` = '.$time.', `stream_end` = NOW(), `stream_status` = 2 WHERE `stream_status` = 1 AND `twitch_id` = "'.$data['subscription']['id'].'"');
-            $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_twitch_id` = ' . $data['subscription']['condition']['broadcaster_user_id']);
-        }
         break;
 
     default:
