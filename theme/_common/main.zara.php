@@ -63,7 +63,7 @@
                     <a href="#">Личные настройки</a>
                     <ul>
                         <li @if(route()->url == "user" or route()->url == "profile") class="active" @endif><a href="/profile"><i class="icon icon-settings"></i> Основные настройки</a></li>
-                        <li @if(route()->url == "donation-page") class="active" @endif><a href="/donation-page"><i class="icon icon-chat"></i> Настройки</a></li>
+                        <li @if(route()->url == "settings") class="active" @endif><a href="/settings"><i class="icon icon-chat"></i> Настройки</a></li>
                     </ul>
                 </li>
 
