@@ -258,7 +258,9 @@
                             </div>
                         </div>
                     </form>
-
+                </div>
+                <div role="tabpanel" class="tab-pane" id="discord">
+                    <input type="number" class="form-control" name="user[]" value="1">
                 </div>
             </div>
         </div>

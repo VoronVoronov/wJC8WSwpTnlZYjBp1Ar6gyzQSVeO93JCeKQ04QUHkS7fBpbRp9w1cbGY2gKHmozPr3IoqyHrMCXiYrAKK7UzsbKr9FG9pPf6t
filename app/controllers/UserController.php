@@ -630,7 +630,7 @@ class UserController extends Controller
             $i4 = curl_getinfo($ch4);
             curl_close($ch4);
             $app_access_token = json_decode($r4);
-
+            if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
             $webhook_url = 'https://api.twitch.tv/helix/eventsub/subscriptions';
 
             $webhook_headers = array('Client-ID: ' . config()->twitch['client_id'],
@@ -726,7 +726,6 @@ class UserController extends Controller
             $i8 = curl_getinfo($ch8);
             curl_close($ch8);
 
-            if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
                 $data = [
                     "user_login" => "twitch_" . $userInfo->data[0]->login,
                     "user_login_show" => $userInfo->data[0]->display_name,
@@ -1085,7 +1084,7 @@ class UserController extends Controller
                 'redirect_uri' => config()->youtube['connect_uri'],
                 'response_type' => 'code',
                 'client_id' => config()->youtube['client_id'],
-                'scope' => 'https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.readonly https://www.googleapis.com/auth/youtube.channel-memberships.creator'
+                'scope' => 'https://www.googleapis.com/auth/youtubepartner-channel-audit https://www.googleapis.com/auth/youtube.readonly https://www.googleapis.com/auth/youtube.channel-memberships.creator'
             );
 
             redirect($url . '?' . urldecode(http_build_query($params)));
