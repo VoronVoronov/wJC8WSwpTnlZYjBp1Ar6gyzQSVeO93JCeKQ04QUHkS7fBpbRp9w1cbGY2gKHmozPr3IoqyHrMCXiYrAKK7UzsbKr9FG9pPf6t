@@ -18,7 +18,7 @@
             <!-- Tab panes -->
             <div class="tab-content" style="padding-top: 15px">
                 <div role="tabpanel" class="tab-pane active" id="main">
-                        <form id="donation-page-form" action="" method="POST">
+                    <form id="donation-page-form" action="" method="POST">
                         <div class="row" style="margin-top: 10px"> <!-- Ваша страница -->
                             <div class="col-md-3 text-right" style="padding-top: 3px;">
                                 Ваша страница:
@@ -121,7 +121,7 @@
                                 <input type="submit" class="btn btn-success" value="Сохранить">
                             </div>
                         </div>
-                        </form>
+                    </form>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="tariffs">
                     <form id="tariffs-form" action="" method="POST">
