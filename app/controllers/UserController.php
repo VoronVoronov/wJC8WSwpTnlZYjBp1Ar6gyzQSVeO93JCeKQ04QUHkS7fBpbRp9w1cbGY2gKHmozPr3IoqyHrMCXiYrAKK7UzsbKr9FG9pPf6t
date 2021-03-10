@@ -1608,8 +1608,9 @@ class UserController extends Controller
 
         $discord = json_decode($user->user_discord, true);
         $discord['webhook'] = $discordR['webhook'];
+        $discord['text'] = $discordR['text'];
+        $discord['on'] = $discordR['on'];
         $data['user_discord'] = json_encode($discord);
-
         if ($this->UserModel->editUser(session("user_id"), $data)) {
             $result = ["status" => "success"];
         }

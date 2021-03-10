@@ -323,17 +323,47 @@
                     </form>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="discord">
-                    <div class="row" style="margin-top: 10px"> <!-- Минимальная сумма -->
+                    <form id="discord-form" action="" method="POST">
+                        <div class="row" style="margin-top: 10px"> <!-- Фиильтр матов -->
+                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                Состояние:
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" name="paypal[on]">
+                                    <option value="1" @if($discord->on == 1) selected @endif>Включен</option>
+                                    <option value="0" @if($discord->on == 0) selected @endif>Выключен</option>
+                                </select>
+                            </div>
+                        </div> <!-- /Фиильтр матов -->
+                    <div class="row" style="margin-top: 10px">
                         <div class="col-md-3 text-right" style="padding-top: 3px;">
                             Webhook:
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" name="discord[webhook]" value="{{ $discord->user_discord_webhook }}">
+                            <input type="text" class="form-control" name="discord[webhook]" value="{{ $discord->webhook }}">
                         </div>
                         <div class="col-md-1" style="padding-top: 6px;">
                             <i class="fa fa-question-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Укажите ссылку на Webhook"></i>
                         </div>
-                    </div> <!-- /Минимальная сумма -->
+                    </div>
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                Текст:
+                            </div>
+                            <div class="col-md-3">
+                                <textarea type="text" class="form-control" name="discord[text]">{{ $discord->text }}</textarea>
+                            </div>
+                            <div class="col-md-1" style="padding-top: 6px;">
+                                <i class="fa fa-question-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Укажите текст который будет отображаться вместе с уведомлением о начале трансляций. И укажите наименования роли, если хотите чтобы лишь участники с определенной ролью получили уведомления. Например: @everyone"></i>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 30px">
+                            <div class="form-group col-lg-12 text-center">
+                                <hr>
+                                <input type="submit" class="btn btn-success" value="Сохранить">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
 

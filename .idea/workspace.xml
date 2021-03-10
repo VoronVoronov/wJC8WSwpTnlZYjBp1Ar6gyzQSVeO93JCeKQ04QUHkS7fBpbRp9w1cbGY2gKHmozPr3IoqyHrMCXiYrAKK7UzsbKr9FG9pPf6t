@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/routers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/user/paypal.zara.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/user/settings.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/user/settings.zara.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/user/update.zara.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,14 +74,7 @@
       <workItem from="1615283658865" duration="2048000" />
       <workItem from="1615303973899" duration="5019000" />
       <workItem from="1615320964668" duration="641000" />
-      <workItem from="1615406419824" duration="5814000" />
-    </task>
-    <task id="LOCAL-00198" summary="Updated">
-      <created>1615265405000</created>
-      <option name="number" value="00198" />
-      <option name="presentableId" value="LOCAL-00198" />
-      <option name="project" value="LOCAL" />
-      <updated>1615265405000</updated>
+      <workItem from="1615406419824" duration="6580000" />
     </task>
     <task id="LOCAL-00199" summary="Update scopes youtube">
       <created>1615265775408</created>
@@ -415,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615412520387</updated>
     </task>
-    <option name="localTasksCounter" value="247" />
+    <task id="LOCAL-00247" summary="Updated">
+      <created>1615412585290</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL-00247" />
+      <option name="project" value="LOCAL" />
+      <updated>1615412585290</updated>
+    </task>
+    <option name="localTasksCounter" value="248" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
