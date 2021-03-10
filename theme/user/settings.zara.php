@@ -351,7 +351,7 @@
                                 Текст:
                             </div>
                             <div class="col-md-3">
-                                <textarea type="text" class="form-control" name="discord[text]">{{ $discord->text }}</textarea>
+                                <textarea type="text" class="form-control" name="discord[text]">{{ base64_decode($discord->text) }}</textarea>
                             </div>
                             <div class="col-md-1" style="padding-top: 6px;">
                                 <i class="fa fa-question-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Укажите текст который будет отображаться вместе с уведомлением о начале трансляций. И укажите наименования роли, если хотите чтобы лишь участники с определенной ролью получили уведомления. Например: @everyone."></i>
