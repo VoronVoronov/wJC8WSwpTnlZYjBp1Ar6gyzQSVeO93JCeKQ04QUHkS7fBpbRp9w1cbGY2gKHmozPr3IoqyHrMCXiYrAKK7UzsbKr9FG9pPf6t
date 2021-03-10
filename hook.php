@@ -191,10 +191,9 @@ switch ($action) {
                     //echo $explode[0].'150x150.jpg';
                     $webhookurl = $discord['webhook'];
                     $t = base64_decode($discord['text']);
-                    $a = explode(':name', $t);
                     $timestamp = date("c", strtotime("now"));
                     $json_data = json_encode([
-                        "content" => $a[0].$user['user_login_show'].$a[1],
+                        "content" => $t,
                         "tts" => false,
                         "embeds" => [
                             [

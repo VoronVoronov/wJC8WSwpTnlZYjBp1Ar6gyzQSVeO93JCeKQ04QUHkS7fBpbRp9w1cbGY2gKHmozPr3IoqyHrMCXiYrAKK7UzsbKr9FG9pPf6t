@@ -354,7 +354,7 @@
                                 <textarea type="text" class="form-control" name="discord[text]">{{ $discord->text }}</textarea>
                             </div>
                             <div class="col-md-1" style="padding-top: 6px;">
-                                <i class="fa fa-question-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Укажите текст который будет отображаться вместе с уведомлением о начале трансляций. И укажите наименования роли, если хотите чтобы лишь участники с определенной ролью получили уведомления. Например: @everyone. Доступные теги: :name - ваш NickName"></i>
+                                <i class="fa fa-question-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Укажите текст который будет отображаться вместе с уведомлением о начале трансляций. И укажите наименования роли, если хотите чтобы лишь участники с определенной ролью получили уведомления. Например: @everyone."></i>
                             </div>
                         </div>
                         <div class="row" style="margin-top: 30px">
