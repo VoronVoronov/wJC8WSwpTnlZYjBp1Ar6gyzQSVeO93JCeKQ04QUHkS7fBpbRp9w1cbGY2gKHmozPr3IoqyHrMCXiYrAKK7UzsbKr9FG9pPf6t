@@ -1573,7 +1573,7 @@ class UserController extends Controller
             $result = ["status" => "success"];
         }
 
-        return json_encode($result);
+        return view("user/settings", $data);
     }
 
     public function updatePost()
@@ -1597,7 +1597,7 @@ class UserController extends Controller
             $result = ["status" => "success"];
         }
 
-        return json_encode($result);
+        return view("user/settings", $data);
     }
 
     public function discordPost()
@@ -1614,6 +1614,6 @@ class UserController extends Controller
             $result = ["status" => "success"];
         }
 
-        return json_encode($result);
+        return view("user/settings", $data);
     }
 }
