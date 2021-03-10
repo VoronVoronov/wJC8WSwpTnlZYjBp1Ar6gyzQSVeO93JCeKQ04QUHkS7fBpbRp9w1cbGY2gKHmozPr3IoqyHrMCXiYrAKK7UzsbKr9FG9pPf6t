@@ -325,7 +325,7 @@
                             Webhook:
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" name="discord[webhook]" value="{{ {{ $discord->user_discord_webhook }} }}">
+                            <input type="text" class="form-control" name="discord[webhook]" value="{{ $discord->user_discord_webhook }}">
                         </div>
                         <div class="col-md-1" style="padding-top: 6px;">
                             <i class="fa fa-question-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Укажите ссылку на Webhook"></i>
