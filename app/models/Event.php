@@ -11,7 +11,7 @@ class EventModel extends Model
 
     public function getUserEvents($user_id)
     {
-        $events = $this->where("user_id", $user_id)->get();
+        $events = $this->where("user_id", $user_id)->order("event_id", "desc")->get();
 
         foreach ($events as &$event) {
             $event['event_json'] = json_decode($event['event_json']);
@@ -33,7 +33,7 @@ class EventModel extends Model
 
     public function getAllUserEvents()
     {
-        $events = $this->get();
+        $events = $this->order("event_id", "desc")->get();
 
         foreach ($events as &$event) {
             $event['event_json'] = json_decode($event['event_json']);
