@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hook.php" beforeDir="false" afterPath="$PROJECT_DIR$/hook.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/theme/_common/main.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/_common/main.zara.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme/user/donation-page.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/user/donation-page.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,14 +72,7 @@
       <workItem from="1615283658865" duration="2048000" />
       <workItem from="1615303973899" duration="5019000" />
       <workItem from="1615320964668" duration="641000" />
-      <workItem from="1615406419824" duration="234000" />
-    </task>
-    <task id="LOCAL-00173" summary="Update Admin">
-      <created>1615256793947</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1615256793947</updated>
+      <workItem from="1615406419824" duration="334000" />
     </task>
     <task id="LOCAL-00174" summary="Update Admin">
       <created>1615256828369</created>
@@ -418,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615308506061</updated>
     </task>
-    <option name="localTasksCounter" value="222" />
+    <task id="LOCAL-00222" summary="Updated">
+      <created>1615406666600</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1615406666600</updated>
+    </task>
+    <option name="localTasksCounter" value="223" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,7 +451,6 @@
     <MESSAGE value="Update Admin" />
     <MESSAGE value="Add Event" />
     <MESSAGE value="Check console.log" />
-    <MESSAGE value="Updated" />
     <MESSAGE value="Update scopes youtube" />
     <MESSAGE value="Update audio js" />
     <MESSAGE value="Update MD5 JS" />
@@ -463,7 +461,8 @@
     <MESSAGE value="Update alert.js" />
     <MESSAGE value="Update status" />
     <MESSAGE value="Add Discord Webhook" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Discord Webhook" />
+    <MESSAGE value="Updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

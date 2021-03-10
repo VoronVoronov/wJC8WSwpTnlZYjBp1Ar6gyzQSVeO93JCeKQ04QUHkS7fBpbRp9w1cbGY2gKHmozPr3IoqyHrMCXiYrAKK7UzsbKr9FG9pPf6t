@@ -64,7 +64,6 @@
                     <ul>
                         <li @if(route()->url == "user" or route()->url == "profile") class="active" @endif><a href="/profile"><i class="icon icon-settings"></i> Основные настройки</a></li>
                         <li @if(route()->url == "donation-page") class="active" @endif><a href="/donation-page"><i class="icon icon-chat"></i> Настройки</a></li>
-                        <li @if(route()->url == "update") class="active" @endif><a href="/update"><i class="icon icon-balance"></i> Тариф</a></li>
                     </ul>
                 </li>
 
