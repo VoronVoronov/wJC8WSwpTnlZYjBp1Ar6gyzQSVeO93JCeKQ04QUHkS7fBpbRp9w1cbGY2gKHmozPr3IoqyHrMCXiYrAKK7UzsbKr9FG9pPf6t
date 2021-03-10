@@ -10,6 +10,8 @@
         <div class="col-md-12">
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#main" aria-controls="main" role="tab" data-toggle="tab">Основные настройки</a></li>
+                <li role="presentation"><a href="#tariffs" aria-controls="tariffs" role="tab" data-toggle="tab">Тариф</a></li>
+                <li role="presentation"><a href="#discord" aria-controls="discord" role="tab" data-toggle="tab">Discord</a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -112,12 +114,151 @@
                             <i class="fa fa-question-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Вы можете указать свои запрещеённые слова через запятую"></i>
                         </div>
                     </div> <!-- /Список матов -->
+                <div class="row" style="margin-top: 30px">
+                    <div class="form-group col-lg-12 text-center">
+                        <hr>
+                        <input type="submit" class="btn btn-success" value="Сохранить">
+                    </div>
                 </div>
-            </div>
-            <div class="row" style="margin-top: 30px">
-                <div class="form-group col-lg-12 text-center">
-                    <hr>
-                    <input type="submit" class="btn btn-success" value="Сохранить">
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tariffs">
+
+                    <form id="update-form" action="" method="POST">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                @if($user->user_group == 2)
+                                <!-- Tab panes -->
+                                <div class="tab-content" style="padding-top: 15px">
+                                    <div role="tabpanel" class="tab-pane active" id="main">
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Ваша страница -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                QIWI CallBack:
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div id="url_change_url">
+                                                    https://api.ipdonate.com/result?payment=QIWI</a>
+                                                </div>
+                                            </div>
+                                        </div> <!-- /Ваша страница -->
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Минимальная сумма -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                QIWI кошелек:
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="wallets[qiwi]" value="{{ $wallets->qiwi }}">
+                                            </div>
+                                        </div> <!-- /Минимальная сумма -->
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Минимальная сумма -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                QIWI Public key:
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="wallets[qiwi_public]" value="{{ $wallets->qiwi_public }}">
+                                            </div>
+                                        </div> <!-- /Минимальная сумма -->
+
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Минимальная сумма -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                QIWI Secret key:
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="wallets[qiwi_secret]" value="{{ $wallets->qiwi_secret }}">
+                                            </div>
+                                        </div> <!-- /Минимальная сумма -->
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Ваша страница -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                WebMoney CallBack:
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div id="url_change_url">
+                                                    https://api.ipdonate.com/result?payment=webmoney</a>
+                                                </div>
+                                            </div>
+                                        </div> <!-- /Ваша страница -->
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Минимальная сумма -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                WebMoney кошелек:
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="wallets[webmoney]" value="{{ $wallets->webmoney }}">
+                                            </div>
+                                        </div> <!-- /Минимальная сумма -->
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Минимальная сумма -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                WebMoney Secret key:
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="wallets[webmoney_secret]" value="{{ $wallets->webmoney_secret }}">
+                                            </div>
+                                        </div> <!-- /Минимальная сумма -->
+
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Минимальная сумма -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                WebMoney Secret key X20:
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="wallets[webmoney_secret_x20]" value="{{ $wallets->webmoney_secret_x20 }}">
+                                            </div>
+                                        </div> <!-- /Минимальная сумма -->
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Ваша страница -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                YooMoney CallBack:
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div id="url_change_url">
+                                                    https://api.ipdonate.com/result?payment=yoomoney</a>
+                                                </div>
+                                            </div>
+                                        </div> <!-- /Ваша страница -->
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Указанная сумма -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                Yoomoney:
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="wallets[yoomoney]" value="{{ $wallets->yoomoney }}">
+                                            </div>
+                                        </div> <!-- /Указанная сумма -->
+
+                                        <div class="row" style="margin-top: 10px"> <!-- Сообщение -->
+                                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                                Yoomoney Secret Key:
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="wallets[yoomoney_secret]" value="{{ $wallets->yoomoney_secret }}">
+                                            </div>
+                                        </div> <!-- /Сообщение -->
+                                        <center> Необходимо добавить ссылку на обработчик платежей нашей системы, а также включить функцию "IPN messages" в <a href="https://www.paypal.com/cgi-bin/customerprofileweb?cmd=_profile-ipn-notify">настройках аккаунта</a> PayPal.</center>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 30px">
+                                    <div class="form-group col-lg-12 text-center">
+                                        <hr>
+                                        <input type="submit" class="btn btn-success" value="Сохранить">
+                                    </div>
+                                </div>
+                                @else
+                                <center>
+                                    Для приёма пожертвовании на свои кошельки, необходимо оплатить тарифный план.<br>
+                                    Стоимость - 499 рублей в месяц.<br>
+                                    <a href="#" class="btn btn-danger">Оплатить</a><br>
+                                    Услуга временно недоступна.<br>
+                                </center>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -167,6 +308,27 @@
     });
     
     $('#donation-page-form').ajaxForm({
+        url: location.href,
+        dataType: 'text',
+        success: function(data) {
+            console.log(data);
+            data = $.parseJSON(data);
+            switch(data.status) {
+                case 'error':
+                    fly_p('danger', data.error);
+                    $('button[type=submit]').prop('disabled', false);
+                    break;
+                case 'success':
+                    fly_p("success", "Настройки успешно сохранены!");
+                    break;
+            }
+        },
+        beforeSubmit: function(arr, $form, options) {
+            $('button[type=submit]').prop('disabled', true);
+        }
+    });
+
+    $('#update-form').ajaxForm({
         url: location.href,
         dataType: 'text',
         success: function(data) {

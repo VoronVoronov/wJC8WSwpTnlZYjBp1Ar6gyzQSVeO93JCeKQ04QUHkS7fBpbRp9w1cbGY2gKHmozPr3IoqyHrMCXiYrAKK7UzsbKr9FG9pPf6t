@@ -185,7 +185,6 @@ switch ($action) {
                 $result = curl_exec($curl);
                 curl_close($curl);
                 $obj = json_decode($result, true);
-                $decode = json_decode($json,true);
                 $explode = explode('{width}',$obj['data'][0]['thumbnail_url']);
                 //echo $explode[0].'150x150.jpg';
                 $webhookurl = $user['user_discord_webhook'];
@@ -256,19 +255,14 @@ switch ($action) {
         if($data['subscription']['status'] == 'webhook_callback_verification_pending') {
             echo $data['challenge'];
         }elseif($data['subscription']['status'] == 'enabled'){
-            $useridsql = $db->query('SELECT * FROM `users` WHERE `user_twitch_id` = '.$data['subscription']['condition']['broadcaster_user_id']);
-            while ($user = mysqli_fetch_assoc($useridsql)) {
-                $userid = $user['user_id'];
-            }
-            $db->query('UPDATE `streams` SET `stream_end` = NOW(), `stream_status` = 2 WHERE `stream_status` = 1 AND `twitch_id` = "'.$data['subscription']['id'].'"');
-            $time_sql = $db->query('SELECT * FROM `streams` WHERE `user_id` = '.$userid);
+            $time_sql = $db->query('SELECT * FROM `streams` WHERE `stream_status` = 1 AND `twitch_id` = "' . $data['subscription']['id'].'"');
             while ($time = mysqli_fetch_assoc($time_sql)) {
                 $start = $time['stream_start'];
                 $end = $time['stream_end'];
             }
             $time = strtotime($end) - strtotime($start);
             $time = $time / 60;
-            $db->query('UPDATE `streams` SET `stream_time` = '.$time.' WHERE  `twitch_id` = "' . $data['subscription']['id'].'"');
+            $db->query('UPDATE `streams` SET `stream_time` = '.$time.', `stream_end` = NOW(), `stream_status` = 2 WHERE `stream_status` = 1 AND `twitch_id` = "'.$data['subscription']['id'].'"');
             $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_id` = ' . $userid);
         }
         break;
