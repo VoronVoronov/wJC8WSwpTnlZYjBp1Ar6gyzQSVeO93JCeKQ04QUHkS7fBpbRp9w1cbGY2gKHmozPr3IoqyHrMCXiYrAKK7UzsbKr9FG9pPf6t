@@ -267,12 +267,12 @@ switch ($action) {
                 while ($time = mysqli_fetch_assoc($time_sql)) {
                     $start = $time['stream_start'];
                     $end = $time['stream_end'];
-                    $time = strtotime($end) - strtotime($start);
-                    $time = $time / 60;
+                    $timestrotime = strtotime($end) - strtotime($start);
+                    $time = $timestrotime / 60;
                 }
             }
         }
-            $db->query('UPDATE `streams` SET `stream_time` = '.$time.', `stream_end` = NOW(), `stream_status` = 2 WHERE `stream_status` = 1 AND `user_id` = ' . $userid);
+            $db->query('UPDATE `streams` SET `stream_time` = '.$time.', `stream_status` = 2 WHERE `stream_status` = 1 AND `user_id` = ' . $userid);
             $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_id` = ' . $userid);
         break;
 
