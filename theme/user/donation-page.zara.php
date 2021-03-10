@@ -329,7 +329,7 @@
     });
 
     $('#update-form').ajaxForm({
-        url: location.href,
+        url: 'update',
         dataType: 'text',
         success: function(data) {
             console.log(data);
