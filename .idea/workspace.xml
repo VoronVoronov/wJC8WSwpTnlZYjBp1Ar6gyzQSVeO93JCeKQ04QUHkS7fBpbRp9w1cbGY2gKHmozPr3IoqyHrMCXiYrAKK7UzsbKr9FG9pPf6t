@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/theme/user/settings.zara.php" beforeDir="false" afterPath="$PROJECT_DIR$/theme/user/settings.zara.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,14 +70,7 @@
       <workItem from="1615283658865" duration="2048000" />
       <workItem from="1615303973899" duration="5019000" />
       <workItem from="1615320964668" duration="641000" />
-      <workItem from="1615406419824" duration="2688000" />
-    </task>
-    <task id="LOCAL-00186" summary="Check console.log">
-      <created>1615262935959</created>
-      <option name="number" value="00186" />
-      <option name="presentableId" value="LOCAL-00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1615262935959</updated>
+      <workItem from="1615406419824" duration="2778000" />
     </task>
     <task id="LOCAL-00187" summary="Check console.log">
       <created>1615263144278</created>
@@ -416,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615408832192</updated>
     </task>
-    <option name="localTasksCounter" value="235" />
+    <task id="LOCAL-00235" summary="Updated">
+      <created>1615409200969</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1615409200969</updated>
+    </task>
+    <option name="localTasksCounter" value="236" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

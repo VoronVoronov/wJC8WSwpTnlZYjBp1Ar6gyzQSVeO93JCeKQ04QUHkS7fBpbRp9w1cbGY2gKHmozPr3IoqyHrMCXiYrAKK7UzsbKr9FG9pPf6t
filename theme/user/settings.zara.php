@@ -373,7 +373,6 @@
     $('#donation-page-form').ajaxForm({
         url: '/donation',
         type: 'POST',
-        dataType: 'text',
         success: function(data) {
             console.log(data);
             data = $.parseJSON(data);
@@ -395,7 +394,6 @@
     $('#tariffs-form').ajaxForm({
         url: '/update',
         type: 'POST',
-        dataType: 'text',
         success: function(data) {
             console.log(data);
             data = $.parseJSON(data);
@@ -418,7 +416,6 @@
     $('#paypal-form').ajaxForm({
         url: '/paypal',
         type: 'POST',
-        dataType: 'text',
         success: function(data) {
             console.log(data);
             data = $.parseJSON(data);
