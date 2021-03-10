@@ -345,7 +345,7 @@
     
     $("#input_change_url").change(function () {
         $.ajax({
-            url: "{{ config()->url }}/check_url/" + $(this).val(),
+            url: "{{ config()->url }}check_url/" + $(this).val(),
             type: "POST",
             success: function (data) {
                 data = $.parseJSON(data);
@@ -371,7 +371,7 @@
     });
     
     $('#donation-page-form').ajaxForm({
-        url: '{{ config()->url }}/donation',
+        url: '{{ config()->url }}donation',
         type: 'POST',
         success: function(data) {
             console.log(data);
@@ -392,7 +392,7 @@
     });
 
     $('#tariffs-form').ajaxForm({
-        url: '{{ config()->url }}/update',
+        url: '{{ config()->url }}update',
         type: 'POST',
         success: function(data) {
             console.log(data);
@@ -414,7 +414,7 @@
 
 
     $('#paypal-form').ajaxForm({
-        url: '{{ config()->url }}/paypal',
+        url: '{{ config()->url }}paypal',
         type: 'POST',
         success: function(data) {
             console.log(data);
