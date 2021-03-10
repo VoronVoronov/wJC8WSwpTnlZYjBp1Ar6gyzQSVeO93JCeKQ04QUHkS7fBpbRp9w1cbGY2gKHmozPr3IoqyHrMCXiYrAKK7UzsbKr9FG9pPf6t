@@ -79,10 +79,6 @@
                     <!--<td><a href="/disconnect/vk" class="btn btn-danger btn-xs">Отключить</a></td>-->
                     @endif
                 </tr>
-                <tr>
-                    <td>Discord Webhook</td>
-                    <td id="profile-change-discord"><input type="text" name="discord" data-type="discord" class="form-control input-sm profile-change-input" value="{{ $user->user_discord_webhook }}"></td>
-                </tr>
             </table>
         </div>
 
