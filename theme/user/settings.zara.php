@@ -101,6 +101,9 @@
                                     <option value="0" @if($settings->fuck_name_filter == 0) selected @endif>Выключен</option>
                                 </select>
                             </div>
+                            <div class="col-md-1" style="padding-top: 6px;">
+                                <i class="fa fa-question-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Автоматически будут удалятся слова которые есть в базе плохи слова нашего сервиса"></i>
+                            </div>
                         </div> <!-- /Фиильтр матов ник-->
 
                         <div class="row" style="margin-top: 10px"> <!-- Список матов -->
