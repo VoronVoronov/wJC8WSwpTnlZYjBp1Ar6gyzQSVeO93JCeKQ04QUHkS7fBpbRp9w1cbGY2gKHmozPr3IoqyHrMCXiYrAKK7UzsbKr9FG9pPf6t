@@ -60,10 +60,20 @@ class CronController extends Controller
 
     public function updateTwitchFollows($params = [])
     {
-        model("User", "Widget", "Alert");
+        model("User", "Widget", "Alert","Event");
         $params = Request::get("params");
         $user = $this->UserModel->getUser($params['user_id'], "user_id");
         $widgets = $this->WidgetModel->getUserAlertsWidget($user['user_id']);
+        $event_json = array(
+            'user_name' =>  $params['followername']),
+        );
+        $event = json_encode($event_json);
+        $this->EventModel->addEvent([
+            "user_id"       => $donation['user_id'],
+            "event_type"    => 2,
+            "event_json"    => $event,
+            "event_time"    => "NOW()",
+        ], true);
         foreach ($widgets as $widget)
         {
             $this->AlertModel->newAlert([
@@ -81,10 +91,20 @@ class CronController extends Controller
 
     public function updateTwitchSubscribe($params = [])
     {
-        model("User", "Widget", "Alert");
+        model("User", "Widget", "Alert", "Event");
         $params = Request::get("params");
         $user = $this->UserModel->getUser($params['user_id'], "user_id");
         $widgets = $this->WidgetModel->getUserAlertsWidget($user['user_id']);
+        $event_json = array(
+            'user_name' =>  $params['followername']),
+        );
+        $event = json_encode($event_json);
+        $this->EventModel->addEvent([
+            "user_id"       => $donation['user_id'],
+            "event_type"    => 2,
+            "event_json"    => $event,
+            "event_time"    => "NOW()",
+        ], true);
         foreach ($widgets as $widget)
         {
             $this->AlertModel->newAlert([

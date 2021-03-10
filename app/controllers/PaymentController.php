@@ -228,7 +228,7 @@ class PaymentController extends Controller{
                     //die("hacking attempt!");
                     header('Location: https://ipdonate.com/');
                 }
-                model("Donation", "Alert", "Widget", "Filter");
+                model("Donation", "Alert", "Widget", "Filter", "Event");
                 $params = Request::get("params");
                 $donation = $this->DonationModel->getDonationInfo($params['donation_id']);
                 if(!$this->DonationModel->editDonation($donation['donation_id'], [
@@ -245,7 +245,18 @@ class PaymentController extends Controller{
                     $this->WidgetModel->editWidget($donation['donation_json']->goal, [
                         "widget_money"  =>  $w_goal + (float) $donation['donation_ammount'],
                     ]);
-
+                    $event_json = array(
+                        'user_name' =>  base64_encode($donation['donation_name']),
+                        'sum'       => (float) $donation['donation_ammount'],
+                        'curr'      => 0,
+                    );
+                    $event = json_encode($event_json);
+                    $this->EventModel->addEvent([
+                        "user_id"       => $donation['user_id'],
+                        "event_type"    => 1,
+                        "event_json"    => $event,
+                        "event_time"    => "NOW()",
+                    ], true);
                     $this->AlertModel->newAlert([
                         "user_id"   => $donation['user_id'],
                         "widget_id" =>  $donation['donation_json']->goal,
@@ -282,7 +293,7 @@ class PaymentController extends Controller{
                     //die("hacking attempt!");
                     header('Location: https://ipdonate.com/');
                 }
-                model("Donation", "Alert", "Widget", "Filter");
+                model("Donation", "Alert", "Widget", "Filter", "Event");
                 $params = Request::get("params");
                 $donation = $this->DonationModel->getDonationInfo($params['donation_id']);
                 if(!$this->DonationModel->editDonation($donation['donation_id'], [
@@ -299,7 +310,18 @@ class PaymentController extends Controller{
                     $this->WidgetModel->editWidget($donation['donation_json']->goal, [
                         "widget_money"  =>  $w_goal + (float) $donation['donation_ammount'],
                     ]);
-
+                    $event_json = array(
+                        'user_name' =>  base64_encode($donation['donation_name']),
+                        'sum'       => (float) $donation['donation_ammount'],
+                        'curr'      => 0,
+                    );
+                    $event = json_encode($event_json);
+                    $this->EventModel->addEvent([
+                        "user_id"       => $donation['user_id'],
+                        "event_type"    => 1,
+                        "event_json"    => $event,
+                        "event_time"    => "NOW()",
+                    ], true);
                     $this->AlertModel->newAlert([
                         "user_id"   => $donation['user_id'],
                         "widget_id" =>  $donation['donation_json']->goal,
@@ -336,7 +358,7 @@ class PaymentController extends Controller{
                     //die("hacking attempt!");
                     header('Location: https://ipdonate.com/');
                 }
-                model("Donation", "Alert", "Widget", "Filter");
+                model("Donation", "Alert", "Widget", "Filter","Event");
                 $params = Request::get("params");
                 $donation = $this->DonationModel->getDonationInfo($params['donation_id']);
                 if(!$this->DonationModel->editDonation($donation['donation_id'], [
@@ -353,7 +375,18 @@ class PaymentController extends Controller{
                     $this->WidgetModel->editWidget($donation['donation_json']->goal, [
                         "widget_money"  =>  $w_goal + (float) $donation['donation_ammount'],
                     ]);
-
+                    $event_json = array(
+                        'user_name' =>  base64_encode($donation['donation_name']),
+                        'sum'       => (float) $donation['donation_ammount'],
+                        'curr'      => 0,
+                    );
+                    $event = json_encode($event_json);
+                    $this->EventModel->addEvent([
+                        "user_id"       => $donation['user_id'],
+                        "event_type"    => 1,
+                        "event_json"    => $event,
+                        "event_time"    => "NOW()",
+                    ], true);
                     $this->AlertModel->newAlert([
                         "user_id"   => $donation['user_id'],
                         "widget_id" =>  $donation['donation_json']->goal,
