@@ -1599,4 +1599,21 @@ class UserController extends Controller
 
         return json_encode($result);
     }
+
+    public function discordPost()
+    {
+        if (!($user = isOnline()))
+            abort(403);
+        $discordR = Request::post("update");
+
+        $discord = json_decode($user->user_discord, true);
+        $discord['webhook'] = $discordR['webhook'];
+        $data['user_discord'] = json_encode($discord);
+
+        if ($this->UserModel->editUser(session("user_id"), $data)) {
+            $result = ["status" => "success"];
+        }
+
+        return json_encode($result);
+    }
 }
