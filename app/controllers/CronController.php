@@ -69,7 +69,7 @@ class CronController extends Controller
         );
         $event = json_encode($event_json);
         $this->EventModel->addEvent([
-            "user_id"       => $donation['user_id'],
+            "user_id"       => $user['user_id'],
             "event_type"    => 2,
             "event_json"    => $event,
             "event_time"    => "NOW()",
@@ -100,7 +100,7 @@ class CronController extends Controller
         );
         $event = json_encode($event_json);
         $this->EventModel->addEvent([
-            "user_id"       => $donation['user_id'],
+            "user_id"       => $user['user_id'],
             "event_type"    => 2,
             "event_json"    => $event,
             "event_time"    => "NOW()",
