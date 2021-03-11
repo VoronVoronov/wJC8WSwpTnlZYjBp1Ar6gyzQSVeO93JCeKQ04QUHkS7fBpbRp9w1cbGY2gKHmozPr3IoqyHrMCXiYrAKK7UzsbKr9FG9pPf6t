@@ -76,6 +76,21 @@
                             </div>
                         </div> <!-- /Сообщение -->
 
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-3 text-right" style="padding-top: 3px;">
+                                Кто платит комиссию:
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" name="settings[comission]">
+                                    <option value="1" @if($settings->comission == 1) selected @endif>Донатер</option>
+                                    <option value="0" @if($settings->comission == 0) selected @endif>Стример</option>
+                                </select>
+                            </div>
+                            <div class="col-md-1" style="padding-top: 6px;">
+                                <i class="fa fa-question-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Выберите кто будет платить комиссию платежных систем"></i>
+                            </div>
+                        </div>
+
                         <div class="row" style="margin-top: 10px"> <!-- Фиильтр матов -->
                             <div class="col-md-3 text-right" style="padding-top: 3px;">
                                 Фильтр плохих слов:

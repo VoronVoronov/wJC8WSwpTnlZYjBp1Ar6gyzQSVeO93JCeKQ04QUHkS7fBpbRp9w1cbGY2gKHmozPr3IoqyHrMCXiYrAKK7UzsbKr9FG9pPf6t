@@ -19,8 +19,13 @@ class PaymentController extends Controller{
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyP['wallet'];
         $data['secret'] = $this->config->webmoneyP['secret_key_x20'];
-        $data['sum'] = $donation['donation_ammount']/100*5 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5]);
+        if($donation['donation_comission'] == 1) {
+            $data['sum'] = $donation['donation_ammount'] / 100 * 5 + $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 5, 'webmoney' => 1]);
+        }else{
+            $data['sum'] = $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 5, 'webmoney' => 1]);
+        }
 
         return view("payment/webmoney", $data);
     }
@@ -32,8 +37,13 @@ class PaymentController extends Controller{
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyR['wallet'];
         $data['secret'] = $this->config->webmoneyR['secret_key_x20'];
-        $data['sum'] = $donation['donation_ammount']/100*5 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5]);
+        if($donation['donation_comission'] == 1) {
+            $data['sum'] = $donation['donation_ammount'] / 100 * 5 + $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 5, 'webmoney' => 2]);
+        }else{
+            $data['sum'] = $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 5, 'webmoney' => 2]);
+        }
 
         return view("payment/webmoney", $data);
     }
@@ -45,8 +55,13 @@ class PaymentController extends Controller{
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyB['wallet'];
         $data['secret'] = $this->config->webmoneyB['secret_key_x20'];
-        $data['sum'] = $donation['donation_ammount']/100*3 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*3]);
+        if($donation['donation_comission'] == 1) {
+            $data['sum'] = $donation['donation_ammount'] / 100 * 3 + $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 3, 'webmoney' => 2]);
+        }else{
+            $data['sum'] = $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 3, 'webmoney' => 2]);
+        }
 
         return view("payment/webmoney", $data);
     }
@@ -58,8 +73,13 @@ class PaymentController extends Controller{
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyE['wallet'];
         $data['secret'] = $this->config->webmoneyE['secret_key_x20'];
-        $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*2]);
+        if($donation['donation_comission'] == 1) {
+            $data['sum'] = $donation['donation_ammount'] / 100 * 2 + $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 3, 'webmoney' => 3]);
+        }else{
+            $data['sum'] = $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 2, 'webmoney' => 3]);
+        }
 
         return view("payment/webmoney", $data);
     }
@@ -71,8 +91,13 @@ class PaymentController extends Controller{
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyK['wallet'];
         $data['secret'] = $this->config->webmoneyK['secret_key_x20'];
-        $data['sum'] = $donation['donation_ammount']/100*10 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*10]);
+        if($donation['donation_comission'] == 1) {
+            $data['sum'] = $donation['donation_ammount'] / 100 * 10 + $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 10, 'webmoney' => 4]);
+        }else{
+            $data['sum'] = $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 10, 'webmoney' => 4]);
+        }
 
         return view("payment/webmoney", $data);
     }
@@ -85,8 +110,13 @@ class PaymentController extends Controller{
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyZ['wallet'];
         $data['secret'] = $this->config->webmoneyZ['secret_key_x20'];
-        $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*2]);
+        if($donation['donation_comission'] == 1) {
+            $data['sum'] = $donation['donation_ammount'] / 100 * 2 + $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 2, 'webmoney' => 5]);
+        }else{
+            $data['sum'] = $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 2, 'webmoney' => 5]);
+        }
 
         return view("payment/webmoney", $data);
     }
@@ -96,9 +126,16 @@ class PaymentController extends Controller{
     	$donation = $this->DonationModel->getDonation($id);
 	    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); // Require autoload file generated by composer  
         $billPayments = new Qiwi\Api\BillPayments($this->config->qiwi["secret_key"]);
-	    $customFields = ['themeCode' => 'DASTAN-ZhwIXgilMqA', 'paySourcesFilter' => 'qw'];  
+	    $customFields = ['themeCode' => 'DASTAN-ZhwIXgilMqA', 'paySourcesFilter' => 'qw'];
+        if($donation['donation_comission'] == 1) {
+            $sum = $donation['donation_ammount'] / 100 * 5 + $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 5]);
+        }else{
+            $sum = $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 5]);
+        }
             $params = [
-                'amount'        => $donation['donation_ammount']/100*5 + $donation['donation_ammount'],
+                'amount'        => $sum,
                 'currency'      => 'RUB',
                 'account'       => $id,
                 'email'         => Request::post("email"),
@@ -109,7 +146,6 @@ class PaymentController extends Controller{
                 $billId = $id.'-'.hash('sha256', $id.'RUB'.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'];
             	$response = $billPayments->createBill($billId, $params);
                 //dd($response);
-                $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5]);
                 $encode = json_encode($response);
                 $link = json_decode($encode);
                 return header('Location: ' . $link->payUrl); 
@@ -119,9 +155,14 @@ class PaymentController extends Controller{
     public function yoomoney($id){
     	model("Donation");
     	$donation = $this->DonationModel->getDonation($id);
-    	$sum = $donation['donation_ammount']/100*4 + $donation['donation_ammount'];
-    	$label = $id.'-'.hash('sha256', $id.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'];
-        $curl = curl_init();
+        if($donation['donation_comission'] == 1) {
+            $sum = $donation['donation_ammount'] / 100 * 4 + $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 4]);
+        }else{
+            $sum = $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 4]);
+        }    	$label = $id.'-'.hash('sha256', $id.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'];
+    	$curl = curl_init();
             curl_setopt($curl, CURLOPT_URL, 'https://yoomoney.ru/quickpay/confirm.xml');
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_POST, true);
@@ -129,7 +170,6 @@ class PaymentController extends Controller{
             $out = curl_exec($curl);
             curl_close($curl);
             $link = explode('to ', $out);
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*4]);
         return header('Location: ' . $link[1]);
         exit;
     }
@@ -138,10 +178,17 @@ class PaymentController extends Controller{
     	model("Donation");
     	$donation = $this->DonationModel->getDonation($id);              
 	    require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php'); // Require autoload file generated by composer
+        if($donation['donation_comission'] == 1) {
+            $sum = $donation['donation_ammount'] / 100 * 5 + $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 5]);
+        }else{
+            $sum = $donation['donation_ammount'];
+            $this->DonationModel->editDonation($donation['donation_id'], ['donation_sum' => $donation['donation_ammount'] / 100 * 5]);
+        }
         $billPayments = new Qiwi\Api\BillPayments($this->config->qiwi["secret_key"]);
         $customFields = ['themeCode' => 'DASTAN-ZhwIXgilMqA', 'paySourcesFilter' => 'card'];            
             $params = [
-                'amount'        => $donation['donation_ammount']/100*5 + $donation['donation_ammount'],
+                'amount'        => $sum,
                 'currency'      => 'RUB',
                 'account'       => $id,
                 'email'         => Request::post("email"),
@@ -154,7 +201,6 @@ class PaymentController extends Controller{
                 //dd($response);
                 $encode = json_encode($response);
                 $link = json_decode($encode);
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5]);
                 return header('Location: ' . $link->payUrl);
                 exit;
     }    
@@ -172,11 +218,17 @@ class PaymentController extends Controller{
         $params = Request::get("params");
         if(isset($params['donation_id'])){
             $donation = $this->DonationModel->getDonationInfo($params['donation_id']);
+            if($donation['donation_comission'] == 1) {
+                $sum = $donation['donation_ammount'];
+            }else{
+                $comission = $donation['donation_ammount'] / 100 * 5;
+                $sum = $donation['donation_ammount'] - $comission;
+            }
                     if ($donation['donation_status'] == 0) {
         		        if(!$this->DonationModel->editDonation($donation['donation_id'], [
         		            "donation_end_time" => "NOW()",
         		            "donation_status"   =>  1,
-        		            "donation_ammount"  =>  (float) $donation['donation_ammount'],
+        		            "donation_ammount"  =>  (float) $sum,
                             "donation_currency" => 0,
         		        ]));       
         		        $donation['donation_json'] = json_decode($donation['donation_json']);
@@ -185,21 +237,21 @@ class PaymentController extends Controller{
         		            $w_goal = $this->WidgetModel->getWidgetMoney($donation['donation_json']->goal);
 
         		            $this->WidgetModel->editWidget($donation['donation_json']->goal, [
-        		                "widget_money"  =>  $w_goal + (float) $donation['donation_ammount'],
+        		                "widget_money"  =>  $w_goal + (float) $sum,
         		            ]);
 
         		            $this->AlertModel->newAlert([
                                 "user_id"   => $donation['user_id'],
         		                "widget_id" =>  $donation['donation_json']->goal,
         		                "user_name" => $donation['donation_name'],
-        		                "sum" => (float) $donation['donation_ammount'],
+        		                "sum" => (float) $sum,
         		                "curr" => "RUB",
         		                "type" => 1,
         		            ], true);
         		        }
                         $event_json = array(
                             'user_name' =>  base64_encode($donation['donation_name']),
-                            'sum'       => (float) $donation['donation_ammount'],
+                            'sum'       => (float) $sum,
                             'curr'      => 0,
                             );
         		        $event = json_encode($event_json);
@@ -218,7 +270,7 @@ class PaymentController extends Controller{
         		                "widget_id" =>  $widget['widget_id'],
         		                "msg" => $this->FilterModel->url_to_html_element(base64_decode($donation['donation_json']->text)),
         		                "user_name" => $donation['donation_name'],
-        		                "sum" => (float) $donation['donation_ammount'],
+        		                "sum" => (float) $sum,
         		                "curr" => "RUB",
         		                "type" => 3,
         		            ], true);
@@ -241,57 +293,64 @@ class PaymentController extends Controller{
                 model("Donation", "Alert", "Widget", "Filter", "Event");
                 $params = Request::get("params");
                 $donation = $this->DonationModel->getDonationInfo($params['donation_id']);
-                if(!$this->DonationModel->editDonation($donation['donation_id'], [
-                    "donation_end_time" => "NOW()",
-                    "donation_status"   =>  1,
-                    "donation_ammount"  =>  (float) $donation['donation_ammount'],
-                    "donation_currency" => 0,
-                ]));       
-                $donation['donation_json'] = json_decode($donation['donation_json']);
-
-                if(!empty($donation['donation_json']->goal)){
-                    $w_goal = $this->WidgetModel->getWidgetMoney($donation['donation_json']->goal);
-
-                    $this->WidgetModel->editWidget($donation['donation_json']->goal, [
-                        "widget_money"  =>  $w_goal + (float) $donation['donation_ammount'],
-                    ]);
-                    $event_json = array(
-                        'user_name' =>  base64_encode($donation['donation_name']),
-                        'sum'       => (float) $donation['donation_ammount'],
-                        'curr'      => 0,
-                    );
-                    $event = json_encode($event_json);
-                    $this->EventModel->addEvent([
-                        "user_id"       => $donation['user_id'],
-                        "event_type"    => 1,
-                        "event_json"    => $event,
-                        "event_time"    => "NOW()",
-                    ], true);
-                    $this->AlertModel->newAlert([
-                        "user_id"   => $donation['user_id'],
-                        "widget_id" =>  $donation['donation_json']->goal,
-                        "user_name" => $donation['donation_name'],
-                        "sum" => (float) $donation['donation_ammount'],
-                        "curr" => "RUB",
-                        "type" => 1,
-                    ], true);
+                if($donation['donation_comission'] == 1) {
+                    $sum = $donation['donation_ammount'];
+                }else{
+                    $comission = $donation['donation_ammount'] / 100 * 4;
+                    $sum = $donation['donation_ammount'] - $comission;
                 }
+                if ($donation['donation_status'] == 0) {
+                    if (!$this->DonationModel->editDonation($donation['donation_id'], [
+                        "donation_end_time" => "NOW()",
+                        "donation_status" => 1,
+                        "donation_ammount" => (float) $sum,
+                        "donation_currency" => 0,
+                    ])) ;
+                    $donation['donation_json'] = json_decode($donation['donation_json']);
 
-                $widgets = $this->WidgetModel->getUserAlertsWidget($donation['user_id']);
-                foreach ($widgets as $widget)
-                {
-                    $this->AlertModel->newAlert([
-                        "user_id"   => $donation['user_id'],
-                        "widget_id" =>  $widget['widget_id'],
-                        "msg" => $this->FilterModel->url_to_html_element(base64_decode($donation['donation_json']->text)),
-                        "user_name" => $donation['donation_name'],
-                        "sum" => (float) $donation['donation_ammount'],
-                        "curr" => "RUB",
-                        "type" => 3,
-                    ], true);
+                    if (!empty($donation['donation_json']->goal)) {
+                        $w_goal = $this->WidgetModel->getWidgetMoney($donation['donation_json']->goal);
+
+                        $this->WidgetModel->editWidget($donation['donation_json']->goal, [
+                            "widget_money" => $w_goal + (float)$sum,
+                        ]);
+                        $event_json = array(
+                            'user_name' => base64_encode($donation['donation_name']),
+                            'sum' => (float)$sum,
+                            'curr' => 0,
+                        );
+                        $event = json_encode($event_json);
+                        $this->EventModel->addEvent([
+                            "user_id" => $donation['user_id'],
+                            "event_type" => 1,
+                            "event_json" => $event,
+                            "event_time" => "NOW()",
+                        ], true);
+                        $this->AlertModel->newAlert([
+                            "user_id" => $donation['user_id'],
+                            "widget_id" => $donation['donation_json']->goal,
+                            "user_name" => $donation['donation_name'],
+                            "sum" => (float)$sum,
+                            "curr" => "RUB",
+                            "type" => 1,
+                        ], true);
+                    }
+
+                    $widgets = $this->WidgetModel->getUserAlertsWidget($donation['user_id']);
+                    foreach ($widgets as $widget) {
+                        $this->AlertModel->newAlert([
+                            "user_id" => $donation['user_id'],
+                            "widget_id" => $widget['widget_id'],
+                            "msg" => $this->FilterModel->url_to_html_element(base64_decode($donation['donation_json']->text)),
+                            "user_name" => $donation['donation_name'],
+                            "sum" => (float)$sum,
+                            "curr" => "RUB",
+                            "type" => 3,
+                        ], true);
                         //$name = urlencode($this->FilterModel->url_to_html_element(base64_decode($donation['donation_json']->text)));
                         //file_get_contents("https://api.sdonate.ru/voice.php?text=".$this->FilterModel->url_to_html_element(base64_decode($donation['donation_json']->text))."&name=".$this->FilterModel->url_to_html_element(base64_decode($donation['donation_json']->text)));
-                }        
+                    }
+                }
     }
 
     public function WebmoneyHandler($params = []){
@@ -306,6 +365,42 @@ class PaymentController extends Controller{
                 model("Donation", "Alert", "Widget", "Filter", "Event");
                 $params = Request::get("params");
                 $donation = $this->DonationModel->getDonationInfo($params['donation_id']);
+                if($donation['webmoney'] == 1) {
+                    if ($donation['donation_comission'] == 1) {
+                        $sum = $donation['donation_ammount'];
+                    } else {
+                        $comission = $donation['donation_ammount'] / 100 * 5;
+                        $sum = $donation['donation_ammount'] - $comission;
+                    }
+                }elseif ($donation['webmoney'] == 2) {
+                    if ($donation['donation_comission'] == 1) {
+                        $sum = $donation['donation_ammount'];
+                    } else {
+                        $comission = $donation['donation_ammount'] / 100 * 3;
+                        $sum = $donation['donation_ammount'] - $comission;
+                    }
+                }elseif ($donation['webmoney'] == 3) {
+                    if ($donation['donation_comission'] == 1) {
+                        $sum = $donation['donation_ammount'];
+                    } else {
+                        $comission = $donation['donation_ammount'] / 100 * 5;
+                        $sum = $donation['donation_ammount'] - $comission;
+                    }
+                }elseif ($donation['webmoney'] == 4) {
+                    if ($donation['donation_comission'] == 1) {
+                        $sum = $donation['donation_ammount'];
+                    } else {
+                        $comission = $donation['donation_ammount'] / 100 * 10;
+                        $sum = $donation['donation_ammount'] - $comission;
+                    }
+                }elseif ($donation['webmoney'] == 5) {
+                    if ($donation['donation_comission'] == 1) {
+                        $sum = $donation['donation_ammount'];
+                    } else {
+                        $comission = $donation['donation_ammount'] / 100 * 2;
+                        $sum = $donation['donation_ammount'] - $comission;
+                    }
+                }
                 if(!$this->DonationModel->editDonation($donation['donation_id'], [
                     "donation_end_time" => "NOW()",
                     "donation_status"   =>  1,

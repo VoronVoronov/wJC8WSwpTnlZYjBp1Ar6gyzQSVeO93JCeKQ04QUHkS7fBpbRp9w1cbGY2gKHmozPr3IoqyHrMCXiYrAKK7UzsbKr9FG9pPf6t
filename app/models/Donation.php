@@ -10,12 +10,13 @@ class DonationModel extends Model
     // 1 - Оплачен
     // 2 - Error
 
-    public function addDonation($user_id, $sum, $user_name, $data = [])
+    public function addDonation($user_id, $sum, $user_name, $comission, $data = [])
     {
         return $this->create([
             "user_id" => $user_id,
             "donation_name" => $user_name,
             "donation_ammount" => $sum,
+            "donation_comission" => $comission,
             "donation_json" => json_encode($data),
             "donation_create_time" => "NOW()",
             "donation_ip" => $_SERVER['REMOTE_ADDR'],
@@ -239,7 +240,7 @@ class DonationModel extends Model
     public function getAllGraphData()
     {
         return $this->
-        select(DB::raw("SUM(`donation_sum`) as sum, SUM(`donation_ammount`) as amount, donation_end_time"))
+        select(DB::raw("SUM(`donation_sum`) as sum, SUM(`donation_ammount`) as ammount, donation_end_time"))
             ->groupBy("DATE(donation_end_time)")
             ->where("donation_status", 1)
             ->get();
