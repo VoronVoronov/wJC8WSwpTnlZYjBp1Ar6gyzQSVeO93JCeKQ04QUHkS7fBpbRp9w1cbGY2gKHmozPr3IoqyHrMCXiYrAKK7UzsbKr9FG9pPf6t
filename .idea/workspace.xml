@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.php" beforeDir="false" afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whitelist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/whitelist.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,14 +70,7 @@
       <workItem from="1615283658865" duration="2048000" />
       <workItem from="1615303973899" duration="5019000" />
       <workItem from="1615320964668" duration="641000" />
-      <workItem from="1615406419824" duration="22477000" />
-    </task>
-    <task id="LOCAL-00244" summary="Updated">
-      <created>1615411281565</created>
-      <option name="number" value="00244" />
-      <option name="presentableId" value="LOCAL-00244" />
-      <option name="project" value="LOCAL" />
-      <updated>1615411281565</updated>
+      <workItem from="1615406419824" duration="22537000" />
     </task>
     <task id="LOCAL-00245" summary="Updated">
       <created>1615411689409</created>
@@ -416,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615433565316</updated>
     </task>
-    <option name="localTasksCounter" value="293" />
+    <task id="LOCAL-00293" summary="Updated">
+      <created>1615442924793</created>
+      <option name="number" value="00293" />
+      <option name="presentableId" value="LOCAL-00293" />
+      <option name="project" value="LOCAL" />
+      <updated>1615442924793</updated>
+    </task>
+    <option name="localTasksCounter" value="294" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,10 +457,10 @@
     <MESSAGE value="Update alert.js" />
     <MESSAGE value="Update status" />
     <MESSAGE value="Add Discord Webhook" />
-    <MESSAGE value="Updated" />
     <MESSAGE value="Add block" />
     <MESSAGE value="Updated comission" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated comission" />
+    <MESSAGE value="Updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
