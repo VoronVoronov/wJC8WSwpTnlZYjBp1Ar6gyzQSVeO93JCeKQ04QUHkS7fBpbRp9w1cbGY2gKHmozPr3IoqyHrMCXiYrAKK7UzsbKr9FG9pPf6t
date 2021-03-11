@@ -404,7 +404,7 @@ class PaymentController extends Controller{
                 if(!$this->DonationModel->editDonation($donation['donation_id'], [
                     "donation_end_time" => "NOW()",
                     "donation_status"   =>  1,
-                    "donation_ammount"  =>  (float) $donation['donation_ammount'],
+                    "donation_ammount"  =>  (float) $sum,
                     "donation_currency" => 0,
                 ]));       
                 $donation['donation_json'] = json_decode($donation['donation_json']);
@@ -413,11 +413,11 @@ class PaymentController extends Controller{
                     $w_goal = $this->WidgetModel->getWidgetMoney($donation['donation_json']->goal);
 
                     $this->WidgetModel->editWidget($donation['donation_json']->goal, [
-                        "widget_money"  =>  $w_goal + (float) $donation['donation_ammount'],
+                        "widget_money"  =>  $w_goal + (float) $sum,
                     ]);
                     $event_json = array(
                         'user_name' =>  base64_encode($donation['donation_name']),
-                        'sum'       => (float) $donation['donation_ammount'],
+                        'sum'       => (float) $sum,
                         'curr'      => 0,
                     );
                     $event = json_encode($event_json);
@@ -431,7 +431,7 @@ class PaymentController extends Controller{
                         "user_id"   => $donation['user_id'],
                         "widget_id" =>  $donation['donation_json']->goal,
                         "user_name" => $donation['donation_name'],
-                        "sum" => (float) $donation['donation_ammount'],
+                        "sum" => (float) $sum,
                         "curr" => "RUB",
                         "type" => 1,
                     ], true);
@@ -445,7 +445,7 @@ class PaymentController extends Controller{
                         "widget_id" =>  $widget['widget_id'],
                         "msg" => $this->FilterModel->url_to_html_element(base64_decode($donation['donation_json']->text)),
                         "user_name" => $donation['donation_name'],
-                        "sum" => (float) $donation['donation_ammount'],
+                        "sum" => (float) $sum,
                         "curr" => "RUB",
                         "type" => 3,
                     ], true);
