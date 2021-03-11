@@ -1439,8 +1439,8 @@ class UserController extends Controller
 
                     $id = $this->DonationModel->addDonation(
                         $user->user_id,
-                        (int)Request::post("donate_sum"),
                         $u_name,
+                        (int)Request::post("donate_sum"),
                         $settings->comission,
                         $data
                     );

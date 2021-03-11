@@ -10,7 +10,7 @@ class DonationModel extends Model
     // 1 - Оплачен
     // 2 - Error
 
-    public function addDonation($user_id, $sum, $user_name, $comission, $data = [])
+    public function addDonation($user_id, $user_name, $sum, $comission, $data = [])
     {
         return $this->create([
             "user_id" => $user_id,
