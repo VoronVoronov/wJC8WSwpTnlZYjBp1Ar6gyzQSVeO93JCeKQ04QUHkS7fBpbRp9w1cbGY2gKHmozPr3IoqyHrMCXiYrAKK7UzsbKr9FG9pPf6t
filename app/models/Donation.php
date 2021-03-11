@@ -10,17 +10,9 @@ class DonationModel extends Model
     // 1 - Оплачен
     // 2 - Error
 
-    public function addDonation($user_id, $user_name, $sum, $comission, $data = [])
+    public function addDonation($data = [])
     {
-        return $this->create([
-            "user_id" => $user_id,
-            "donation_name" => $user_name,
-            "donation_ammount" => $sum,
-            "donation_comission" => $comission,
-            "donation_json" => json_encode($data),
-            "donation_create_time" => "NOW()",
-            "donation_ip" => $_SERVER['REMOTE_ADDR'],
-        ]);
+        return $this->create($data);
     }
 
     public function getAllDonations()

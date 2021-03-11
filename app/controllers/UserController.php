@@ -1437,13 +1437,15 @@ class UserController extends Controller
                         $u_name = $this->FilterModel->custom_filter($u_name, $settings->fuck_words, "Аноним");
                     }
 
-                    $id = $this->DonationModel->addDonation(
-                        $user->user_id,
-                        $u_name,
-                        (int)Request::post("donate_sum"),
-                        $settings->comission,
-                        $data
-                    );
+                    $id = $this->DonationModel->addDonation([
+                        'user_id'               => $user->user_id,
+                        'donation_name'         => $u_name,
+                        'donation_ammount'      => (int)Request::post("donate_sum"),
+                        'donation_comission'    => $settings->comission,
+                        'donation_json'         => json_encode($data),
+                        'donation_create_time'  => "NOW()",
+                        'donation_ip'           => $_SERVER['REMOTE_ADDR']
+                    ], true);
 
                     cookie("user_name", Request::post("user_name"));
 
