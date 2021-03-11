@@ -20,6 +20,8 @@ class PaymentController extends Controller{
         $data['webmoney'] = $this->config->webmoneyP['wallet'];
         $data['secret'] = $this->config->webmoneyP['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5 + $donation['donation_ammount']]);
+
         return view("payment/webmoney", $data);
     }
 
@@ -31,6 +33,7 @@ class PaymentController extends Controller{
         $data['webmoney'] = $this->config->webmoneyR['wallet'];
         $data['secret'] = $this->config->webmoneyR['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5 + $donation['donation_ammount']]);
 
         return view("payment/webmoney", $data);
     }
@@ -43,6 +46,7 @@ class PaymentController extends Controller{
         $data['webmoney'] = $this->config->webmoneyB['wallet'];
         $data['secret'] = $this->config->webmoneyB['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*3 + $donation['donation_ammount']]);
 
         return view("payment/webmoney", $data);
     }
@@ -55,6 +59,7 @@ class PaymentController extends Controller{
         $data['webmoney'] = $this->config->webmoneyE['wallet'];
         $data['secret'] = $this->config->webmoneyE['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*2 + $donation['donation_ammount']]);
 
         return view("payment/webmoney", $data);
     }
@@ -67,6 +72,7 @@ class PaymentController extends Controller{
         $data['webmoney'] = $this->config->webmoneyK['wallet'];
         $data['secret'] = $this->config->webmoneyK['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*10 + $donation['donation_ammount']]);
 
         return view("payment/webmoney", $data);
     }
@@ -80,6 +86,7 @@ class PaymentController extends Controller{
         $data['webmoney'] = $this->config->webmoneyZ['wallet'];
         $data['secret'] = $this->config->webmoneyZ['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*2 + $donation['donation_ammount']]);
 
         return view("payment/webmoney", $data);
     }
@@ -102,6 +109,7 @@ class PaymentController extends Controller{
                 $billId = $id.'-'.hash('sha256', $id.'RUB'.$donation['donation_ammount'].$donation['donation_create_time']).'-'.$donation['user_id'];
             	$response = $billPayments->createBill($billId, $params);
                 //dd($response);
+                $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5]);
                 $encode = json_encode($response);
                 $link = json_decode($encode);
                 return header('Location: ' . $link->payUrl); 
@@ -121,6 +129,7 @@ class PaymentController extends Controller{
             $out = curl_exec($curl);
             curl_close($curl);
             $link = explode('to ', $out);
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*4]);
         return header('Location: ' . $link[1]);
         exit;
     }
@@ -145,7 +154,8 @@ class PaymentController extends Controller{
                 //dd($response);
                 $encode = json_encode($response);
                 $link = json_decode($encode);
-                return header('Location: ' . $link->payUrl); 
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5]);
+                return header('Location: ' . $link->payUrl);
                 exit;
     }    
 
