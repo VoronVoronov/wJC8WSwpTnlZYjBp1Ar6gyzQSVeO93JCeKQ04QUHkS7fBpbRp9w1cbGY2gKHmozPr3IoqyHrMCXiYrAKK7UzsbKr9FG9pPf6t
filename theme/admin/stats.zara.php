@@ -86,7 +86,7 @@
             ['Дата', 'Оборот', 'Чистая прибыль'],
             @foreach($stats as $item)
   
-            ["{{ getHumanDate($item['donation_end_time']) }}",  {{ $item['sum'] }}, {{ $item['sum'] / 100 * 5 }}],
+            ["{{ getHumanDate($item['donation_end_time']) }}",  {{ $item['amount'] }}, {{ $item['sum'] }}],
             @endforeach
         ]);
 
