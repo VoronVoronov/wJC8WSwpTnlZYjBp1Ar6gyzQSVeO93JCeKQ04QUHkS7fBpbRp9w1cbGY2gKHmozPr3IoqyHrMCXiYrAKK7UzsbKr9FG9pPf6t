@@ -210,7 +210,7 @@ class PaymentController extends Controller{
             if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
             return $_SERVER['REMOTE_ADDR'];
         }
-            if (!in_array(getIP(), array('78.47.129.94'))) {
+            if (!in_array(getIP(), array('95.216.145.165'))) {
             //die("hacking attempt!");
             header('Location: https://ipdonate.com/');
         }
@@ -286,7 +286,7 @@ class PaymentController extends Controller{
                     if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
                     return $_SERVER['REMOTE_ADDR'];
                 }
-                    if (!in_array(getIP(), array('78.47.129.94'))) {
+                    if (!in_array(getIP(), array('95.216.145.165'))) {
                     //die("hacking attempt!");
                     header('Location: https://ipdonate.com/');
                 }
@@ -358,7 +358,7 @@ class PaymentController extends Controller{
                     if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
                     return $_SERVER['REMOTE_ADDR'];
                 }
-                    if (!in_array(getIP(), array('78.47.129.94'))) {
+                    if (!in_array(getIP(), array('95.216.145.165'))) {
                     //die("hacking attempt!");
                     header('Location: https://ipdonate.com/');
                 }
@@ -459,7 +459,7 @@ class PaymentController extends Controller{
                     if(isset($_SERVER['HTTP_X_REAL_IP'])) return $_SERVER['HTTP_X_REAL_IP'];
                     return $_SERVER['REMOTE_ADDR'];
                 }
-                    if (!in_array(getIP(), array('78.47.129.94'))) {
+                    if (!in_array(getIP(), array('95.216.145.165'))) {
                     //die("hacking attempt!");
                     header('Location: https://ipdonate.com/');
                 }
