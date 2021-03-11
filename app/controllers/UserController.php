@@ -316,7 +316,7 @@ class UserController extends Controller
         //$block_end = date("now") - date("Y-m-d H:i:s", strtotime($user['user_reg_time']. " + 3 days"));
 
         if (Request::post("request_money")) {
-            if (strtotime("+3 days") >= strtotime(isOnline()->user_reg_time)) {
+            if (strtotime("now") >= strtotime(isOnline()->user_reg_time) + strtotime('+3 days')) {
                 //if( $block_start < $block_end ){
                 if (Request::post("money_system") >= 1 && Request::post("money_system") <= 4) {
                     if (Request::post("money_sum") >= 50 && Request::post("money_sum") <= 14999) {
