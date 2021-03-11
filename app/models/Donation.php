@@ -239,7 +239,7 @@ class DonationModel extends Model
     public function getAllGraphData()
     {
         return $this->
-        select(DB::raw("SUM(`donation_ammount`) as sum, donation_end_time"))
+        select(DB::raw("SUM(`donation_sum`) as sum, donation_end_time"))
             ->groupBy("DATE(donation_end_time)")
             ->where("donation_status", 1)
             ->get();
