@@ -712,7 +712,7 @@ class UserController extends Controller
                 ),
                 'transport' => array(
                     'method' => 'webhook',
-                    'callback' => config()->url . '/hook.php?action=streamonffline',
+                    'callback' => config()->url . '/hook.php?action=streamoffline',
                     'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                 ));
             $webhook_stream_offline_post = json_encode($webhook_stream_offline_json);
