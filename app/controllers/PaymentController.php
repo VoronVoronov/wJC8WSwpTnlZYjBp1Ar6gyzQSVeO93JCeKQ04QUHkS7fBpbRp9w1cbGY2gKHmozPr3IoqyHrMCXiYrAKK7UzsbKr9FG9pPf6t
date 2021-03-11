@@ -19,8 +19,8 @@ class PaymentController extends Controller{
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyP['wallet'];
         $data['secret'] = $this->config->webmoneyP['secret_key_x20'];
-        $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5 + $donation['donation_ammount']]);
+        $data['sum'] = $donation['donation_ammount']/100*5 + $donation['donation_ammount'];
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5]);
 
         return view("payment/webmoney", $data);
     }
@@ -32,8 +32,8 @@ class PaymentController extends Controller{
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyR['wallet'];
         $data['secret'] = $this->config->webmoneyR['secret_key_x20'];
-        $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5 + $donation['donation_ammount']]);
+        $data['sum'] = $donation['donation_ammount']/100*5 + $donation['donation_ammount'];
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*5]);
 
         return view("payment/webmoney", $data);
     }
@@ -45,8 +45,8 @@ class PaymentController extends Controller{
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyB['wallet'];
         $data['secret'] = $this->config->webmoneyB['secret_key_x20'];
-        $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*3 + $donation['donation_ammount']]);
+        $data['sum'] = $donation['donation_ammount']/100*3 + $donation['donation_ammount'];
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*3]);
 
         return view("payment/webmoney", $data);
     }
@@ -59,7 +59,7 @@ class PaymentController extends Controller{
         $data['webmoney'] = $this->config->webmoneyE['wallet'];
         $data['secret'] = $this->config->webmoneyE['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*2 + $donation['donation_ammount']]);
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*2]);
 
         return view("payment/webmoney", $data);
     }
@@ -71,8 +71,8 @@ class PaymentController extends Controller{
         $data['desc'] = base64_encode('Оплата счета №'.$id);
         $data['webmoney'] = $this->config->webmoneyK['wallet'];
         $data['secret'] = $this->config->webmoneyK['secret_key_x20'];
-        $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*10 + $donation['donation_ammount']]);
+        $data['sum'] = $donation['donation_ammount']/100*10 + $donation['donation_ammount'];
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*10]);
 
         return view("payment/webmoney", $data);
     }
@@ -86,7 +86,7 @@ class PaymentController extends Controller{
         $data['webmoney'] = $this->config->webmoneyZ['wallet'];
         $data['secret'] = $this->config->webmoneyZ['secret_key_x20'];
         $data['sum'] = $donation['donation_ammount']/100*2 + $donation['donation_ammount'];
-        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*2 + $donation['donation_ammount']]);
+        $this->DonationModel->editDonation($donation['donation_id'],['donation_sum' => $donation['donation_ammount']/100*2]);
 
         return view("payment/webmoney", $data);
     }
