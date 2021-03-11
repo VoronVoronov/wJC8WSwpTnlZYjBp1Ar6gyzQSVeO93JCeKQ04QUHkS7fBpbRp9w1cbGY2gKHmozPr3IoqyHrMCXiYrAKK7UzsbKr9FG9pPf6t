@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04e750d7-65d7-41de-a95e-48d3417c6f6c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/Donation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Donation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,21 +71,7 @@
       <workItem from="1615283658865" duration="2048000" />
       <workItem from="1615303973899" duration="5019000" />
       <workItem from="1615320964668" duration="641000" />
-      <workItem from="1615406419824" duration="18609000" />
-    </task>
-    <task id="LOCAL-00235" summary="Updated">
-      <created>1615409200969</created>
-      <option name="number" value="00235" />
-      <option name="presentableId" value="LOCAL-00235" />
-      <option name="project" value="LOCAL" />
-      <updated>1615409200969</updated>
-    </task>
-    <task id="LOCAL-00236" summary="Updated">
-      <created>1615409229803</created>
-      <option name="number" value="00236" />
-      <option name="presentableId" value="LOCAL-00236" />
-      <option name="project" value="LOCAL" />
-      <updated>1615409229803</updated>
+      <workItem from="1615406419824" duration="18872000" />
     </task>
     <task id="LOCAL-00237" summary="Updated">
       <created>1615409311624</created>
@@ -415,7 +402,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615430215196</updated>
     </task>
-    <option name="localTasksCounter" value="284" />
+    <task id="LOCAL-00284" summary="Updated comission">
+      <created>1615430293264</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1615430293264</updated>
+    </task>
+    <task id="LOCAL-00285" summary="Updated comission">
+      <created>1615430496044</created>
+      <option name="number" value="00285" />
+      <option name="presentableId" value="LOCAL-00285" />
+      <option name="project" value="LOCAL" />
+      <updated>1615430496044</updated>
+    </task>
+    <option name="localTasksCounter" value="286" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
