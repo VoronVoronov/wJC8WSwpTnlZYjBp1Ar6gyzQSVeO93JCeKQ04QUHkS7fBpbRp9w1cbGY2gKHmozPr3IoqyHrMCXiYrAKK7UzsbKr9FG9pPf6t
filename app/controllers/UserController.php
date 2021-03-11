@@ -630,7 +630,7 @@ class UserController extends Controller
             $i4 = curl_getinfo($ch4);
             curl_close($ch4);
             $app_access_token = json_decode($r4);
-            if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
+
             $webhook_url = 'https://api.twitch.tv/helix/eventsub/subscriptions';
 
             $webhook_headers = array('Client-ID: ' . config()->twitch['client_id'],
@@ -725,6 +725,7 @@ class UserController extends Controller
             $r8 = curl_exec($ch8);
             $i8 = curl_getinfo($ch8);
             curl_close($ch8);
+            if (!($user = $this->UserModel->getUser($userInfo->data[0]->id, "user_twitch_id"))) {
 
                 $data = [
                     "user_login" => "twitch_" . $userInfo->data[0]->login,
