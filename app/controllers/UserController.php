@@ -647,7 +647,7 @@ class UserController extends Controller
                     ),
                     'transport' => array(
                         'method' => 'webhook',
-                        'callback' => config()->url . '/hook.php?action=twitchfollows',
+                        'callback' => config()->url . 'hook.php?action=twitchfollows',
                         'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                     ));
                 $webhook_channel_follow_post = json_encode($webhook_channel_follow_json);
@@ -669,7 +669,7 @@ class UserController extends Controller
                     ),
                     'transport' => array(
                         'method' => 'webhook',
-                        'callback' => config()->url . '/hook.php?action=twitchsubscribe',
+                        'callback' => config()->url . 'hook.php?action=twitchsubscribe',
                         'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                     ));
                 $webhook_channel_subscribe_post = json_encode($webhook_channel_subscribe_json);
@@ -691,7 +691,7 @@ class UserController extends Controller
                     ),
                     'transport' => array(
                         'method' => 'webhook',
-                        'callback' => config()->url . '/hook.php?action=streamonline',
+                        'callback' => config()->url . 'hook.php?action=streamonline',
                         'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                     ));
                 $webhook_stream_online_post = json_encode($webhook_stream_online_json);
@@ -713,7 +713,7 @@ class UserController extends Controller
                     ),
                     'transport' => array(
                         'method' => 'webhook',
-                        'callback' => config()->url . '/hook.php?action=streamoffline',
+                        'callback' => config()->url . 'hook.php?action=streamoffline',
                         'secret' => substr(md5('ipdonate' . $userInfo->data[0]->id), 0, 10)
                     ));
                 $webhook_stream_offline_post = json_encode($webhook_stream_offline_json);
