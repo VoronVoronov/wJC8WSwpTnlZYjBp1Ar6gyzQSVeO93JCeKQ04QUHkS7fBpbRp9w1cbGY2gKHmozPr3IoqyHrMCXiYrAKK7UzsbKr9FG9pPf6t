@@ -72,7 +72,7 @@
                                 <option value="4" @if($widget['widget_config']->stats_time == 4) selected @endif>За текущий день</option>
                                 <option value="5" @if($widget['widget_config']->stats_time == 5) selected @endif>За текущую неделю</option>
                                 <option value="6" @if($widget['widget_config']->stats_time == 6) selected @endif>За текущий месяц</option>
-                                <option value="7" @if($widget['widget_config']->stats_time == 7) selected @endif>За текущи год</option>
+                                <option value="7" @if($widget['widget_config']->stats_time == 7) selected @endif>За текущий год</option>
                             </select>
                         </div>
                     </div> <!-- /Временной отрезок -->

@@ -273,7 +273,7 @@ switch ($action) {
             }
         }
             $db->query('UPDATE `streams` SET `stream_time` = '.$time.', `stream_status` = 2 WHERE `stream_status` = 1 AND `user_id` = ' . $userid);
-            $db->query('UPDATE `users` SET `user_stream_status` = 0 WHERE `user_id` = ' . $userid);
+            $db->query('UPDATE `users` SET `user_stream_status` = 0, `user_stream_time` = NOW() WHERE `user_id` = ' . $userid);
         break;
 
     default:
