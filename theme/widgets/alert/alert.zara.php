@@ -449,7 +449,7 @@
     }
 
     console.log('[Server]: Connecting...');
-    Server = new FancyWebSocket('wss://ipdonate.com/websocket');
+    Server = new FancyWebSocket('wss://ipdonate.com/ipdonate');
     var queue = [];
     var now_show = false;
     var now_show_id = 0;

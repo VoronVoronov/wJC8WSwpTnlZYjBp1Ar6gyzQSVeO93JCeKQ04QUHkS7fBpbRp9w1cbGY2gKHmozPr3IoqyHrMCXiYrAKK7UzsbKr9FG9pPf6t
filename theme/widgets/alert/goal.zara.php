@@ -271,7 +271,7 @@
     }
 
     console.log('[Server]: Connecting...');
-    Server = new FancyWebSocket('wss://ipdonate.com/websocket');
+    Server = new FancyWebSocket('wss://ipdonate.com/ipdonate');
 
     //Let the user know we're connected
     Server.bind('open', function() {
