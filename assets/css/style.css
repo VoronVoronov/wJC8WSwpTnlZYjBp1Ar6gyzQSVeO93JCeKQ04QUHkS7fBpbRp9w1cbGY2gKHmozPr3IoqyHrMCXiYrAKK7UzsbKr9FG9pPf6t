@@ -5,7 +5,8 @@
     }
 }
 body {
-    font-family: 'Titillium Web', sans-serif; 
+    font-family: 'Titillium Web', sans-serif;
+    background-image: url("../assets/images/bg.png") left top;
 }
 a{
     color:#ff5400;
@@ -127,7 +128,7 @@ a:hover {
 #wrapper {
     position: absolute;
     width: 100%;
-    background: #e2e2e2 url("../assets/images/bg.png") left top;
+    background: #e2e2e2 url("../images/bg.png") left top;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
